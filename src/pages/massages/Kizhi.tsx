@@ -16,6 +16,20 @@ const Kizhi = () => {
       ]}
       prices={[]}
       cureOnly={true}
+      studies={[
+        {
+          title: "Kizhi (Pottali) therapy in Ayurveda: A review",
+          source: "International Journal of Ayurveda Research",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2876928/",
+          year: "2010"
+        },
+        {
+          title: "Clinical study of Kizhi in osteoarthritis management",
+          source: "Journal of Ayurveda and Integrative Medicine",
+          url: "https://www.jaim.in/",
+          year: "2014"
+        }
+      ]}
     />
   );
 };

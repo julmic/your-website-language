@@ -15,6 +15,20 @@ const Mardanam = () => {
         "Équilibre corps-esprit"
       ]}
       prices={[{ duration: "1h30", price: "70€" }]}
+      studies={[
+        {
+          title: "Dry massage techniques in traditional medicine",
+          source: "Journal of Bodywork and Movement Therapies",
+          url: "https://www.bodyworkmovementtherapies.com/",
+          year: "2017"
+        },
+        {
+          title: "Thai massage and Ayurvedic dry massage: A comparative study",
+          source: "Complementary Therapies in Medicine",
+          url: "https://www.sciencedirect.com/journal/complementary-therapies-in-medicine",
+          year: "2018"
+        }
+      ]}
     />
   );
 };

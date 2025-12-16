@@ -2,12 +2,19 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Clock, Euro, ArrowLeft } from "lucide-react";
+import { Clock, Euro, ArrowLeft, ExternalLink, BookOpen } from "lucide-react";
 
 interface PriceOption {
   label?: string;
   duration: string;
   price: string;
+}
+
+interface Study {
+  title: string;
+  source: string;
+  url: string;
+  year?: string;
 }
 
 interface MassageTemplateProps {
@@ -17,6 +24,7 @@ interface MassageTemplateProps {
   details: string[];
   prices: PriceOption[];
   cureOnly?: boolean;
+  studies?: Study[];
 }
 
 export const MassageTemplate = ({
@@ -26,6 +34,7 @@ export const MassageTemplate = ({
   details,
   prices,
   cureOnly = false,
+  studies = [],
 }: MassageTemplateProps) => {
   return (
     <Layout>
@@ -113,9 +122,52 @@ export const MassageTemplate = ({
         </section>
       )}
 
+      {/* Studies Section */}
+      {studies.length > 0 && (
+        <section className="py-16">
+          <div className="container px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <BookOpen className="h-6 w-6 text-primary" />
+                <h2 className="text-3xl font-serif font-semibold text-center">
+                  Études et recherches
+                </h2>
+              </div>
+              <div className="space-y-4">
+                {studies.map((study, index) => (
+                  <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors">
+                    <CardContent className="p-5">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+                        <div className="flex-1">
+                          <h3 className="font-medium text-foreground mb-1">
+                            {study.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground">
+                            {study.source} {study.year && `(${study.year})`}
+                          </p>
+                        </div>
+                        <a
+                          href={study.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-primary hover:text-primary/80 text-sm transition-colors shrink-0"
+                        >
+                          <span>Voir l'étude</span>
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Pricing */}
       {!cureOnly && prices.length > 0 && (
-        <section className="py-16">
+        <section className="py-16 bg-secondary/30">
           <div className="container px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-serif font-semibold mb-8 text-center">

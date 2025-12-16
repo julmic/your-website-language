@@ -15,6 +15,20 @@ const Elakizhi = () => {
         "Méthode traditionnelle et naturelle"
       ]}
       prices={[{ duration: "1h30", price: "80€" }]}
+      studies={[
+        {
+          title: "Elakizhi (Patra Pinda Sweda) in the management of osteoarthritis",
+          source: "International Journal of Ayurveda Research",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2876929/",
+          year: "2010"
+        },
+        {
+          title: "Effect of Patra Pinda Sweda on rheumatoid arthritis",
+          source: "Ancient Science of Life",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3336309/",
+          year: "2011"
+        }
+      ]}
     />
   );
 };

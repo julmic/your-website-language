@@ -15,6 +15,20 @@ const MarmaTherapie = () => {
         "Équilibre émotionnel"
       ]}
       prices={[{ duration: "1h30", price: "80€" }]}
+      studies={[
+        {
+          title: "Marma therapy: An ancient healing technique for modern medicine",
+          source: "Journal of Ayurveda and Integrative Medicine",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3215408/",
+          year: "2011"
+        },
+        {
+          title: "Effect of marma therapy on pain and anxiety in patients",
+          source: "Ancient Science of Life",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4492016/",
+          year: "2015"
+        }
+      ]}
     />
   );
 };

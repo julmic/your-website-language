@@ -15,6 +15,20 @@ const PrasavpurveTirumu = () => {
         "Bien-être physique et émotionnel"
       ]}
       prices={[{ duration: "1h30", price: "70€" }]}
+      studies={[
+        {
+          title: "Effects of prenatal massage on pregnancy outcomes",
+          source: "Journal of Bodywork and Movement Therapies",
+          url: "https://pubmed.ncbi.nlm.nih.gov/19027798/",
+          year: "2008"
+        },
+        {
+          title: "Prenatal massage therapy research: A systematic review",
+          source: "Expert Review of Obstetrics & Gynecology",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2870995/",
+          year: "2010"
+        }
+      ]}
     />
   );
 };
