@@ -14,6 +14,10 @@ import AtelierCuisine from "./pages/AtelierCuisine";
 import BilanDeSante from "./pages/BilanDeSante";
 import Bhutavidya from "./pages/Bhutavidya";
 import PhilosophieVedique from "./pages/PhilosophieVedique";
+import AyurvedaElevationSpirituelle from "./pages/philosophie/AyurvedaElevationSpirituelle";
+import InvolutionEvolution from "./pages/philosophie/InvolutionEvolution";
+import MortAyurveda from "./pages/philosophie/MortAyurveda";
+import VoieHisvara from "./pages/philosophie/VoieHisvara";
 
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
@@ -127,6 +131,10 @@ const App = () => (
           <Route path="/bilan-de-sante" element={<BilanDeSante />} />
           <Route path="/bhutavidya" element={<Bhutavidya />} />
           <Route path="/philosophie-vedique" element={<PhilosophieVedique />} />
+          <Route path="/philosophie/ayurveda-elevation-spirituelle" element={<AyurvedaElevationSpirituelle />} />
+          <Route path="/philosophie/involution-evolution" element={<InvolutionEvolution />} />
+          <Route path="/philosophie/mort-ayurveda" element={<MortAyurveda />} />
+          <Route path="/philosophie/voie-hisvara" element={<VoieHisvara />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
