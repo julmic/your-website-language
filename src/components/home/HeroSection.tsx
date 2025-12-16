@@ -5,14 +5,16 @@ import { ArrowRight, Sparkles } from "lucide-react";
 export const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background with gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-radial" />
-      <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2355875a' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
+      {/* Spline 3D Background */}
+      <div className="absolute inset-0 z-0">
+        <spline-viewer 
+          url="https://prod.spline.design/cddVa78X5t24FrPQ/scene.splinecode"
+          className="w-full h-full"
+        />
+      </div>
+      
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 z-[1] bg-background/50 backdrop-blur-[1px]" />
       
       <div className="container relative z-10 px-4 text-center">
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
@@ -44,8 +46,8 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Bottom gradient transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[2]" />
     </section>
   );
 };

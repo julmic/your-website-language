@@ -102,6 +102,19 @@
   }
 }
 
+/* Spline 3D viewer */
+spline-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+spline-viewer::part(logo) {
+  display: none;
+}
+
 /* ════════════════════════════════════════ */
 /* ARKADHYA - ANIMATION SIGNATURE LOGO      */
 /* ════════════════════════════════════════ */
