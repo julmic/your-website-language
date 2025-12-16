@@ -15,6 +15,20 @@ const Navarakiri = () => {
         "Méthode naturelle et douce"
       ]}
       prices={[{ duration: "1h30", price: "90€" }]}
+      studies={[
+        {
+          title: "Navarakizhi (Shashtika Shali Pinda Sweda) in neurological disorders",
+          source: "Journal of Ayurveda and Integrative Medicine",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3296342/",
+          year: "2012"
+        },
+        {
+          title: "Clinical efficacy of Navarakizhi in osteoarthritis",
+          source: "AYU - An International Quarterly Journal of Research in Ayurveda",
+          url: "https://www.ayujournal.org/article.asp?issn=0974-8520",
+          year: "2014"
+        }
+      ]}
     />
   );
 };

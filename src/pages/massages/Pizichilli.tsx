@@ -17,6 +17,20 @@ const Pizichilli = () => {
         "Expérience luxueuse et revitalisante"
       ]}
       prices={[{ duration: "2h", price: "120€" }]}
+      studies={[
+        {
+          title: "Pizhichil (Kayaseka) - A Panchakarma procedure for neurological disorders",
+          source: "International Journal of Ayurvedic Medicine",
+          url: "https://ijam.co.in/",
+          year: "2018"
+        },
+        {
+          title: "Role of Pizhichil in the management of musculoskeletal disorders",
+          source: "Journal of Ayurveda and Holistic Medicine",
+          url: "https://www.jahm.in/",
+          year: "2016"
+        }
+      ]}
     />
   );
 };

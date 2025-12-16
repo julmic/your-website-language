@@ -15,6 +15,20 @@ const Padavishesh = () => {
         "Expérience unique et revitalisante"
       ]}
       prices={[{ duration: "1h30", price: "80€" }]}
+      studies={[
+        {
+          title: "Chavutti Thirumal (foot massage therapy): Traditional practices",
+          source: "Journal of Bodywork and Movement Therapies",
+          url: "https://www.bodyworkmovementtherapies.com/",
+          year: "2018"
+        },
+        {
+          title: "Effectiveness of deep tissue foot pressure massage",
+          source: "International Journal of Therapeutic Massage and Bodywork",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/journals/1175/",
+          year: "2017"
+        }
+      ]}
     />
   );
 };
