@@ -30,10 +30,9 @@ interface FAQ {
 }
 
 interface Testimonial {
+  name: string;
   text: string;
-  author: string;
-  age: number;
-  location: string;
+  rating?: number;
 }
 
 interface Benefits {
@@ -49,11 +48,9 @@ interface ForWhom {
 }
 
 interface RelatedMassage {
-  title: string;
+  name: string;
+  path: string;
   description: string;
-  duration: string;
-  price: string;
-  link: string;
 }
 
 interface MassageTemplateProps {
@@ -433,7 +430,7 @@ export const MassageTemplate = ({
                       « {testimonial.text} »
                     </p>
                     <p className="text-primary font-medium">
-                      — {testimonial.author}, {testimonial.age} ans, {testimonial.location}
+                      — {testimonial.name}
                     </p>
                   </div>
                 ))}
@@ -496,11 +493,10 @@ export const MassageTemplate = ({
               <div className="grid md:grid-cols-3 gap-8">
                 {relatedMassages.map((massage, index) => (
                   <div key={index} className="space-y-4">
-                    <h3 className="text-xl font-serif font-semibold">{massage.title}</h3>
+                    <h3 className="text-xl font-serif font-semibold">{massage.name}</h3>
                     <p className="text-muted-foreground text-sm">{massage.description}</p>
-                    <p className="text-primary font-medium">{massage.duration} • {massage.price}</p>
                     <Button variant="default" size="sm" asChild>
-                      <Link to={massage.link}>En Savoir Plus →</Link>
+                      <Link to={massage.path}>En Savoir Plus →</Link>
                     </Button>
                   </div>
                 ))}

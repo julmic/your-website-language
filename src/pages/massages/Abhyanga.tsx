@@ -1,4 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
+import massageImage from "@/assets/massages/massage-oil.jpg";
 
 const Abhyanga = () => {
   return (
@@ -18,37 +19,26 @@ const Abhyanga = () => {
         { label: "Abhyanga Vata et Pitta", duration: "1h30", price: "70€" },
         { label: "Abhyanga Kapha", duration: "1h30", price: "80€" }
       ]}
+      image={massageImage}
       forWhom={{
         physical: [
           "Tensions musculaires chroniques",
           "Douleurs articulaires",
           "Fatigue persistante",
           "Problèmes circulatoires",
-          "Rétention d'eau",
           "Peau sèche / eczéma",
-          "Troubles du sommeil",
-          "Système immunitaire affaibli",
-          "Digestion lente",
-          "Vieillissement prématuré"
+          "Troubles du sommeil"
         ],
         mental: [
           "Stress intense",
           "Anxiété généralisée",
-          "Ruminations mentales",
           "Épuisement nerveux (burn-out)",
-          "Hypersensibilité",
-          "Sensation de déconnexion",
-          "Manque d'ancrage",
           "Fatigue émotionnelle"
         ],
         wellness: [
           "Pratiquants yoga/méditation",
           "Envie de lâcher-prise",
           "Besoin de détox",
-          "Préparation retraite spirituelle",
-          "Envie de se reconnecter à soi",
-          "Curiosité Ayurvéda",
-          "Cadeau à soi-même",
           "Rituel bien-être mensuel"
         ]
       }}
@@ -63,31 +53,20 @@ const Abhyanga = () => {
         physical: [
           "Détente musculaire profonde",
           "Amélioration circulation sanguine",
-          "Drainage lymphatique (élimination toxines)",
-          "Assouplissement articulaire",
+          "Drainage lymphatique",
           "Renforcement système immunitaire",
-          "Amélioration qualité du sommeil",
-          "Régulation tension artérielle",
-          "Soulagement douleurs chroniques",
-          "Nourrit et embellit la peau",
-          "Ralentit le vieillissement cellulaire"
+          "Amélioration qualité du sommeil"
         ],
         mental: [
           "Réduction stress et anxiété",
           "Apaisement mental immédiat",
           "Amélioration concentration",
-          "Clarté mentale accrue",
-          "Équilibre émotionnel",
-          "Réduction symptômes dépressifs",
-          "Augmentation vitalité globale",
-          "Harmonisation système nerveux"
+          "Équilibre émotionnel"
         ],
         energetic: [
-          "Équilibre des doshas (Vata/Pitta/Kapha)",
+          "Équilibre des doshas",
           "Déblocage énergétique",
-          "Harmonisation chakras",
-          "Circulation du prana (énergie vitale)",
-          "Ancrage et enracinement",
+          "Circulation du prana",
           "Reconnexion corps-esprit"
         ]
       }}
@@ -97,79 +76,37 @@ const Abhyanga = () => {
           source: "Journal of Ayurveda",
           url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3667430/",
           year: "2020",
-          highlight: "Sur 120 participants souffrant de stress chronique, 82% ont montré une réduction significative du cortisol après 4 séances d'Abhyanga (test salivaire). 89% ont rapporté une amélioration de la qualité du sommeil."
-        },
-        {
-          title: "Benefits of Abhyanga massage on skin health",
-          source: "International Journal of Ayurveda Research",
-          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3151377/",
-          year: "2019"
+          highlight: "82% des participants ont montré une réduction significative du cortisol après 4 séances d'Abhyanga."
         }
       ]}
       faq={[
         {
           question: "Est-ce que ça fait mal ?",
-          answer: "Non, l'Abhyanga est un massage doux et enveloppant. Les pressions sont adaptées à votre constitution et vos préférences. C'est une expérience de détente profonde."
+          answer: "Non, l'Abhyanga est un massage doux et enveloppant. Les pressions sont adaptées à votre constitution."
         },
         {
           question: "Dois-je prendre une douche après ?",
-          answer: "Nous recommandons d'attendre 2-3 heures après le massage pour permettre à l'huile de pénétrer pleinement dans la peau et maximiser les bienfaits."
-        },
-        {
-          question: "Quelle huile utilisez-vous ?",
-          answer: "Nous utilisons des huiles ayurvédiques de qualité : sésame, coco ou moutarde, choisies selon votre dosha (constitution). Toutes nos huiles sont biologiques et sans additifs."
+          answer: "Nous recommandons d'attendre 2-3 heures pour permettre à l'huile de pénétrer."
         },
         {
           question: "À quelle fréquence le faire ?",
-          answer: "Pour un entretien régulier, une fois par mois est idéal. En cas de stress intense ou de problèmes spécifiques, des séances plus rapprochées (toutes les 2 semaines) peuvent être recommandées."
-        },
-        {
-          question: "Peut-on le faire enceinte ?",
-          answer: "L'Abhyanga est déconseillé durant le 1er trimestre. À partir du 4ème mois, nous proposons le Prasavpurve Tirumu, un massage prénatal adapté."
+          answer: "Une fois par mois est idéal pour un entretien régulier."
         }
       ]}
       testimonials={[
         {
-          text: "J'avais des tensions chroniques dans le dos depuis des années. Après 3 séances d'Abhyanga espacées de 10 jours, je dors enfin normalement. Et ce massage... c'est juste magique. On ne pense plus à rien.",
-          author: "Sophie D.",
-          age: 42,
-          location: "Périgueux"
+          name: "Sophie D.",
+          text: "Après 3 séances d'Abhyanga, je dors enfin normalement. C'est juste magique."
         },
         {
-          text: "Première vraie expérience ayurvédique. Je suis prof de yoga et je cherchais un massage authentique, pas du 'spa à la mode'. Ici, c'est du vrai. Huiles top, thérapeutes formées en Inde, protocole respecté. Je reviens toutes les 3 semaines.",
-          author: "Marc L.",
-          age: 35,
-          location: "Bordeaux"
-        },
-        {
-          text: "Mon médecin m'a recommandé l'Ayurvéda pour mon stress. Après l'Abhyanga, j'ai dormi 10h d'affilée (ça m'était plus arrivé depuis 5 ans). La sensation de l'huile chaude qui coule... incroyable. C'est devenu mon rituel mensuel.",
-          author: "Claire M.",
-          age: 51,
-          location: "Bergerac"
+          name: "Marc L.",
+          text: "Du vrai ayurvéda authentique. Je reviens toutes les 3 semaines."
         }
       ]}
       relatedMassages={[
-        {
-          title: "Shirodhara",
-          description: "Filet d'huile continu sur le front. Reset mental complet. Idéal si : anxiété, insomnie, surcharge mentale, stress intense.",
-          duration: "1h30",
-          price: "90€",
-          link: "/services/shirodhara"
-        },
-        {
-          title: "Udvartana",
-          description: "Gommage dynamisant poudres ayurvédiques. Détox puissante, cellulite, drainage. Idéal si : rétention d'eau, peau terne, besoin d'énergie.",
-          duration: "1h30",
-          price: "80€",
-          link: "/services/udvartana"
-        },
-        {
-          title: "Vishesh",
-          description: "Massage profond tissus. Pression intense, dénoue tensions profondes. Idéal si : douleurs musculaires, contractures, sportifs.",
-          duration: "1h30",
-          price: "70€",
-          link: "/services/vishesh"
-        }
+        { name: "Shirodhara", path: "/services/shirodhara", description: "Filet d'huile sur le front pour relaxation profonde" },
+        { name: "Udvartana", path: "/services/udvartana", description: "Massage tonifiant aux poudres" },
+        { name: "Vishesh", path: "/services/vishesh", description: "Massage profond pour tensions musculaires" }
       ]}
     />
   );
