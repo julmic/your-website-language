@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,15 +18,32 @@ const navLinks = [
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    // Animation plays once on initial load
+    const timer = setTimeout(() => {
+      setHasAnimated(true);
+    }, 2500); // After animations complete
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <Leaf className="h-8 w-8 text-primary transition-transform group-hover:rotate-12" />
-            <span className="text-2xl font-serif font-semibold text-foreground">
+          <Link to="/" className="flex items-center gap-3 branding-hover">
+            <Leaf 
+              className={`h-8 w-8 text-primary logo-animated transition-all duration-500 ${
+                hasAnimated ? 'loaded' : 'animate'
+              }`} 
+            />
+            <span 
+              className={`text-2xl font-serif font-semibold text-foreground title-animated transition-colors duration-400 ${
+                hasAnimated ? 'loaded' : 'animate'
+              }`}
+            >
               Arkadhya
             </span>
           </Link>
