@@ -478,13 +478,13 @@ const AyurvedaElevationSpirituelle = () => {
           {/* Navigation */}
           <div className="flex justify-between items-center pt-8 border-t border-border">
             <Button variant="outline" asChild>
-              <Link to="/philosophie-vedique">
+              <Link to="/philosophie-vedique" onClick={() => window.scrollTo(0, 0)}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Retour
               </Link>
             </Button>
             <Button asChild>
-              <Link to="/philosophie/involution-evolution">
+              <Link to="/philosophie/involution-evolution" onClick={() => window.scrollTo(0, 0)}>
                 Article suivant
                 <ChevronRight className="w-4 h-4 ml-2" />
               </Link>

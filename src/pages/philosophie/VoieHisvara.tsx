@@ -780,13 +780,13 @@ const VoieIshvara = () => {
           {/* Navigation */}
           <div className="flex justify-between items-center pt-8 border-t border-border">
             <Button variant="outline" asChild>
-              <Link to="/philosophie/mort-ayurveda">
+              <Link to="/philosophie/mort-ayurveda" onClick={() => window.scrollTo(0, 0)}>
                 <ChevronLeft className="w-4 h-4 mr-2" />
                 Article précédent
               </Link>
             </Button>
             <Button asChild>
-              <Link to="/philosophie-vedique">
+              <Link to="/philosophie-vedique" onClick={() => window.scrollTo(0, 0)}>
                 Retour à la Philosophie
               </Link>
             </Button>
