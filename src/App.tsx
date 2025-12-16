@@ -82,7 +82,8 @@ const App = () => (
           <Route path="/cures/week-end-decouverte" element={<WeekEndDecouverte />} />
           
           {/* Massage routes */}
-          <Route path="/services/sirodhara" element={<Shirodhara />} />
+          <Route path="/services/abhyanga" element={<Abhyanga />} />
+          <Route path="/services/shirodhara" element={<Shirodhara />} />
           <Route path="/services/pinda-sveda" element={<PindaSweda />} />
           <Route path="/services/shiro-abhyanga" element={<ShiroAbhyanga />} />
           <Route path="/services/vishesh" element={<Vishesh />} />
