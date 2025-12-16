@@ -211,10 +211,12 @@ const AtelierCuisine = () => {
 
               <TabsContent value="vata" className="space-y-8">
                 <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={pdVata} alt="Petit-déjeuner Vata" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={pdVata} alt="Petit-déjeuner Vata" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Petit-déjeuner</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Petit-déjeuner</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Porridge de riz ou flocons d'avoine chauds</li>
                         <li>– Fruits compotés (pomme, poire, banane mûre)</li>
@@ -224,10 +226,12 @@ const AtelierCuisine = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={dejVata} alt="Déjeuner Vata" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={dejVata} alt="Déjeuner Vata" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Repas du midi</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du midi</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Dhal de lentilles corail au cumin</li>
                         <li>– Riz basmati parfumé</li>
@@ -238,10 +242,12 @@ const AtelierCuisine = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={dinnerVata} alt="Dîner Vata" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={dinnerVata} alt="Dîner Vata" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Repas du soir</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du soir</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Soupe de légumes crémeuse</li>
                         <li>– Kitchari léger (riz + mung dal)</li>
@@ -257,10 +263,12 @@ const AtelierCuisine = () => {
 
               <TabsContent value="pitta" className="space-y-8">
                 <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={pdPitta} alt="Petit-déjeuner Pitta" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={pdPitta} alt="Petit-déjeuner Pitta" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Petit-déjeuner</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Petit-déjeuner</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Yaourt doux avec fruits frais</li>
                         <li>– Concombre ou melon rafraîchissant</li>
@@ -271,10 +279,12 @@ const AtelierCuisine = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={dejPitta} alt="Déjeuner Pitta" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={dejPitta} alt="Déjeuner Pitta" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Repas du midi</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du midi</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Riz basmati nature</li>
                         <li>– Curry doux aux légumes</li>
@@ -285,10 +295,12 @@ const AtelierCuisine = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={dinnerPitta} alt="Dîner Pitta" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={dinnerPitta} alt="Dîner Pitta" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Repas du soir</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du soir</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Soupe froide ou tiède aux légumes</li>
                         <li>– Salade de quinoa aux herbes</li>
@@ -304,10 +316,12 @@ const AtelierCuisine = () => {
 
               <TabsContent value="kapha" className="space-y-8">
                 <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={pdKapha} alt="Petit-déjeuner Kapha" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={pdKapha} alt="Petit-déjeuner Kapha" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Petit-déjeuner</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Petit-déjeuner</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Fruits légers (pomme, poire, baies)</li>
                         <li>– Bouillie de millet ou sarrasin</li>
@@ -318,10 +332,12 @@ const AtelierCuisine = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={dejKapha} alt="Déjeuner Kapha" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={dejKapha} alt="Déjeuner Kapha" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Repas du midi</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du midi</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Légumes verts sautés aux épices</li>
                         <li>– Dhal de lentilles au curcuma</li>
@@ -332,10 +348,12 @@ const AtelierCuisine = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="bg-card rounded-lg overflow-hidden border border-border">
-                    <img src={dinnerKapha} alt="Dîner Kapha" className="w-full h-48 object-cover" />
+                  <div className="group bg-card rounded-lg overflow-hidden border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50">
+                    <div className="overflow-hidden">
+                      <img src={dinnerKapha} alt="Dîner Kapha" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
                     <div className="p-4">
-                      <h4 className="font-semibold text-foreground mb-2">Repas du soir</h4>
+                      <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du soir</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         <li>– Soupe légère aux légumes verts</li>
                         <li>– Légumes grillés épicés</li>
