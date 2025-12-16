@@ -108,7 +108,7 @@ const Services = () => {
 
       <section className="py-16">
         <div className="container px-4">
-          <Accordion type="multiple" defaultValue={["massages"]} className="space-y-4">
+          <Accordion type="multiple" defaultValue={[]} className="space-y-4">
             {/* Massages Ayurvédiques */}
             <AccordionItem value="massages" className="border border-border rounded-xl overflow-hidden bg-card">
               <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
