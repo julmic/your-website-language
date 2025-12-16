@@ -1,19 +1,48 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
+import massageFeet from "@/assets/massages/massage-feet.jpg";
 
 const Padabhyanga = () => {
   return (
     <MassageTemplate
       title="Padabhyanga"
       subtitle="Réflexologie plantaire et palmaire ayurvédique"
-      description="Le PADABHYANGA, également connu sous le nom de réflexologie plantaire et palmaire, traite les déséquilibres légers, tels que l'insomnie et l'hyperactivité mentale. Il se concentre sur les mains et les pieds. Ce traitement favorise une meilleure circulation sanguine et aide à rétablir les déséquilibres dans le corps, en accélérant ainsi le processus de guérison. Le massage se fait en utilisant un bol spécial en alliage et du ghee, une sorte de beurre clarifié. Cette technique permet d'éliminer l'excès d'élément feu dans le corps et procure une relaxation profonde de tout le corps. En libérant les blocages dans les organes, le PADABHYANGA aide à restaurer l'harmonie et la vitalité."
+      description="Le PADABHYANGA traite les déséquilibres légers, tels que l'insomnie et l'hyperactivité mentale. Ce traitement favorise une meilleure circulation sanguine et aide à rétablir les déséquilibres dans le corps avec un bol en alliage et du ghee."
+      image={massageFeet}
       details={[
         "Traitement de l'insomnie",
         "Réduction de l'hyperactivité mentale",
         "Amélioration de la circulation sanguine",
         "Utilisation d'un bol en alliage et de ghee",
-        "Élimination de l'excès d'élément feu",
-        "Relaxation profonde du corps",
-        "Restauration de l'harmonie et vitalité"
+        "Relaxation profonde du corps"
+      ]}
+      forWhom={{
+        physical: ["Problèmes de circulation", "Pieds fatigués", "Jambes lourdes"],
+        mental: ["Insomnie", "Hyperactivité mentale", "Stress chronique"],
+        wellness: ["Relaxation profonde", "Rééquilibrage énergétique", "Bien-être général"]
+      }}
+      contraindications={["Plaies aux pieds", "Infections cutanées", "Fièvre", "Grossesse (premier trimestre)"]}
+      benefits={{
+        physical: ["Amélioration de la circulation", "Pieds détendus", "Réduction des tensions"],
+        mental: ["Meilleur sommeil", "Calme mental", "Réduction du stress"],
+        energetic: ["Élimination de l'excès de feu", "Équilibre des organes", "Harmonie globale"]
+      }}
+      studies={[{
+        title: "Effets du massage des pieds sur le sommeil",
+        source: "Journal of Clinical Nursing",
+        url: "https://www.ncbi.nlm.nih.gov/pmc/articles/",
+        year: "2016",
+        highlight: "Le massage des pieds améliore significativement la qualité du sommeil."
+      }]}
+      faq={[
+        { question: "Pourquoi utilise-t-on un bol en bronze ?", answer: "L'alliage de métaux a des propriétés thérapeutiques qui aident à équilibrer les doshas." },
+        { question: "Ce massage peut-il aider contre l'insomnie ?", answer: "Oui, c'est l'un des meilleurs traitements ayurvédiques pour améliorer le sommeil." }
+      ]}
+      testimonials={[
+        { name: "Anne-Marie F.", text: "Je dors tellement mieux depuis mes séances de Padabhyanga. Un vrai bonheur !" }
+      ]}
+      relatedMassages={[
+        { name: "Bol Kansu", path: "/massages/bol-kansu", description: "Massage au bol en bronze" },
+        { name: "Abhyanga", path: "/massages/abhyanga", description: "Massage complet à l'huile" }
       ]}
       prices={[{ duration: "1h", price: "70€" }]}
     />
