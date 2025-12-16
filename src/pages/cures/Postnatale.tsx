@@ -1,5 +1,5 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
-import cureImage from "@/assets/cures/cure-generic.jpg";
+import cureImage from "@/assets/cures/cure-postnatale.jpg";
 
 const Postnatale = () => {
   return (

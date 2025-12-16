@@ -4,6 +4,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Calendar, Euro, Home, Utensils, Phone } from "lucide-react";
 
+// Import images
+import curePanchakarma from "@/assets/cures/cure-panchakarma.jpg";
+import cureAmrita from "@/assets/cures/cure-amrita.jpg";
+import cureKarchan from "@/assets/cures/cure-karchan.jpg";
+import cureLaghanaRasayana from "@/assets/cures/cure-laghana-rasayana.jpg";
+import cureOjasKayakalpa from "@/assets/cures/cure-ojas-kayakalpa.jpg";
+import curePersonnalisee from "@/assets/cures/cure-personnalisee.jpg";
+import cureSamvahanaVata from "@/assets/cures/cure-samvahana-vata.jpg";
+import curePrenatale from "@/assets/cures/cure-prenatale.jpg";
+import curePostnatale from "@/assets/cures/cure-postnatale.jpg";
+import cureJournee from "@/assets/cures/cure-journee.jpg";
+import cureWeekEnd from "@/assets/cures/cure-week-end.jpg";
+
 const cures = [
   {
     name: "Cure de Panchakarma",
@@ -11,6 +24,7 @@ const cures = [
     description: "Purification profonde du corps et de l'esprit. Traite les troubles digestifs, rhumatismes, insomnies et fatigue.",
     pricePerDay: 240,
     durations: "7, 10 ou 14 jours",
+    image: curePanchakarma,
     highlight: true,
   },
   {
@@ -19,6 +33,7 @@ const cures = [
     description: "Cure de vitalité et bien-être royal. Un élixir de vie pour réduire les maux quotidiens.",
     pricePerDay: 240,
     durations: "Sur mesure",
+    image: cureAmrita,
   },
   {
     name: "Cure Karchan d'Amaigrissement",
@@ -26,6 +41,7 @@ const cures = [
     description: "Cure minceur pour retrouver son poids de forme, adopter une alimentation saine et se reconnecter à son corps.",
     pricePerDay: 230,
     durations: "Sur mesure",
+    image: cureKarchan,
   },
   {
     name: "Cure Laghana Rasayana",
@@ -33,6 +49,7 @@ const cures = [
     description: "Cure anti-âge pour booster l'énergie vitale, régénérer les cellules et améliorer la circulation sanguine.",
     pricePerDay: 230,
     durations: "Sur mesure",
+    image: cureLaghanaRasayana,
   },
   {
     name: "Cure d'Ojas Kayakalpa Chikitsa",
@@ -40,6 +57,7 @@ const cures = [
     description: "Cure de rajeunissement et bien-être. Élimine les toxines, régénère les cellules. Indiquée pour fatigue, dépression.",
     pricePerDay: 230,
     durations: "Sur mesure",
+    image: cureOjasKayakalpa,
   },
   {
     name: "Cure Ayurvédique Personnalisée",
@@ -47,6 +65,7 @@ const cures = [
     description: "Cure intensive sur mesure pour pathologies spécifiques : Parkinson, Charcot, sclérose en plaques, fibromyalgie.",
     pricePerDay: 240,
     durations: "1 à 2 semaines",
+    image: curePersonnalisee,
   },
   {
     name: "Cure Samvahana Vata",
@@ -54,6 +73,7 @@ const cures = [
     description: "Équilibre Vata, soulage la fatigue et les douleurs, favorise le sommeil et stimule le système nerveux.",
     pricePerDay: 230,
     durations: "Sur mesure",
+    image: cureSamvahanaVata,
   },
   {
     name: "Cure Prénatale",
@@ -61,6 +81,7 @@ const cures = [
     description: "Cure spéciale pour femmes enceintes à partir de 3 mois de grossesse. Bien-être de la maman et du bébé.",
     pricePerDay: 230,
     durations: "Sur mesure",
+    image: curePrenatale,
   },
   {
     name: "Cure Postnatale",
@@ -68,6 +89,7 @@ const cures = [
     description: "Retrouver la forme après l'accouchement : réduction des graisses, remodelage du corps, revitalisation.",
     pricePerDay: 230,
     durations: "7, 10 ou 14 jours",
+    image: curePostnatale,
   },
   {
     name: "Cure d'une Journée",
@@ -75,6 +97,7 @@ const cures = [
     description: "5 types de cures intensives d'une journée : Cure des 5 sens, Rasayana, Samvahana Vata, Laghana, Amaigrissement.",
     pricePerDay: 220,
     durations: "1 jour",
+    image: cureJournee,
   },
   {
     name: "Week-end Découverte",
@@ -82,6 +105,7 @@ const cures = [
     description: "Initiation aux soins ayurvédiques sur 2 jours. Idéal pour découvrir l'Ayurveda.",
     pricePerDay: 190,
     durations: "2 jours (380€)",
+    image: cureWeekEnd,
     isWeekend: true,
   },
 ];
@@ -127,18 +151,30 @@ const Cures = () => {
               {cures.map((cure, index) => (
                 <Card 
                   key={index} 
-                  className={`bg-card border-border hover:border-primary/30 transition-all hover:shadow-lg ${
+                  className={`bg-card border-border hover:border-primary/30 transition-all hover:shadow-lg overflow-hidden group ${
                     cure.highlight ? 'ring-2 ring-primary/50' : ''
                   }`}
                 >
-                  <CardContent className="p-6 flex flex-col h-full">
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={cure.image} 
+                      alt={cure.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent" />
                     {cure.highlight && (
-                      <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full w-fit mb-3">
+                      <span className="absolute top-3 left-3 text-xs font-medium text-primary-foreground bg-primary px-2 py-1 rounded-full">
                         Cure phare
                       </span>
                     )}
-                    <h3 className="text-xl font-serif font-semibold mb-3">{cure.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <h3 className="text-lg font-serif font-semibold text-foreground">{cure.name}</h3>
+                    </div>
+                  </div>
+                  
+                  <CardContent className="p-4">
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                       {cure.description}
                     </p>
                     <div className="space-y-3">
