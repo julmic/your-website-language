@@ -68,7 +68,7 @@ const qualifications = [
   },
   {
     title: "Praticien / Cikitsaka",
-    description: "Praticien qualifié pour les consultations et les soins ayurvédiques complets.",
+    description: "Personne appliquant des traitements thérapeutiques ayurvédiques avec une connaissance fondamentale du diagnostic, de la pathologie et de l'anatomie ayurvédique, incluant le diagnostic constitutionnel. Capable de traiter les doshas et agni par des méthodes internes et externes conformément aux doshas et sous-doshas, avec une connaissance thérapeutique du régime alimentaire et de l'hygiène de vie. Possède une connaissance fondamentale des thérapies de purification ayurvédique et du Dravyaguna.",
   },
   {
     title: "Praticien / Bhuta Cikitsaka",
