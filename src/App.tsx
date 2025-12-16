@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AtelierCuisine from "./pages/AtelierCuisine";
+import BilanDeSante from "./pages/BilanDeSante";
 
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
@@ -121,6 +122,7 @@ const App = () => (
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/atelier-cuisine" element={<AtelierCuisine />} />
+          <Route path="/bilan-de-sante" element={<BilanDeSante />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

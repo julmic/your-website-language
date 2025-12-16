@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/services", label: "Massages" },
   { href: "/cures", label: "Cures" },
+  { href: "/bilan-de-sante", label: "Bilan de santé" },
   { href: "/atelier-cuisine", label: "Atelier Cuisine" },
   { href: "/blog", label: "Blog" },
   { href: "/a-propos", label: "À propos" },
