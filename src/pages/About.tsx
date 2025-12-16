@@ -76,7 +76,7 @@ const qualifications = [
   },
   {
     title: "Médecin / Vaidya",
-    description: "Titre le plus élevé, doctorat en ayurvéda avec expertise complète de la médecine védique.",
+    description: "Personne appliquant des traitements thérapeutiques ayurvédiques avancés, maîtrisant le diagnostic, la pathologie et l'anatomie ayurvédiques. Capable de traiter Agni, les doshas, les dhatus et les srotas par des méthodes internes et externes conformément aux doshas et sous-doshas, avec une connaissance avancée du régime alimentaire et de l'hygiène de vie. Possède une connaissance avancée des thérapies de purification et peut développer des protocoles applicables par les catégories précédentes. Maîtrise supérieure du Dravyaguna et peut se spécialiser dans les huit branches de l'Ayurvéda, des traitements ou de la pharmacologie ayurvédique.",
   },
 ];
 
