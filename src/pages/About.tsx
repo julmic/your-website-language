@@ -50,7 +50,7 @@ const teamMembers = [
     title: "",
     role: "Praticienne Bhutavidya",
     image: emmanuelleImg,
-    bio: "Spécialiste en psychologie védique (Bhutavidya), elle accompagne vers l'équilibre mental et émotionnel grâce aux techniques ancestrales de Satvajaya : respiration connectée, régressions et expansion de conscience.",
+    bio: "Psychologue diplômée (Master 2 Paris 8, n°ADELI 759339674), formée en thérapie inclusive ayurvédique « Bhutavidya » par Patrick Villette Kaviradja. Elle allie rigueur de la psychologie occidentale et richesse des pratiques védiques. Consultations à Paris 7ème. Contact : contact@psy-paris-7.org – 06 71 77 26 55",
   },
   {
     name: "Patricia Kaci",
