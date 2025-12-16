@@ -64,7 +64,7 @@ const teamMembers = [
 const qualifications = [
   {
     title: "Technicien / Pravidhika",
-    description: "Formation de base aux techniques ayurvédiques et aux massages traditionnels.",
+    description: "Personne appliquant des traitements thérapeutiques ayurvédiques sans connaître le diagnostic, la pathologie ni l'anatomie ayurvédiques, mais ayant une compréhension du diagnostic constitutionnel déterminé par un vaidya. Peut traiter les doshas (Vata, Pitta, Kapha) par des méthodes ayurvédiques, thérapies externes, et possède une connaissance fondamentale du régime alimentaire et de l'hygiène de vie selon la constitution (thérapie manuelle, massage, technicien en traitement Panchakarma).",
   },
   {
     title: "Praticien / Cikitsaka",
