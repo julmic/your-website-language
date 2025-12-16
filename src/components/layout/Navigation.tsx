@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoArkadhya from "@/assets/logo-arkadhya.webp";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
@@ -33,19 +34,37 @@ export const Navigation = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 branding-hover">
-            <Leaf 
-              className={`h-8 w-8 text-primary logo-animated transition-all duration-500 ${
-                hasAnimated ? 'loaded' : 'animate'
-              }`} 
-            />
-            <span 
-              className={`text-2xl font-serif font-semibold text-foreground title-animated transition-colors duration-400 ${
+          <Link to="/" className="site-branding flex items-center gap-3 branding-hover">
+            <img 
+              src={logoArkadhya}
+              alt="Arkadhya - Ayurveda Respect de la Vie"
+              className={`h-14 w-auto logo-animated transition-all duration-500 ${
                 hasAnimated ? 'loaded' : 'animate'
               }`}
-            >
-              Arkadhya
-            </span>
+            />
+            <div className="flex flex-col">
+              <span 
+                className={`site-description text-[10px] uppercase tracking-wider text-muted-foreground ${
+                  hasAnimated ? 'loaded' : 'animate'
+                }`}
+              >
+                Centre Ayurvédique
+              </span>
+              <span 
+                className={`site-title text-xl font-serif font-semibold text-foreground ${
+                  hasAnimated ? 'loaded' : 'animate'
+                }`}
+              >
+                Arkadhya
+              </span>
+              <span 
+                className={`site-description text-[10px] text-muted-foreground ${
+                  hasAnimated ? 'loaded' : 'animate'
+                }`}
+              >
+                en Aquitaine
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
