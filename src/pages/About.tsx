@@ -43,7 +43,7 @@ const teamMembers = [
     title: "",
     role: "Technicienne Ayurvédique",
     image: aurelieImg,
-    bio: "Formée aux principes de l'Ayurvéda, Aurélie applique les thérapies Panchakarma et massages avec une approche personnalisée. Son écoute bienveillante et sa maîtrise des protocoles ayurvédiques guident les patients vers une hygiène de vie alignée avec les rythmes de la nature.",
+    bio: "Passionnée des sciences traditionnelles indiennes, formée aux techniques ayurvédiques. Elle applique les principes de l'Ayurvéda (doshas, thérapies Panchakarma, massages) pour restaurer l'harmonie naturelle (Prakriti) et prévenir les déséquilibres (Vikriti). « L'Ayurvéda n'est pas seulement une médecine, c'est une philosophie de vie. »",
   },
   {
     name: "Emmanuelle Illien",
