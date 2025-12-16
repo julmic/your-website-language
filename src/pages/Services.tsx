@@ -20,10 +20,10 @@ const services = [
     title: "Massages Ayurvédiques",
     description: "Des soins traditionnels utilisant des huiles médicinales chaudes pour rééquilibrer les doshas, éliminer les toxines et harmoniser le corps et l'esprit.",
     items: [
-      { name: "Abhyanga (massage corps complet)", duration: "1h", price: "70€" },
-      { name: "Shirodhara (filet d'huile sur le front)", duration: "45min", price: "65€" },
-      { name: "Pinda Sweda (pochons d'herbes)", duration: "1h", price: "75€" },
-      { name: "Massage crânien Shiro Abhyanga", duration: "30min", price: "40€" },
+      { name: "Abhyanga (massage corps complet)", duration: "1h30", price: "70€", link: "/services/abhyanga" },
+      { name: "Shirodhara (filet d'huile sur le front)", duration: "45min", price: "65€", link: "/services/shirodhara" },
+      { name: "Pinda Sweda (pochons d'herbes)", duration: "1h", price: "75€", link: "/services/pinda-sweda" },
+      { name: "Massage crânien Shiro Abhyanga", duration: "30min", price: "40€", link: "/services/shiro-abhyanga" },
     ],
   },
   {
@@ -93,20 +93,29 @@ const Services = () => {
                     <CardTitle className="text-lg font-serif">Tarifs</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    {service.items.map((item) => (
-                      <div key={item.name} className="flex items-center justify-between py-3 border-b border-border last:border-0">
-                        <div>
-                          <p className="font-medium">{item.name}</p>
-                          <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                            <Clock className="h-3 w-3" /> {item.duration}
-                          </p>
+                    {service.items.map((item) => {
+                      const content = (
+                        <div className={`flex items-center justify-between py-3 border-b border-border last:border-0 ${item.link ? 'hover:bg-primary/5 -mx-2 px-2 rounded transition-colors cursor-pointer' : ''}`}>
+                          <div>
+                            <p className={`font-medium ${item.link ? 'text-primary hover:underline' : ''}`}>{item.name}</p>
+                            <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+                              <Clock className="h-3 w-3" /> {item.duration}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-1 text-primary font-semibold">
+                            <Euro className="h-4 w-4" />
+                            {item.price.replace('€', '')}
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1 text-primary font-semibold">
-                          <Euro className="h-4 w-4" />
-                          {item.price.replace('€', '')}
-                        </div>
-                      </div>
-                    ))}
+                      );
+                      return item.link ? (
+                        <Link key={item.name} to={item.link}>
+                          {content}
+                        </Link>
+                      ) : (
+                        <div key={item.name}>{content}</div>
+                      );
+                    })}
                   </CardContent>
                 </Card>
               </div>
