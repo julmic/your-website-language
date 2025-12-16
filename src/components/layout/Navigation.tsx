@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/cures", label: "Cures" },
   { href: "/bilan-de-sante", label: "Bilan de santé" },
   { href: "/bhutavidya", label: "Bhutavidya" },
+  { href: "/philosophie-vedique", label: "Philosophie" },
   { href: "/atelier-cuisine", label: "Atelier Cuisine" },
   { href: "/blog", label: "Blog" },
   { href: "/a-propos", label: "À propos" },

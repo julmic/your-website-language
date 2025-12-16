@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import AtelierCuisine from "./pages/AtelierCuisine";
 import BilanDeSante from "./pages/BilanDeSante";
 import Bhutavidya from "./pages/Bhutavidya";
+import PhilosophieVedique from "./pages/PhilosophieVedique";
 
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
@@ -125,6 +126,7 @@ const App = () => (
           <Route path="/atelier-cuisine" element={<AtelierCuisine />} />
           <Route path="/bilan-de-sante" element={<BilanDeSante />} />
           <Route path="/bhutavidya" element={<Bhutavidya />} />
+          <Route path="/philosophie-vedique" element={<PhilosophieVedique />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
