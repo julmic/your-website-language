@@ -187,7 +187,7 @@ const About = () => {
               <img 
                 src={fireDanceImg} 
                 alt="Cérémonie védique autour du feu" 
-                className="rounded-lg w-full"
+                className="rounded-lg w-full max-w-md mx-auto"
               />
             </div>
             <div className="space-y-6 order-1 md:order-2">
