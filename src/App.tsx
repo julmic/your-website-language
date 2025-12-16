@@ -5,10 +5,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
+import Cures from "./pages/Cures";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+
+// Cure pages
+import Panchakarma from "./pages/cures/Panchakarma";
 
 // Massage pages
 import Abhyanga from "./pages/massages/Abhyanga";
@@ -52,8 +56,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/cures" element={<Cures />} />
           
-          {/* Massage routes */}
+          {/* Cure routes */}
+          <Route path="/cures/panchakarma" element={<Panchakarma />} />
+          
           <Route path="/services/abhyanga" element={<Abhyanga />} />
           <Route path="/services/sirodhara" element={<Shirodhara />} />
           <Route path="/services/pinda-sveda" element={<PindaSweda />} />
