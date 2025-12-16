@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, Euro, Heart, Brain, Leaf, Activity, Users, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import prakritiImage from "@/assets/bilan/prakriti.avif";
+import doshaImage from "@/assets/bilan/dosha.avif";
 
 const BilanDeSante = () => {
   return (
@@ -10,22 +12,31 @@ const BilanDeSante = () => {
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-b from-background to-secondary/20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
-              Bilan de santé <span className="text-primary">CHIKITSA</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Un outil complet pour évaluer votre santé globale selon les principes de l'Ayurveda
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-                <Clock className="w-5 h-5 text-primary" />
-                <span className="text-foreground">1h30</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
+                Bilan de santé <span className="text-primary">CHIKITSA</span>
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8">
+                Un outil complet pour évaluer votre santé globale selon les principes de l'Ayurveda
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
+                  <Clock className="w-5 h-5 text-primary" />
+                  <span className="text-foreground">1h30</span>
+                </div>
+                <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
+                  <Euro className="w-5 h-5 text-primary" />
+                  <span className="text-foreground">70€</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-                <Euro className="w-5 h-5 text-primary" />
-                <span className="text-foreground">70€</span>
-              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src={doshaImage} 
+                alt="Les trois doshas - Vata, Pitta, Kapha" 
+                className="rounded-2xl shadow-2xl shadow-primary/20 w-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -34,20 +45,29 @@ const BilanDeSante = () => {
       {/* Description Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg mx-auto text-muted-foreground">
-              <p className="text-lg leading-relaxed mb-6">
-                Chikitsa est un outil complet qui permet d'évaluer la santé globale. Il prend en compte 
-                l'évaluation du pouls (Vikriti et Prakriti), les habitudes alimentaires et l'activité physique.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                Cette consultation peut être <strong className="text-foreground">préventive</strong> ou <strong className="text-foreground">curative</strong>. 
-                Elle permet d'identifier les déséquilibres dans les énergies vitales (doshas) et les tissus (dhatus).
-              </p>
-              <p className="text-lg leading-relaxed">
-                Le processus comprend l'examen du pouls, l'examen physique du corps et de la langue, 
-                ainsi que des questions sur vos routines de vie.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="order-2 lg:order-1">
+              <img 
+                src={prakritiImage} 
+                alt="Prakriti - Constitution ayurvédique" 
+                className="rounded-2xl shadow-xl shadow-primary/10 w-full object-cover"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="prose prose-lg text-muted-foreground">
+                <p className="text-lg leading-relaxed mb-6">
+                  Chikitsa est un outil complet qui permet d'évaluer la santé globale. Il prend en compte 
+                  l'évaluation du pouls (Vikriti et Prakriti), les habitudes alimentaires et l'activité physique.
+                </p>
+                <p className="text-lg leading-relaxed mb-6">
+                  Cette consultation peut être <strong className="text-foreground">préventive</strong> ou <strong className="text-foreground">curative</strong>. 
+                  Elle permet d'identifier les déséquilibres dans les énergies vitales (doshas) et les tissus (dhatus).
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Le processus comprend l'examen du pouls, l'examen physique du corps et de la langue, 
+                  ainsi que des questions sur vos routines de vie.
+                </p>
+              </div>
             </div>
           </div>
         </div>
