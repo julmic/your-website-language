@@ -130,7 +130,7 @@ const About = () => {
               <img 
                 src={dhanvantariImg} 
                 alt="Dhanvantari, divinité indienne de la guérison" 
-                className="rounded-lg w-full max-w-md mx-auto"
+                className="rounded-lg w-full max-w-sm mx-auto"
               />
               <p className="text-xs text-muted-foreground mt-2 text-center italic">
                 Dhanvantari, divinité indienne de la guérison – symbole de l'Ayurvéda traditionnel
