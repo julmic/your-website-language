@@ -72,7 +72,7 @@ const qualifications = [
   },
   {
     title: "Praticien / Bhuta Cikitsaka",
-    description: "Spécialiste de la psychologie védique et de l'accompagnement mental/émotionnel.",
+    description: "Personne appliquant des méthodes thérapeutiques ayurvédiques pour ceux qui recherchent une prise en charge des souffrances à la frontière du corps et de l'esprit. Le praticien avancé accompagne les personnes présentant des troubles psychosomatiques (trouble du sommeil, angoisses, malaise existentiel, dépression, etc.) dans une prise en charge adaptée aux Occidentaux et respectueuse de la tradition ayurvédique.",
   },
   {
     title: "Médecin / Vaidya",
