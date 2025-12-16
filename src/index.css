@@ -111,13 +111,74 @@
 }
 
 .logo-animated.animate {
+  opacity: 0;
+  transform: translateX(-80px) scale(0.8);
   animation: elegant-unroll 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.title-animated.animate {
+@keyframes elegant-unroll {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.8) rotate(-5deg);
+    filter: drop-shadow(0 4px 12px hsla(var(--accent), 0)) blur(5px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(8px) scale(1.05) rotate(1deg);
+    filter: drop-shadow(0 4px 12px hsla(var(--accent), 0.4)) blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0);
+    filter: drop-shadow(0 4px 12px hsla(var(--accent), 0.2)) blur(0);
+  }
+}
+
+/* TITRE "Arkadhya" - Révélation progressive */
+.site-title.animate {
+  opacity: 0;
+  transform: translateX(-30px);
   animation: text-reveal 1.5s ease-out forwards;
   animation-delay: 0.6s;
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* SOUS-TITRES - Apparition douce décalée */
+.site-description.animate {
   opacity: 0;
+  transform: translateY(8px);
+  animation: fade-in-up 1.2s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* État chargé (animation terminée) */
+.logo-animated.loaded,
+.site-title.loaded,
+.site-description.loaded {
+  animation: none !important;
+  opacity: 1;
+  transform: none;
 }
 
 /* Hover effects */
@@ -127,22 +188,22 @@
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.branding-hover:hover .title-animated {
+.branding-hover:hover .site-title {
   color: hsl(var(--accent));
   transition: color 0.4s ease;
-}
-
-/* Once loaded, remove animation but keep transitions */
-.logo-animated.loaded,
-.title-animated.loaded {
-  animation: none !important;
-  opacity: 1;
 }
 
 /* Responsive - mobile vertical animation */
 @media (max-width: 768px) {
   .logo-animated.animate {
+    transform: translateY(-60px) scale(0.8);
     animation: elegant-unroll-mobile 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  
+  .site-title.animate {
+    transform: translateY(-20px);
+    animation: text-reveal-mobile 1.5s ease-out forwards;
+    animation-delay: 0.6s;
   }
 }
 
@@ -164,11 +225,28 @@
   }
 }
 
+@keyframes text-reveal-mobile {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Accessibility: reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .logo-animated.animate,
-  .title-animated.animate {
+  .site-title.animate,
+  .site-description.animate {
     animation: simple-fade 0.5s ease forwards !important;
     animation-delay: 0s !important;
+  }
+  
+  @keyframes simple-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }
