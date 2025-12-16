@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Clock, Euro, Heart, Brain, Leaf, Activity, Users, CheckCircle } from "lucide-react";
+import { Clock, Euro, Heart, Leaf, Activity, Users, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import prakritiImage from "@/assets/bilan/prakriti.avif";
 import doshaImage from "@/assets/bilan/dosha.avif";
@@ -77,9 +77,9 @@ const BilanDeSante = () => {
       <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-serif text-center text-foreground mb-12">
-            Aspects de la consultation
+            Aspect de la consultation
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="max-w-xl mx-auto">
             <Card className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
               <CardContent className="p-8">
                 <div className="flex items-center gap-4 mb-6">
@@ -100,31 +100,6 @@ const BilanDeSante = () => {
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                     <span>Traitement des douleurs physiques</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
-                    <Brain className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground">Aspects psychologiques (Bhutavidya)</h3>
-                </div>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Gestion du stress et de l'anxiété</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Accompagnement de la dépression</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Soutien émotionnel et souffrance</span>
                   </li>
                 </ul>
               </CardContent>
