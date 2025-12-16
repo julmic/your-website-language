@@ -57,7 +57,7 @@ const teamMembers = [
     title: "",
     role: "Technicienne Ayurvédique",
     image: patriciaImg,
-    bio: "Passionnée par les soins traditionnels, Patricia pratique les massages ayurvédiques avec précision et bienveillance, offrant des moments de détente profonde et de régénération.",
+    bio: "Diplômée en psychologie (licence faculté de Toulouse 2004), formée au Centre Ayurvédique Arkadhya par Patrick Villette Kaviradja. Depuis 2006, elle propose des massages ayurvédiques traditionnels à travers la prise de pouls (Vikriti), dans le respect de la singularité de chacun. Elle accompagne également en tant que bénévole des personnes en fin de vie. Contact : 06 74 22 62 50 – 1 rue Eugène le Roy, 24480 Le Buisson de Cadouin.",
   },
 ];
 
