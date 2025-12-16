@@ -13,6 +13,16 @@ import NotFound from "./pages/NotFound";
 
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
+import Amrita from "./pages/cures/Amrita";
+import Karchan from "./pages/cures/Karchan";
+import LaghanaRasayana from "./pages/cures/LaghanaRasayana";
+import OjasKayakalpa from "./pages/cures/OjasKayakalpa";
+import Personnalisee from "./pages/cures/Personnalisee";
+import SamvahanaVata from "./pages/cures/SamvahanaVata";
+import Prenatale from "./pages/cures/Prenatale";
+import Postnatale from "./pages/cures/Postnatale";
+import Journee from "./pages/cures/Journee";
+import WeekEndDecouverte from "./pages/cures/WeekEndDecouverte";
 
 // Massage pages
 import Abhyanga from "./pages/massages/Abhyanga";
@@ -60,8 +70,18 @@ const App = () => (
           
           {/* Cure routes */}
           <Route path="/cures/panchakarma" element={<Panchakarma />} />
+          <Route path="/cures/amrita" element={<Amrita />} />
+          <Route path="/cures/karchan" element={<Karchan />} />
+          <Route path="/cures/laghana-rasayana" element={<LaghanaRasayana />} />
+          <Route path="/cures/ojas-kayakalpa" element={<OjasKayakalpa />} />
+          <Route path="/cures/personnalisee" element={<Personnalisee />} />
+          <Route path="/cures/samvahana-vata" element={<SamvahanaVata />} />
+          <Route path="/cures/prenatale" element={<Prenatale />} />
+          <Route path="/cures/postnatale" element={<Postnatale />} />
+          <Route path="/cures/journee" element={<Journee />} />
+          <Route path="/cures/week-end-decouverte" element={<WeekEndDecouverte />} />
           
-          <Route path="/services/abhyanga" element={<Abhyanga />} />
+          {/* Massage routes */}
           <Route path="/services/sirodhara" element={<Shirodhara />} />
           <Route path="/services/pinda-sveda" element={<PindaSweda />} />
           <Route path="/services/shiro-abhyanga" element={<ShiroAbhyanga />} />
