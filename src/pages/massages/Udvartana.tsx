@@ -1,4 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
+import massageImage from "@/assets/massages/massage-scrub.jpg";
 
 const Udvartana = () => {
   return (
@@ -15,6 +16,48 @@ const Udvartana = () => {
         "Stimulation de la circulation sanguine et lymphatique"
       ]}
       prices={[{ duration: "1h30", price: "80€" }]}
+      image={massageImage}
+      forWhom={{
+        physical: ["Surpoids", "Cellulite", "Rétention d'eau", "Peau terne"],
+        mental: ["Besoin de renouveau", "Envie de transformation"],
+        wellness: ["Constitution Kapha", "Cure détox", "Préparation estivale"]
+      }}
+      contraindications={["Peau très sensible", "Eczéma actif", "Plaies ouvertes", "Fièvre"]}
+      benefits={{
+        physical: ["Réduction de la cellulite", "Amélioration de la texture de la peau", "Stimulation du métabolisme", "Élimination des toxines"],
+        mental: ["Sensation de légèreté", "Regain d'énergie", "Meilleure image corporelle"],
+        energetic: ["Réduction de Kapha", "Activation de l'énergie vitale"]
+      }}
+      studies={[
+        {
+          title: "Udvartana therapy in obesity management",
+          source: "Journal of Ayurveda and Integrative Medicine",
+          year: "2015",
+          url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4649570/",
+          highlight: "Amélioration significative des paramètres de la peau et réduction de la graisse sous-cutanée"
+        }
+      ]}
+      faq={[
+        {
+          question: "Combien de séances pour voir des résultats ?",
+          answer: "Les premiers effets sur la peau sont visibles dès la première séance. Pour la perte de poids, une cure de 7-10 séances est recommandée."
+        },
+        {
+          question: "Est-ce adapté aux peaux sensibles ?",
+          answer: "La farine de pois chiche est généralement douce, mais en cas de peau très sensible, un test préalable est recommandé."
+        }
+      ]}
+      testimonials={[
+        {
+          name: "Sophie M.",
+          text: "Ma peau est transformée ! Plus douce, plus tonique. Je recommande vivement.",
+          rating: 5
+        }
+      ]}
+      relatedMassages={[
+        { name: "Abhyanga", path: "/services/abhyanga", description: "Massage aux huiles chaudes" },
+        { name: "Svedana", path: "/services/svedana", description: "Sauna aux plantes" }
+      ]}
     />
   );
 };
