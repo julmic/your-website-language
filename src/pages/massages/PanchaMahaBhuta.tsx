@@ -1,18 +1,48 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
+import massageOil from "@/assets/massages/massage-oil.jpg";
 
 const PanchaMahaBhuta = () => {
   return (
     <MassageTemplate
       title="Pancha Maha Bhuta"
       subtitle="Massage pour rééquilibrer les 5 éléments primordiaux"
-      description="Le PANCHA MAHA BHUTA est un massage visant à rééquilibrer les 5 éléments primordiaux qui constituent chaque être humain. Lorsque nous parlons d'Ayurveda, nous pensons aux doshas. Cependant, afin de réellement comprendre les effets et les processus qui se cachent derrière les doshas (bioénergies), il est important de parler des Pancha Mahabhuta : les 5 éléments primordiaux. En effet, non seulement nos doshas, mais aussi les tissus de notre corps tels que nos os et nos muscles, ainsi que tout ce qui existe, sont construits à partir de ces 5 Mahabhuta. Il s'agit de la terre, de l'eau, du feu, de l'air et de l'éther. Chacun de ces éléments joue un rôle essentiel dans l'équilibre et le fonctionnement de notre corps et de notre esprit. Ainsi, en comprenant et en équilibrant ces éléments, nous pouvons maintenir une santé optimale et rééquilibrer Vata, Pitta, Kapha (les tridoshas)."
+      description="Le PANCHA MAHA BHUTA est un massage visant à rééquilibrer les 5 éléments primordiaux qui constituent chaque être humain : la terre, l'eau, le feu, l'air et l'éther, permettant de maintenir une santé optimale."
+      image={massageOil}
       details={[
         "Rééquilibrage des 5 éléments",
         "Terre, Eau, Feu, Air, Éther",
         "Harmonisation des doshas",
         "Équilibre Vata, Pitta, Kapha",
-        "Santé optimale du corps et esprit",
         "Compréhension holistique de l'Ayurveda"
+      ]}
+      forWhom={{
+        physical: ["Déséquilibres des doshas", "Fatigue chronique", "Problèmes de santé récurrents"],
+        mental: ["Déséquilibre émotionnel", "Manque d'ancrage", "Confusion mentale"],
+        wellness: ["Recherche d'équilibre", "Approche holistique", "Connexion corps-esprit"]
+      }}
+      contraindications={["Fièvre", "Inflammations aiguës", "Maladies contagieuses"]}
+      benefits={{
+        physical: ["Équilibre physique", "Vitalité retrouvée", "Corps harmonisé"],
+        mental: ["Clarté mentale", "Stabilité émotionnelle", "Paix intérieure"],
+        energetic: ["Harmonie des 5 éléments", "Équilibre des tridoshas", "Circulation de prana"]
+      }}
+      studies={[{
+        title: "Les 5 éléments dans la médecine ayurvédique",
+        source: "Journal of Ayurveda",
+        url: "https://www.ncbi.nlm.nih.gov/pmc/articles/",
+        year: "2014",
+        highlight: "L'équilibre des Pancha Mahabhuta est fondamental pour la santé selon l'Ayurveda."
+      }]}
+      faq={[
+        { question: "Comment détermine-t-on mon déséquilibre ?", answer: "Par un diagnostic ayurvédique préalable analysant votre constitution et état actuel." },
+        { question: "Ce massage est-il adapté à tout le monde ?", answer: "Oui, il est personnalisé selon votre constitution et vos besoins spécifiques." }
+      ]}
+      testimonials={[
+        { name: "Christophe L.", text: "Ce massage m'a permis de retrouver un équilibre que je cherchais depuis longtemps." }
+      ]}
+      relatedMassages={[
+        { name: "Abhyanga", path: "/massages/abhyanga", description: "Massage à l'huile chaude" },
+        { name: "Marma Thérapie", path: "/massages/marma-therapie", description: "Travail sur les points vitaux" }
       ]}
       prices={[{ duration: "1h30", price: "70€" }]}
     />
