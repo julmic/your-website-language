@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -306,7 +306,9 @@ const profiles: Record<string, Profile> = {
 };
 
 export const DoshaQuiz = () => {
-  const [answers, setAnswers] = useState<(number | undefined)[]>(new Array(questions.length).fill(undefined));
+  const [answers, setAnswers] = useState<(number | undefined)[]>(
+    new Array(questions.length).fill(undefined)
+  );
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState<{
@@ -315,17 +317,37 @@ export const DoshaQuiz = () => {
     secondary: string | null;
   } | null>(null);
 
-  const answeredCount = answers.filter(a => a !== undefined).length;
+  const advanceTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (advanceTimerRef.current) window.clearTimeout(advanceTimerRef.current);
+    };
+  }, []);
+
+  const answeredCount = answers.filter((a) => a !== undefined).length;
   const progress = (answeredCount / questions.length) * 100;
 
-  const handleAnswer = (optionIndex: number) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = optionIndex;
-    setAnswers(newAnswers);
+  const safeSetCurrentQuestion = (next: number | ((prev: number) => number)) => {
+    setCurrentQuestion((prev) => {
+      const candidate = typeof next === "function" ? next(prev) : next;
+      return Math.max(0, Math.min(candidate, questions.length - 1));
+    });
+  };
 
-    // Auto-advance after selection
+  const handleAnswer = (optionIndex: number) => {
+    setAnswers((prev) => {
+      const next = [...prev];
+      next[currentQuestion] = optionIndex;
+      return next;
+    });
+
+    // Auto-advance after selection (clamped + cancel previous timer)
+    if (advanceTimerRef.current) window.clearTimeout(advanceTimerRef.current);
     if (currentQuestion < questions.length - 1) {
-      setTimeout(() => setCurrentQuestion(prev => prev + 1), 300);
+      advanceTimerRef.current = window.setTimeout(() => {
+        safeSetCurrentQuestion((prev) => prev + 1);
+      }, 250);
     }
   };
 
@@ -342,10 +364,15 @@ export const DoshaQuiz = () => {
     });
 
     const total = scores.vata + scores.pitta + scores.kapha;
+    if (!total) {
+      // should not happen (submit is disabled until all answered)
+      return;
+    }
+
     const percentages = {
       vata: Math.round((scores.vata / total) * 100),
       pitta: Math.round((scores.pitta / total) * 100),
-      kapha: Math.round((scores.kapha / total) * 100)
+      kapha: Math.round((scores.kapha / total) * 100),
     };
 
     const sorted = Object.entries(percentages).sort((a, b) => b[1] - a[1]);
@@ -357,6 +384,7 @@ export const DoshaQuiz = () => {
   };
 
   const resetQuiz = () => {
+    if (advanceTimerRef.current) window.clearTimeout(advanceTimerRef.current);
     setAnswers(new Array(questions.length).fill(undefined));
     setCurrentQuestion(0);
     setShowResults(false);
@@ -449,7 +477,8 @@ export const DoshaQuiz = () => {
   }
   
   const isLastQuestion = currentQuestion === questions.length - 1;
-  const canSubmit = answers[currentQuestion] !== undefined && isLastQuestion;
+  const isAllAnswered = answeredCount === questions.length;
+  const canSubmit = isAllAnswered && isLastQuestion;
   const canNext = answers[currentQuestion] !== undefined && !isLastQuestion;
 
   return (
@@ -514,7 +543,7 @@ export const DoshaQuiz = () => {
       <div className="flex justify-between items-center gap-4">
         <Button
           variant="outline"
-          onClick={() => setCurrentQuestion(prev => prev - 1)}
+          onClick={() => safeSetCurrentQuestion((prev) => prev - 1)}
           disabled={currentQuestion === 0}
           className="gap-1"
         >
@@ -533,7 +562,7 @@ export const DoshaQuiz = () => {
           </Button>
         ) : (
           <Button
-            onClick={() => setCurrentQuestion(prev => prev + 1)}
+            onClick={() => safeSetCurrentQuestion((prev) => prev + 1)}
             disabled={!canNext}
             className="gap-1"
           >
