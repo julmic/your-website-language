@@ -46,6 +46,9 @@ export const HeroSection = () => {
         </div>
       </div>
 
+      {/* Overlay to hide Spline watermark */}
+      <div className="absolute bottom-0 right-0 w-48 h-20 z-[1] bg-gradient-to-tl from-background via-background/90 to-transparent pointer-events-none" />
+
       {/* Bottom gradient transition */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[2]" />
     </section>

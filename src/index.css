@@ -111,8 +111,11 @@ spline-viewer {
   inset: 0;
 }
 
-spline-viewer::part(logo) {
-  display: none;
+spline-viewer::part(logo),
+spline-viewer::part(watermark) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 /* ════════════════════════════════════════ */
