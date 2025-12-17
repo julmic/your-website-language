@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageOil from "@/assets/massages/massage-oil.jpg";
+import massageImage from "@/assets/massages/mardanam.webp";
 
 const Mardanam = () => {
   return (
@@ -7,7 +7,7 @@ const Mardanam = () => {
       title="Mardanam"
       subtitle="Massage habillé au sol sans huile"
       description="Le massage habillé au sol sans application d'huile, connu sous le nom de MARDANAM, permet de détendre les muscles, d'améliorer la circulation sanguine et d'éliminer les tensions avec des étirements et pressions ciblées."
-      image={massageOil}
+      image={massageImage}
       details={[
         "Massage sans huile, habillé",
         "Pratiqué au sol sur matelas",

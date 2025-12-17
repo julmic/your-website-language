@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageOil from "@/assets/massages/massage-oil.jpg";
+import massageImage from "@/assets/massages/pancha-maha-bhuta.webp";
 
 const PanchaMahaBhuta = () => {
   return (
@@ -7,7 +7,7 @@ const PanchaMahaBhuta = () => {
       title="Pancha Maha Bhuta"
       subtitle="Massage pour rééquilibrer les 5 éléments primordiaux"
       description="Le PANCHA MAHA BHUTA est un massage visant à rééquilibrer les 5 éléments primordiaux qui constituent chaque être humain : la terre, l'eau, le feu, l'air et l'éther, permettant de maintenir une santé optimale."
-      image={massageOil}
+      image={massageImage}
       details={[
         "Rééquilibrage des 5 éléments",
         "Terre, Eau, Feu, Air, Éther",

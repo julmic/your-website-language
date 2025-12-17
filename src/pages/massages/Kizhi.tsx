@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageHerbal from "@/assets/massages/massage-herbal.jpg";
+import massageImage from "@/assets/massages/kizhi.webp";
 
 const Kizhi = () => {
   return (
@@ -7,7 +7,7 @@ const Kizhi = () => {
       title="Kizhi"
       subtitle="Massage ayurvédique pour l'arthrite et l'ostéoporose"
       description="Le KIZHI est un massage ayurvédique traditionnel efficace pour soulager l'arthrite, l'ostéoporose, les maladies de la peau et le cholestérol. Ce traitement utilise des herbes et des poudres appliquées pendant 45 minutes chaque jour."
-      image={massageHerbal}
+      image={massageImage}
       details={[
         "Soulagement de l'arthrite",
         "Traitement de l'ostéoporose",
