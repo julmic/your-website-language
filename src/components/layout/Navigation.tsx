@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/bhutavidya", label: "Bhutavidya" },
   { href: "/philosophie-vedique", label: "Philosophie" },
   { href: "/atelier-cuisine", label: "Atelier Cuisine" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Blog & Actualités" },
   { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];
