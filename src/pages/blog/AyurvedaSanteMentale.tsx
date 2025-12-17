@@ -1,10 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Clock, Calendar, ChevronUp, AlertTriangle, Phone, Brain, Heart, Leaf, CheckCircle2, Wind, Flame, Droplets } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, ChevronUp, AlertTriangle, Phone, Brain, Heart, Leaf, CheckCircle2, Wind, Flame, Droplets, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useState, useEffect } from "react";
+import heroImage from "@/assets/blog/sante-mentale-hero.png";
 
 const AyurvedaSanteMentale = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -75,48 +76,59 @@ const AyurvedaSanteMentale = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-b from-primary/20 to-background">
-        <div className="container px-4">
-          <Link 
-            to="/blog" 
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-6"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Retour au blog
+      <article className="pt-24 pb-16">
+        {/* Hero Section */}
+        <div className="container mx-auto px-4 mb-12">
+          <Link to="/blog" className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Retour aux articles
           </Link>
-          
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary/20 rounded-full text-primary">
-                <Brain className="h-3 w-3" />
-                Santé Mentale
-              </span>
-              <span className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
-                17 Décembre 2024
-              </span>
-              <span className="flex items-center gap-1">
-                <Clock className="h-4 w-4" />
-                25 min de lecture
-              </span>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                  <Brain className="h-3 w-3" />
+                  Santé Mentale
+                </span>
+                <span className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  17 Décembre 2024
+                </span>
+                <span className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  25 min de lecture
+                </span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-4">
+                L'Ayurvéda pour une Santé Mentale Optimale
+              </h1>
+
+              <p className="text-xl text-muted-foreground mb-6">
+                Comment la médecine ancestrale indienne soigne anxiété, dépression et burn-out sans médicaments chimiques
+              </p>
+
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                  <User className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">Centre Arkadhya</p>
+                  <p className="text-sm text-muted-foreground">Équipe rédactionnelle</p>
+                </div>
+              </div>
             </div>
-            
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-              🧠 L'Ayurvéda pour une Santé Mentale Optimale
-            </h1>
-            
-            <p className="text-xl text-muted-foreground mb-4">
-              Comment la médecine ancestrale indienne soigne anxiété, dépression et burn-out sans médicaments chimiques
-            </p>
-            <p className="text-muted-foreground">
-              Découvrez les protocoles holistiques validés par la science moderne pour retrouver équilibre émotionnel, 
-              clarté mentale et joie de vivre naturellement. Une approche complète corps-esprit qui traite les CAUSES, 
-              pas seulement les symptômes.
-            </p>
+
+            <div className="relative">
+              <img 
+                src={heroImage} 
+                alt="L'Ayurvéda pour une Meilleure Santé Mentale" 
+                className="rounded-2xl shadow-2xl w-full"
+              />
+            </div>
           </div>
         </div>
-      </section>
 
       {/* Main Content */}
       <section className="py-12">
@@ -1616,6 +1628,7 @@ const AyurvedaSanteMentale = () => {
           </div>
         </div>
       </section>
+      </article>
 
       {/* Scroll to Top Button */}
       {showScrollTop && (
