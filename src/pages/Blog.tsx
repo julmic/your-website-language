@@ -10,7 +10,18 @@ import incompatibilitesImg from "@/assets/blog/incompatibilites-alimentaires-her
 import hiverAyurvedaImg from "@/assets/blog/hiver-ayurveda-hero.webp";
 import automneAyurvedaImg from "@/assets/blog/automne-ayurveda-hero.jpeg";
 import santeMentaleImg from "@/assets/blog/sante-mentale-hero.png";
+import sommeilAyurvedaImg from "@/assets/blog/sommeil-ayurveda-hero.png";
+
 const articles = [
+  {
+    slug: "sommeil-ayurveda",
+    title: "Insomnie & Troubles du Sommeil : Solutions Ayurvédiques",
+    excerpt: "Découvrez les 3 types d'insomnie selon les doshas, 10 solutions naturelles efficaces et une routine complète pour retrouver un sommeil réparateur.",
+    date: "Décembre 2024",
+    category: "Sommeil",
+    readTime: "18 min",
+    image: sommeilAyurvedaImg,
+  },
   {
     slug: "automne-ayurveda",
     title: "Automne et Ayurvéda : Le Guide Complet",
@@ -115,7 +126,7 @@ const articles = [
   },
 ];
 
-const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion", "Santé Osseuse"];
+const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion", "Santé Osseuse", "Sommeil", "Saisonnier"];
 
 const Blog = () => {
   return (
