@@ -5,6 +5,14 @@ import { Calendar, ArrowRight, Tag } from "lucide-react";
 
 const articles = [
   {
+    slug: "colon-irritable-ayurveda",
+    title: "Le Syndrome du Côlon Irritable et l'Ayurvéda",
+    excerpt: "Comprendre, identifier et apaiser naturellement votre côlon irritable avec la sagesse millénaire de l'Ayurvéda. Découvrez votre profil Grahani et le protocole thérapeutique personnalisé.",
+    date: "17 Décembre 2024",
+    category: "Digestion",
+    readTime: "20 min",
+  },
+  {
     slug: "ayurveda-sante-mentale",
     title: "L'Ayurvéda pour une Santé Mentale Optimale",
     excerpt: "Comment la médecine ancestrale indienne soigne anxiété, dépression et burn-out sans médicaments chimiques. Découvrez les protocoles holistiques validés par la science moderne.",
@@ -62,7 +70,7 @@ const articles = [
   },
 ];
 
-const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale"];
+const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion"];
 
 const Blog = () => {
   return (
