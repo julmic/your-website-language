@@ -8,8 +8,17 @@ import osteoporoseImg from "@/assets/blog/osteoporose-hero.webp";
 import colonIrritableImg from "@/assets/blog/colon-irritable-hero.webp";
 import incompatibilitesImg from "@/assets/blog/incompatibilites-alimentaires-hero.webp";
 import hiverAyurvedaImg from "@/assets/blog/hiver-ayurveda-hero.webp";
-
+import automneAyurvedaImg from "@/assets/blog/automne-ayurveda-hero.jpeg";
 const articles = [
+  {
+    slug: "automne-ayurveda",
+    title: "Automne et Ayurvéda : Le Guide Complet",
+    excerpt: "Traversez la saison Vata en harmonie. Protocoles par dosha, 4 phases de septembre à décembre, recettes thérapeutiques et conseils pour préserver votre vitalité.",
+    date: "Septembre 2025",
+    category: "Saisonnier",
+    readTime: "25 min",
+    image: automneAyurvedaImg,
+  },
   {
     slug: "hiver-ayurveda",
     title: "Hiver & Ayurvéda : Votre Guide de Survie Naturelle",
