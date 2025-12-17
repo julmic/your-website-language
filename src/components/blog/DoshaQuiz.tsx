@@ -435,6 +435,19 @@ export const DoshaQuiz = () => {
   }
 
   const currentQ = questions[currentQuestion];
+  
+  // Safety check - if currentQuestion is out of bounds, reset to 0
+  if (!currentQ) {
+    return (
+      <Card className="p-6 md:p-10 bg-gradient-to-br from-background via-secondary/20 to-background border-primary/30">
+        <div className="text-center">
+          <p className="text-muted-foreground mb-4">Chargement du quiz...</p>
+          <Button onClick={resetQuiz}>Recommencer</Button>
+        </div>
+      </Card>
+    );
+  }
+  
   const isLastQuestion = currentQuestion === questions.length - 1;
   const canSubmit = answers[currentQuestion] !== undefined && isLastQuestion;
   const canNext = answers[currentQuestion] !== undefined && !isLastQuestion;
