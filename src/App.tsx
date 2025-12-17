@@ -19,6 +19,9 @@ import InvolutionEvolution from "./pages/philosophie/InvolutionEvolution";
 import MortAyurveda from "./pages/philosophie/MortAyurveda";
 import VoieHisvara from "./pages/philosophie/VoieHisvara";
 
+// Blog pages
+import AyurvedaSanteMentale from "./pages/blog/AyurvedaSanteMentale";
+
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
 import Amrita from "./pages/cures/Amrita";
@@ -125,6 +128,7 @@ const App = () => (
           <Route path="/services/pinda-sweda" element={<PindaSweda />} />
           
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/ayurveda-sante-mentale" element={<AyurvedaSanteMentale />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/atelier-cuisine" element={<AtelierCuisine />} />
