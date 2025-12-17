@@ -9,6 +9,7 @@ import colonIrritableImg from "@/assets/blog/colon-irritable-hero.webp";
 import incompatibilitesImg from "@/assets/blog/incompatibilites-alimentaires-hero.webp";
 import hiverAyurvedaImg from "@/assets/blog/hiver-ayurveda-hero.webp";
 import automneAyurvedaImg from "@/assets/blog/automne-ayurveda-hero.jpeg";
+import santeMentaleImg from "@/assets/blog/sante-mentale-hero.png";
 const articles = [
   {
     slug: "automne-ayurveda",
@@ -62,6 +63,7 @@ const articles = [
     date: "17 Décembre 2024",
     category: "Santé Mentale",
     readTime: "25 min",
+    image: santeMentaleImg,
   },
   {
     slug: "introduction-ayurveda",
