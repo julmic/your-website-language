@@ -21,6 +21,7 @@ import VoieHisvara from "./pages/philosophie/VoieHisvara";
 
 // Blog pages
 import AyurvedaSanteMentale from "./pages/blog/AyurvedaSanteMentale";
+import ColonIrritable from "./pages/blog/ColonIrritable";
 
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
@@ -129,6 +130,7 @@ const App = () => (
           
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/ayurveda-sante-mentale" element={<AyurvedaSanteMentale />} />
+          <Route path="/blog/colon-irritable-ayurveda" element={<ColonIrritable />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/atelier-cuisine" element={<AtelierCuisine />} />
