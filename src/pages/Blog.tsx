@@ -5,6 +5,14 @@ import { Calendar, ArrowRight, Tag } from "lucide-react";
 
 const articles = [
   {
+    slug: "ayurveda-sante-mentale",
+    title: "L'Ayurvéda pour une Santé Mentale Optimale",
+    excerpt: "Comment la médecine ancestrale indienne soigne anxiété, dépression et burn-out sans médicaments chimiques. Découvrez les protocoles holistiques validés par la science moderne.",
+    date: "17 Décembre 2024",
+    category: "Santé Mentale",
+    readTime: "25 min",
+  },
+  {
     slug: "introduction-ayurveda",
     title: "Introduction à l'Ayurvéda : Les 3 Doshas",
     excerpt: "Découvrez les fondamentaux de l'Ayurvéda et comprenez votre constitution unique à travers les trois doshas : Vata, Pitta et Kapha. Cette connaissance ancestrale vous permettra de mieux comprendre votre corps et vos besoins.",
@@ -54,7 +62,7 @@ const articles = [
   },
 ];
 
-const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être"];
+const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale"];
 
 const Blog = () => {
   return (
