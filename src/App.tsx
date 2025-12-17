@@ -132,6 +132,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/ayurveda-sante-mentale" element={<AyurvedaSanteMentale />} />
           <Route path="/blog/colon-irritable-ayurveda" element={<ColonIrritable />} />
+          <Route path="/blog/osteoporose-ayurveda" element={<Osteoporose />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/atelier-cuisine" element={<AtelierCuisine />} />
