@@ -7,8 +7,18 @@ import { Calendar, ArrowRight, Tag } from "lucide-react";
 import osteoporoseImg from "@/assets/blog/osteoporose-hero.webp";
 import colonIrritableImg from "@/assets/blog/colon-irritable-hero.webp";
 import incompatibilitesImg from "@/assets/blog/incompatibilites-alimentaires-hero.webp";
+import hiverAyurvedaImg from "@/assets/blog/hiver-ayurveda-hero.webp";
 
 const articles = [
+  {
+    slug: "hiver-ayurveda",
+    title: "Hiver & Ayurvéda : Votre Guide de Survie Naturelle",
+    excerpt: "L'art ancestral de traverser la saison Vata. Découvrez les 3 phases énergétiques de l'hiver, les routines anti-Vata et le programme de transformation 90 jours.",
+    date: "Décembre 2024",
+    category: "Saisonnier",
+    readTime: "20 min",
+    image: hiverAyurvedaImg,
+  },
   {
     slug: "incompatibilites-alimentaires-ayurveda",
     title: "Les Incompatibilités Alimentaires en Ayurvéda",

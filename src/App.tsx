@@ -24,6 +24,7 @@ import AyurvedaSanteMentale from "./pages/blog/AyurvedaSanteMentale";
 import ColonIrritable from "./pages/blog/ColonIrritable";
 import Osteoporose from "./pages/blog/Osteoporose";
 import IncompatibilitesAlimentaires from "./pages/blog/IncompatibilitesAlimentaires";
+import HiverAyurveda from "./pages/blog/HiverAyurveda";
 
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
@@ -135,6 +136,7 @@ const App = () => (
           <Route path="/blog/colon-irritable-ayurveda" element={<ColonIrritable />} />
           <Route path="/blog/osteoporose-ayurveda" element={<Osteoporose />} />
           <Route path="/blog/incompatibilites-alimentaires-ayurveda" element={<IncompatibilitesAlimentaires />} />
+          <Route path="/blog/hiver-ayurveda" element={<HiverAyurveda />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/atelier-cuisine" element={<AtelierCuisine />} />
