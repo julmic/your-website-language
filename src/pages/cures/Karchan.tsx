@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-karchan.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("karchan")!;
 
 const Karchan = () => {
   return (
@@ -12,7 +15,7 @@ Cette approche holistique permet une transformation durable en travaillant sur t
 
 Le programme comprend des consultations personnalisées, des bains de bouche à l'huile, des applications chaudes locales, l'abhyanga, le swedana, le nasya, l'udvartana et la phytothérapie ayurvédique.`}
       image={cureImage}
-      pricePerDay={230}
+      pricePerDay={cureData.pricePerDay!}
       treatments={[
         { name: "Udvartana", description: "Massage drainant aux poudres" },
         { name: "Abhyanga", description: "Massage détoxifiant à l'huile" },

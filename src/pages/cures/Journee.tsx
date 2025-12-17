@@ -3,6 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Clock, Euro, ArrowLeft, Utensils, Star, Sparkles, Heart, Brain, Zap, Scale } from "lucide-react";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("journee")!;
+const weekEndData = getCureById("week-end-decouverte")!;
+const panchakarmaData = getCureById("panchakarma")!;
 
 const dayPrograms = [
   {
@@ -65,7 +70,7 @@ const Journee = () => {
               </div>
               <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full">
                 <Euro className="h-5 w-5 text-primary" />
-                <span className="font-semibold">220€</span>
+                <span className="font-semibold">{cureData.price}</span>
               </div>
               <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full">
                 <Utensils className="h-5 w-5 text-primary" />
@@ -147,10 +152,7 @@ const Journee = () => {
       <section className="py-16 bg-primary/10">
         <div className="container px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-serif font-semibold mb-4">
-              Tarif Unique
-            </h2>
-            <p className="text-5xl font-serif font-bold text-primary mb-4">220€</p>
+            <p className="text-5xl font-serif font-bold text-primary mb-4">{cureData.price}</p>
             <p className="text-muted-foreground mb-8">
               Peu importe le programme choisi
             </p>
@@ -222,7 +224,7 @@ const Journee = () => {
                     2 jours d'initiation aux soins ayurvédiques
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-primary font-semibold">380€</span>
+                    <span className="text-primary font-semibold">{weekEndData.price}</span>
                     <Button variant="outline" size="sm" asChild>
                       <Link to="/cures/week-end-decouverte">Découvrir</Link>
                     </Button>
@@ -236,7 +238,7 @@ const Journee = () => {
                     7 à 14 jours de purification profonde
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-primary font-semibold">240€/jour</span>
+                    <span className="text-primary font-semibold">{panchakarmaData.price}</span>
                     <Button variant="outline" size="sm" asChild>
                       <Link to="/cures/panchakarma">Découvrir</Link>
                     </Button>

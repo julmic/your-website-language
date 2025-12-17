@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-postnatale.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("postnatale")!;
 
 const Postnatale = () => {
   return (
@@ -12,12 +15,8 @@ Cette cure se concentre sur la santé et la beauté de la jeune maman : réducti
 
 Le programme est supervisé par un médecin ayurvédique et accompagné d'une alimentation végétarienne équilibrée pour favoriser l'allaitement si souhaité.`}
       image={cureImage}
-      pricePerDay={230}
-      durations={[
-        { days: 7, pricePerDay: 230, totalPrice: 1610 },
-        { days: 10, pricePerDay: 230, totalPrice: 2300 },
-        { days: 14, pricePerDay: 230, totalPrice: 3220 },
-      ]}
+      pricePerDay={cureData.pricePerDay!}
+      durations={cureData.durations}
       treatments={[
         { name: "Sutika Abhyanga", description: "Massage postnatal complet" },
         { name: "Udvartana", description: "Massage drainant aux poudres" },

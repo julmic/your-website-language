@@ -81,19 +81,29 @@ const consultations = [
   { name: "Bilan Prakriti détaillé", duration: "2h", price: "120€" },
 ];
 
-const cures = [
-  { name: "Panchakarma", description: "Cure de détoxification complète", price: "95€/jour", link: "/cures/panchakarma", image: curePanchakarma },
-  { name: "Amrita", description: "Cure de régénération profonde", price: "85€/jour", link: "/cures/amrita", image: cureAmrita },
-  { name: "Karchan", description: "Cure amaigrissante ayurvédique", price: "80€/jour", link: "/cures/karchan", image: cureKarchan },
-  { name: "Laghana Rasayana", description: "Cure détox et rajeunissement", price: "85€/jour", link: "/cures/laghana-rasayana", image: cureLaghana },
-  { name: "Ojas Kayakalpa", description: "Cure de vitalité et longévité", price: "90€/jour", link: "/cures/ojas-kayakalpa", image: cureOjas },
-  { name: "Personnalisée", description: "Programme sur-mesure", price: "Sur devis", link: "/cures/personnalisee", image: curePersonnalisee },
-  { name: "Samvahana Vata", description: "Cure apaisante pour Vata", price: "80€/jour", link: "/cures/samvahana-vata", image: cureSamvahana },
-  { name: "Prénatale", description: "Soins pour futures mamans", price: "75€/jour", link: "/cures/prenatale", image: curePrenatale },
-  { name: "Postnatale", description: "Récupération après accouchement", price: "75€/jour", link: "/cures/postnatale", image: curePostnatale },
-  { name: "Journée", description: "Expérience d'une journée", price: "150€", link: "/cures/journee", image: cureJournee },
-  { name: "Week-end Découverte", description: "Initiation sur 2 jours", price: "280€", link: "/cures/week-end-decouverte", image: cureWeekEnd },
-];
+// Import des données centralisées des cures
+import { curesData } from "@/data/cures";
+
+// Mapping des images par ID de cure
+const cureImages: Record<string, string> = {
+  "panchakarma": curePanchakarma,
+  "amrita": cureAmrita,
+  "karchan": cureKarchan,
+  "laghana-rasayana": cureLaghana,
+  "ojas-kayakalpa": cureOjas,
+  "personnalisee": curePersonnalisee,
+  "samvahana-vata": cureSamvahana,
+  "prenatale": curePrenatale,
+  "postnatale": curePostnatale,
+  "journee": cureJournee,
+  "week-end-decouverte": cureWeekEnd,
+};
+
+// Cures avec images pour l'affichage
+const cures = curesData.map(cure => ({
+  ...cure,
+  image: cureImages[cure.id],
+}));
 
 const formations = [
   { name: "Initiation à l'Ayurvéda", duration: "1 jour", price: "120€" },

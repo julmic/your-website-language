@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-personnalisee.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("personnalisee")!;
 
 const Personnalisee = () => {
   return (
@@ -12,12 +15,8 @@ Cette cure est particulièrement adaptée aux personnes souffrant de maladies de
 
 Le programme est entièrement construit autour de vos besoins après une consultation préliminaire approfondie et un bilan clinique ayurvédique complet. Une consultation finale avec recommandations de traitement conclut la cure.`}
       image={cureImage}
-      pricePerDay={240}
-      durations={[
-        { days: 7, pricePerDay: 240, totalPrice: 1680 },
-        { days: 10, pricePerDay: 240, totalPrice: 2400 },
-        { days: 14, pricePerDay: 240, totalPrice: 3360 },
-      ]}
+      pricePerDay={cureData.pricePerDay!}
+      durations={cureData.durations}
       treatments={[
         { name: "Soins personnalisés", description: "Adaptés à votre pathologie" },
         { name: "Massages thérapeutiques", description: "Protocoles spécifiques" },

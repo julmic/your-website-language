@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-ojas-kayakalpa.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("ojas-kayakalpa")!;
 
 const OjasKayakalpa = () => {
   return (
@@ -12,7 +15,7 @@ const OjasKayakalpa = () => {
 
 Elle est particulièrement indiquée pour la fatigue chronique, la dépression et le diabète. Le programme comprend consultations, bains de bouche, applications chaudes, massages à l'huile et au riz au lait, swedana, shirodhara, nasya avec soins des oreilles, udara, kansu ou padabhyanga, massage crânien et massage sonore.`}
       image={cureImage}
-      pricePerDay={230}
+      pricePerDay={cureData.pricePerDay!}
       treatments={[
         { name: "Shirodhara", description: "Filet d'huile sur le front" },
         { name: "Massage à l'huile", description: "Abhyanga nourrissant" },

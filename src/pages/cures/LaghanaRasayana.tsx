@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-laghana-rasayana.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("laghana-rasayana")!;
 
 const LaghanaRasayana = () => {
   return (
@@ -12,7 +15,7 @@ const LaghanaRasayana = () => {
 
 Cette cure comprend des consultations, bains de bouche à l'huile, applications chaudes locales, massages variés (au sel, aux poudres d'herbes), swedana, gommage rasayana, nasya avec soins des oreilles, udara, enveloppements alcalins et massage sonore.`}
       image={cureImage}
-      pricePerDay={230}
+      pricePerDay={cureData.pricePerDay!}
       treatments={[
         { name: "Gommage Rasayana", description: "Exfoliation régénérante" },
         { name: "Massage au sel", description: "Stimulation de la circulation" },
