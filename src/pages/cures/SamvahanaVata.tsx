@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-samvahana-vata.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("samvahana-vata")!;
 
 const SamvahanaVata = () => {
   return (
@@ -12,7 +15,7 @@ Cette cure est idéale pour soulager la fatigue, les douleurs générales, favor
 
 "Samvahana" signifie "massage doux et apaisant" - c'est l'essence même de cette cure qui privilégie les soins enveloppants et réconfortants.`}
       image={cureImage}
-      pricePerDay={230}
+      pricePerDay={cureData.pricePerDay!}
       treatments={[
         { name: "Abhyanga Vata", description: "Massage à l'huile chaude apaisante" },
         { name: "Shirodhara", description: "Filet d'huile relaxant" },

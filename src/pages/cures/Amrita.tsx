@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-amrita.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("amrita")!;
 
 const Amrita = () => {
   return (
@@ -12,7 +15,7 @@ Cette cure luxueuse combine les soins ayurvédiques les plus raffinés pour réd
 
 Elle comprend une série de traitements royaux : consultations personnalisées, bains de bouche à l'huile, applications chaudes locales, pizichilli, swedana, shirodhara, abhyanga, udvartana, ghritadhara, padabhyanga, kansu, upanahasweda, udara et massage sonore.`}
       image={cureImage}
-      pricePerDay={240}
+      pricePerDay={cureData.pricePerDay!}
       treatments={[
         { name: "Pizichilli", description: "Bain d'huile tiède en continu" },
         { name: "Shirodhara", description: "Filet d'huile sur le front" },

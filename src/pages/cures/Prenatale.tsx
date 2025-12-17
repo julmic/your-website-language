@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-prenatale.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("prenatale")!;
 
 const Prenatale = () => {
   return (
@@ -12,7 +15,7 @@ Cette cure douce et enveloppante vise à assurer le bien-être de la future mama
 
 Les soins sont adaptés à chaque trimestre de la grossesse et respectent toutes les précautions nécessaires pour une grossesse sereine.`}
       image={cureImage}
-      pricePerDay={230}
+      pricePerDay={cureData.pricePerDay!}
       treatments={[
         { name: "Garbhini Abhyanga", description: "Massage prénatal à l'huile" },
         { name: "Yoni Pichu", description: "Soins préparant le périnée" },

@@ -1,5 +1,8 @@
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import cureImage from "@/assets/cures/cure-panchakarma.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("panchakarma")!;
 
 const Panchakarma = () => {
   return (
@@ -17,12 +20,8 @@ Le Panchakarma repose sur cinq thérapies principales :
 • Nasya (administration nasale)
 • Rakta Mokshana (purification du sang)`}
       image={cureImage}
-      pricePerDay={240}
-      durations={[
-        { days: 7, pricePerDay: 240, totalPrice: 1680 },
-        { days: 10, pricePerDay: 240, totalPrice: 2400 },
-        { days: 14, pricePerDay: 240, totalPrice: 3360 },
-      ]}
+      pricePerDay={cureData.pricePerDay!}
+      durations={cureData.durations}
       treatments={[
         { name: "Abhyanga", description: "Massage à l'huile chaude" },
         { name: "Swedana", description: "Bain de vapeur aux herbes" },
