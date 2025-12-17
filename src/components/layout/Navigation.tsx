@@ -6,7 +6,7 @@ import logoArkadhya from "@/assets/logo-arkadhya.webp";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
-  { href: "/services", label: "Massages" },
+  { href: "/services", label: "Nos services" },
   { href: "/cures", label: "Cures" },
   { href: "/bilan-de-sante", label: "Bilan de santé" },
   { href: "/bhutavidya", label: "Bhutavidya" },
