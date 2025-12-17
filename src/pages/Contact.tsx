@@ -134,8 +134,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">Adresse</h3>
                       <p className="text-sm text-muted-foreground">
-                        Centre Arkadhya<br />
-                        Aquitaine, France
+                        "Gorse-Bas"<br />
+                        461 route de la Côte Rouge<br />
+                        47440 Pailloles
                       </p>
                     </div>
                   </div>
@@ -146,7 +147,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Téléphone</h3>
-                      <p className="text-sm text-muted-foreground">+33 X XX XX XX XX</p>
+                      <p className="text-sm text-muted-foreground">05 53 41 48 10</p>
                     </div>
                   </div>
                   
@@ -156,7 +157,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-sm text-muted-foreground">contact@arkadhya.org</p>
+                      <p className="text-sm text-muted-foreground">arkadhya@gmail.com</p>
                     </div>
                   </div>
                   
@@ -167,8 +168,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">Horaires</h3>
                       <p className="text-sm text-muted-foreground">
-                        Lundi - Vendredi : 9h - 19h<br />
-                        Samedi : 9h - 17h<br />
+                        Lundi - Samedi : 9h - 19h<br />
                         Dimanche : Fermé
                       </p>
                     </div>
