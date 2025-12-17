@@ -3,6 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, Tag } from "lucide-react";
 
+// Import blog images
+import osteoporoseImg from "@/assets/blog/osteoporose-hero.webp";
+import colonIrritableImg from "@/assets/blog/colon-irritable-hero.webp";
+
 const articles = [
   {
     slug: "osteoporose-ayurveda",
@@ -11,6 +15,7 @@ const articles = [
     date: "17 Décembre 2024",
     category: "Santé Osseuse",
     readTime: "25 min",
+    image: osteoporoseImg,
   },
   {
     slug: "colon-irritable-ayurveda",
@@ -19,6 +24,7 @@ const articles = [
     date: "17 Décembre 2024",
     category: "Digestion",
     readTime: "20 min",
+    image: colonIrritableImg,
   },
   {
     slug: "ayurveda-sante-mentale",
@@ -126,7 +132,18 @@ const Blog = () => {
                 key={article.slug} 
                 className="bg-card border-border hover:border-primary/30 transition-all duration-300 group overflow-hidden"
               >
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 relative">
+                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 relative overflow-hidden">
+                  {article.image ? (
+                    <img 
+                      src={article.image} 
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="text-6xl opacity-30">🌿</span>
+                    </div>
+                  )}
                   <div className="absolute top-4 left-4">
                     <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-1 bg-background/80 backdrop-blur-sm rounded">
                       <Tag className="h-3 w-3" />
