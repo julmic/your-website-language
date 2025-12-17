@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageHerbal from "@/assets/massages/massage-herbal.jpg";
+import massageImage from "@/assets/massages/elakizhi.webp";
 
 const Elakizhi = () => {
   return (
@@ -7,7 +7,7 @@ const Elakizhi = () => {
       title="Elakizhi"
       subtitle="Traitement pour stimuler les nerfs et réduire la douleur"
       description="L'ELAKIZHI est un traitement qui stimule les nerfs et aide à réduire la douleur. Il est principalement utilisé pour soulager les symptômes du rhumatisme, de l'arthrite, de la paralysie, du sciatique et de la spondylose."
-      image={massageHerbal}
+      image={massageImage}
       details={[
         "Stimulation des nerfs",
         "Soulagement du rhumatisme et de l'arthrite",
