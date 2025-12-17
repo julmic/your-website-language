@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState, useEffect } from "react";
 import colonHeroImg from "@/assets/blog/colon-irritable-hero.webp";
+import GrahaniQuiz from "@/components/blog/GrahaniQuiz";
 
 const ColonIrritable = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -33,6 +34,7 @@ const ColonIrritable = () => {
     { id: "comprendre", label: "Comprendre le SCI" },
     { id: "agni", label: "Le rôle d'Agni" },
     { id: "doshas", label: "Les 3 Doshas et le SCI" },
+    { id: "test", label: "🧪 Test Profil Grahani" },
     { id: "profils", label: "Les 4 Profils Grahani" },
     { id: "protocole", label: "Protocole en 3 Phases" },
     { id: "recettes", label: "Recettes Thérapeutiques" },
@@ -286,6 +288,18 @@ const ColonIrritable = () => {
                     </CardContent>
                   </Card>
                 </div>
+              </section>
+
+              {/* Section: Test */}
+              <section id="test" className="mb-16">
+                <h2 className="text-3xl font-serif font-semibold mb-6 text-foreground">
+                  🧪 Test Profil Grahani
+                </h2>
+                <p className="text-muted-foreground mb-8">
+                  Découvrez votre profil digestif selon l'Ayurvéda avec ce test de 20 questions. 
+                  Vos réponses vous aideront à identifier le dosha en déséquilibre et les conseils personnalisés qui vous correspondent.
+                </p>
+                <GrahaniQuiz />
               </section>
 
               {/* Section: Profils */}
