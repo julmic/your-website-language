@@ -27,6 +27,7 @@ import IncompatibilitesAlimentaires from "./pages/blog/IncompatibilitesAlimentai
 import HiverAyurveda from "./pages/blog/HiverAyurveda";
 import AutomneAyurveda from "./pages/blog/AutomneAyurveda";
 import SommeilAyurveda from "./pages/blog/SommeilAyurveda";
+import LesDoshas from "./pages/blog/LesDoshas";
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
 import Amrita from "./pages/cures/Amrita";
@@ -140,6 +141,7 @@ const App = () => (
           <Route path="/blog/hiver-ayurveda" element={<HiverAyurveda />} />
           <Route path="/blog/automne-ayurveda" element={<AutomneAyurveda />} />
           <Route path="/blog/sommeil-ayurveda" element={<SommeilAyurveda />} />
+          <Route path="/blog/les-3-doshas" element={<LesDoshas />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/atelier-cuisine" element={<AtelierCuisine />} />
