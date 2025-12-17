@@ -11,6 +11,7 @@ import hiverAyurvedaImg from "@/assets/blog/hiver-ayurveda-hero.webp";
 import automneAyurvedaImg from "@/assets/blog/automne-ayurveda-hero.jpeg";
 import santeMentaleImg from "@/assets/blog/sante-mentale-hero.png";
 import sommeilAyurvedaImg from "@/assets/blog/sommeil-ayurveda-hero.png";
+import doshasImg from "@/assets/blog/doshas-hero.webp";
 
 const articles = [
   {
@@ -77,12 +78,13 @@ const articles = [
     image: santeMentaleImg,
   },
   {
-    slug: "introduction-ayurveda",
-    title: "Introduction à l'Ayurvéda : Les 3 Doshas",
-    excerpt: "Découvrez les fondamentaux de l'Ayurvéda et comprenez votre constitution unique à travers les trois doshas : Vata, Pitta et Kapha. Cette connaissance ancestrale vous permettra de mieux comprendre votre corps et vos besoins.",
-    date: "15 Décembre 2024",
-    category: "Conseils",
-    readTime: "5 min",
+    slug: "les-3-doshas",
+    title: "Les 3 Doshas de l'Ayurvéda : Guide Complet",
+    excerpt: "Le guide complet pour comprendre Vata, Pitta et Kapha. Découvrez votre constitution unique avec notre quiz interactif de 30 questions et apprenez à équilibrer vos doshas.",
+    date: "Décembre 2024",
+    category: "Guides Débutants",
+    readTime: "12 min",
+    image: doshasImg,
   },
   {
     slug: "bienfaits-massage-abhyanga",
@@ -126,7 +128,7 @@ const articles = [
   },
 ];
 
-const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion", "Santé Osseuse", "Sommeil", "Saisonnier"];
+const categories = ["Tous", "Guides Débutants", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion", "Santé Osseuse", "Sommeil", "Saisonnier"];
 
 const Blog = () => {
   return (
