@@ -5,6 +5,14 @@ import { Calendar, ArrowRight, Tag } from "lucide-react";
 
 const articles = [
   {
+    slug: "osteoporose-ayurveda",
+    title: "Ostéoporose et Ayurvéda : Reconstruire Ses Os Naturellement",
+    excerpt: "Asthi Dhatu Kshaya : La vision millénaire qui régénère vos os. Découvrez votre profil osseux ayurvédique et le protocole de régénération en 4 phases.",
+    date: "17 Décembre 2024",
+    category: "Santé Osseuse",
+    readTime: "25 min",
+  },
+  {
     slug: "colon-irritable-ayurveda",
     title: "Le Syndrome du Côlon Irritable et l'Ayurvéda",
     excerpt: "Comprendre, identifier et apaiser naturellement votre côlon irritable avec la sagesse millénaire de l'Ayurvéda. Découvrez votre profil Grahani et le protocole thérapeutique personnalisé.",
@@ -70,7 +78,7 @@ const articles = [
   },
 ];
 
-const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion"];
+const categories = ["Tous", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion", "Santé Osseuse"];
 
 const Blog = () => {
   return (

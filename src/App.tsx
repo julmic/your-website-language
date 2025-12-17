@@ -22,6 +22,7 @@ import VoieHisvara from "./pages/philosophie/VoieHisvara";
 // Blog pages
 import AyurvedaSanteMentale from "./pages/blog/AyurvedaSanteMentale";
 import ColonIrritable from "./pages/blog/ColonIrritable";
+import Osteoporose from "./pages/blog/Osteoporose";
 
 // Cure pages
 import Panchakarma from "./pages/cures/Panchakarma";
