@@ -6,8 +6,18 @@ import { Calendar, ArrowRight, Tag } from "lucide-react";
 // Import blog images
 import osteoporoseImg from "@/assets/blog/osteoporose-hero.webp";
 import colonIrritableImg from "@/assets/blog/colon-irritable-hero.webp";
+import incompatibilitesImg from "@/assets/blog/incompatibilites-alimentaires-hero.webp";
 
 const articles = [
+  {
+    slug: "incompatibilites-alimentaires-ayurveda",
+    title: "Les Incompatibilités Alimentaires en Ayurvéda",
+    excerpt: "Virodha Ahara : Quand nos assiettes nous empoisonnent. Découvrez les 55+ combinaisons toxiques et les solutions ayurvédiques pour une digestion optimale.",
+    date: "16 Octobre 2025",
+    category: "Nutrition",
+    readTime: "16 min",
+    image: incompatibilitesImg,
+  },
   {
     slug: "osteoporose-ayurveda",
     title: "Ostéoporose et Ayurvéda : Reconstruire Ses Os Naturellement",
