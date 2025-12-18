@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massagePrenatal from "@/assets/massages/massage-prenatal.jpg";
+import massageImage from "@/assets/massages/prasavpurve-tirumu.jpeg";
 
 const PrasavpurveTirumu = () => {
   return (
@@ -7,7 +7,7 @@ const PrasavpurveTirumu = () => {
       title="Prasavpurve Tirumu"
       subtitle="Soins prénataux pour les femmes enceintes"
       description="Le PRASAVPURVE TIRUMU offre des soins prénataux spécialement conçus pour les femmes enceintes à partir de 3 mois, visant à prendre soin du bébé à venir ainsi que de sa maman avec des massages doux et apaisants."
-      image={massagePrenatal}
+      image={massageImage}
       details={[
         "Soins adaptés dès 3 mois de grossesse",
         "Massages doux et apaisants",

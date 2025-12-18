@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageFeet from "@/assets/massages/massage-feet.jpg";
+import massageImage from "@/assets/massages/bol-kansu.webp";
 
 const BolKansu = () => {
   return (
@@ -7,7 +7,7 @@ const BolKansu = () => {
       title="Massage au Bol Kansu"
       subtitle="Technique traditionnelle indienne pour équilibrer les énergies"
       description="Le massage au Bol Kansu est une technique traditionnelle indienne qui vise à équilibrer les énergies du corps. Il consiste à masser les pieds avec du ghee à l'aide d'un bol en bronze, stimulant les points réflexes."
-      image={massageFeet}
+      image={massageImage}
       details={[
         "Équilibrage des énergies du corps",
         "Massage des pieds au ghee et bol en bronze",
