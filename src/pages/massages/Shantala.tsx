@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageBaby from "@/assets/massages/massage-baby.jpg";
+import massageImage from "@/assets/massages/shantala.jpg";
 
 const Shantala = () => {
   return (
@@ -7,7 +7,7 @@ const Shantala = () => {
       title="Shantala"
       subtitle="Atelier massage bébé pour les parents"
       description="Le SHANTALA est un atelier individuel qui offre aux parents l'opportunité d'apprendre ou de perfectionner l'art du massage pour leur bébé, de l'âge d'un mois à deux ans, créant ainsi un lien affectif fort."
-      image={massageBaby}
+      image={massageImage}
       details={[
         "Atelier pour bébés de 1 mois à 2 ans",
         "Apprentissage des techniques de massage",

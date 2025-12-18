@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageEyes from "@/assets/massages/massage-eyes.jpg";
+import massageImage from "@/assets/massages/putapakam.jpeg";
 
 const Putapakam = () => {
   return (
@@ -7,7 +7,7 @@ const Putapakam = () => {
       title="Putapakam"
       subtitle="Traitement oculaire pour améliorer la santé des yeux"
       description="Le PUTAPAKAM est une méthode utilisée pour améliorer la santé des yeux en utilisant un liquide médicinal tiède. Ce processus est utilisé pour réduire l'opacité de la cornée et les cataractes, et pour favoriser la guérison des tissus oculaires."
-      image={massageEyes}
+      image={massageImage}
       details={[
         "Amélioration de la santé oculaire",
         "Réduction de l'opacité de la cornée",

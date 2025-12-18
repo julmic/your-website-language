@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import pindaSvedaImage from "@/assets/massages/pinda-sveda.png";
 
 const PindaSweda = () => {
   return (
@@ -48,23 +49,34 @@ const PindaSweda = () => {
       {/* Qu'est-ce que le Pinda Sweda */}
       <section className="py-16">
         <div className="container px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-serif font-semibold mb-6">Qu'est-ce que le Pinda Sweda ?</h2>
-            <div className="prose prose-invert max-w-none">
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                <strong className="text-foreground">Pinda Sweda</strong> combine <em>« pinda »</em> (boule, tampon) et <em>« sweda »</em> (sudation). 
-                Ce soin utilise des <strong className="text-foreground">pochons de tissu remplis d'herbes médicinales</strong>, 
-                chauffés à l'huile et appliqués sur le corps en mouvements rythmés.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Les <strong className="text-foreground">herbes libèrent leurs principes actifs</strong> sous l'effet de la chaleur, 
-                pénétrant profondément dans les tissus pour <strong className="text-foreground">soulager les douleurs</strong>, 
-                <strong className="text-foreground">détendre les muscles</strong> et <strong className="text-foreground">éliminer les toxines</strong>.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                C'est le soin idéal pour les personnes souffrant de <strong className="text-foreground">tensions musculaires chroniques</strong>, 
-                de <strong className="text-foreground">raideurs articulaires</strong> ou cherchant une <strong className="text-foreground">détente profonde</strong>.
-              </p>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h2 className="text-3xl font-serif font-semibold mb-6">Qu'est-ce que le Pinda Sweda ?</h2>
+                <div className="prose prose-invert max-w-none">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                    <strong className="text-foreground">Pinda Sweda</strong> combine <em>« pinda »</em> (boule, tampon) et <em>« sweda »</em> (sudation). 
+                    Ce soin utilise des <strong className="text-foreground">pochons de tissu remplis d'herbes médicinales</strong>, 
+                    chauffés à l'huile et appliqués sur le corps en mouvements rythmés.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                    Les <strong className="text-foreground">herbes libèrent leurs principes actifs</strong> sous l'effet de la chaleur, 
+                    pénétrant profondément dans les tissus pour <strong className="text-foreground">soulager les douleurs</strong>, 
+                    <strong className="text-foreground">détendre les muscles</strong> et <strong className="text-foreground">éliminer les toxines</strong>.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    C'est le soin idéal pour les personnes souffrant de <strong className="text-foreground">tensions musculaires chroniques</strong>, 
+                    de <strong className="text-foreground">raideurs articulaires</strong> ou cherchant une <strong className="text-foreground">détente profonde</strong>.
+                  </p>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src={pindaSvedaImage} 
+                  alt="Pinda Sweda - Massage aux pochons d'herbes"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

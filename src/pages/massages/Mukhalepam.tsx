@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageFace from "@/assets/massages/massage-face.jpg";
+import massageImage from "@/assets/massages/mukhalepam.png";
 
 const Mukhalepam = () => {
   return (
@@ -7,7 +7,7 @@ const Mukhalepam = () => {
       title="Mukhalepam"
       subtitle="Traitement de beauté du visage"
       description="Le MUKHALEPAM est un traitement qui permet de réduire les rides et les points noirs, d'améliorer la texture de la peau et de donner un éclat spécial au visage. Cette poudre spéciale nourrit la peau en profondeur."
-      image={massageFace}
+      image={massageImage}
       details={[
         "Réduction des rides",
         "Élimination des points noirs",

@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageFace from "@/assets/massages/massage-face.jpg";
+import massageImage from "@/assets/massages/saundarya.jpeg";
 
 const Saundarya = () => {
   return (
@@ -7,7 +7,7 @@ const Saundarya = () => {
       title="Saundarya"
       subtitle="Traitement de beauté du visage par les points marma"
       description="Le SAUNDARYA est un traitement de beauté du visage qui vise à effacer les tensions et à procurer une détente musculaire. Ce traitement fonctionne en ciblant les points marma du visage, permettant d'obtenir un teint plus lumineux et une apparence plus détendue."
-      image={massageFace}
+      image={massageImage}
       details={[
         "Effacement des tensions du visage",
         "Détente musculaire faciale",
