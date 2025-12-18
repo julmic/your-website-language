@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, Tag } from "lucide-react";
-import { articlesData, articleCategories } from "@/data/articles";
+import { articleCategories, getArticlesByCategory } from "@/data/articles";
 
 const Blog = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("Tous");
+  const filteredArticles = getArticlesByCategory(selectedCategory);
+
   return (
     <Layout>
       {/* Hero */}
@@ -28,8 +32,9 @@ const Blog = () => {
             {articleCategories.map((category) => (
               <button
                 key={category}
+                onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 text-sm rounded-full transition-colors ${
-                  category === "Tous"
+                  category === selectedCategory
                     ? "bg-primary text-primary-foreground"
                     : "bg-secondary text-secondary-foreground hover:bg-primary/10"
                 }`}
@@ -45,7 +50,11 @@ const Blog = () => {
       <section className="py-16">
         <div className="container px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {articlesData.map((article) => (
+            {filteredArticles.length === 0 ? (
+              <p className="col-span-full text-center text-muted-foreground py-8">
+                Aucun article dans cette catégorie pour le moment.
+              </p>
+            ) : filteredArticles.map((article) => (
               <Card 
                 key={article.slug} 
                 className="bg-card border-border hover:border-primary/30 transition-all duration-300 group overflow-hidden"
