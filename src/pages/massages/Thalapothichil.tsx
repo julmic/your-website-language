@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageHerbal from "@/assets/massages/massage-herbal.jpg";
+import massageImage from "@/assets/massages/thalapothichil.png";
 
 const Thalapothichil = () => {
   return (
@@ -7,7 +7,7 @@ const Thalapothichil = () => {
       title="Thalapothichil"
       subtitle="Cataplasme d'herbes médicinales pour la tête"
       description="Le THALAPOTHICHIL est un traitement efficace pour divers problèmes de santé tels que l'effort, l'inquiétude, la sinusite, le mal de tête chronique, les troubles du sommeil et la perte de cheveux. Cette méthode traditionnelle utilise des herbes médicinales spécifiques qui sont appliquées en cataplasmes sur la tête du patient."
-      image={massageHerbal}
+      image={massageImage}
       details={[
         "Soulagement du stress et de l'inquiétude",
         "Traitement de la sinusite",

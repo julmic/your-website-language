@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageHead from "@/assets/massages/massage-head.jpg";
+import massageImage from "@/assets/massages/shirotchampi.jpeg";
 
 const Shirotchampi = () => {
   return (
@@ -7,7 +7,7 @@ const Shirotchampi = () => {
       title="Shirotchampi"
       subtitle="Massage crânien pour la relaxation et revitalisation"
       description="Le SHIROTCHAMPI a pour but la relaxation et la revitalisation de l'individu angoissé ou stressé. C'est une technique de massage pratiquée sur la tête, les épaules et le cou où l'être humain accumule les tensions quotidiennes."
-      image={massageHead}
+      image={massageImage}
       details={[
         "Relaxation et revitalisation",
         "Massage de la tête, épaules et cou",
