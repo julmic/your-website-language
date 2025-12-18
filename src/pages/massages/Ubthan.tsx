@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageScrub from "@/assets/massages/massage-scrub.jpg";
+import massageImage from "@/assets/massages/ubthan.jpeg";
 
 const Ubthan = () => {
   return (
@@ -7,7 +7,7 @@ const Ubthan = () => {
       title="Ubthan"
       subtitle="Gommage du corps naturel"
       description="L'UBTHAN est un gommage du corps qui permet d'exfolier en douceur et d'éliminer les impuretés de la peau. Sa formule naturelle à base d'ingrédients biologiques nourrit et hydrate la peau en profondeur, la laissant douce et éclatante."
-      image={massageScrub}
+      image={massageImage}
       details={[
         "Exfoliation douce de la peau",
         "Élimination des impuretés",

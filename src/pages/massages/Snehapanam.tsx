@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageOil from "@/assets/massages/massage-oil.jpg";
+import massageImage from "@/assets/massages/snehapanam.jpeg";
 
 const Snehapanam = () => {
   return (
@@ -7,7 +7,7 @@ const Snehapanam = () => {
       title="Snehapanam"
       subtitle="Procédé d'oléation interne thérapeutique"
       description="Le SNEHAPANAM est un procédé d'oléation extrêmement bénéfique dans de nombreux cas, tels que l'asthme allergique, le psoriasis, l'eczéma, les problèmes d'immunité, l'acidité excessive, l'ulcère peptique, les troubles digestifs et diverses affections mentales."
-      image={massageOil}
+      image={massageImage}
       details={[
         "Traitement de l'asthme allergique",
         "Soulagement du psoriasis et de l'eczéma",
