@@ -25,7 +25,7 @@ const navigationItems = [
     ],
   },
   {
-    label: "Cures",
+    label: "Cures Ayurvédiques",
     items: [
       { href: "/cures", label: "Toutes les cures", description: "Découvrez nos programmes" },
       { href: "/cures/panchakarma", label: "Cure Panchakarma", description: "Détoxification profonde" },
