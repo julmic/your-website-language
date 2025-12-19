@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { toast } from "sonner";
+import MapboxMap from "@/components/ui/MapboxMap";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -176,10 +177,13 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              {/* Map placeholder */}
-              <div className="h-64 rounded-lg bg-secondary border border-border flex items-center justify-center">
-                <p className="text-muted-foreground text-sm">Carte interactive</p>
-              </div>
+              {/* Interactive Map */}
+              <MapboxMap 
+                latitude={44.3167} 
+                longitude={0.4833}
+                zoom={13}
+                markerTitle="Arkadhya - Centre Ayurvédique"
+              />
             </div>
           </div>
         </div>
