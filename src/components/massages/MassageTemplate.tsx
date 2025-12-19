@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 import { Link } from "react-router-dom";
 import { Clock, Euro, ArrowLeft, ExternalLink, BookOpen, Phone, Star } from "lucide-react";
 import {
@@ -151,13 +152,11 @@ export const MassageTemplate = ({
               </div>
               {image && (
                 <div className="relative">
-                  <div className="rounded-2xl overflow-hidden shadow-xl">
-                    <img 
-                      src={image} 
-                      alt={`Massage ${title}`}
-                      className="w-full h-80 object-cover"
-                    />
-                  </div>
+                  <OptimizedImage
+                    src={image}
+                    alt={`Massage ${title}`}
+                    className="rounded-2xl shadow-xl h-80"
+                  />
                 </div>
               )}
             </div>
