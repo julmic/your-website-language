@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageHerbal from "@/assets/massages/massage-herbal.jpg";
+import massageImage from "@/assets/massages/navarakiri.png";
 
 const Navarakiri = () => {
   return (
@@ -7,7 +7,7 @@ const Navarakiri = () => {
       title="Navarakiri"
       subtitle="Massage aux tampons de riz pour soulager les douleurs rhumatismales"
       description="Le NAVARAKIRI est une technique de massage ayurvédique qui utilise des tampons de riz aux plantes pour soulager les douleurs rhumatismales. Les tampons de riz sont chauffés et imprégnés d'un mélange d'herbes médicinales."
-      image={massageHerbal}
+      image={massageImage}
       details={[
         "Soulagement des douleurs rhumatismales",
         "Tampons de riz chauffés aux herbes médicinales",

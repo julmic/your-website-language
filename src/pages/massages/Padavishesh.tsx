@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageOil from "@/assets/massages/massage-oil.jpg";
+import massageImage from "@/assets/massages/padavishesh.png";
 
 const Padavishesh = () => {
   return (
@@ -7,7 +7,7 @@ const Padavishesh = () => {
       title="Padavishesh"
       subtitle="Massage unique réalisé avec les pieds"
       description="Le PADAVISHESH est un massage unique réalisé avec l'utilisation d'huile chaude et effectué principalement avec les pieds du thérapeute. Grâce à des mouvements précis et contrôlés, ce massage offre une expérience unique et revitalisante."
-      image={massageOil}
+      image={massageImage}
       details={[
         "Massage aux pieds du thérapeute",
         "Huile chaude pour détente profonde",

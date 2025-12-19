@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageFeet from "@/assets/massages/massage-feet.jpg";
+import massageImage from "@/assets/massages/padabhyanga.png";
 
 const Padabhyanga = () => {
   return (
@@ -7,7 +7,7 @@ const Padabhyanga = () => {
       title="Padabhyanga"
       subtitle="Réflexologie plantaire et palmaire ayurvédique"
       description="Le PADABHYANGA traite les déséquilibres légers, tels que l'insomnie et l'hyperactivité mentale. Ce traitement favorise une meilleure circulation sanguine et aide à rétablir les déséquilibres dans le corps avec un bol en alliage et du ghee."
-      image={massageFeet}
+      image={massageImage}
       details={[
         "Traitement de l'insomnie",
         "Réduction de l'hyperactivité mentale",

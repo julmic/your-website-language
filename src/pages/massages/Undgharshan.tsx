@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageScrub from "@/assets/massages/massage-scrub.jpg";
+import massageImage from "@/assets/massages/undgharshan.png";
 
 const Undgharshan = () => {
   return (
@@ -7,7 +7,7 @@ const Undgharshan = () => {
       title="Undgharshan"
       subtitle="Traitement exfoliant aux épices pour rajeunir la peau"
       description="L'UNDGARSHAN est une technique utilisée pour rajeunir la peau en éliminant les cellules mortes et en stimulant la circulation sanguine. Ce traitement exfoliant utilise une préparation à base d'épices, de lait et de sel appliquée en mouvements circulaires."
-      image={massageScrub}
+      image={massageImage}
       details={[
         "Rajeunissement de la peau",
         "Élimination des cellules mortes",
