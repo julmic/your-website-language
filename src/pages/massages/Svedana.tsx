@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageHerbal from "@/assets/massages/massage-herbal.jpg";
+import massageImage from "@/assets/massages/svedana.png";
 
 const Svedana = () => {
   return (
@@ -7,7 +7,7 @@ const Svedana = () => {
       title="Svedana"
       subtitle="Sauna traditionnel aux plantes"
       description="La SVEDANA est une technique de sauna traditionnelle où l'on prend un bain de chaleur aux plantes. Les herbes médicinales libèrent leurs huiles essentielles dans l'air, créant une atmosphère relaxante et purifiante."
-      image={massageHerbal}
+      image={massageImage}
       details={[
         "Bain de chaleur aux plantes médicinales",
         "Détente musculaire profonde",

@@ -24,7 +24,7 @@ import massageScrub from "@/assets/massages/massage-scrub.jpg";
 
 // Import specific massage images
 import massageAbhyanga from "@/assets/massages/abhyanga.webp";
-import massageVishesh from "@/assets/massages/vishesh.webp";
+import massageVishesh from "@/assets/massages/vishesh-new.png";
 import massageKizhi from "@/assets/massages/kizhi.webp";
 import massageElakizhi from "@/assets/massages/elakizhi.webp";
 import massageMardanam from "@/assets/massages/mardanam.webp";
@@ -45,6 +45,16 @@ import massageShirotchampi from "@/assets/massages/shirotchampi.jpeg";
 import massageSaundarya from "@/assets/massages/saundarya.jpeg";
 import massageShantala from "@/assets/massages/shantala.jpg";
 
+// Import new massage images
+import massageShashtishalipindswedan from "@/assets/massages/shashtishalipindswedan.png";
+import massageSvedana from "@/assets/massages/svedana.png";
+import massagePadavishesh from "@/assets/massages/padavishesh.png";
+import massagePadabhyanga from "@/assets/massages/padabhyanga.png";
+import massageNavarakiri from "@/assets/massages/navarakiri.png";
+import massageMarmaTherapie from "@/assets/massages/marma-therapie.png";
+import massageUndgharshan from "@/assets/massages/undgharshan.png";
+import massagePrishtikaraTirumu from "@/assets/massages/prishtikara-tirumu.png";
+
 // Import cure images
 import curePanchakarma from "@/assets/cures/cure-panchakarma.jpg";
 import cureAmrita from "@/assets/cures/cure-amrita.jpg";
@@ -63,31 +73,31 @@ const massages = [
   { name: "Vishesh", duration: "1h30", price: "70€", link: "/services/vishesh", image: massageVishesh },
   { name: "Udvartana", duration: "1h30", price: "80€", link: "/services/udvartana", image: massageUdvartana },
   { name: "Shiroabhyanga", duration: "1h", price: "70€", link: "/services/shiro-abhyanga", image: massageShiroabhyanga },
-  { name: "Marma-Thérapie", duration: "1h30", price: "80€", link: "/services/marma-therapie", image: massageOil },
+  { name: "Marma-Thérapie", duration: "1h30", price: "80€", link: "/services/marma-therapie", image: massageMarmaTherapie },
   { name: "Pizichilli", duration: "2h", price: "120€", link: "/services/pizichilli", image: massagePizichilli },
-  { name: "Navarakiri", duration: "1h30", price: "90€", link: "/services/navarakiri", image: massageHerbal },
+  { name: "Navarakiri", duration: "1h30", price: "90€", link: "/services/navarakiri", image: massageNavarakiri },
   { name: "Elakizhi", duration: "1h30", price: "80€", link: "/services/elakizhi", image: massageElakizhi },
-  { name: "Padabhyanga", duration: "1h", price: "70€", link: "/services/padabhyanga", image: massageFeet },
+  { name: "Padabhyanga", duration: "1h", price: "70€", link: "/services/padabhyanga", image: massagePadabhyanga },
   { name: "Thalapothichil", duration: "1h", price: "70€", link: "/services/thalapothichil", image: massageThalapothichil },
   { name: "Prasavpurve Tirumu", duration: "1h30", price: "70€", link: "/services/prasavpurve-tirumu", image: massagePrasavpurveTirumu },
-  { name: "Prishtikara Tirumu", duration: "1h", price: "70€", link: "/services/prishtikara-tirumu", image: massagePrenatal },
+  { name: "Prishtikara Tirumu", duration: "1h", price: "70€", link: "/services/prishtikara-tirumu", image: massagePrishtikaraTirumu },
   { name: "Shirodhara", duration: "1h30", price: "90€", link: "/services/shirodhara", image: massageShirodharaNew },
   { name: "Snehapanam", duration: "1h30", price: "70€", link: "/services/snehapanam", image: massageSnehapanam },
   { name: "Putapakam", duration: "1h30", price: "90€", link: "/services/putapakam", image: massagePutapakam },
   { name: "Mukhalepam", duration: "1h", price: "70€", link: "/services/mukhalepam", image: massageMukhalepam },
-  { name: "Svedana", duration: "1h", price: "25€", link: "/services/svedana", image: massageHerbal },
+  { name: "Svedana", duration: "1h", price: "25€", link: "/services/svedana", image: massageSvedana },
   { name: "Pinda Sveda", duration: "1h30", price: "90€", link: "/services/pinda-sveda", image: massagePindaSweda },
   { name: "Shantala", duration: "1h30", price: "70€", link: "/services/shantala", image: massageShantala },
   { name: "Saundarya", duration: "1h30", price: "70€", link: "/services/saundarya", image: massageSaundarya },
-  { name: "Shashtishalipindswedan", duration: "1h30", price: "90€", link: "/services/shashtishalipindswedan", image: massageHerbal },
-  { name: "Padavishesh", duration: "1h30", price: "80€", link: "/services/padavishesh", image: massageFeet },
+  { name: "Shashtishalipindswedan", duration: "1h30", price: "90€", link: "/services/shashtishalipindswedan", image: massageShashtishalipindswedan },
+  { name: "Padavishesh", duration: "1h30", price: "80€", link: "/services/padavishesh", image: massagePadavishesh },
   { name: "Bol Kansu", duration: "1h", price: "70€", link: "/services/bol-kansu", image: massageBolKansu },
   { name: "Mardanam", duration: "1h30", price: "70€", link: "/services/mardanam", image: massageMardanam },
   { name: "Pancha Maha Bhuta", duration: "1h30", price: "70€", link: "/services/pancha-maha-bhuta", image: massagePanchaMahaBhuta },
   { name: "Shirotchampi", duration: "1h30", price: "80€", link: "/services/shirotchampi", image: massageShirotchampi },
   { name: "Kizhi", duration: "-", price: "Cure", link: "/services/kizhi", image: massageKizhi },
   { name: "Ubthan", duration: "-", price: "Cure", link: "/services/ubthan", image: massageUbthan },
-  { name: "Undgharshan", duration: "-", price: "Cure", link: "/services/undgharshan", image: massageScrub },
+  { name: "Undgharshan", duration: "-", price: "Cure", link: "/services/undgharshan", image: massageUndgharshan },
 ];
 
 const consultations = [

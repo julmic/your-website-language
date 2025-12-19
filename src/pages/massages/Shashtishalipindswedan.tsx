@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageHerbal from "@/assets/massages/massage-herbal.jpg";
+import massageImage from "@/assets/massages/shashtishalipindswedan.png";
 
 const Shashtishalipindswedan = () => {
   return (
@@ -7,7 +7,7 @@ const Shashtishalipindswedan = () => {
       title="Shashtishalipindswedan"
       subtitle="Massage indien aux pochons de riz et lait"
       description="Le SHASHTISHALIPINDSWEDAN est un massage indien recommandé pour soulager les articulations et améliorer la beauté de la peau. Ce massage utilise des pochons de riz trempés dans du lait appliqués sur tout le corps."
-      image={massageHerbal}
+      image={massageImage}
       details={[
         "Soulagement des articulations",
         "Amélioration de la beauté de la peau",

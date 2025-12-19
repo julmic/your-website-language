@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageImage from "@/assets/massages/massage-oil.jpg";
+import massageImage from "@/assets/massages/marma-therapie.png";
 
 const MarmaTherapie = () => {
   return (

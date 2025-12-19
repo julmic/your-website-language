@@ -1,5 +1,5 @@
 import { MassageTemplate } from "@/components/massages/MassageTemplate";
-import massageBaby from "@/assets/massages/massage-baby.jpg";
+import massageImage from "@/assets/massages/prishtikara-tirumu.png";
 
 const PrishtikaraTirumu = () => {
   return (
@@ -7,7 +7,7 @@ const PrishtikaraTirumu = () => {
       title="Prishtikara Tirumu"
       subtitle="Massage pour bébé"
       description="Le PRISHTIKARA TIRUMU est un massage pour bébé qui apporte de nombreux bienfaits à tout son organisme. Il favorise son développement et sa souplesse, lui permettant ainsi de grandir en pleine santé tout en renforçant le lien parent-enfant."
-      image={massageBaby}
+      image={massageImage}
       details={[
         "Développement et souplesse du bébé",
         "Croissance en pleine santé",
