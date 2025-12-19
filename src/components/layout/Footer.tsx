@@ -72,9 +72,12 @@ export const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Arkadhya. Tous droits réservés.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <Link to="/mentions-legales" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Mentions légales
+            </Link>
+            <Link to="/cgv" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              CGV
             </Link>
             <Link to="/politique-confidentialite" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Politique de confidentialité

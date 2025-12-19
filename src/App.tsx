@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { ScrollToTop } from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
@@ -19,6 +20,10 @@ import AyurvedaElevationSpirituelle from "./pages/philosophie/AyurvedaElevationS
 import InvolutionEvolution from "./pages/philosophie/InvolutionEvolution";
 import MortAyurveda from "./pages/philosophie/MortAyurveda";
 import VoieHisvara from "./pages/philosophie/VoieHisvara";
+import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
+import MentionsLegales from "./pages/legal/MentionsLegales";
+import CGV from "./pages/legal/CGV";
+import PolitiqueConfidentialite from "./pages/legal/PolitiqueConfidentialite";
 
 // Blog pages
 import AyurvedaSanteMentale from "./pages/blog/AyurvedaSanteMentale";
@@ -76,15 +81,21 @@ import Shirotchampi from "./pages/massages/Shirotchampi";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/services" element={<Services />} />
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/cures" element={<Cures />} />
+            <Route path="/consultations-ayurveda" element={<ConsultationsAyurveda />} />
+            <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/cgv" element={<CGV />} />
+            <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
           <Route path="/cures" element={<Cures />} />
           
           {/* Cure routes */}
@@ -159,6 +170,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
