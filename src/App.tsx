@@ -16,6 +16,7 @@ import AtelierCuisine from "./pages/AtelierCuisine";
 import BilanDeSante from "./pages/BilanDeSante";
 import Bhutavidya from "./pages/Bhutavidya";
 import PhilosophieVedique from "./pages/PhilosophieVedique";
+import GayatriMantra from "./pages/GayatriMantra";
 import AyurvedaElevationSpirituelle from "./pages/philosophie/AyurvedaElevationSpirituelle";
 import InvolutionEvolution from "./pages/philosophie/InvolutionEvolution";
 import MortAyurveda from "./pages/philosophie/MortAyurveda";
@@ -161,6 +162,7 @@ const App = () => (
           <Route path="/bilan-de-sante" element={<BilanDeSante />} />
           <Route path="/bhutavidya" element={<Bhutavidya />} />
           <Route path="/philosophie-vedique" element={<PhilosophieVedique />} />
+          <Route path="/gayatri-mantra" element={<GayatriMantra />} />
           <Route path="/philosophie/ayurveda-elevation-spirituelle" element={<AyurvedaElevationSpirituelle />} />
           <Route path="/philosophie/involution-evolution" element={<InvolutionEvolution />} />
           <Route path="/philosophie/mort-ayurveda" element={<MortAyurveda />} />

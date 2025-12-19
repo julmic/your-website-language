@@ -45,6 +45,7 @@ const navigationItems = [
     label: "Enseignements",
     items: [
       { href: "/philosophie-vedique", label: "Philosophie védique", description: "Les fondements spirituels" },
+      { href: "/gayatri-mantra", label: "Gayatri Mantra", description: "Le mantra sacré védique" },
       { href: "/blog", label: "Blog & Articles", description: "Actualités et conseils" },
     ],
   },
