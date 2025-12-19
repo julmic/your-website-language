@@ -49,6 +49,10 @@
     --sage-light: 145 25% 50%;
     --cream: 45 30% 92%;
     --forest: 150 35% 12%;
+    --shadow-sm: 0px 1px 1.5px 0px hsla(0, 0%, 0%, 0.11);
+    --shadow: 0px 1px 3px 0px hsla(0, 0%, 0%, 0.11);
+    --shadow-md: 0px 1px 4.5px 0px hsla(0, 0%, 0%, 0.11);
+    --shadow-lg: 0px 1px 7.5px 0px hsla(0, 0%, 0%, 0.11);
   }
 
   .dark {
@@ -79,6 +83,10 @@
     --border: 150 15% 20%;
     --input: 150 15% 20%;
     --ring: 145 50% 45%;
+    --shadow-sm: 0px 1px 1.5px 0px hsla(0, 0%, 0%, 0.11);
+    --shadow: 0px 1px 3px 0px hsla(0, 0%, 0%, 0.11);
+    --shadow-md: 0px 1px 4.5px 0px hsla(0, 0%, 0%, 0.11);
+    --shadow-lg: 0px 1px 7.5px 0px hsla(0, 0%, 0%, 0.11);
   }
 }
 
