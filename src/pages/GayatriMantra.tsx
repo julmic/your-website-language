@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import sriYantraImg from "@/assets/enseignements/sri-yantra.webp";
 import gayatriDeviImg from "@/assets/enseignements/gayatri-devi.webp";
-import chakrasImg from "@/assets/enseignements/chakras-gayatri.webp";
+import gayatriMantraCorpsImg from "@/assets/enseignements/gayatri-mantra-corps.webp";
 
 const GayatriMantra = () => {
   return (
@@ -190,8 +190,31 @@ const GayatriMantra = () => {
         </div>
       </section>
 
-      {/* Origine et Histoire */}
+      {/* Le Mantra et le Corps Subtil */}
       <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-serif text-center text-foreground mb-4">
+              Le Mantra et le Corps Subtil
+            </h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Le Gayatri Mantra agit sur l'ensemble du système énergétique subtil, harmonisant les chakras et purifiant les nadis.
+            </p>
+            <div className="flex justify-center">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-primary/10 max-w-2xl">
+                <img 
+                  src={gayatriMantraCorpsImg} 
+                  alt="Le Gayatri Mantra et son action sur le corps subtil" 
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Origine et Histoire */}
+      <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
@@ -268,36 +291,6 @@ const GayatriMantra = () => {
                 <p className="text-sm text-muted-foreground">
                   La personnification divine du mantra. Représentée avec cinq visages symbolisant les cinq éléments et les cinq pranas, elle incarne la sagesse universelle.
                 </p>
-              </div>
-            </div>
-
-            {/* Chakras */}
-            <div className="mt-16">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-serif text-foreground mb-4">Action sur les Chakras</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Le Gayatri Mantra agit sur l'ensemble du système énergétique subtil. Ses 24 syllabes correspondent aux 24 vertèbres de la colonne vertébrale et activent les sept chakras principaux.
-                  </p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li><strong className="text-foreground">Muladhara (Racine)</strong> - Ancrage et stabilité</li>
-                    <li><strong className="text-foreground">Svadhisthana (Sacré)</strong> - Créativité et émotions</li>
-                    <li><strong className="text-foreground">Manipura (Plexus)</strong> - Volonté et transformation</li>
-                    <li><strong className="text-foreground">Anahata (Cœur)</strong> - Amour et compassion</li>
-                    <li><strong className="text-foreground">Vishuddha (Gorge)</strong> - Expression et vérité</li>
-                    <li><strong className="text-foreground">Ajna (3ème œil)</strong> - Intuition et sagesse</li>
-                    <li><strong className="text-foreground">Sahasrara (Couronne)</strong> - Connexion divine</li>
-                  </ul>
-                </div>
-                <div className="order-1 md:order-2 flex justify-center">
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-primary/10 max-w-xs">
-                    <img 
-                      src={chakrasImg} 
-                      alt="Les sept chakras activés par le Gayatri Mantra" 
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
               </div>
             </div>
           </div>
