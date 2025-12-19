@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Tag } from "lucide-react";
+import { ArrowRight, Calendar, Tag, Sparkles } from "lucide-react";
 import { getLatestArticles } from "@/data/articles";
+import kitcheriImage from "@/assets/cuisine/kitcheri.webp";
 
 export const BlogPreview = () => {
   const latestArticles = getLatestArticles(3);
@@ -18,6 +19,59 @@ export const BlogPreview = () => {
             Explorez notre blog pour approfondir vos connaissances en Ayurvéda
           </p>
         </div>
+
+        {/* Featured Workshop Card */}
+        <Card className="mb-10 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/20 border-primary/20 overflow-hidden group hover:shadow-lg transition-all duration-300">
+          <div className="flex flex-col md:flex-row">
+            <div className="md:w-1/3 h-48 md:h-auto relative overflow-hidden">
+              <img 
+                src={kitcheriImage} 
+                alt="Atelier de Cuisine Ayurvédique - Préparation du Kitcheri"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 bg-primary text-primary-foreground rounded-full shadow-md">
+                  <Sparkles className="h-3 w-3" />
+                  Événement à venir
+                </span>
+              </div>
+            </div>
+            <CardContent className="md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
+              <h3 className="text-2xl md:text-3xl font-serif font-semibold mb-2">
+                Atelier de Cuisine Ayurvédique
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Apprenez à cuisiner selon votre Dosha et découvrez les secrets de la cuisine équilibrée ayurvédique
+              </p>
+              
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start gap-3 p-3 bg-background/60 rounded-lg border border-border/50">
+                  <Calendar className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium">Dimanche 17 mai 2026 - Niveau 1</p>
+                    <p className="text-sm text-muted-foreground">"Maîtriser l'art des 6 saveurs"</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-3 bg-background/60 rounded-lg border border-border/50">
+                  <Calendar className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium">Dimanche 20 septembre 2026 - Niveau 2</p>
+                    <p className="text-sm text-muted-foreground">"Utiliser les épices"</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <Button asChild size="lg" className="group/btn">
+                  <Link to="/atelier-cuisine">
+                    Réserver ma place
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </div>
+        </Card>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {latestArticles.map((article) => (
