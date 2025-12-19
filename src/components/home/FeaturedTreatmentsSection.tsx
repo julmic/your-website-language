@@ -6,6 +6,7 @@ import marmaImage from "@/assets/massages/marma-therapie.png";
 import prakritiImage from "@/assets/bilan/prakriti.avif";
 import doshaImage from "@/assets/bilan/dosha.avif";
 import panchakarmaImage from "@/assets/cures/cure-panchakarma.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const treatments = [
   {
@@ -47,8 +48,15 @@ const treatments = [
 ];
 
 export const FeaturedTreatmentsSection = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section className="py-20">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`py-20 transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">

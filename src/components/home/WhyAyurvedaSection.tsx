@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Brain, Leaf, Moon, Zap, Scale, Shield } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const benefits = [
   {
@@ -36,8 +37,15 @@ const benefits = [
 ];
 
 export const WhyAyurvedaSection = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section className="py-20 bg-card/30">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`py-20 bg-card/30 transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
