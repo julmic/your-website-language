@@ -36,18 +36,12 @@ export const HeroSection = () => {
           {/* Central Content */}
           <div className="max-w-3xl text-center space-y-6">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight">
-              Bienvenue au Centre Ayurvédique
-              <span className="block text-gradient mt-2">Arkadhya en Aquitaine</span>
+              Ayurveda, soins traditionnels et
+              <span className="block text-gradient mt-2">accompagnement vers l'équilibre intérieur</span>
             </h1>
             
-            <h2 className="text-xl md:text-2xl text-primary font-medium">
-              Retrouvez l'équilibre grâce à l'Ayurveda
-            </h2>
-            
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Le centre Ayurvédique Arkadhya Aquitaine vous accueille dans un espace dédié au bien-être, 
-              à la santé naturelle et à l'harmonie corps-esprit. Nos méthodes reposent sur l'enseignement 
-              traditionnel indien, validé par l'État indien et conforme aux standards internationaux WAF.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Consultations, massages, cures ayurvédiques et formations
             </p>
 
             {/* Mobile logos */}
@@ -70,15 +64,16 @@ export const HeroSection = () => {
               </div>
             </div>
             
-            <p className="text-lg md:text-xl font-serif text-foreground/90 italic">
-              Découvrez l'art ancestral de l'Ayurvéda
-            </p>
-            
-            <div className="pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button size="lg" asChild className="text-base">
-                <Link to="/services">
-                  Découvrir nos services
+                <Link to="/contact">
+                  Prendre rendez-vous
                   <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="text-base border-primary/50 hover:bg-primary/10">
+                <Link to="/services">
+                  Découvrir les soins
                 </Link>
               </Button>
             </div>
