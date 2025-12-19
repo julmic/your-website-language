@@ -2,10 +2,18 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import patrickImage from "@/assets/about/patrick-villette.webp";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const AboutPreview = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
+
   return (
-    <section className="py-20 bg-card/50">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`py-20 bg-card/50 transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="container px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image */}

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import cureImage from "@/assets/cures/cure-ojas-kayakalpa.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const features = [
   "Programmes de 3 à 21 jours",
@@ -11,8 +12,15 @@ const features = [
 ];
 
 export const CuresZoomSection = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
+
   return (
-    <section className="py-20 bg-card/30">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`py-20 bg-card/30 transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="container px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
