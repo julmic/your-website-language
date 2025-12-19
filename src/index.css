@@ -4,11 +4,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap');
 
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+
 /* Arkadhya Ayurvedic Design System - Dark elegant theme */
 
 @layer base {
   :root {
-    --background: 150 25% 6%;
+    --background: 136 17% 17%;
     --foreground: 45 30% 92%;
 
     --card: 150 20% 10%;
@@ -215,7 +219,7 @@ spline-viewer::part(watermark) {
     transform: translateY(-60px) scale(0.8);
     animation: elegant-unroll-mobile 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
-  
+
   .site-title.animate {
     transform: translateY(-20px);
     animation: text-reveal-mobile 1.5s ease-out forwards;
@@ -260,7 +264,7 @@ spline-viewer::part(watermark) {
     animation: simple-fade 0.5s ease forwards !important;
     animation-delay: 0s !important;
   }
-  
+
   @keyframes simple-fade {
     from { opacity: 0; }
     to { opacity: 1; }
