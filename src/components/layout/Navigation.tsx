@@ -53,6 +53,7 @@ const navigationItems = [
     label: "À propos",
     items: [
       { href: "/a-propos", label: "L'équipe", description: "Rencontrez nos praticiens" },
+      { href: "/centre-ayurvedique-arkadhya-en-images", label: "Galerie photos", description: "Découvrez le centre en images" },
       { href: "/contact", label: "Contact", description: "Nous contacter" },
     ],
   },
