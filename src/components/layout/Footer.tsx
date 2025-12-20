@@ -25,6 +25,7 @@ export const Footer = () => {
               <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
               <li><Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
               <li><Link to="/a-propos" className="text-sm text-muted-foreground hover:text-primary transition-colors">À propos</Link></li>
+              <li><Link to="/centre-ayurvedique-arkadhya-en-images" className="text-sm text-muted-foreground hover:text-primary transition-colors">Galerie Photos</Link></li>
               <li><Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
