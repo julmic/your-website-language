@@ -21,20 +21,32 @@ import galerie10 from "@/assets/galerie/galerie-10.webp";
 import galerie11 from "@/assets/galerie/galerie-11.webp";
 import galerie12 from "@/assets/galerie/galerie-12.webp";
 
+// Masonry layout sizes: "tall", "wide", "normal"
 const galleryImages = [
-  { src: galerie01, alt: "Centre Arkadhya - Vue 1" },
-  { src: galerie02, alt: "Centre Arkadhya - Vue 2" },
-  { src: galerie03, alt: "Centre Arkadhya - Vue 3" },
-  { src: galerie04, alt: "Centre Arkadhya - Vue 4" },
-  { src: galerie05, alt: "Centre Arkadhya - Vue 5" },
-  { src: galerie06, alt: "Centre Arkadhya - Vue 6" },
-  { src: galerie07, alt: "Centre Arkadhya - Vue 7" },
-  { src: galerie08, alt: "Centre Arkadhya - Vue 8" },
-  { src: galerie09, alt: "Centre Arkadhya - Vue 9" },
-  { src: galerie10, alt: "Centre Arkadhya - Vue 10" },
-  { src: galerie11, alt: "Centre Arkadhya - Vue 11" },
-  { src: galerie12, alt: "Centre Arkadhya - Vue 12" },
+  { src: galerie01, alt: "Centre Arkadhya - Vue 1", size: "tall" as const },
+  { src: galerie02, alt: "Centre Arkadhya - Vue 2", size: "normal" as const },
+  { src: galerie03, alt: "Centre Arkadhya - Vue 3", size: "wide" as const },
+  { src: galerie04, alt: "Centre Arkadhya - Vue 4", size: "normal" as const },
+  { src: galerie05, alt: "Centre Arkadhya - Vue 5", size: "tall" as const },
+  { src: galerie06, alt: "Centre Arkadhya - Vue 6", size: "normal" as const },
+  { src: galerie07, alt: "Centre Arkadhya - Vue 7", size: "normal" as const },
+  { src: galerie08, alt: "Centre Arkadhya - Vue 8", size: "wide" as const },
+  { src: galerie09, alt: "Centre Arkadhya - Vue 9", size: "normal" as const },
+  { src: galerie10, alt: "Centre Arkadhya - Vue 10", size: "tall" as const },
+  { src: galerie11, alt: "Centre Arkadhya - Vue 11", size: "normal" as const },
+  { src: galerie12, alt: "Centre Arkadhya - Vue 12", size: "normal" as const },
 ];
+
+const getSizeClasses = (size: "tall" | "wide" | "normal") => {
+  switch (size) {
+    case "tall":
+      return "row-span-2";
+    case "wide":
+      return "col-span-2";
+    default:
+      return "";
+  }
+};
 
 const GalerieArkadhya = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -158,7 +170,7 @@ const GalerieArkadhya = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Masonry Gallery Section */}
       <section
         ref={galleryRef}
         className={`py-16 md:py-24 bg-background transition-all duration-700 delay-200 ${
@@ -166,11 +178,12 @@ const GalerieArkadhya = () => {
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {/* Masonry Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px] gap-3 md:gap-4">
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+                className={`group relative overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 ${getSizeClasses(image.size)}`}
                 onClick={() => openLightbox(index)}
                 style={{
                   animationDelay: `${index * 50}ms`,
@@ -180,13 +193,21 @@ const GalerieArkadhya = () => {
                   src={image.src}
                   alt={image.alt}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-sm font-medium">
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Hover content */}
+                <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="text-white text-sm font-medium drop-shadow-lg">
                     Voir en grand
                   </span>
+                </div>
+                
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-white/60 rounded-tr-lg" />
                 </div>
               </div>
             ))}
@@ -235,7 +256,7 @@ const GalerieArkadhya = () => {
             {/* Previous Button */}
             <button
               onClick={goToPrevious}
-              className="absolute left-4 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="absolute left-4 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
               aria-label="Image précédente"
             >
               <ChevronLeft className="h-8 w-8" />
@@ -253,7 +274,7 @@ const GalerieArkadhya = () => {
             {/* Next Button */}
             <button
               onClick={goToNext}
-              className="absolute right-4 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="absolute right-4 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
               aria-label="Image suivante"
             >
               <ChevronRight className="h-8 w-8" />
@@ -261,7 +282,7 @@ const GalerieArkadhya = () => {
 
             {/* Image Counter */}
             {selectedImage !== null && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/10 text-white text-sm">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/10 text-white text-sm backdrop-blur-sm">
                 {selectedImage + 1} / {galleryImages.length}
               </div>
             )}
