@@ -20,6 +20,16 @@ import galerie09 from "@/assets/galerie/galerie-09.webp";
 import galerie10 from "@/assets/galerie/galerie-10.webp";
 import galerie11 from "@/assets/galerie/galerie-11.webp";
 import galerie12 from "@/assets/galerie/galerie-12.webp";
+import galerie13 from "@/assets/galerie/galerie-13.webp";
+import galerie14 from "@/assets/galerie/galerie-14.webp";
+import galerie15 from "@/assets/galerie/galerie-15.webp";
+import galerie16 from "@/assets/galerie/galerie-16.webp";
+import galerie17 from "@/assets/galerie/galerie-17.webp";
+import galerie18 from "@/assets/galerie/galerie-18.webp";
+import galerie19 from "@/assets/galerie/galerie-19.webp";
+import galerie20 from "@/assets/galerie/galerie-20.webp";
+import galerie21 from "@/assets/galerie/galerie-21.webp";
+import galerie22 from "@/assets/galerie/galerie-22.webp";
 
 // Masonry layout sizes: "tall", "wide", "normal"
 const galleryImages = [
@@ -35,6 +45,16 @@ const galleryImages = [
   { src: galerie10, alt: "Centre Arkadhya - Vue 10", size: "tall" as const },
   { src: galerie11, alt: "Centre Arkadhya - Vue 11", size: "normal" as const },
   { src: galerie12, alt: "Centre Arkadhya - Vue 12", size: "normal" as const },
+  { src: galerie13, alt: "Tissus traditionnels indiens", size: "wide" as const },
+  { src: galerie14, alt: "Ustensiles en cuivre ayurvédiques", size: "normal" as const },
+  { src: galerie15, alt: "Repas ayurvédique - Thali", size: "wide" as const },
+  { src: galerie16, alt: "Rose du jardin", size: "tall" as const },
+  { src: galerie17, alt: "Roses jaunes du jardin", size: "normal" as const },
+  { src: galerie18, alt: "Roses violettes du jardin", size: "normal" as const },
+  { src: galerie19, alt: "Objets rituels en laiton", size: "tall" as const },
+  { src: galerie20, alt: "Vue panoramique sur la campagne", size: "wide" as const },
+  { src: galerie21, alt: "Salle de soins ayurvédiques", size: "normal" as const },
+  { src: galerie22, alt: "Pot Shirodhara en cuivre", size: "tall" as const },
 ];
 
 const getSizeClasses = (size: "tall" | "wide" | "normal") => {
