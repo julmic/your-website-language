@@ -1,7 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sun, Heart, Sparkles, Music, Brain, BookOpen, Clock, ArrowRight } from "lucide-react";
+import { Sun, Heart, Sparkles, Music, Brain, BookOpen, Clock, ArrowRight, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import sriYantraImg from "@/assets/enseignements/sri-yantra.webp";
@@ -546,6 +547,114 @@ const GayatriMantra = () => {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center">
+                <HelpCircle className="w-7 h-7 text-primary" />
+              </div>
+              <h2 className="text-3xl font-serif text-foreground">
+                Questions Fréquentes
+              </h2>
+            </div>
+            
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              <AccordionItem value="item-1" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Qui peut réciter le Gayatri Mantra ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Le Gayatri Mantra est universel et peut être récité par toute personne, indépendamment de son origine, sa religion ou son niveau spirituel. Contrairement à certaines croyances traditionnelles restrictives, de nombreux maîtres spirituels modernes comme Swami Vivekananda encouragent sa pratique par tous ceux qui cherchent la lumière spirituelle.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Faut-il être initié pour réciter ce mantra ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Traditionnellement, le Gayatri Mantra était transmis lors de la cérémonie d'Upanayana (initiation). Cependant, de nombreux enseignants contemporains considèrent que la sincérité et la dévotion sont plus importantes que l'initiation formelle. Une pratique respectueuse et régulière peut être entreprise par quiconque ressent un appel vers ce mantra sacré.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Les femmes peuvent-elles réciter le Gayatri Mantra ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Absolument. Les restrictions historiques concernant les femmes étaient des conventions sociales, non des prescriptions scripturales originelles. De nombreuses femmes sages (Rishikas) de l'époque védique pratiquaient les mantras. Aujourd'hui, le Gayatri Mantra est ouvert à tous, hommes et femmes, qui souhaitent évoluer spirituellement.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Combien de temps faut-il pour ressentir les effets ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Les effets varient selon la sensibilité de chacun et la régularité de la pratique. Certains ressentent un calme et une clarté mentale dès les premières récitations. Pour des transformations plus profondes, une pratique quotidienne pendant 40 jours (un Mandala) est traditionnellement recommandée. La patience et la persévérance sont essentielles.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Peut-on réciter le mantra pendant les règles ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Les restrictions traditionnelles liées aux menstruations sont des conventions culturelles, non des obstacles spirituels réels. Chaque femme peut décider selon son ressenti personnel. De nombreux enseignants modernes encouragent une pratique continue, ajustée si nécessaire au confort de chacune. L'intention pure prime sur les règles extérieures.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Quelle est la bonne prononciation du mantra ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  La prononciation correcte est importante pour maximiser les bénéfices vibratoires. Le sanskrit a des sons spécifiques qui peuvent être appris via un enregistrement authentique ou un enseignant qualifié. Cependant, l'intention et la dévotion compensent largement les imperfections de prononciation. Commencez comme vous pouvez, et affinez progressivement.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-7" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Peut-on simplement écouter le mantra sans le réciter ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Oui, l'écoute attentive du Gayatri Mantra (Shravanam) est bénéfique et constitue une pratique en soi. Les vibrations sonores agissent même lorsqu'on écoute passivement. C'est une excellente façon de commencer pour ceux qui hésitent à réciter, ou pour accompagner la méditation et les moments de détente.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-8" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Y a-t-il des contre-indications à la pratique ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Le Gayatri Mantra est considéré comme sattvique (pur) et sûr pour tous. Il n'y a pas de contre-indications connues. Toutefois, comme pour toute pratique spirituelle intense, il est conseillé de progresser graduellement et d'écouter son corps. En cas de perturbations émotionnelles importantes, un accompagnement par un guide expérimenté peut être utile.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-9" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Comment intégrer le mantra dans ma routine quotidienne ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Commencez simplement : 3 à 11 récitations au réveil suffisent pour débuter. Choisissez un moment fixe, idéalement le matin avant les activités. Créez un petit rituel : asseyez-vous confortablement, prenez quelques respirations profondes, puis récitez. La régularité compte plus que la durée. Progressivement, vous pourrez augmenter à 108 récitations.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-10" className="bg-card/50 border border-primary/20 rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline">
+                  Le Gayatri Mantra est-il lié à une religion spécifique ?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Bien qu'issu de la tradition védique hindoue, le Gayatri Mantra transcende les frontières religieuses. C'est une invocation à la lumière divine universelle, présente dans toutes les traditions spirituelles. Des pratiquants de diverses confessions utilisent ce mantra comme outil de méditation et d'élévation spirituelle sans conflit avec leurs croyances.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>
