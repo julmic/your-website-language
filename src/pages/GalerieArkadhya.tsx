@@ -30,6 +30,16 @@ import galerie19 from "@/assets/galerie/galerie-19.webp";
 import galerie20 from "@/assets/galerie/galerie-20.webp";
 import galerie21 from "@/assets/galerie/galerie-21.webp";
 import galerie22 from "@/assets/galerie/galerie-22.webp";
+import galerie23 from "@/assets/galerie/galerie-23.webp";
+import galerie24 from "@/assets/galerie/galerie-24.webp";
+import galerie25 from "@/assets/galerie/galerie-25.webp";
+import galerie26 from "@/assets/galerie/galerie-26.webp";
+import galerie27 from "@/assets/galerie/galerie-27.webp";
+import galerie28 from "@/assets/galerie/galerie-28.webp";
+import galerie29 from "@/assets/galerie/galerie-29.webp";
+import galerie30 from "@/assets/galerie/galerie-30.webp";
+import galerie31 from "@/assets/galerie/galerie-31.webp";
+import galerie32 from "@/assets/galerie/galerie-32.webp";
 
 // Masonry layout sizes: "tall", "wide", "normal"
 const galleryImages = [
@@ -55,6 +65,16 @@ const galleryImages = [
   { src: galerie20, alt: "Vue panoramique sur la campagne", size: "wide" as const },
   { src: galerie21, alt: "Salle de soins ayurvédiques", size: "normal" as const },
   { src: galerie22, alt: "Pot Shirodhara en cuivre", size: "tall" as const },
+  { src: galerie23, alt: "Statue Nataraja - Shiva dansant", size: "wide" as const },
+  { src: galerie24, alt: "Salle de massage lumineuse", size: "normal" as const },
+  { src: galerie25, alt: "Terrasse avec vue sur la campagne", size: "wide" as const },
+  { src: galerie26, alt: "Roses du jardin", size: "tall" as const },
+  { src: galerie27, alt: "Ustensiles en cuivre traditionnels", size: "normal" as const },
+  { src: galerie28, alt: "Bâtiment en pierre et jardin", size: "wide" as const },
+  { src: galerie29, alt: "Jardin potager et cabane", size: "normal" as const },
+  { src: galerie30, alt: "Statue Nataraja complète", size: "tall" as const },
+  { src: galerie31, alt: "Soin Shirodhara en cours", size: "tall" as const },
+  { src: galerie32, alt: "Soin visage ayurvédique", size: "normal" as const },
 ];
 
 const getSizeClasses = (size: "tall" | "wide" | "normal") => {
