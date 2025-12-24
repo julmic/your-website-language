@@ -22,6 +22,7 @@ import InvolutionEvolution from "./pages/philosophie/InvolutionEvolution";
 import MortAyurveda from "./pages/philosophie/MortAyurveda";
 import VoieHisvara from "./pages/philosophie/VoieHisvara";
 import PurushaPrakriti from "./pages/philosophie/PurushaPrakriti";
+import Ahamkara from "./pages/philosophie/Ahamkara";
 import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
 import GalerieArkadhya from "./pages/GalerieArkadhya";
 import MentionsLegales from "./pages/legal/MentionsLegales";
@@ -170,6 +171,7 @@ const App = () => (
           <Route path="/philosophie/mort-ayurveda" element={<MortAyurveda />} />
           <Route path="/philosophie/voie-hisvara" element={<VoieHisvara />} />
           <Route path="/philosophie/purusha-prakriti" element={<PurushaPrakriti />} />
+          <Route path="/philosophie/ahamkara" element={<Ahamkara />} />
           <Route path="/centre-ayurvedique-arkadhya-en-images" element={<GalerieArkadhya />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

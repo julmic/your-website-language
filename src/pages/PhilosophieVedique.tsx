@@ -100,7 +100,7 @@ const sections: Section[] = [
     description: "La médecine sacrée et l'éveil spirituel",
     articles: [
       { title: "L'Ayurvéda : Une Voie d'Élévation Spirituelle", href: "/philosophie/ayurveda-elevation-spirituelle", available: true, subsection: "5.1" },
-      { title: "Traité spirituel sur Ahaṃkāra", href: null, available: false, subsection: "5.2" },
+      { title: "Traité spirituel sur Ahaṃkāra", href: "/philosophie/ahamkara", available: true, subsection: "5.2" },
       { title: "Involution et Évolution selon les Vedas", href: "/philosophie/involution-evolution", available: true, subsection: "5.3" },
       { title: "La Mort selon l'Ayurvéda : Vision holistique du passage de l'âme", href: "/philosophie/mort-ayurveda", available: true, subsection: "5.4" },
       { title: "Le Dharma en Ayurveda : La Loi Intérieure", href: null, available: false, subsection: "5.5" },
