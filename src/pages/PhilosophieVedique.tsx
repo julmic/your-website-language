@@ -72,7 +72,7 @@ const sections: Section[] = [
     icon: Sun,
     description: "L'univers selon la tradition védique",
     articles: [
-      { title: "Purusha et Prakriti", href: null, available: false },
+      { title: "Purusha et Prakriti", href: "/philosophie/purusha-prakriti", available: true },
       { title: "Les trois Gunas", href: null, available: false },
       { title: "Les Pancha Mahabhutas (5 éléments)", href: null, available: false },
       { title: "Le temps, les cycles et les Yugas", href: null, available: false },
