@@ -24,6 +24,7 @@ import VoieHisvara from "./pages/philosophie/VoieHisvara";
 import PurushaPrakriti from "./pages/philosophie/PurushaPrakriti";
 import Ahamkara from "./pages/philosophie/Ahamkara";
 import SagesseFeminine from "./pages/philosophie/SagesseFeminine";
+import TempsCyclesYugas from "./pages/philosophie/TempsCyclesYugas";
 import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
 import GalerieArkadhya from "./pages/GalerieArkadhya";
 import MentionsLegales from "./pages/legal/MentionsLegales";
@@ -174,6 +175,7 @@ const App = () => (
           <Route path="/philosophie/purusha-prakriti" element={<PurushaPrakriti />} />
           <Route path="/philosophie/ahamkara" element={<Ahamkara />} />
           <Route path="/philosophie/sagesse-feminine" element={<SagesseFeminine />} />
+          <Route path="/philosophie/temps-cycles-yugas" element={<TempsCyclesYugas />} />
           <Route path="/centre-ayurvedique-arkadhya-en-images" element={<GalerieArkadhya />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
