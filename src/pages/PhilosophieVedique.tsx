@@ -112,7 +112,7 @@ const sections: Section[] = [
     icon: Flower2,
     description: "La sagesse du féminin sacré",
     articles: [
-      { title: "Sagesse féminine dans les Vedas", href: null, available: false },
+      { title: "Sagesse féminine dans les Vedas", href: "/philosophie/sagesse-feminine", available: true },
       { title: "Les déesses védiques (Sarasvati, Vak, Aditi, Ushas…)", href: null, available: false },
       { title: "Féminin sacré et cosmologie", href: null, available: false },
     ],
