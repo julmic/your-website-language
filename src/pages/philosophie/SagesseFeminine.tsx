@@ -45,7 +45,7 @@ const SagesseFeminine = () => {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative py-16 bg-gradient-to-b from-pink-50/50 to-secondary/20 dark:from-pink-950/20 dark:to-secondary/20">
+      <section className="relative py-16 bg-gradient-to-b from-background to-secondary/20">
         <div className="container mx-auto px-4">
           <Button variant="ghost" asChild className="mb-6">
             <Link to="/philosophie-vedique">
@@ -54,12 +54,12 @@ const SagesseFeminine = () => {
             </Link>
           </Button>
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center">
-              <Flower2 className="w-6 h-6 text-pink-600 dark:text-pink-400" />
+            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <Flower2 className="w-6 h-6 text-primary" />
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-serif text-foreground">
-                Sagesse Féminine <span className="text-pink-600 dark:text-pink-400">dans les Vedas</span>
+                Sagesse Féminine <span className="text-primary">dans les Vedas</span>
               </h1>
             </div>
           </div>
@@ -80,7 +80,7 @@ const SagesseFeminine = () => {
               <button
                 key={chapter.id}
                 onClick={() => scrollToSection(chapter.id)}
-                className="text-xs px-3 py-1.5 rounded-full bg-pink-50 dark:bg-pink-900/20 hover:bg-pink-100 dark:hover:bg-pink-900/40 hover:text-pink-700 dark:hover:text-pink-300 transition-colors whitespace-nowrap"
+                className="text-xs px-3 py-1.5 rounded-full bg-secondary/50 hover:bg-primary/20 hover:text-primary transition-colors whitespace-nowrap text-foreground"
               >
                 {chapter.title}
               </button>
@@ -95,7 +95,7 @@ const SagesseFeminine = () => {
 
           {/* Introduction */}
           <section id="introduction">
-            <Card className="bg-gradient-to-r from-pink-50/80 to-amber-50/80 dark:from-pink-950/30 dark:to-amber-950/30 border-pink-200/50 dark:border-pink-800/30">
+            <Card className="bg-primary/5 border-primary/20">
               <CardContent className="p-8">
                 <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
                   <Sparkles className="w-6 h-6 text-amber-500" />
@@ -112,7 +112,7 @@ const SagesseFeminine = () => {
                     <strong className="text-foreground"> réappropriation sacrée</strong> du corps, du cycle, de la sexualité 
                     et de la spiritualité féminine.
                   </p>
-                  <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50 dark:border-amber-800/30 my-6">
+                  <Card className="bg-secondary/30 border-secondary my-6">
                     <CardContent className="p-6">
                       <p className="text-lg font-medium text-foreground italic">
                         "Yatra nāryastu pūjyante ramante tatra devatāḥ"
@@ -143,7 +143,7 @@ const SagesseFeminine = () => {
                 Les Vedas la décrivent comme <em>« celle qui était avant le commencement »</em>.
               </p>
 
-              <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50 dark:border-pink-800/30 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <p className="text-lg font-medium text-foreground italic">
                     « Au commencement était la Śakti, immobile et pourtant vibrant de potentialité infinie. 
@@ -162,27 +162,27 @@ const SagesseFeminine = () => {
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Le Féminin Éternel : Lumière, Son, Matrice</h3>
               
               <div className="grid md:grid-cols-3 gap-4 my-6">
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
-                    <Sun className="w-8 h-8 text-amber-500 mx-auto mb-2" />
+                    <Sun className="w-8 h-8 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground">Prakāśa (Lumière)</h4>
                     <p className="text-sm text-muted-foreground mt-2">
                       La conscience illuminatrice qui révèle toute chose
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
-                    <Music className="w-8 h-8 text-violet-500 mx-auto mb-2" />
+                    <Music className="w-8 h-8 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground">Nāda (Son)</h4>
                     <p className="text-sm text-muted-foreground mt-2">
                       La vibration créatrice, le Oṁ primordial
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
-                    <Heart className="w-8 h-8 text-pink-500 mx-auto mb-2" />
+                    <Heart className="w-8 h-8 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground">Yoni (Matrice)</h4>
                     <p className="text-sm text-muted-foreground mt-2">
                       L'espace sacré d'où tout naît et où tout retourne
@@ -235,7 +235,7 @@ const SagesseFeminine = () => {
                 créer l'espace pour cette manifestation.
               </p>
 
-              <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <p className="text-lg font-medium text-foreground italic">
                     « Śiva sans Śakti est Śava (un cadavre). »
@@ -252,7 +252,7 @@ const SagesseFeminine = () => {
 
               <div className="overflow-x-auto my-6">
                 <table className="w-full text-sm border border-border rounded-lg">
-                  <thead className="bg-violet-50/50 dark:bg-violet-950/20">
+                  <thead className="bg-secondary/50">
                     <tr>
                       <th className="p-3 text-left text-foreground">Śakti</th>
                       <th className="p-3 text-left text-foreground">Signification</th>
@@ -290,7 +290,7 @@ const SagesseFeminine = () => {
 
               <div className="overflow-x-auto my-6">
                 <table className="w-full text-sm border border-border rounded-lg">
-                  <thead className="bg-pink-50/50 dark:bg-pink-950/20">
+                  <thead className="bg-secondary/50">
                     <tr>
                       <th className="p-3 text-left text-foreground">Macrocosme</th>
                       <th className="p-3 text-left text-foreground">Microcosme (Femme)</th>
@@ -344,11 +344,11 @@ const SagesseFeminine = () => {
 
               <Accordion type="multiple" className="space-y-4 my-6">
                 {/* Durga */}
-                <AccordionItem value="durga" className="bg-red-50/50 dark:bg-red-950/20 border border-red-200/50 dark:border-red-800/30 rounded-xl px-6">
+                <AccordionItem value="durga" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-5">
                     <div className="flex items-center gap-4 text-left">
-                      <div className="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center">
-                        <Shield className="w-5 h-5 text-red-600" />
+                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Shield className="w-5 h-5 text-primary" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-foreground">Durga — La Protectrice</h3>
@@ -378,7 +378,7 @@ const SagesseFeminine = () => {
                         <li>9. <strong>Siddhidātrī</strong> — Celle qui accorde les pouvoirs</li>
                       </ol>
 
-                      <Card className="bg-red-100/50 dark:bg-red-900/20 border-red-200/50">
+                      <Card className="bg-primary/5 border-primary/20">
                         <CardContent className="p-4">
                           <h5 className="font-semibold text-foreground mb-2">Mantra</h5>
                           <p className="font-medium text-foreground">Oṁ Duṁ Durgāyai Namaḥ</p>
@@ -403,11 +403,11 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Lakshmi */}
-                <AccordionItem value="lakshmi" className="bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/50 dark:border-amber-800/30 rounded-xl px-6">
+                <AccordionItem value="lakshmi" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-5">
                     <div className="flex items-center gap-4 text-left">
-                      <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center">
-                        <Sparkles className="w-5 h-5 text-amber-600" />
+                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Sparkles className="w-5 h-5 text-primary" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-foreground">Lakṣmī — L'Abondance</h3>
@@ -435,7 +435,7 @@ const SagesseFeminine = () => {
                         <div><strong>Vidyā-Lakṣmī</strong> — Connaissance</div>
                       </div>
 
-                      <Card className="bg-amber-100/50 dark:bg-amber-900/20 border-amber-200/50">
+                      <Card className="bg-primary/5 border-primary/20">
                         <CardContent className="p-4">
                           <h5 className="font-semibold text-foreground mb-2">Mantra d'abondance</h5>
                           <p className="font-medium text-foreground">Oṁ Śrīṁ Mahālakṣmyai Namaḥ</p>
@@ -461,11 +461,11 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Sarasvati */}
-                <AccordionItem value="sarasvati" className="bg-sky-50/50 dark:bg-sky-950/20 border border-sky-200/50 dark:border-sky-800/30 rounded-xl px-6">
+                <AccordionItem value="sarasvati" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-5">
                     <div className="flex items-center gap-4 text-left">
-                      <div className="w-10 h-10 bg-sky-100 dark:bg-sky-900/30 rounded-full flex items-center justify-center">
-                        <BookOpen className="w-5 h-5 text-sky-600" />
+                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <BookOpen className="w-5 h-5 text-primary" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-foreground">Sarasvatī — La Connaissance</h3>
@@ -489,7 +489,7 @@ const SagesseFeminine = () => {
                         <li>• <strong>Vāṇī</strong> — La voix divine</li>
                       </ul>
 
-                      <Card className="bg-sky-100/50 dark:bg-sky-900/20 border-sky-200/50">
+                      <Card className="bg-primary/5 border-primary/20">
                         <CardContent className="p-4">
                           <h5 className="font-semibold text-foreground mb-2">Mantra de sagesse</h5>
                           <p className="font-medium text-foreground">Oṁ Aiṁ Sarasvatyai Namaḥ</p>
@@ -513,11 +513,11 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Kali */}
-                <AccordionItem value="kali" className="bg-purple-50/50 dark:bg-purple-950/20 border border-purple-200/50 dark:border-purple-800/30 rounded-xl px-6">
+                <AccordionItem value="kali" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-5">
                     <div className="flex items-center gap-4 text-left">
-                      <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
-                        <Flame className="w-5 h-5 text-purple-600" />
+                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Flame className="w-5 h-5 text-primary" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-foreground">Kālī — La Transformation</h3>
@@ -533,7 +533,7 @@ const SagesseFeminine = () => {
                         de crânes et une jupe de bras coupés — symboles des egos qu'elle a libérés.
                       </p>
 
-                      <Card className="bg-purple-100/50 dark:bg-purple-900/20 border-purple-200/50">
+                      <Card className="bg-primary/5 border-primary/20">
                         <CardContent className="p-6">
                           <p className="text-lg font-medium text-foreground italic">
                             « Kālī n'est pas la mort — elle est la mort de la mort. 
@@ -551,7 +551,7 @@ const SagesseFeminine = () => {
                         <li>• Le <strong>temps</strong> lui-même (elle est Kāla, le temps)</li>
                       </ul>
 
-                      <Card className="bg-purple-100/50 dark:bg-purple-900/20 border-purple-200/50">
+                      <Card className="bg-primary/5 border-primary/20">
                         <CardContent className="p-4">
                           <h5 className="font-semibold text-foreground mb-2">Mantra de libération</h5>
                           <p className="font-medium text-foreground">Oṁ Krīṁ Kālikāyai Namaḥ</p>
@@ -581,7 +581,7 @@ const SagesseFeminine = () => {
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Tableau Synoptique des 4 Déesses</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border border-border rounded-lg">
-                  <thead className="bg-pink-50/50 dark:bg-pink-950/20">
+                  <thead className="bg-secondary/50">
                     <tr>
                       <th className="p-3 text-left text-foreground">Déesse</th>
                       <th className="p-3 text-left text-foreground">Couleur</th>
@@ -641,7 +641,7 @@ const SagesseFeminine = () => {
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Les 10 Grandes Ṛṣikā-s</h3>
               <div className="overflow-x-auto my-6">
                 <table className="w-full text-sm border border-border rounded-lg">
-                  <thead className="bg-amber-50/50 dark:bg-amber-950/20">
+                  <thead className="bg-secondary/50">
                     <tr>
                       <th className="p-3 text-left text-foreground">Ṛṣikā</th>
                       <th className="p-3 text-left text-foreground">Domaine</th>
@@ -704,7 +704,7 @@ const SagesseFeminine = () => {
               </div>
 
               {/* Lopamudra en détail */}
-              <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Lopāmudrā : L'Initiatrice de l'Amour Sacré</h4>
                   <p className="text-muted-foreground mb-4">
@@ -712,7 +712,7 @@ const SagesseFeminine = () => {
                     enseigna à son mari que <strong className="text-foreground">le renoncement total nie la moitié de l'existence</strong>. 
                     Elle composa un hymne (Rig Veda I.179) célébrant l'union sacrée comme voie spirituelle.
                   </p>
-                  <Card className="bg-pink-100/50 dark:bg-pink-900/20 border-pink-200/30">
+                  <Card className="bg-secondary/30 border-secondary">
                     <CardContent className="p-4">
                       <p className="italic text-foreground">
                         « Nous avons traversé de nombreuses aurores... 
@@ -759,7 +759,7 @@ const SagesseFeminine = () => {
 
               <div className="overflow-x-auto my-6">
                 <table className="w-full text-sm border border-border rounded-lg">
-                  <thead className="bg-pink-50/50 dark:bg-pink-950/20">
+                  <thead className="bg-secondary/50">
                     <tr>
                       <th className="p-3 text-left text-foreground">Vāyu</th>
                       <th className="p-3 text-left text-foreground">Siège</th>
@@ -810,7 +810,7 @@ const SagesseFeminine = () => {
               </p>
 
               <div className="grid md:grid-cols-3 gap-4 my-6">
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">Para Ojas</h4>
                     <p className="text-xs text-muted-foreground mb-2">Ojas suprême (8 gouttes)</p>
@@ -819,7 +819,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">Apara Ojas</h4>
                     <p className="text-xs text-muted-foreground mb-2">Ojas secondaire (½ añjali)</p>
@@ -828,7 +828,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">Śukra/Ārtava Ojas</h4>
                     <p className="text-xs text-muted-foreground mb-2">Ojas reproductif</p>
@@ -846,7 +846,7 @@ const SagesseFeminine = () => {
 
               <div className="overflow-x-auto my-6">
                 <table className="w-full text-sm border border-border rounded-lg">
-                  <thead className="bg-violet-50/50 dark:bg-violet-950/20">
+                  <thead className="bg-secondary/50">
                     <tr>
                       <th className="p-3 text-left text-foreground">Phase</th>
                       <th className="p-3 text-left text-foreground">Jours</th>
@@ -916,7 +916,7 @@ const SagesseFeminine = () => {
 
               <Accordion type="multiple" className="space-y-4 my-6">
                 {/* Terre */}
-                <AccordionItem value="terre" className="bg-amber-50/30 dark:bg-amber-950/10 border border-amber-200/50 rounded-xl px-6">
+                <AccordionItem value="terre" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <div className="flex items-center gap-3 text-left">
                       <span className="text-2xl">🜃</span>
@@ -946,7 +946,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Eau */}
-                <AccordionItem value="eau" className="bg-blue-50/30 dark:bg-blue-950/10 border border-blue-200/50 rounded-xl px-6">
+                <AccordionItem value="eau" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <div className="flex items-center gap-3 text-left">
                       <Droplets className="w-6 h-6 text-blue-500" />
@@ -976,7 +976,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Feu */}
-                <AccordionItem value="feu" className="bg-red-50/30 dark:bg-red-950/10 border border-red-200/50 rounded-xl px-6">
+                <AccordionItem value="feu" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <div className="flex items-center gap-3 text-left">
                       <Flame className="w-6 h-6 text-red-500" />
@@ -1006,7 +1006,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Air */}
-                <AccordionItem value="air" className="bg-sky-50/30 dark:bg-sky-950/10 border border-sky-200/50 rounded-xl px-6">
+                <AccordionItem value="air" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <div className="flex items-center gap-3 text-left">
                       <Wind className="w-6 h-6 text-sky-500" />
@@ -1036,7 +1036,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Éther */}
-                <AccordionItem value="ether" className="bg-violet-50/30 dark:bg-violet-950/10 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="ether" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <div className="flex items-center gap-3 text-left">
                       <Star className="w-6 h-6 text-violet-500" />
@@ -1069,31 +1069,31 @@ const SagesseFeminine = () => {
               {/* Synthèse alchimique */}
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">La Synthèse Alchimique</h3>
               <div className="grid md:grid-cols-3 gap-4 my-6">
-                <Card className="bg-gray-900 text-white border-gray-700">
+                <Card className="bg-muted text-foreground border-border">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold">Nigredo</h4>
-                    <p className="text-xs text-gray-400 mb-2">L'Œuvre au Noir</p>
-                    <p className="text-sm">
+                    <p className="text-xs text-muted-foreground mb-2">L'Œuvre au Noir</p>
+                    <p className="text-sm text-muted-foreground">
                       Dissolution des structures anciennes. Descente dans l'ombre. 
                       Associé à la phase menstruelle.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-white text-gray-900 border-gray-300">
+                <Card className="bg-card text-foreground border-border">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold">Albedo</h4>
-                    <p className="text-xs text-gray-600 mb-2">L'Œuvre au Blanc</p>
-                    <p className="text-sm">
+                    <p className="text-xs text-muted-foreground mb-2">L'Œuvre au Blanc</p>
+                    <p className="text-sm text-muted-foreground">
                       Purification, clarification. Renaissance de la conscience. 
                       Phase folliculaire.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-500 text-white border-amber-600">
+                <Card className="bg-primary/20 text-foreground border-primary/30">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold">Rubedo</h4>
-                    <p className="text-xs text-amber-200 mb-2">L'Œuvre au Rouge</p>
-                    <p className="text-sm">
+                    <p className="text-xs text-muted-foreground mb-2">L'Œuvre au Rouge</p>
+                    <p className="text-sm text-muted-foreground">
                       Accomplissement, union des opposés. Rayonnement. 
                       Phase ovulatoire.
                     </p>
@@ -2428,7 +2428,7 @@ const SagesseFeminine = () => {
               </Card>
 
               <div className="text-center my-12">
-                <Button asChild size="lg" className="bg-pink-600 hover:bg-pink-700">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                   <Link to="/contact">
                     <Heart className="w-5 h-5 mr-2" />
                     Nous contacter
