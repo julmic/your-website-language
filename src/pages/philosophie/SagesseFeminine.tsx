@@ -1106,13 +1106,13 @@ const SagesseFeminine = () => {
           {/* Section VII - Initiations et Pratiques */}
           <section id="initiations">
             <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
-              <Sun className="w-6 h-6 text-amber-500" />
+              <Sun className="w-6 h-6 text-primary" />
               VII. Initiations et Pratiques pour la Transformation
             </h2>
             <div className="prose prose-lg text-muted-foreground space-y-6">
               
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Dinacharya — La Routine Quotidienne Sacrée</h3>
-              <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between items-center border-b border-border pb-2">
@@ -1150,7 +1150,7 @@ const SagesseFeminine = () => {
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Méditations Essentielles</h3>
               
               {/* Yoni Jyoti Dhyana */}
-              <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Yoni Jyoti Dhyāna — Méditation de la Lumière du Lotus</h4>
                   <ol className="space-y-2 text-sm text-muted-foreground">
@@ -1165,7 +1165,7 @@ const SagesseFeminine = () => {
               </Card>
 
               {/* Hridaya Kamala */}
-              <Card className="bg-green-50/50 dark:bg-green-950/20 border-green-200/50 my-6">
+              <Card className="bg-secondary/30 border-secondary my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Hṛdaya Kamala Dhyāna — Méditation du Lotus du Cœur</h4>
                   <ol className="space-y-2 text-sm text-muted-foreground">
@@ -1181,7 +1181,7 @@ const SagesseFeminine = () => {
 
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Prāṇāyāmas Adaptés au Féminin</h3>
 
-              <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Chandra Bhedana — Respiration Lunaire</h4>
                   <p className="text-sm text-muted-foreground mb-3">
@@ -1203,7 +1203,7 @@ const SagesseFeminine = () => {
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Abhyanga — L'Auto-Massage Rituel</h3>
               <div className="overflow-x-auto my-6">
                 <table className="w-full text-sm border border-border rounded-lg">
-                  <thead className="bg-pink-50/50 dark:bg-pink-950/20">
+                  <thead className="bg-secondary/50">
                     <tr>
                       <th className="p-3 text-left text-foreground">Dosha</th>
                       <th className="p-3 text-left text-foreground">Huile recommandée</th>
@@ -1239,12 +1239,12 @@ const SagesseFeminine = () => {
           {/* Section VIII - Alchimie Relationnelle */}
           <section id="alchimie-relationnelle">
             <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
-              <Heart className="w-6 h-6 text-pink-500" />
+              <Heart className="w-6 h-6 text-primary" />
               VIII. Alchimie Relationnelle : Śiva-Śakti dans le Couple
             </h2>
             <div className="prose prose-lg text-muted-foreground space-y-6">
               
-              <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <p className="text-lg font-medium text-foreground italic">
                     « Śiva est la conscience, Śakti est le pouvoir de cette conscience. 
@@ -1283,7 +1283,7 @@ const SagesseFeminine = () => {
                 il transforme le corps en temple.
               </p>
 
-              <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Les 8 Points du Nyāsa</h4>
                   <div className="grid md:grid-cols-2 gap-3 text-sm">
@@ -1301,31 +1301,31 @@ const SagesseFeminine = () => {
 
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Les 3 Niveaux de la Sexualité Tantrique</h3>
               <div className="grid md:grid-cols-3 gap-4 my-6">
-                <Card className="bg-red-50/50 dark:bg-red-950/20 border-red-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">Paśu (Animal)</h4>
                     <p className="text-xs text-muted-foreground mb-2">Sexualité instinctive</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       Dominée par le désir physique. Recherche du plaisir personnel. 
                       Nécessaire mais limitée.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">Vīra (Héros)</h4>
                     <p className="text-xs text-muted-foreground mb-2">Sexualité consciente</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       L'énergie est canalisée. L'intention spirituelle est présente. 
                       Le plaisir devient offrande.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">Divya (Divin)</h4>
                     <p className="text-xs text-muted-foreground mb-2">Sexualité transcendante</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       L'union devient méditation. Les partenaires deviennent Śiva et Śakti. 
                       La dualité se dissout.
                     </p>
@@ -1358,7 +1358,7 @@ const SagesseFeminine = () => {
           {/* Section IX - Maternité Sacrée */}
           <section id="maternite">
             <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
-              <Baby className="w-6 h-6 text-pink-500" />
+              <Baby className="w-6 h-6 text-primary" />
               IX. Maternité Sacrée et Choix Conscient
             </h2>
             <div className="prose prose-lg text-muted-foreground space-y-6">
@@ -1369,7 +1369,7 @@ const SagesseFeminine = () => {
                 <strong className="text-foreground"> acte rituel d'invitation</strong> à une âme.
               </p>
 
-              <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Rituel de l'Appel de l'Âme (Garbhādhāna)</h4>
                   <ol className="space-y-2 text-sm text-muted-foreground">
@@ -1390,7 +1390,7 @@ const SagesseFeminine = () => {
               </p>
 
               <Accordion type="single" collapsible className="space-y-3 my-6">
-                <AccordionItem value="trimestre1" className="bg-pink-50/30 dark:bg-pink-950/10 border border-pink-200/50 rounded-xl px-6">
+                <AccordionItem value="trimestre1" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">1er Trimestre : Fondation (Mois 1-3)</span>
                   </AccordionTrigger>
@@ -1400,7 +1400,7 @@ const SagesseFeminine = () => {
                     <p><strong>Mois 3</strong> — Le cœur bat. Connexion par le son (chants, mantras).</p>
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="trimestre2" className="bg-pink-50/30 dark:bg-pink-950/10 border border-pink-200/50 rounded-xl px-6">
+                <AccordionItem value="trimestre2" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">2e Trimestre : Croissance (Mois 4-6)</span>
                   </AccordionTrigger>
@@ -1410,7 +1410,7 @@ const SagesseFeminine = () => {
                     <p><strong>Mois 6</strong> — Le bébé entend. Récitation de textes sacrés (Gāyatrī).</p>
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="trimestre3" className="bg-pink-50/30 dark:bg-pink-950/10 border border-pink-200/50 rounded-xl px-6">
+                <AccordionItem value="trimestre3" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">3e Trimestre : Préparation (Mois 7-9)</span>
                   </AccordionTrigger>
@@ -1429,29 +1429,29 @@ const SagesseFeminine = () => {
               </p>
 
               <div className="grid md:grid-cols-3 gap-4 my-6">
-                <Card className="bg-gray-100 dark:bg-gray-800 border-gray-300">
+                <Card className="bg-muted border-border">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold text-foreground">1. Descente</h4>
                     <p className="text-xs text-muted-foreground mb-2">Travail actif</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       Lâcher-prise du contrôle. S'abandonner aux forces de la vie.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-100 dark:bg-violet-900/30 border-violet-300">
+                <Card className="bg-secondary/30 border-secondary">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold text-foreground">2. Mort/Renaissance</h4>
                     <p className="text-xs text-muted-foreground mb-2">Transition</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       La femme "meurt" comme non-mère et "renaît" comme mère.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-100 dark:bg-amber-900/30 border-amber-300">
+                <Card className="bg-primary/10 border-primary/20">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold text-foreground">3. Remontée</h4>
                     <p className="text-xs text-muted-foreground mb-2">Naissance</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       L'enfant émerge. La mère revient transformée.
                     </p>
                   </CardContent>
@@ -1478,7 +1478,7 @@ const SagesseFeminine = () => {
               </p>
 
               <div className="grid md:grid-cols-2 gap-4 my-6">
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">La Brahmacāriṇī</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1486,7 +1486,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-sky-50/50 dark:bg-sky-950/20 border-sky-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">La Guru Mātā</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1494,7 +1494,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-green-50/50 dark:bg-green-950/20 border-green-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">La Kālī Sādhinī</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1502,7 +1502,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">La Śilpinī</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1519,7 +1519,7 @@ const SagesseFeminine = () => {
                 retenu, transformé en <strong className="text-foreground">Ojas spirituel</strong>.
               </p>
 
-              <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <p className="text-lg font-medium text-foreground italic">
                     « Quand le sang cesse de couler vers l'extérieur, il commence à nourrir le feu intérieur. 
@@ -1534,7 +1534,7 @@ const SagesseFeminine = () => {
           {/* Section X - Guérison Transgénérationnelle */}
           <section id="transgenerationnel">
             <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
-              <Users className="w-6 h-6 text-violet-500" />
+              <Users className="w-6 h-6 text-primary" />
               X. Sagesse Ancestrale et Guérison Transgénérationnelle
             </h2>
             <div className="prose prose-lg text-muted-foreground space-y-6">
@@ -1561,7 +1561,7 @@ const SagesseFeminine = () => {
 
               <Accordion type="multiple" className="space-y-4 my-6">
                 {/* Rituel 1 */}
-                <AccordionItem value="rituel1" className="bg-violet-50/50 dark:bg-violet-950/20 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="rituel1" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">1. Pitṛ Tarpaṇa — Offrandes aux Ancêtres</span>
                   </AccordionTrigger>
@@ -1579,7 +1579,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Rituel 2 */}
-                <AccordionItem value="rituel2" className="bg-violet-50/50 dark:bg-violet-950/20 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="rituel2" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">2. Dialogue Conscient avec une Ancêtre</span>
                   </AccordionTrigger>
@@ -1597,7 +1597,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Rituel 3 */}
-                <AccordionItem value="rituel3" className="bg-violet-50/50 dark:bg-violet-950/20 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="rituel3" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">3. Transmutation par le Feu (Agni Karma)</span>
                   </AccordionTrigger>
@@ -1615,7 +1615,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Rituel 4 */}
-                <AccordionItem value="rituel4" className="bg-violet-50/50 dark:bg-violet-950/20 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="rituel4" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">4. Réparation Matrilinéaire</span>
                   </AccordionTrigger>
@@ -1638,51 +1638,51 @@ const SagesseFeminine = () => {
               </p>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
-                <Card className="bg-gray-900 text-white border-gray-700">
+                <Card className="bg-muted border-border">
                   <CardContent className="p-4">
-                    <h4 className="font-semibold">La Sorcière</h4>
-                    <p className="text-xs text-gray-400 mb-2">Pouvoir marginalisé</p>
-                    <p className="text-sm">
+                    <h4 className="font-semibold text-foreground">La Sorcière</h4>
+                    <p className="text-xs text-muted-foreground mb-2">Pouvoir marginalisé</p>
+                    <p className="text-sm text-muted-foreground">
                       La femme de pouvoir qui a été persécutée. Réclamez sa sagesse des plantes, 
                       de la lune, des mystères.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-green-900 text-white border-green-700">
+                <Card className="bg-secondary/30 border-secondary">
                   <CardContent className="p-4">
-                    <h4 className="font-semibold">La Vierge Sauvage</h4>
-                    <p className="text-xs text-green-300 mb-2">Autonomie perdue</p>
-                    <p className="text-sm">
+                    <h4 className="font-semibold text-foreground">La Vierge Sauvage</h4>
+                    <p className="text-xs text-muted-foreground mb-2">Autonomie perdue</p>
+                    <p className="text-sm text-muted-foreground">
                       La femme appartenant à elle-même. Retrouvez l'indépendance 
                       que le patriarcat a volée.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-purple-900 text-white border-purple-700">
+                <Card className="bg-secondary/30 border-secondary">
                   <CardContent className="p-4">
-                    <h4 className="font-semibold">La Mère Sombre</h4>
-                    <p className="text-xs text-purple-300 mb-2">Rage refoulée</p>
-                    <p className="text-sm">
+                    <h4 className="font-semibold text-foreground">La Mère Sombre</h4>
+                    <p className="text-xs text-muted-foreground mb-2">Rage refoulée</p>
+                    <p className="text-sm text-muted-foreground">
                       La mère dont la colère a été interdite. Honorez sa rage juste 
                       contre l'injustice.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-red-900 text-white border-red-700">
+                <Card className="bg-primary/10 border-primary/20">
                   <CardContent className="p-4">
-                    <h4 className="font-semibold">La Prostituée Sacrée</h4>
-                    <p className="text-xs text-red-300 mb-2">Sexualité volée</p>
-                    <p className="text-sm">
+                    <h4 className="font-semibold text-foreground">La Prostituée Sacrée</h4>
+                    <p className="text-xs text-muted-foreground mb-2">Sexualité volée</p>
+                    <p className="text-sm text-muted-foreground">
                       La prêtresse dont le corps était temple. Réclamez le droit 
                       au plaisir sans honte.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-900 text-white border-amber-700">
+                <Card className="bg-primary/10 border-primary/20">
                   <CardContent className="p-4">
-                    <h4 className="font-semibold">L'Ancienne</h4>
-                    <p className="text-xs text-amber-300 mb-2">Sagesse ignorée</p>
-                    <p className="text-sm">
+                    <h4 className="font-semibold text-foreground">L'Ancienne</h4>
+                    <p className="text-xs text-muted-foreground mb-2">Sagesse ignorée</p>
+                    <p className="text-sm text-muted-foreground">
                       La femme âgée dont la voix a été tue. Honorez les vieilles femmes 
                       et leurs enseignements.
                     </p>
@@ -1715,12 +1715,12 @@ const SagesseFeminine = () => {
           {/* Section XI - Femme et Pouvoir */}
           <section id="pouvoir">
             <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
-              <Crown className="w-6 h-6 text-amber-500" />
+              <Crown className="w-6 h-6 text-primary" />
               XI. Femme et Pouvoir : Réappropriation du Leadership
             </h2>
             <div className="prose prose-lg text-muted-foreground space-y-6">
               
-              <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <p className="text-lg font-medium text-foreground italic">
                     « Ya devi sarva bhutesu shakti rupena samsthita — 
@@ -1739,27 +1739,27 @@ const SagesseFeminine = () => {
 
               <h4 className="font-semibold text-foreground mt-6 mb-3">Les 3 Sources du Pouvoir Féminin</h4>
               <div className="grid md:grid-cols-3 gap-4 my-6">
-                <Card className="bg-red-50/50 dark:bg-red-950/20 border-red-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
-                    <Flame className="w-8 h-8 text-red-500 mx-auto mb-2" />
+                    <Flame className="w-8 h-8 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground">Icchā-Śakti</h4>
                     <p className="text-sm text-muted-foreground">
                       Pouvoir de la volonté. Savoir ce que vous voulez et oser le demander.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-sky-50/50 dark:bg-sky-950/20 border-sky-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
-                    <Eye className="w-8 h-8 text-sky-500 mx-auto mb-2" />
+                    <Eye className="w-8 h-8 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground">Jñāna-Śakti</h4>
                     <p className="text-sm text-muted-foreground">
                       Pouvoir de la connaissance. Votre intuition et votre sagesse sont valides.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
-                    <Sparkles className="w-8 h-8 text-amber-500 mx-auto mb-2" />
+                    <Sparkles className="w-8 h-8 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground">Kriyā-Śakti</h4>
                     <p className="text-sm text-muted-foreground">
                       Pouvoir d'action. Manifester dans le monde ce que vous portez en vous.
@@ -1772,7 +1772,7 @@ const SagesseFeminine = () => {
 
               <Accordion type="multiple" className="space-y-4 my-6">
                 {/* Sphère 1 */}
-                <AccordionItem value="sphere1" className="bg-pink-50/30 dark:bg-pink-950/10 border border-pink-200/50 rounded-xl px-6">
+                <AccordionItem value="sphere1" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">1. Sva-Sāmarthya — Pouvoir sur Soi-même</span>
                   </AccordionTrigger>
@@ -1790,7 +1790,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Sphère 2 */}
-                <AccordionItem value="sphere2" className="bg-violet-50/30 dark:bg-violet-950/10 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="sphere2" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">2. Vāc-Śakti — Pouvoir de la Voix</span>
                   </AccordionTrigger>
@@ -1807,13 +1807,13 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Sphère 3 */}
-                <AccordionItem value="sphere3" className="bg-amber-50/30 dark:bg-amber-950/10 border border-amber-200/50 rounded-xl px-6">
+                <AccordionItem value="sphere3" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">3. Artha-Śakti — Pouvoir Économique</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm space-y-3">
                     <p>L'indépendance financière est une forme de liberté spirituelle.</p>
-                    <Card className="bg-amber-100/50 dark:bg-amber-900/20 border-amber-200/30">
+                    <Card className="bg-primary/5 border-primary/20">
                       <CardContent className="p-4">
                         <h5 className="font-semibold text-foreground mb-2">Rituel de Lakṣmī pour la Prospérité</h5>
                         <ol className="space-y-1">
@@ -1828,7 +1828,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Sphère 4 */}
-                <AccordionItem value="sphere4" className="bg-red-50/30 dark:bg-red-950/10 border border-red-200/50 rounded-xl px-6">
+                <AccordionItem value="sphere4" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">4. Rāja-Śakti — Pouvoir Politique/Social</span>
                   </AccordionTrigger>
@@ -1844,13 +1844,13 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Sphère 5 */}
-                <AccordionItem value="sphere5" className="bg-sky-50/30 dark:bg-sky-950/10 border border-sky-200/50 rounded-xl px-6">
+                <AccordionItem value="sphere5" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">5. Vidyā-Śakti — Pouvoir Intellectuel/Créatif</span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-4 text-sm space-y-3">
                     <p>La connaissance et la créativité comme formes de pouvoir.</p>
-                    <Card className="bg-sky-100/50 dark:bg-sky-900/20 border-sky-200/30">
+                    <Card className="bg-primary/5 border-primary/20">
                       <CardContent className="p-4">
                         <h5 className="font-semibold text-foreground mb-2">Rituel de Sarasvatī</h5>
                         <p>Avant toute étude ou création :</p>
@@ -1865,7 +1865,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Sphère 6 */}
-                <AccordionItem value="sphere6" className="bg-purple-50/30 dark:bg-purple-950/10 border border-purple-200/50 rounded-xl px-6">
+                <AccordionItem value="sphere6" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">6. Siddhi-Śakti — Pouvoir Spirituel/Mystique</span>
                   </AccordionTrigger>
@@ -1887,7 +1887,7 @@ const SagesseFeminine = () => {
                 </AccordionItem>
 
                 {/* Sphère 7 */}
-                <AccordionItem value="sphere7" className="bg-amber-50/30 dark:bg-amber-950/10 border border-amber-200/50 rounded-xl px-6">
+                <AccordionItem value="sphere7" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">7. Guru-Śakti — Pouvoir d'Initier et Enseigner</span>
                   </AccordionTrigger>
@@ -1924,12 +1924,12 @@ const SagesseFeminine = () => {
           {/* Section XII - Sexualité Sacrée */}
           <section id="sexualite-sacree">
             <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
-              <Flame className="w-6 h-6 text-red-500" />
+              <Flame className="w-6 h-6 text-primary" />
               XII. Femme et Sexualité Sacrée : Tantra Appliqué
             </h2>
             <div className="prose prose-lg text-muted-foreground space-y-6">
               
-              <Card className="bg-red-50/50 dark:bg-red-950/20 border-red-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <p className="text-lg font-medium text-foreground italic">
                     « Ce par quoi les gens ordinaires tombent, c'est par cela même que le yogi s'élève. »
@@ -1950,7 +1950,7 @@ const SagesseFeminine = () => {
 
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Les 6 Principes Fondamentaux du Tantra</h3>
               <div className="grid md:grid-cols-2 gap-4 my-6">
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">1. Le corps est sacré</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1958,7 +1958,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">2. Le plaisir est divin</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1966,7 +1966,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">3. L'énergie est neutre</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1974,7 +1974,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">4. Le féminin est premier</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1982,7 +1982,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">5. L'union est cosmique</h4>
                     <p className="text-sm text-muted-foreground">
@@ -1990,7 +1990,7 @@ const SagesseFeminine = () => {
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4">
                     <h4 className="font-semibold text-foreground">6. La conscience transforme</h4>
                     <p className="text-sm text-muted-foreground">
@@ -2006,7 +2006,7 @@ const SagesseFeminine = () => {
               </p>
               <div className="overflow-x-auto my-6">
                 <table className="w-full text-sm border border-border rounded-lg">
-                  <thead className="bg-red-50/50 dark:bg-red-950/20">
+                  <thead className="bg-secondary/50">
                     <tr>
                       <th className="p-3 text-left text-foreground">Granthi</th>
                       <th className="p-3 text-left text-foreground">Zone</th>
@@ -2039,7 +2039,7 @@ const SagesseFeminine = () => {
 
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Pratiques de Purification</h3>
 
-              <Card className="bg-green-50/50 dark:bg-green-950/20 border-green-200/50 my-6">
+              <Card className="bg-secondary/30 border-secondary my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Yoni Steam (Vapeur Vaginale)</h4>
                   <p className="text-sm text-muted-foreground mb-3">
@@ -2058,7 +2058,7 @@ const SagesseFeminine = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Mantra HRĪṀ pour la Yoni</h4>
                   <p className="text-sm text-muted-foreground mb-3">
@@ -2079,7 +2079,7 @@ const SagesseFeminine = () => {
                 Le Tantra offre des outils puissants pour guérir les blessures sexuelles :
               </p>
 
-              <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Les 5 Principes de Guérison</h4>
                   <ol className="space-y-2 text-sm text-muted-foreground">
@@ -2097,12 +2097,12 @@ const SagesseFeminine = () => {
           {/* Section XIII - La Femme Sage */}
           <section id="femme-sage">
             <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
-              <Crown className="w-6 h-6 text-violet-500" />
+              <Crown className="w-6 h-6 text-primary" />
               XIII. La Femme Sage — Vieillir en Conscience
             </h2>
             <div className="prose prose-lg text-muted-foreground space-y-6">
               
-              <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <p className="text-lg font-medium text-foreground italic">
                     « Avec l'âge, le corps peut s'affaiblir, 
@@ -2118,29 +2118,29 @@ const SagesseFeminine = () => {
               </p>
 
               <div className="grid md:grid-cols-3 gap-4 my-6">
-                <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold text-foreground">Kanyā</h4>
                     <p className="text-xs text-muted-foreground mb-2">La Vierge (0-28 ans)</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       Appartenir à soi-même. Explorer. Apprendre. Rêver.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-red-50/50 dark:bg-red-950/20 border-red-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold text-foreground">Mātṛkā</h4>
                     <p className="text-xs text-muted-foreground mb-2">La Mère (28-56 ans)</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       Créer. Nourrir. Protéger. Donner.
                     </p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50">
+                <Card className="bg-card/50 border-primary/20">
                   <CardContent className="p-4 text-center">
                     <h4 className="font-semibold text-foreground">Vidyā</h4>
                     <p className="text-xs text-muted-foreground mb-2">La Sage (56+ ans)</p>
-                    <p className="text-sm">
+                    <p className="text-sm text-muted-foreground">
                       Transmettre. Guider. Bénir. Rayonner.
                     </p>
                   </CardContent>
@@ -2164,7 +2164,7 @@ const SagesseFeminine = () => {
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Les 5 Rôles de la Femme Sage</h3>
 
               <Accordion type="multiple" className="space-y-4 my-6">
-                <AccordionItem value="role1" className="bg-violet-50/30 dark:bg-violet-950/10 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="role1" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">1. Gardienne de la Mémoire</span>
                   </AccordionTrigger>
@@ -2172,7 +2172,7 @@ const SagesseFeminine = () => {
                     <p>Porter et transmettre l'histoire de la lignée, les traditions, les recettes, les chants.</p>
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="role2" className="bg-violet-50/30 dark:bg-violet-950/10 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="role2" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">2. Conseillère</span>
                   </AccordionTrigger>
@@ -2180,7 +2180,7 @@ const SagesseFeminine = () => {
                     <p>Offrir guidance et perspective aux plus jeunes, sans imposer ni contrôler.</p>
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="role3" className="bg-violet-50/30 dark:bg-violet-950/10 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="role3" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">3. Guérisseuse</span>
                   </AccordionTrigger>
@@ -2188,7 +2188,7 @@ const SagesseFeminine = () => {
                     <p>Utiliser la sagesse accumulée pour apaiser, guérir, réconcilier.</p>
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="role4" className="bg-violet-50/30 dark:bg-violet-950/10 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="role4" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">4. Visionnaire</span>
                   </AccordionTrigger>
@@ -2196,7 +2196,7 @@ const SagesseFeminine = () => {
                     <p>Voir au-delà du visible, avoir accès à des visions et des intuitions profondes.</p>
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="role5" className="bg-violet-50/30 dark:bg-violet-950/10 border border-violet-200/50 rounded-xl px-6">
+                <AccordionItem value="role5" className="bg-secondary/20 border border-border rounded-xl px-6">
                   <AccordionTrigger className="hover:no-underline py-4">
                     <span className="font-semibold">5. Préparatrice des Passages</span>
                   </AccordionTrigger>
@@ -2224,7 +2224,7 @@ const SagesseFeminine = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-6">
                   <h4 className="font-semibold text-foreground mb-3">Rituel de Passage à la Sagesse</h4>
                   <p className="text-sm text-muted-foreground mb-3">
@@ -2245,12 +2245,12 @@ const SagesseFeminine = () => {
           {/* Conclusion - Le Retour de la Déesse */}
           <section id="conclusion">
             <h2 className="text-2xl font-serif text-foreground mb-6 flex items-center gap-3">
-              <Sparkles className="w-6 h-6 text-amber-500" />
+              <Sparkles className="w-6 h-6 text-primary" />
               Conclusion : Le Retour de la Déesse — Manifeste
             </h2>
             <div className="prose prose-lg text-muted-foreground space-y-6">
               
-              <Card className="bg-gradient-to-r from-pink-50/80 to-amber-50/80 dark:from-pink-950/30 dark:to-amber-950/30 border-amber-200/50 my-6">
+              <Card className="bg-primary/5 border-primary/20 my-6">
                 <CardContent className="p-8">
                   <p className="text-lg text-foreground leading-relaxed">
                     Nous avons parcouru un chemin immense — depuis les origines cosmiques de la Śakti 
@@ -2272,105 +2272,105 @@ const SagesseFeminine = () => {
 
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Les 10 Antidotes Féminins</h3>
               <div className="grid md:grid-cols-2 gap-3 my-6">
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>1.</strong> Réhabiliter le corps comme temple</p>
+                    <p className="text-sm text-foreground"><strong>1.</strong> Réhabiliter le corps comme temple</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>2.</strong> Honorer les cycles (menstruels, lunaires, saisonniers)</p>
+                    <p className="text-sm text-foreground"><strong>2.</strong> Honorer les cycles (menstruels, lunaires, saisonniers)</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>3.</strong> Cultiver l'intuition comme forme de connaissance</p>
+                    <p className="text-sm text-foreground"><strong>3.</strong> Cultiver l'intuition comme forme de connaissance</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>4.</strong> Pratiquer la sororité active</p>
+                    <p className="text-sm text-foreground"><strong>4.</strong> Pratiquer la sororité active</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>5.</strong> Réclamer le pouvoir sans s'excuser</p>
+                    <p className="text-sm text-foreground"><strong>5.</strong> Réclamer le pouvoir sans s'excuser</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>6.</strong> Guérir les lignées blessées</p>
+                    <p className="text-sm text-foreground"><strong>6.</strong> Guérir les lignées blessées</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>7.</strong> Célébrer la sexualité sacrée</p>
+                    <p className="text-sm text-foreground"><strong>7.</strong> Célébrer la sexualité sacrée</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>8.</strong> Protéger la Terre comme notre corps</p>
+                    <p className="text-sm text-foreground"><strong>8.</strong> Protéger la Terre comme notre corps</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>9.</strong> Transmettre la sagesse aux générations futures</p>
+                    <p className="text-sm text-foreground"><strong>9.</strong> Transmettre la sagesse aux générations futures</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/30 dark:bg-pink-950/10 border-pink-200/30">
+                <Card className="bg-secondary/20 border-border">
                   <CardContent className="p-3">
-                    <p className="text-sm"><strong>10.</strong> Incarner la Déesse au quotidien</p>
+                    <p className="text-sm text-foreground"><strong>10.</strong> Incarner la Déesse au quotidien</p>
                   </CardContent>
                 </Card>
               </div>
 
               <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Les 7 Vertus de la Guerrière Spirituelle</h3>
               <div className="grid md:grid-cols-4 gap-3 my-6">
-                <Card className="bg-red-50/50 dark:bg-red-950/20 border-red-200/50 text-center">
+                <Card className="bg-card/50 border-primary/20 text-center">
                   <CardContent className="p-4">
-                    <Shield className="w-6 h-6 text-red-500 mx-auto mb-2" />
+                    <Shield className="w-6 h-6 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground text-sm">Courage</h4>
                     <p className="text-xs text-muted-foreground">Affronter la peur</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-pink-50/50 dark:bg-pink-950/20 border-pink-200/50 text-center">
+                <Card className="bg-card/50 border-primary/20 text-center">
                   <CardContent className="p-4">
-                    <Heart className="w-6 h-6 text-pink-500 mx-auto mb-2" />
+                    <Heart className="w-6 h-6 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground text-sm">Compassion</h4>
                     <p className="text-xs text-muted-foreground">Force avec douceur</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-sky-50/50 dark:bg-sky-950/20 border-sky-200/50 text-center">
+                <Card className="bg-card/50 border-primary/20 text-center">
                   <CardContent className="p-4">
-                    <Eye className="w-6 h-6 text-sky-500 mx-auto mb-2" />
+                    <Eye className="w-6 h-6 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground text-sm">Discernement</h4>
                     <p className="text-xs text-muted-foreground">Voir le vrai</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-violet-50/50 dark:bg-violet-950/20 border-violet-200/50 text-center">
+                <Card className="bg-card/50 border-primary/20 text-center">
                   <CardContent className="p-4">
-                    <Flame className="w-6 h-6 text-violet-500 mx-auto mb-2" />
+                    <Flame className="w-6 h-6 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground text-sm">Persévérance</h4>
                     <p className="text-xs text-muted-foreground">Ne jamais abandonner</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-green-50/50 dark:bg-green-950/20 border-green-200/50 text-center">
+                <Card className="bg-card/50 border-primary/20 text-center">
                   <CardContent className="p-4">
-                    <Flower2 className="w-6 h-6 text-green-500 mx-auto mb-2" />
+                    <Flower2 className="w-6 h-6 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground text-sm">Authenticité</h4>
                     <p className="text-xs text-muted-foreground">Être vraie</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200/50 text-center">
+                <Card className="bg-card/50 border-primary/20 text-center">
                   <CardContent className="p-4">
-                    <Users className="w-6 h-6 text-amber-500 mx-auto mb-2" />
+                    <Users className="w-6 h-6 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground text-sm">Service</h4>
                     <p className="text-xs text-muted-foreground">Au-delà de soi</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-purple-50/50 dark:bg-purple-950/20 border-purple-200/50 text-center">
+                <Card className="bg-card/50 border-primary/20 text-center">
                   <CardContent className="p-4">
-                    <Star className="w-6 h-6 text-purple-500 mx-auto mb-2" />
+                    <Star className="w-6 h-6 text-primary mx-auto mb-2" />
                     <h4 className="font-semibold text-foreground text-sm">Joie</h4>
                     <p className="text-xs text-muted-foreground">Célébrer la vie</p>
                   </CardContent>
@@ -2378,7 +2378,7 @@ const SagesseFeminine = () => {
               </div>
 
               {/* Le Serment de la Shakti */}
-              <Card className="bg-gradient-to-r from-amber-100 to-pink-100 dark:from-amber-900/40 dark:to-pink-900/40 border-amber-300 dark:border-amber-700 my-8">
+              <Card className="bg-primary/10 border-primary/30 my-8">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-serif text-foreground text-center mb-6">
                     Le Serment de la Śakti
