@@ -122,10 +122,12 @@ const sections: Section[] = [
     articles: [
       { title: "Les Koshas : les cinq enveloppes de l'être", href: null, available: false },
       { title: "Prana et les cinq Vayus", href: null, available: false },
-      { title: "Ahamkara, Manas et Buddhi", href: "/philosophie/ahamkara", available: true },
+      { title: "Ahamkara : le sens de l'ego", href: "/philosophie/ahamkara", available: true },
+      { title: "Manas : le mental sensoriel", href: null, available: false },
+      { title: "Buddhi : l'intelligence discriminative", href: null, available: false },
       { title: "Les états de conscience (Jagrat, Svapna, Sushupti, Turiya)", href: null, available: false },
       { title: "Involution et Évolution selon les Vedas", href: "/philosophie/involution-evolution", available: true },
-      { title: "Bhutavidya : science védique de l'esprit", href: "/bhutavidya", available: true },
+      { title: "Bhutavidya : science védique de l'esprit", href: "/philosophie/bhutavidya", available: false },
     ],
   },
   {
