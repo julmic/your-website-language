@@ -48,8 +48,8 @@ const sections: Section[] = [
     description: "Les sources scripturales de la sagesse éternelle",
     articles: [
       { title: "Les Vedas : structure et symbolisme", href: null, available: false },
-      { title: "Les Upanishads", href: null, available: false },
-      { title: "La Bhagavad Gita", href: null, available: false },
+      { title: "Les Upanishads", href: "/philosophie/upanishads", available: true },
+      { title: "La Bhagavad Gita", href: "/philosophie/bhagavad-gita", available: true },
       { title: "Les Brahmanas", href: null, available: false },
       { title: "Les Aranyakas", href: null, available: false },
       { title: "Les Sutras : Yoga Sutras, Brahma Sutras", href: null, available: false },
@@ -162,7 +162,7 @@ const sections: Section[] = [
     icon: Music,
     description: "Applications pratiques de la sagesse védique",
     articles: [
-      { title: "Jyotish : astrologie védique", href: null, available: false },
+      { title: "Jyotish : astrologie védique", href: "/philosophie/jyotish", available: true },
       { title: "Vastu Shastra : architecture sacrée", href: null, available: false },
       { title: "Gandharva Veda : musique sacrée", href: null, available: false },
       { title: "Artha Shastra : éthique politique et économique", href: null, available: false },
