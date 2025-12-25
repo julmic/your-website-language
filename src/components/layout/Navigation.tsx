@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,9 +18,10 @@ const navigationItems = [
   {
     label: "Consultations & Soins",
     items: [
-      { href: "/consultations-ayurveda", label: "Vue d'ensemble", description: "Découvrez nos consultations ayurvédiques" },
-      { href: "/bilan-de-sante", label: "Bilan de santé CHIKITSA", description: "Analyse Prakriti/Vikriti complète" },
-      { href: "/services", label: "Massages ayurvédiques", description: "Tous nos soins corporels traditionnels" },
+      { href: "/services", label: "Vue d'ensemble", description: "Tous nos services ayurvédiques" },
+      { href: "/consultations-ayurveda", label: "Consultations", description: "Bilans et accompagnements personnalisés" },
+      { href: "/bilan-de-sante", label: "Bilan CHIKITSA", description: "Analyse Prakriti/Vikriti complète" },
+      { href: "/services#massages", label: "Massages", description: "Soins corporels traditionnels" },
       { href: "/bhutavidya", label: "Bhutavidya", description: "Psychologie ayurvédique" },
     ],
   },

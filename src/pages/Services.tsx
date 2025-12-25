@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Stethoscope, Hand, Heart, GraduationCap, Clock, Euro, ChevronDown } from "lucide-react";
 import {
   Accordion,
@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useEffect, useState } from "react";
 
 // Import massage images
 import massageOil from "@/assets/massages/massage-oil.jpg";
@@ -138,6 +139,25 @@ const formations = [
 ];
 
 const Services = () => {
+  const location = useLocation();
+  const [openAccordions, setOpenAccordions] = useState<string[]>([]);
+
+  // Handle anchor scrolling
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash) {
+      // Open the corresponding accordion
+      setOpenAccordions([hash]);
+      // Scroll to the element after a short delay to allow accordion to open
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
+
   return (
     <Layout>
       <section className="py-20 bg-secondary/30">
@@ -151,9 +171,9 @@ const Services = () => {
 
       <section className="py-16">
         <div className="container px-4">
-          <Accordion type="multiple" defaultValue={[]} className="space-y-4">
+          <Accordion type="multiple" value={openAccordions} onValueChange={setOpenAccordions} className="space-y-4">
             {/* Massages Ayurvédiques */}
-            <AccordionItem value="massages" className="border border-border rounded-xl overflow-hidden bg-card">
+            <AccordionItem id="massages" value="massages" className="border border-border rounded-xl overflow-hidden bg-card">
               <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -192,7 +212,7 @@ const Services = () => {
             </AccordionItem>
 
             {/* Consultations */}
-            <AccordionItem value="consultations" className="border border-border rounded-xl overflow-hidden bg-card">
+            <AccordionItem id="consultations" value="consultations" className="border border-border rounded-xl overflow-hidden bg-card">
               <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -231,7 +251,7 @@ const Services = () => {
             </AccordionItem>
 
             {/* Cures et Programmes */}
-            <AccordionItem value="cures" className="border border-border rounded-xl overflow-hidden bg-card">
+            <AccordionItem id="cures" value="cures" className="border border-border rounded-xl overflow-hidden bg-card">
               <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -277,7 +297,7 @@ const Services = () => {
             </AccordionItem>
 
             {/* Formations et Stages */}
-            <AccordionItem value="formations" className="border border-border rounded-xl overflow-hidden bg-card">
+            <AccordionItem id="formations" value="formations" className="border border-border rounded-xl overflow-hidden bg-card">
               <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
