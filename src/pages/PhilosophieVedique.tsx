@@ -21,6 +21,7 @@ import {
   Music,
   Check,
   Clock,
+  Globe,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -42,20 +43,23 @@ interface Section {
 const sections: Section[] = [
   {
     id: 1,
-    title: "Les Textes et Racines de la Philosophie Védique",
+    title: "Les Textes Fondateurs",
     icon: BookOpen,
-    description: "Les fondations de la sagesse éternelle",
+    description: "Les sources scripturales de la sagesse éternelle",
     articles: [
       { title: "Les Vedas : structure et symbolisme", href: null, available: false },
       { title: "Les Upanishads", href: null, available: false },
       { title: "La Bhagavad Gita", href: null, available: false },
-      { title: "Les Brahmanas & Aranyakas", href: null, available: false },
-      { title: "Le Védisme primitif et les prêtres rishis", href: null, available: false },
+      { title: "Les Brahmanas", href: null, available: false },
+      { title: "Les Aranyakas", href: null, available: false },
+      { title: "Les Sutras : Yoga Sutras, Brahma Sutras", href: null, available: false },
+      { title: "Itihasa : Mahabharata et Ramayana", href: null, available: false },
+      { title: "Les Puranas", href: null, available: false },
     ],
   },
   {
     id: 2,
-    title: "Métaphysique védique : principes fondamentaux",
+    title: "Métaphysique Védique",
     icon: Sparkles,
     description: "Les concepts essentiels de la réalité ultime",
     articles: [
@@ -68,7 +72,7 @@ const sections: Section[] = [
   },
   {
     id: 3,
-    title: "Cosmologie et vision du monde",
+    title: "Cosmologie et Structure de l'Univers",
     icon: Sun,
     description: "L'univers selon la tradition védique",
     articles: [
@@ -76,11 +80,13 @@ const sections: Section[] = [
       { title: "Les trois Gunas", href: null, available: false },
       { title: "Les Pancha Mahabhutas (5 éléments)", href: null, available: false },
       { title: "Le temps, les cycles et les Yugas", href: "/philosophie/temps-cycles-yugas", available: true },
+      { title: "Les Lokas (mondes célestes, terrestres et inférieurs)", href: null, available: false },
+      { title: "Cosmologie du sacrifice", href: null, available: false },
     ],
   },
   {
     id: 4,
-    title: "Les Voies Spirituelles (Yoga & Darshanas)",
+    title: "Les Voies Spirituelles : Yoga & Darshanas",
     icon: Compass,
     description: "Les chemins vers la réalisation de soi",
     articles: [
@@ -89,56 +95,91 @@ const sections: Section[] = [
       { title: "Bhakti Yoga : la voie de la dévotion", href: null, available: false },
       { title: "Karma Yoga : la voie de l'action", href: null, available: false },
       { title: "Raja Yoga : la voie royale", href: null, available: false },
-      { title: "Tantra védique", href: null, available: false },
       { title: "Samkhya", href: null, available: false },
+      { title: "Mimamsa", href: null, available: false },
+      { title: "Vedanta : Advaita, Vishishtadvaita, Dvaita", href: null, available: false },
     ],
   },
   {
     id: 5,
-    title: "Ayurvéda & Sciences de la Conscience",
-    icon: Heart,
-    description: "La médecine sacrée et l'éveil spirituel",
+    title: "Rituels et Disciplines Sacrées",
+    icon: Flame,
+    description: "Les pratiques transformatrices",
     articles: [
-      { title: "L'Ayurvéda : Une Voie d'Élévation Spirituelle", href: "/philosophie/ayurveda-elevation-spirituelle", available: true, subsection: "5.1" },
-      { title: "Traité spirituel sur Ahaṃkāra", href: "/philosophie/ahamkara", available: true, subsection: "5.2" },
-      { title: "Involution et Évolution selon les Vedas", href: "/philosophie/involution-evolution", available: true, subsection: "5.3" },
-      { title: "La Mort selon l'Ayurvéda : Vision holistique du passage de l'âme", href: "/philosophie/mort-ayurveda", available: true, subsection: "5.4" },
-      { title: "Le Dharma en Ayurveda : La Loi Intérieure", href: "/philosophie/dharma-ayurveda", available: true, subsection: "5.5" },
+      { title: "Mantras : science du son sacré", href: null, available: false },
+      { title: "Agni Hotra : le rituel du feu", href: null, available: false },
+      { title: "Antar Yajna : le rituel intérieur", href: null, available: false },
+      { title: "Yajna extérieurs et sacrifices védiques", href: null, available: false },
+      { title: "Puja : l'adoration rituelle", href: null, available: false },
+      { title: "Symbolisme du feu sacré", href: null, available: false },
     ],
   },
   {
     id: 6,
-    title: "Spiritualité féminine & symbolisme",
-    icon: Flower2,
-    description: "La sagesse du féminin sacré",
+    title: "Psychologie Védique & Sciences de la Conscience",
+    icon: Brain,
+    description: "La cartographie de l'esprit et de l'âme",
     articles: [
-      { title: "Sagesse féminine dans les Vedas", href: "/philosophie/sagesse-feminine", available: true },
-      { title: "Les déesses védiques (Sarasvati, Vak, Aditi, Ushas…)", href: null, available: false },
-      { title: "Féminin sacré et cosmologie", href: null, available: false },
+      { title: "Les Koshas : les cinq enveloppes de l'être", href: null, available: false },
+      { title: "Prana et les cinq Vayus", href: null, available: false },
+      { title: "Ahamkara, Manas et Buddhi", href: "/philosophie/ahamkara", available: true },
+      { title: "Les états de conscience (Jagrat, Svapna, Sushupti, Turiya)", href: null, available: false },
+      { title: "Involution et Évolution selon les Vedas", href: "/philosophie/involution-evolution", available: true },
+      { title: "Bhutavidya : science védique de l'esprit", href: "/bhutavidya", available: true },
     ],
   },
   {
     id: 7,
-    title: "Rituels, pratiques et disciplines",
-    icon: Flame,
-    description: "Les pratiques transformatrices",
+    title: "Ayurveda & Sciences de la Vie",
+    icon: Heart,
+    description: "La médecine sacrée et l'art de vivre",
     articles: [
-      { title: "Mantras", href: null, available: false },
-      { title: "Agni Hotra", href: null, available: false },
-      { title: "Méditations védiques", href: null, available: false },
-      { title: "Rituel intérieur (Antar Yajna)", href: null, available: false },
+      { title: "L'Ayurvéda : Une Voie d'Élévation Spirituelle", href: "/philosophie/ayurveda-elevation-spirituelle", available: true },
+      { title: "Les Doshas : Vata, Pitta, Kapha", href: null, available: false },
+      { title: "Santé spirituelle et équilibre holistique", href: null, available: false },
+      { title: "Ritucharya : cycles de la nature et saisonnalité", href: null, available: false },
+      { title: "Le Dharma en Ayurveda : La Loi Intérieure", href: "/philosophie/dharma-ayurveda", available: true },
+      { title: "La Mort selon l'Ayurvéda", href: "/philosophie/mort-ayurveda", available: true },
     ],
   },
   {
     id: 8,
-    title: "Sciences védiques appliquées",
-    icon: Brain,
+    title: "Féminin Sacré & Symbolisme Shakti",
+    icon: Flower2,
+    description: "La puissance créatrice féminine",
+    articles: [
+      { title: "Sagesse féminine dans les Vedas", href: "/philosophie/sagesse-feminine", available: true },
+      { title: "Les grandes Déesses : Lakshmi, Parvati, Durga, Kali", href: null, available: false },
+      { title: "Symbolisme de Shakti dans la création", href: null, available: false },
+      { title: "Féminin sacré et cosmologie", href: null, available: false },
+    ],
+  },
+  {
+    id: 9,
+    title: "Sciences Sacrées Appliquées",
+    icon: Music,
     description: "Applications pratiques de la sagesse védique",
     articles: [
-      { title: "Jyotish (astrologie védique)", href: null, available: false },
-      { title: "Vastu Shastra (architecture sacrée)", href: null, available: false },
-      { title: "Gandharva Veda (musique sacrée)", href: null, available: false },
-      { title: "Artha Shastra (éthique politique)", href: null, available: false },
+      { title: "Jyotish : astrologie védique", href: null, available: false },
+      { title: "Vastu Shastra : architecture sacrée", href: null, available: false },
+      { title: "Gandharva Veda : musique sacrée", href: null, available: false },
+      { title: "Artha Shastra : éthique politique et économique", href: null, available: false },
+      { title: "Dhanurveda : l'art martial védique", href: null, available: false },
+      { title: "Sthapatya Veda : science de la construction", href: null, available: false },
+    ],
+  },
+  {
+    id: 10,
+    title: "Héritage et Interprétations Modernes",
+    icon: Globe,
+    description: "Transmission et renaissance de la sagesse védique",
+    articles: [
+      { title: "Sri Aurobindo et le Yoga intégral", href: null, available: false },
+      { title: "Swami Vivekananda et la diffusion en Occident", href: null, available: false },
+      { title: "Sarvepalli Radhakrishnan : philosophie et diplomatie", href: null, available: false },
+      { title: "Gandhi et l'éthique védique", href: null, available: false },
+      { title: "Réception en Occident : Schopenhauer, Emerson, Thoreau", href: null, available: false },
+      { title: "Applications modernes : écologie, éthique, psychologie", href: null, available: false },
     ],
   },
 ];
@@ -197,7 +238,7 @@ const PhilosophieVedique = () => {
               Explorer les enseignements
             </h2>
             <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Naviguez à travers les 8 piliers de la sagesse védique. Les articles disponibles sont accessibles immédiatement.
+              Naviguez à travers les 10 piliers de la sagesse védique. Les articles disponibles sont accessibles immédiatement.
             </p>
 
             <Accordion type="multiple" className="space-y-4">
