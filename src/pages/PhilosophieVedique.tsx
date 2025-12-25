@@ -47,7 +47,7 @@ const sections: Section[] = [
     icon: BookOpen,
     description: "Les sources scripturales de la sagesse éternelle",
     articles: [
-      { title: "Les Vedas : structure et symbolisme", href: null, available: false },
+      { title: "Les Vedas : structure et symbolisme", href: "/philosophie/vedas", available: true },
       { title: "Les Upanishads", href: "/philosophie/upanishads", available: true },
       { title: "La Bhagavad Gita", href: "/philosophie/bhagavad-gita", available: true },
       { title: "Les Brahmanas", href: null, available: false },
@@ -63,7 +63,7 @@ const sections: Section[] = [
     icon: Sparkles,
     description: "Les concepts essentiels de la réalité ultime",
     articles: [
-      { title: "Brahman et Atman", href: null, available: false },
+      { title: "Brahman et Atman", href: "/philosophie/brahman-atman", available: true },
       { title: "Maya : l'illusion cosmique", href: null, available: false },
       { title: "Karma et Samsara", href: null, available: false },
       { title: "Moksha : la libération", href: null, available: false },
@@ -163,7 +163,7 @@ const sections: Section[] = [
     description: "Applications pratiques de la sagesse védique",
     articles: [
       { title: "Jyotish : astrologie védique", href: "/philosophie/jyotish", available: true },
-      { title: "Vastu Shastra : architecture sacrée", href: null, available: false },
+      { title: "Vastu Shastra : architecture sacrée", href: "/philosophie/vastu-shastra", available: true },
       { title: "Gandharva Veda : musique sacrée", href: null, available: false },
       { title: "Artha Shastra : éthique politique et économique", href: null, available: false },
       { title: "Dhanurveda : l'art martial védique", href: null, available: false },
