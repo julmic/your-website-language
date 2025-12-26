@@ -42,16 +42,23 @@ export const WhyAyurvedaSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 bg-card/30 transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className="py-20 bg-card/30 overflow-hidden"
     >
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
+          <h2 
+            className={`text-3xl md:text-4xl font-serif font-semibold mb-4 opacity-0 ${
+              isVisible ? "animate-fade-in-up" : ""
+            }`}
+          >
             Pourquoi choisir l'Ayurveda ?
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p 
+            className={`text-muted-foreground max-w-2xl mx-auto opacity-0 ${
+              isVisible ? "animate-fade-in-up" : ""
+            }`}
+            style={{ animationDelay: "0.1s" }}
+          >
             Une science millénaire pour une santé globale et durable
           </p>
         </div>
@@ -60,23 +67,34 @@ export const WhyAyurvedaSection = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="group p-6 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+              className={`group p-6 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 opacity-0 ${
+                isVisible ? "animate-fade-in-up" : ""
+              }`}
+              style={{ animationDelay: `${0.15 + index * 0.1}s` }}
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <benefit.icon className="w-6 h-6 text-primary" />
+              <div 
+                className={`w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 opacity-0 ${
+                  isVisible ? "animate-scale-fade-in" : ""
+                }`}
+                style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+              >
+                <benefit.icon className="w-6 h-6 text-primary transition-transform duration-500 group-hover:rotate-12" />
               </div>
-              <h3 className="text-lg font-serif font-semibold mb-2">
+              <h3 className="text-lg font-serif font-semibold mb-2 transition-colors duration-300 group-hover:text-primary">
                 {benefit.title}
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
                 {benefit.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="text-center">
-          <Button asChild size="lg">
+        <div 
+          className={`text-center opacity-0 ${isVisible ? "animate-fade-in-up" : ""}`}
+          style={{ animationDelay: "0.8s" }}
+        >
+          <Button asChild size="lg" className="hover:scale-105 transition-transform">
             <Link to="/philosophie-vedique">
               Découvrir l'Ayurveda
               <ArrowRight className="ml-2 h-5 w-5" />

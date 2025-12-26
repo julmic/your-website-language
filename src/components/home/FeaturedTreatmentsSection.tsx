@@ -53,16 +53,23 @@ export const FeaturedTreatmentsSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className="py-20 overflow-hidden"
     >
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
+          <h2 
+            className={`text-3xl md:text-4xl font-serif font-semibold mb-4 opacity-0 ${
+              isVisible ? "animate-fade-in-up" : ""
+            }`}
+          >
             Nos soins phares
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p 
+            className={`text-muted-foreground max-w-2xl mx-auto opacity-0 ${
+              isVisible ? "animate-fade-in-up" : ""
+            }`}
+            style={{ animationDelay: "0.1s" }}
+          >
             Découvrez les traitements ayurvédiques les plus demandés
           </p>
         </div>
@@ -72,21 +79,24 @@ export const FeaturedTreatmentsSection = () => {
             <Link
               key={index}
               to={treatment.link}
-              className="group block rounded-xl overflow-hidden bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+              className={`group block rounded-xl overflow-hidden bg-card border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-3 opacity-0 ${
+                isVisible ? "animate-fade-in-up" : ""
+              }`}
+              style={{ animationDelay: `${0.15 + index * 0.1}s` }}
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={treatment.image}
                   alt={treatment.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
                 />
               </div>
               <div className="p-5">
-                <h3 className="text-lg font-serif font-semibold mb-2 flex items-center justify-between">
+                <h3 className="text-lg font-serif font-semibold mb-2 flex items-center justify-between transition-colors duration-300 group-hover:text-primary">
                   {treatment.name}
-                  <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1" />
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
                   {treatment.description}
                 </p>
               </div>
