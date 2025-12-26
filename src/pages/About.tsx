@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Shield, Heart, Award } from "lucide-react";
+import { getAllTeamMembers, TeamMember } from "@/lib/collections-loader";
 
 // Images
 import dhanvantariImg from "@/assets/about/dhanvantari.webp";
@@ -11,6 +12,14 @@ import patrickImg from "@/assets/about/patrick-villette.webp";
 import aurelieImg from "@/assets/about/aurelie-peltier.png";
 import emmanuelleImg from "@/assets/about/emmanuelle-illien.png";
 import patriciaImg from "@/assets/about/patricia-kaci.webp";
+
+// Map des images pour résolution dynamique
+const teamImageMap: Record<string, string> = {
+  "/src/assets/about/patrick-villette.webp": patrickImg,
+  "/src/assets/about/aurelie-peltier.png": aurelieImg,
+  "/src/assets/about/emmanuelle-illien.png": emmanuelleImg,
+  "/src/assets/about/patricia-kaci.webp": patriciaImg,
+};
 
 const values = [
   {
@@ -27,37 +36,6 @@ const values = [
     icon: Award,
     title: "Excellence",
     description: "Une expertise technique, un soin du détail et un engagement qualitatif constant. Nous nous engageons à préserver et transmettre l'art ancestral de l'Ayurvéda.",
-  },
-];
-
-const teamMembers = [
-  {
-    name: "Patrick Villette",
-    title: "KAVIRADJA",
-    role: "Fondateur / Vaidya Ayurvédique",
-    image: patrickImg,
-    bio: "Vaidya praticien en ayurvéda depuis plus de 35 ans, formé à Pune en Inde. Licence et maîtrise en naturopathie védique au Nisarga Gram Institute (1984-1988), formation en Rasayana (1989), diplôme en Bhutavidya Karma (1995), doctorat en ayurvéda (1998). Pratique clinique à Prabas, Kerala (1999-2001). Fondateur du Centre Ayurvédique Arkadhya en 2001, il pratique bilans de santé, massages, cures ayurvédiques, Bhutavidya et formations.",
-  },
-  {
-    name: "Aurélie Peltier",
-    title: "",
-    role: "Technicienne Ayurvédique",
-    image: aurelieImg,
-    bio: "Passionnée des sciences traditionnelles indiennes, formée aux techniques ayurvédiques. Elle applique les principes de l'Ayurvéda (doshas, thérapies Panchakarma, massages) pour restaurer l'harmonie naturelle (Prakriti) et prévenir les déséquilibres (Vikriti). « L'Ayurvéda n'est pas seulement une médecine, c'est une philosophie de vie. »",
-  },
-  {
-    name: "Emmanuelle Illien",
-    title: "",
-    role: "Praticienne Bhutavidya",
-    image: emmanuelleImg,
-    bio: "Psychologue diplômée (Master 2 Paris 8, n°ADELI 759339674), formée en thérapie inclusive ayurvédique « Bhutavidya » par Patrick Villette Kaviradja. Elle allie rigueur de la psychologie occidentale et richesse des pratiques védiques. Consultations à Paris 7ème. Contact : contact@psy-paris-7.org – 06 71 77 26 55",
-  },
-  {
-    name: "Patricia Kaci",
-    title: "",
-    role: "Technicienne Ayurvédique",
-    image: patriciaImg,
-    bio: "Diplômée en psychologie (licence faculté de Toulouse 2004), formée au Centre Ayurvédique Arkadhya par Patrick Villette Kaviradja. Depuis 2006, elle propose des massages ayurvédiques traditionnels à travers la prise de pouls (Vikriti), dans le respect de la singularité de chacun. Elle accompagne également en tant que bénévole des personnes en fin de vie. Contact : 06 74 22 62 50 – 1 rue Eugène le Roy, 24480 Le Buisson de Cadouin.",
   },
 ];
 
@@ -80,7 +58,14 @@ const qualifications = [
   },
 ];
 
+const getTeamImage = (imagePath: string): string => {
+  return teamImageMap[imagePath] || imagePath;
+};
+
 const About = () => {
+  // Charger les membres de l'équipe depuis le CMS
+  const teamMembers = getAllTeamMembers();
+
   return (
     <Layout>
       {/* Hero */}
@@ -227,7 +212,7 @@ const About = () => {
                   <div className="flex flex-col sm:flex-row">
                     <div className="sm:w-1/3 flex-shrink-0">
                       <img 
-                        src={member.image} 
+                        src={getTeamImage(member.image)} 
                         alt={`Portrait de ${member.name}`}
                         className="w-full h-48 sm:h-full object-cover"
                       />
