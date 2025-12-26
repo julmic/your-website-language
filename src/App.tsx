@@ -34,6 +34,7 @@ import Vedas from "./pages/philosophie/Vedas";
 import VastuShastra from "./pages/philosophie/VastuShastra";
 import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
 import GalerieArkadhya from "./pages/GalerieArkadhya";
+import GuideCMS from "./pages/GuideCMS";
 import MentionsLegales from "./pages/legal/MentionsLegales";
 import CGV from "./pages/legal/CGV";
 import PolitiqueConfidentialite from "./pages/legal/PolitiqueConfidentialite";
@@ -191,6 +192,7 @@ const App = () => (
           <Route path="/philosophie/vedas" element={<Vedas />} />
           <Route path="/philosophie/vastu-shastra" element={<VastuShastra />} />
           <Route path="/centre-ayurvedique-arkadhya-en-images" element={<GalerieArkadhya />} />
+          <Route path="/guide-cms" element={<GuideCMS />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
