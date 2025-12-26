@@ -1,13 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, Tag } from "lucide-react";
-import { articleCategories, getArticlesByCategory } from "@/data/articles";
+import { 
+  getAllBlogArticles, 
+  getBlogArticlesByCategory, 
+  getBlogCategories,
+  formatBlogDate,
+  type BlogArticle 
+} from "@/lib/blog-loader";
+
+// Fallback to static data if CMS content not loaded
+import { articlesData, articleCategories as staticCategories, getArticlesByCategory as getStaticArticles } from "@/data/articles";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("Tous");
-  const filteredArticles = getArticlesByCategory(selectedCategory);
+  const [articles, setArticles] = useState<BlogArticle[]>([]);
+  const [categories, setCategories] = useState<string[]>(["Tous"]);
+  const [useCMS, setUseCMS] = useState(true);
+
+  useEffect(() => {
+    try {
+      // Try to load CMS articles
+      const cmsArticles = getAllBlogArticles();
+      if (cmsArticles.length > 0) {
+        setArticles(cmsArticles);
+        setCategories(getBlogCategories());
+        setUseCMS(true);
+      } else {
+        // Fallback to static data
+        setUseCMS(false);
+      }
+    } catch (error) {
+      console.warn("CMS content not available, using static data");
+      setUseCMS(false);
+    }
+  }, []);
+
+  // Get filtered articles
+  const filteredArticles = useCMS 
+    ? getBlogArticlesByCategory(selectedCategory)
+    : getStaticArticles(selectedCategory);
+
+  const displayCategories = useCMS ? categories : staticCategories;
 
   return (
     <Layout>
@@ -29,7 +65,7 @@ const Blog = () => {
       <section className="py-8 border-b border-border">
         <div className="container px-4">
           <div className="flex flex-wrap gap-2 justify-center">
-            {articleCategories.map((category) => (
+            {displayCategories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
@@ -82,7 +118,7 @@ const Blog = () => {
                   <div className="flex items-center gap-4 mb-3 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Calendar className="h-3 w-3" />
-                      {article.date}
+                      {useCMS ? formatBlogDate(article.date) : article.date}
                     </span>
                     <span>{article.readTime} de lecture</span>
                   </div>
