@@ -24,14 +24,14 @@ export interface PhilosophieSectionWithArticles extends PhilosophieSection {
 }
 
 // Import de tous les fichiers Markdown des sections
-const sectionFiles = import.meta.glob('/content/philosophie/sections/*.md', { 
+const sectionFiles = import.meta.glob('@content/philosophie/sections/*.md', { 
   query: '?raw', 
   import: 'default',
   eager: true 
 });
 
 // Import de tous les fichiers Markdown des articles
-const articleFiles = import.meta.glob('/content/philosophie/articles/*.md', { 
+const articleFiles = import.meta.glob('@content/philosophie/articles/*.md', { 
   query: '?raw', 
   import: 'default',
   eager: true 

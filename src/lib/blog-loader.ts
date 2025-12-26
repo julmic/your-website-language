@@ -17,7 +17,7 @@ export interface BlogArticle {
 
 // Static import of all blog markdown files
 // In a production build with SSG, these would be loaded at build time
-const blogModules = import.meta.glob('/content/blog/*.md', { 
+const blogModules = import.meta.glob('@content/blog/*.md', { 
   query: '?raw', 
   import: 'default',
   eager: true 
