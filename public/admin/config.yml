@@ -1,0 +1,176 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME  # À remplacer par votre dépôt GitHub
+  branch: main
+  base_url: https://sveltia-cms-auth.netlify.app  # Proxy d'authentification Sveltia (gratuit)
+
+# Dossier où seront stockés les médias uploadés
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Configuration locale (français)
+locale: "fr"
+
+# Collections de contenu
+collections:
+  # ==========================================
+  # ARTICLES DE BLOG
+  # ==========================================
+  - name: "blog"
+    label: "Articles de Blog"
+    label_singular: "Article"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - label: "Récents"
+        field: date
+        pattern: "2024|2025"
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Slug (URL)", name: "slug", widget: "string", required: true, hint: "Identifiant unique pour l'URL (ex: mon-article)" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", required: true }
+      - { label: "Catégorie", name: "category", widget: "select", options: ["Guides Débutants", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion", "Santé Osseuse", "Sommeil", "Saisonnier"], required: true }
+      - { label: "Temps de lecture", name: "readTime", widget: "string", default: "5 min", required: true }
+      - { label: "Image principale", name: "image", widget: "image", required: false, media_folder: "/public/uploads/blog", public_folder: "/uploads/blog" }
+      - { label: "Résumé", name: "excerpt", widget: "text", required: true, hint: "Court résumé affiché dans les listes d'articles" }
+      - { label: "Contenu", name: "body", widget: "markdown", required: true }
+
+  # ==========================================
+  # MASSAGES
+  # ==========================================
+  - name: "massages"
+    label: "Massages"
+    label_singular: "Massage"
+    folder: "content/massages"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Nom", name: "title", widget: "string", required: true }
+      - { label: "Slug (URL)", name: "slug", widget: "string", required: true }
+      - { label: "Sous-titre", name: "subtitle", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false, media_folder: "/public/uploads/massages", public_folder: "/uploads/massages" }
+      - { label: "Description courte", name: "description", widget: "text", required: true }
+      - { label: "Détails", name: "details", widget: "markdown", required: false }
+      - { label: "Pour qui", name: "forWhom", widget: "list", field: { label: "Item", name: "item", widget: "string" }, required: false }
+      - { label: "Bienfaits", name: "benefits", widget: "list", field: { label: "Bienfait", name: "benefit", widget: "string" }, required: true }
+      - { label: "Contre-indications", name: "contraindications", widget: "list", field: { label: "Contre-indication", name: "contraindication", widget: "string" }, required: false }
+      - label: "Tarifs"
+        name: "prices"
+        widget: "list"
+        fields:
+          - { label: "Durée", name: "duration", widget: "string" }
+          - { label: "Prix", name: "price", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Réponse", name: "answer", widget: "text" }
+      - label: "Témoignages"
+        name: "testimonials"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Texte", name: "text", widget: "text" }
+          - { label: "Auteur", name: "author", widget: "string" }
+      - { label: "Massages liés", name: "relatedMassages", widget: "list", field: { label: "Slug", name: "slug", widget: "string" }, required: false }
+
+  # ==========================================
+  # CURES
+  # ==========================================
+  - name: "cures"
+    label: "Cures"
+    label_singular: "Cure"
+    folder: "content/cures"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Nom", name: "title", widget: "string", required: true }
+      - { label: "ID unique", name: "id", widget: "string", required: true, hint: "Identifiant technique (ex: panchakarma)" }
+      - { label: "Slug (URL)", name: "slug", widget: "string", required: true }
+      - { label: "Image", name: "image", widget: "image", required: false, media_folder: "/public/uploads/cures", public_folder: "/uploads/cures" }
+      - { label: "Description courte", name: "description", widget: "text", required: true }
+      - { label: "Prix affiché", name: "price", widget: "string", required: true, hint: "Format: 240€/jour ou 220€" }
+      - { label: "Prix par jour", name: "pricePerDay", widget: "number", required: false }
+      - { label: "Prix total (forfait)", name: "totalPrice", widget: "number", required: false }
+      - label: "Durées disponibles"
+        name: "durations"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Jours", name: "days", widget: "number" }
+          - { label: "Prix/jour", name: "pricePerDay", widget: "number" }
+          - { label: "Prix total", name: "totalPrice", widget: "number" }
+      - { label: "Sous-titre", name: "subtitle", widget: "string", required: false }
+      - { label: "Détails complets", name: "body", widget: "markdown", required: false }
+      - { label: "Bienfaits", name: "benefits", widget: "list", field: { label: "Bienfait", name: "benefit", widget: "string" }, required: false }
+      - { label: "Programme", name: "program", widget: "markdown", required: false }
+
+  # ==========================================
+  # PAGES (Textes des différentes pages)
+  # ==========================================
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Page d'accueil"
+        file: "content/pages/home.md"
+        fields:
+          - { label: "Titre Hero", name: "heroTitle", widget: "string" }
+          - { label: "Sous-titre Hero", name: "heroSubtitle", widget: "text" }
+          - { label: "Section Pourquoi Ayurvéda - Titre", name: "whyTitle", widget: "string" }
+          - { label: "Section Pourquoi Ayurvéda - Description", name: "whyDescription", widget: "text" }
+      - name: "about"
+        label: "À propos"
+        file: "content/pages/about.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Introduction", name: "intro", widget: "text" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+      - name: "contact"
+        label: "Contact"
+        file: "content/pages/contact.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Adresse", name: "address", widget: "string" }
+          - { label: "Téléphone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Horaires", name: "hours", widget: "text" }
+
+  # ==========================================
+  # PARAMÈTRES GLOBAUX
+  # ==========================================
+  - name: "settings"
+    label: "Paramètres"
+    files:
+      - name: "general"
+        label: "Paramètres généraux"
+        file: "content/settings/general.md"
+        fields:
+          - { label: "Nom du site", name: "siteName", widget: "string", default: "Arkadhya" }
+          - { label: "Description SEO", name: "siteDescription", widget: "text" }
+          - { label: "Téléphone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Adresse", name: "address", widget: "text" }
+      - name: "social"
+        label: "Réseaux sociaux"
+        file: "content/settings/social.md"
+        fields:
+          - { label: "Facebook", name: "facebook", widget: "string", required: false }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "YouTube", name: "youtube", widget: "string", required: false }
