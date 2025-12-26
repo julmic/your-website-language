@@ -174,3 +174,54 @@ collections:
           - { label: "Facebook", name: "facebook", widget: "string", required: false }
           - { label: "Instagram", name: "instagram", widget: "string", required: false }
           - { label: "YouTube", name: "youtube", widget: "string", required: false }
+
+  # ==========================================
+  # PHILOSOPHIE VÉDIQUE - SECTIONS
+  # ==========================================
+  - name: "philosophie-sections"
+    label: "Philosophie - Sections"
+    label_singular: "Section"
+    folder: "content/philosophie/sections"
+    create: true
+    slug: "{{order}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    sortable_fields: ["order", "title"]
+    fields:
+      - { label: "Numéro d'ordre", name: "order", widget: "number", min: 1, max: 20, required: true }
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Icône", name: "icon", widget: "select", options: ["book-open", "sparkles", "sun", "heart", "compass", "flame", "brain", "flower", "music", "globe"], required: true }
+      - { label: "Description", name: "description", widget: "string", required: true }
+
+  # ==========================================
+  # PHILOSOPHIE VÉDIQUE - ARTICLES
+  # ==========================================
+  - name: "philosophie-articles"
+    label: "Philosophie - Articles"
+    label_singular: "Article"
+    folder: "content/philosophie/articles"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    sortable_fields: ["sectionId", "order", "title"]
+    view_filters:
+      - label: "Disponibles"
+        field: available
+        pattern: true
+      - label: "À venir"
+        field: available
+        pattern: false
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Slug (URL)", name: "slug", widget: "string", required: true, hint: "Identifiant unique pour l'URL (ex: vedas)" }
+      - { label: "Section", name: "sectionId", widget: "number", min: 1, max: 20, required: true, hint: "Numéro de la section (1-10)" }
+      - { label: "Ordre dans la section", name: "order", widget: "number", min: 1, max: 50, required: true }
+      - { label: "Disponible", name: "available", widget: "boolean", default: false, hint: "Cocher si l'article est publié et accessible" }
+      - { label: "URL personnalisée", name: "href", widget: "string", required: false, hint: "URL de l'article (ex: /philosophie/vedas)" }
+      - { label: "Sous-section", name: "subsection", widget: "string", required: false, hint: "Optionnel: numéro de sous-section (ex: 6.3)" }
+      - { label: "Contenu", name: "body", widget: "markdown", required: false }
