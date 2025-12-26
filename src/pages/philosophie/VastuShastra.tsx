@@ -32,6 +32,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+// Images Vastu
+import vastuMandala from "@/assets/philosophie/vastu-mandala.png";
+import vastuDirections from "@/assets/philosophie/vastu-directions.png";
+import vastuElements from "@/assets/philosophie/vastu-elements.png";
+import vastuTemple from "@/assets/philosophie/vastu-temple.png";
+import vastuFloorplan from "@/assets/philosophie/vastu-floorplan.png";
+
 const chapters = [
   { id: "introduction", title: "Introduction" },
   { id: "fondements", title: "Fondements" },
@@ -61,9 +68,17 @@ const VastuShastra = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="relative py-16 bg-gradient-to-b from-background to-secondary/20">
-        <div className="container mx-auto px-4">
+      {/* Hero with Temple Image */}
+      <section className="relative py-16 bg-gradient-to-b from-background to-secondary/20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <img 
+            src={vastuTemple} 
+            alt="Temple hindou montrant les principes du Vastu Shastra" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <Button variant="ghost" asChild className="mb-6">
             <Link to="/philosophie-vedique">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -177,6 +192,15 @@ const VastuShastra = () => {
           <section id="cosmologie">
             <h2 className="text-2xl font-serif text-foreground mb-6">III. La cosmologie du Vastu</h2>
             <div className="prose prose-lg text-muted-foreground space-y-4">
+              {/* Image des directions */}
+              <div className="my-8 flex justify-center">
+                <img 
+                  src={vastuDirections} 
+                  alt="Boussole des 8 directions du Vastu Shastra avec déités" 
+                  className="rounded-lg shadow-lg max-w-md w-full border border-primary/20"
+                />
+              </div>
+              
               <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Les dix directions (Dik) et leurs déités</h3>
               <p>
                 Le système directionnel du Vastu Shastra comprend les dix directions principales : les quatre cardinales (Est, Sud, Ouest, Nord), les quatre intercardinales (Nord-Est, Sud-Est, Sud-Ouest, Nord-Ouest) et les deux directions verticales (haut et bas). Chaque direction est gouvernée par une déité spécifique :
@@ -272,6 +296,16 @@ const VastuShastra = () => {
           {/* IV. Le Vastu Purusha Mandala */}
           <section id="mandala" className="bg-secondary/20 -mx-4 px-4 py-12 rounded-lg">
             <h2 className="text-2xl font-serif text-foreground mb-6">IV. Le Vastu Purusha Mandala</h2>
+            
+            {/* Image du Mandala */}
+            <div className="my-8 flex justify-center">
+              <img 
+                src={vastuMandala} 
+                alt="Vastu Purusha Mandala - diagramme sacré avec le Purusha cosmique" 
+                className="rounded-lg shadow-lg max-w-lg w-full border border-primary/20"
+              />
+            </div>
+            
             <div className="prose prose-lg text-muted-foreground space-y-4">
               <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Origine mythique du Vastu Purusha</h3>
               <p>
@@ -350,6 +384,15 @@ const VastuShastra = () => {
               </p>
               
               <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Organisation harmonieuse des pièces</h3>
+              
+              {/* Image du plan d'étage Vastu */}
+              <div className="my-8 flex justify-center">
+                <img 
+                  src={vastuFloorplan} 
+                  alt="Plan de maison selon les principes du Vastu Shastra" 
+                  className="rounded-lg shadow-lg max-w-lg w-full border border-primary/20"
+                />
+              </div>
               
               <div className="grid md:grid-cols-2 gap-4 my-6">
                 <Card className="bg-card border-border">
@@ -435,6 +478,15 @@ const VastuShastra = () => {
           {/* VII. Les cinq éléments dans la maison */}
           <section id="elements">
             <h2 className="text-2xl font-serif text-foreground mb-6">VII. Les cinq éléments dans la maison</h2>
+            
+            {/* Image des 5 éléments */}
+            <div className="my-8 flex justify-center">
+              <img 
+                src={vastuElements} 
+                alt="Les cinq éléments Pancha Mahabhutas du Vastu Shastra" 
+                className="rounded-lg shadow-lg max-w-md w-full border border-primary/20"
+              />
+            </div>
             
             <div className="space-y-6">
               <div className="flex gap-4">
@@ -533,6 +585,16 @@ const VastuShastra = () => {
           {/* IX. Types d'architectures traditionnelles */}
           <section id="architectures">
             <h2 className="text-2xl font-serif text-foreground mb-6">IX. Types d'architectures traditionnelles</h2>
+            
+            {/* Image du temple */}
+            <div className="my-8 flex justify-center">
+              <img 
+                src={vastuTemple} 
+                alt="Temple hindou traditionnel construit selon les principes du Vastu Shastra" 
+                className="rounded-lg shadow-lg max-w-2xl w-full border border-primary/20"
+              />
+            </div>
+            
             <div className="prose prose-lg text-muted-foreground space-y-4">
               <h3 className="text-xl font-semibold text-foreground mt-6 mb-3">Maisons traditionnelles indiennes</h3>
               <p>
