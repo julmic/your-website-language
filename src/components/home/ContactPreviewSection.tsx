@@ -35,37 +35,55 @@ export const ContactPreviewSection = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-20 bg-card/30 transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className="py-20 bg-card/30 overflow-hidden"
     >
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
+          <h2 
+            className={`text-3xl md:text-4xl font-serif font-semibold mb-4 opacity-0 ${
+              isVisible ? "animate-fade-in-up" : ""
+            }`}
+          >
             Nous trouver
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p 
+            className={`text-muted-foreground max-w-2xl mx-auto opacity-0 ${
+              isVisible ? "animate-fade-in-up" : ""
+            }`}
+            style={{ animationDelay: "0.1s" }}
+          >
             Le centre Arkadhya vous accueille en Lot-et-Garonne, dans un cadre naturel propice à la détente
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          {/* Map */}
-          <GoogleMap className="h-80 lg:h-96" />
+          {/* Map with blur-in effect */}
+          <div 
+            className={`opacity-0 ${isVisible ? "animate-blur-in" : ""}`}
+            style={{ animationDelay: "0.2s" }}
+          >
+            <GoogleMap className="h-80 lg:h-96 rounded-xl shadow-2xl" />
+          </div>
 
-          {/* Contact Info */}
+          {/* Contact Info with staggered fade-in-right */}
           <div className="space-y-6">
             {contactInfo.map((info, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <info.icon className="w-5 h-5 text-primary" />
+              <div 
+                key={index} 
+                className={`flex items-start gap-4 opacity-0 group ${
+                  isVisible ? "animate-fade-in-right" : ""
+                }`}
+                style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+              >
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+                  <info.icon className="w-5 h-5 text-primary transition-transform duration-300 group-hover:rotate-12" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
                   {info.href ? (
                     <a 
                       href={info.href} 
-                      className="text-foreground hover:text-primary transition-colors"
+                      className="text-foreground hover:text-primary transition-colors duration-300"
                     >
                       {info.value}
                     </a>
@@ -76,7 +94,14 @@ export const ContactPreviewSection = () => {
               </div>
             ))}
 
-            <Button asChild size="lg" className="mt-6 w-full sm:w-auto">
+            <Button 
+              asChild 
+              size="lg" 
+              className={`mt-6 w-full sm:w-auto opacity-0 hover:scale-105 transition-transform ${
+                isVisible ? "animate-slide-up-spring" : ""
+              }`}
+              style={{ animationDelay: "0.7s" }}
+            >
               <Link to="/contact">
                 Nous contacter
               </Link>

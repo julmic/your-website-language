@@ -3,8 +3,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import wafLogo from "@/assets/certifications/waf-logo.webp";
 import indianStateLogo from "@/assets/certifications/indian-state-logo.webp";
+import { useEffect, useState } from "react";
 
 export const HeroSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Spline 3D Background */}
@@ -19,10 +27,15 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-[1] bg-background/50 backdrop-blur-[1px]" />
       
       <div className="container relative z-10 px-4">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 animate-fade-in">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
           
           {/* Logo WAF - Left */}
-          <div className="hidden lg:flex flex-col items-center gap-3">
+          <div 
+            className={`hidden lg:flex flex-col items-center gap-3 opacity-0 ${
+              isLoaded ? "animate-scale-fade-in" : ""
+            }`}
+            style={{ animationDelay: "0.8s" }}
+          >
             <img 
               src={wafLogo} 
               alt="World Ayurveda Foundation" 
@@ -35,17 +48,34 @@ export const HeroSection = () => {
           
           {/* Central Content */}
           <div className="max-w-3xl text-center space-y-6">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight">
+            {/* Title with blur-in effect */}
+            <h1 
+              className={`text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight opacity-0 ${
+                isLoaded ? "animate-blur-in" : ""
+              }`}
+              style={{ animationDelay: "0.2s" }}
+            >
               Ayurveda, soins traditionnels et
               <span className="block text-gradient mt-2">accompagnement vers l'équilibre intérieur</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            {/* Subtitle with fade-in-up */}
+            <p 
+              className={`text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed opacity-0 ${
+                isLoaded ? "animate-fade-in-up" : ""
+              }`}
+              style={{ animationDelay: "0.5s" }}
+            >
               Consultations, massages, cures ayurvédiques et formations
             </p>
 
-            {/* Mobile logos */}
-            <div className="flex lg:hidden justify-center items-center gap-8 py-4">
+            {/* Mobile logos with scale effect */}
+            <div 
+              className={`flex lg:hidden justify-center items-center gap-8 py-4 opacity-0 ${
+                isLoaded ? "animate-scale-fade-in" : ""
+              }`}
+              style={{ animationDelay: "0.7s" }}
+            >
               <div className="flex flex-col items-center gap-2">
                 <img 
                   src={wafLogo} 
@@ -64,14 +94,30 @@ export const HeroSection = () => {
               </div>
             </div>
             
+            {/* CTA Buttons with spring effect */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button size="lg" asChild className="text-base">
+              <Button 
+                size="lg" 
+                asChild 
+                className={`text-base opacity-0 hover:scale-105 transition-transform ${
+                  isLoaded ? "animate-slide-up-spring" : ""
+                }`}
+                style={{ animationDelay: "0.9s" }}
+              >
                 <Link to="/contact">
                   Prendre rendez-vous
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="text-base border-primary/50 hover:bg-primary/10">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                asChild 
+                className={`text-base border-primary/50 hover:bg-primary/10 hover:scale-105 transition-transform opacity-0 ${
+                  isLoaded ? "animate-slide-up-spring" : ""
+                }`}
+                style={{ animationDelay: "1.1s" }}
+              >
                 <Link to="/services">
                   Découvrir les soins
                 </Link>
@@ -80,7 +126,12 @@ export const HeroSection = () => {
           </div>
           
           {/* Logo État Indien - Right */}
-          <div className="hidden lg:flex flex-col items-center gap-3">
+          <div 
+            className={`hidden lg:flex flex-col items-center gap-3 opacity-0 ${
+              isLoaded ? "animate-scale-fade-in" : ""
+            }`}
+            style={{ animationDelay: "1s" }}
+          >
             <img 
               src={indianStateLogo} 
               alt="Certifié par l'État Indien" 
