@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { getAllGalleryImages } from "@/lib/collections-loader";
 
 // Import all gallery images
 import galerie01 from "@/assets/galerie/galerie-01.webp";
@@ -41,9 +42,44 @@ import galerie30 from "@/assets/galerie/galerie-30.webp";
 import galerie31 from "@/assets/galerie/galerie-31.webp";
 import galerie32 from "@/assets/galerie/galerie-32.webp";
 
-// Masonry layout sizes: "tall", "wide", "normal"
-// Distribution optimale : 8 tall, 7 wide, 17 normal - espacés régulièrement
-const galleryImages = [
+// Mapping des chemins vers les imports
+const imageMap: Record<string, string> = {
+  "/src/assets/galerie/galerie-01.webp": galerie01,
+  "/src/assets/galerie/galerie-02.webp": galerie02,
+  "/src/assets/galerie/galerie-03.webp": galerie03,
+  "/src/assets/galerie/galerie-04.webp": galerie04,
+  "/src/assets/galerie/galerie-05.webp": galerie05,
+  "/src/assets/galerie/galerie-06.webp": galerie06,
+  "/src/assets/galerie/galerie-07.webp": galerie07,
+  "/src/assets/galerie/galerie-08.webp": galerie08,
+  "/src/assets/galerie/galerie-09.webp": galerie09,
+  "/src/assets/galerie/galerie-10.webp": galerie10,
+  "/src/assets/galerie/galerie-11.webp": galerie11,
+  "/src/assets/galerie/galerie-12.webp": galerie12,
+  "/src/assets/galerie/galerie-13.webp": galerie13,
+  "/src/assets/galerie/galerie-14.webp": galerie14,
+  "/src/assets/galerie/galerie-15.webp": galerie15,
+  "/src/assets/galerie/galerie-16.webp": galerie16,
+  "/src/assets/galerie/galerie-17.webp": galerie17,
+  "/src/assets/galerie/galerie-18.webp": galerie18,
+  "/src/assets/galerie/galerie-19.webp": galerie19,
+  "/src/assets/galerie/galerie-20.webp": galerie20,
+  "/src/assets/galerie/galerie-21.webp": galerie21,
+  "/src/assets/galerie/galerie-22.webp": galerie22,
+  "/src/assets/galerie/galerie-23.webp": galerie23,
+  "/src/assets/galerie/galerie-24.webp": galerie24,
+  "/src/assets/galerie/galerie-25.webp": galerie25,
+  "/src/assets/galerie/galerie-26.webp": galerie26,
+  "/src/assets/galerie/galerie-27.webp": galerie27,
+  "/src/assets/galerie/galerie-28.webp": galerie28,
+  "/src/assets/galerie/galerie-29.webp": galerie29,
+  "/src/assets/galerie/galerie-30.webp": galerie30,
+  "/src/assets/galerie/galerie-31.webp": galerie31,
+  "/src/assets/galerie/galerie-32.webp": galerie32,
+};
+
+// Fallback images
+const defaultGalleryImages = [
   { src: galerie01, alt: "Facade du centre Arkadhya", size: "tall" as const },
   { src: galerie02, alt: "Jardin et terrasse du centre", size: "normal" as const },
   { src: galerie03, alt: "Salle de soins avec huiles", size: "normal" as const },
@@ -94,6 +130,18 @@ const GalerieArkadhya = () => {
   const { ref: introRef, isVisible: introVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: quoteRef, isVisible: quoteVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: galleryRef, isVisible: galleryVisible } = useScrollAnimation({ threshold: 0.05 });
+
+  // Charger les images depuis le CMS
+  const cmsImages = getAllGalleryImages();
+  
+  // Utiliser les images CMS si disponibles, sinon fallback
+  const galleryImages = cmsImages.length > 0
+    ? cmsImages.map(img => ({
+        src: imageMap[img.src] || img.src,
+        alt: img.alt,
+        size: img.size,
+      }))
+    : defaultGalleryImages;
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);

@@ -225,3 +225,68 @@ collections:
       - { label: "URL personnalisée", name: "href", widget: "string", required: false, hint: "URL de l'article (ex: /philosophie/vedas)" }
       - { label: "Sous-section", name: "subsection", widget: "string", required: false, hint: "Optionnel: numéro de sous-section (ex: 6.3)" }
       - { label: "Contenu", name: "body", widget: "markdown", required: false }
+
+  # ==========================================
+  # ÉQUIPE
+  # ==========================================
+  - name: "team"
+    label: "Équipe"
+    label_singular: "Membre"
+    folder: "content/collections/team"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    sortable_fields: ["order", "name"]
+    fields:
+      - { label: "Nom", name: "name", widget: "string", required: true }
+      - { label: "Titre honorifique", name: "title", widget: "string", required: false, hint: "Ex: KAVIRADJA" }
+      - { label: "Rôle", name: "role", widget: "string", required: true }
+      - { label: "Photo", name: "image", widget: "image", required: false, media_folder: "/public/uploads/team", public_folder: "/uploads/team" }
+      - { label: "Ordre d'affichage", name: "order", widget: "number", min: 1, required: true }
+      - { label: "Biographie", name: "bio", widget: "text", required: true }
+      - { label: "Contact", name: "contact", widget: "string", required: false }
+
+  # ==========================================
+  # TÉMOIGNAGES
+  # ==========================================
+  - name: "testimonials"
+    label: "Témoignages"
+    label_singular: "Témoignage"
+    folder: "content/collections/testimonials"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Nom", name: "name", widget: "string", required: true }
+      - { label: "Ville", name: "location", widget: "string", required: true }
+      - { label: "Note (1-5)", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
+      - { label: "Mis en avant", name: "featured", widget: "boolean", default: false, hint: "Afficher sur la page d'accueil" }
+      - { label: "Témoignage", name: "text", widget: "text", required: true }
+
+  # ==========================================
+  # GALERIE
+  # ==========================================
+  - name: "gallery"
+    label: "Galerie"
+    label_singular: "Image"
+    folder: "content/collections/gallery"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    sortable_fields: ["order", "alt"]
+    fields:
+      - { label: "Image", name: "src", widget: "image", required: true, media_folder: "/public/uploads/galerie", public_folder: "/uploads/galerie" }
+      - { label: "Description (alt)", name: "alt", widget: "string", required: true }
+      - { label: "Taille", name: "size", widget: "select", options: ["normal", "wide", "tall"], default: "normal" }
+      - { label: "Catégorie", name: "category", widget: "select", options: ["batiment", "jardin", "soins", "interieur", "hebergement", "decoration"], required: true }
+      - { label: "Mis en avant", name: "featured", widget: "boolean", default: false, hint: "Afficher sur la page d'accueil" }
+      - { label: "Ordre", name: "order", widget: "number", min: 1, required: true }

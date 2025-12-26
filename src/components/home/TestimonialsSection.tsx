@@ -1,28 +1,36 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Marie L.",
-    location: "Bordeaux",
-    text: "Une expérience transformatrice. Les soins Abhyanga m'ont permis de retrouver un équilibre que je n'avais plus depuis des années. Je recommande vivement !",
-    rating: 5,
-  },
-  {
-    name: "Pierre D.",
-    location: "Pau",
-    text: "Le bilan ayurvédique m'a ouvert les yeux sur ma constitution et mes besoins réels. Les conseils personnalisés ont changé ma façon de vivre au quotidien.",
-    rating: 5,
-  },
-  {
-    name: "Sophie M.",
-    location: "Biarritz",
-    text: "La cure détox de 3 jours fut une révélation. Un cadre apaisant, une équipe bienveillante et des résultats visibles dès la première semaine.",
-    rating: 5,
-  },
-];
+import { getFeaturedTestimonials, Testimonial } from "@/lib/collections-loader";
 
 export const TestimonialsSection = () => {
+  // Charger les témoignages depuis le CMS
+  const testimonials = getFeaturedTestimonials();
+  
+  // Fallback si pas de témoignages dans le CMS
+  const displayTestimonials = testimonials.length > 0 ? testimonials : [
+    {
+      name: "Marie L.",
+      location: "Bordeaux",
+      text: "Une expérience transformatrice. Les soins Abhyanga m'ont permis de retrouver un équilibre que je n'avais plus depuis des années. Je recommande vivement !",
+      rating: 5,
+      featured: true,
+    },
+    {
+      name: "Pierre D.",
+      location: "Pau",
+      text: "Le bilan ayurvédique m'a ouvert les yeux sur ma constitution et mes besoins réels. Les conseils personnalisés ont changé ma façon de vivre au quotidien.",
+      rating: 5,
+      featured: true,
+    },
+    {
+      name: "Sophie M.",
+      location: "Biarritz",
+      text: "La cure détox de 3 jours fut une révélation. Un cadre apaisant, une équipe bienveillante et des résultats visibles dès la première semaine.",
+      rating: 5,
+      featured: true,
+    },
+  ];
+
   return (
     <section className="py-20">
       <div className="container px-4">
@@ -36,7 +44,7 @@ export const TestimonialsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
+          {displayTestimonials.map((testimonial, index) => (
             <Card 
               key={index} 
               className="bg-card border-border hover:border-primary/30 transition-colors"
