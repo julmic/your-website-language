@@ -55,8 +55,8 @@ export const HeroSection = () => {
               }`}
               style={{ animationDelay: "0.2s" }}
             >
-              Ayurveda, soins traditionnels et
-              <span className="block text-gradient mt-2">accompagnement vers l'équilibre intérieur</span>
+              Retrouvez l'harmonie intérieure
+              <span className="block text-gradient mt-2">par l'Ayurveda traditionnel</span>
             </h1>
             
             {/* Subtitle with fade-in-up */}
@@ -66,7 +66,7 @@ export const HeroSection = () => {
               }`}
               style={{ animationDelay: "0.5s" }}
             >
-              Consultations, massages, cures ayurvédiques et formations
+              Un accompagnement complet fondé sur les enseignements millénaires des Vedas : consultations spécialisées, massages traditionnels, cures ayurvédiques et formations professionnelles.
             </p>
 
             {/* Mobile logos with scale effect */}
