@@ -15,7 +15,6 @@ import {
   ArrowRight,
   Compass,
   Flame,
-  Users,
   Brain,
   Flower2,
   Music,
@@ -24,174 +23,61 @@ import {
   Globe,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { 
+  getSectionsWithArticles, 
+  getPhilosophieStats,
+  type PhilosophieSectionWithArticles 
+} from "@/lib/philosophie-loader";
+import { useMemo } from "react";
 
-interface Article {
-  title: string;
-  href: string | null;
-  available: boolean;
-  subsection?: string;
-}
+// Mapping des icônes string vers les composants Lucide
+const iconComponents: Record<string, React.ElementType> = {
+  'book-open': BookOpen,
+  'sparkles': Sparkles,
+  'sun': Sun,
+  'heart': Heart,
+  'compass': Compass,
+  'flame': Flame,
+  'brain': Brain,
+  'flower': Flower2,
+  'music': Music,
+  'globe': Globe,
+};
 
-interface Section {
-  id: number;
-  title: string;
-  icon: React.ElementType;
-  description: string;
-  articles: Article[];
-}
-
-const sections: Section[] = [
+// Données de fallback au cas où le CMS n'est pas disponible
+const fallbackSections = [
   {
-    id: 1,
+    order: 1,
     title: "Les Textes Fondateurs",
-    icon: BookOpen,
+    icon: "book-open",
     description: "Les sources scripturales de la sagesse éternelle",
     articles: [
-      { title: "Les Vedas : structure et symbolisme", href: "/philosophie/vedas", available: true },
-      { title: "Les Upanishads", href: "/philosophie/upanishads", available: true },
-      { title: "La Bhagavad Gita", href: "/philosophie/bhagavad-gita", available: true },
-      { title: "Les Brahmanas", href: null, available: false },
-      { title: "Les Aranyakas", href: null, available: false },
-      { title: "Les Sutras : Yoga Sutras, Brahma Sutras", href: null, available: false },
-      { title: "Itihasa : Mahabharata et Ramayana", href: null, available: false },
-      { title: "Les Puranas", href: null, available: false },
-    ],
-  },
-  {
-    id: 2,
-    title: "Métaphysique Védique",
-    icon: Sparkles,
-    description: "Les concepts essentiels de la réalité ultime",
-    articles: [
-      { title: "Brahman et Atman", href: "/philosophie/brahman-atman", available: true },
-      { title: "Maya : l'illusion cosmique", href: null, available: false },
-      { title: "Karma et Samsara", href: null, available: false },
-      { title: "Moksha : la libération", href: null, available: false },
-      { title: "Le rôle du Guru", href: null, available: false },
-    ],
-  },
-  {
-    id: 3,
-    title: "Cosmologie et Structure de l'Univers",
-    icon: Sun,
-    description: "L'univers selon la tradition védique",
-    articles: [
-      { title: "Purusha et Prakriti", href: "/philosophie/purusha-prakriti", available: true },
-      { title: "Les trois Gunas", href: null, available: false },
-      { title: "Les Pancha Mahabhutas (5 éléments)", href: null, available: false },
-      { title: "Le temps, les cycles et les Yugas", href: "/philosophie/temps-cycles-yugas", available: true },
-      { title: "Les Lokas (mondes célestes, terrestres et inférieurs)", href: null, available: false },
-      { title: "Cosmologie du sacrifice", href: null, available: false },
-    ],
-  },
-  {
-    id: 4,
-    title: "Les Voies Spirituelles : Yoga & Darshanas",
-    icon: Compass,
-    description: "Les chemins vers la réalisation de soi",
-    articles: [
-      { title: "La Voie d'Ishvara : des Védas à la transmission moderne", href: "/philosophie/voie-hisvara", available: true },
-      { title: "Jnana Yoga : la voie de la connaissance", href: null, available: false },
-      { title: "Bhakti Yoga : la voie de la dévotion", href: null, available: false },
-      { title: "Karma Yoga : la voie de l'action", href: null, available: false },
-      { title: "Raja Yoga : la voie royale", href: null, available: false },
-      { title: "Samkhya", href: null, available: false },
-      { title: "Mimamsa", href: null, available: false },
-      { title: "Vedanta : Advaita, Vishishtadvaita, Dvaita", href: null, available: false },
-    ],
-  },
-  {
-    id: 5,
-    title: "Rituels et Disciplines Sacrées",
-    icon: Flame,
-    description: "Les pratiques transformatrices",
-    articles: [
-      { title: "Mantras : science du son sacré", href: null, available: false },
-      { title: "Agni Hotra : le rituel du feu", href: null, available: false },
-      { title: "Antar Yajna : le rituel intérieur", href: null, available: false },
-      { title: "Yajna extérieurs et sacrifices védiques", href: null, available: false },
-      { title: "Puja : l'adoration rituelle", href: null, available: false },
-      { title: "Symbolisme du feu sacré", href: null, available: false },
-    ],
-  },
-  {
-    id: 6,
-    title: "Psychologie Védique & Sciences de la Conscience",
-    icon: Brain,
-    description: "La cartographie de l'esprit et de l'âme",
-    articles: [
-      { title: "Les Koshas : les cinq enveloppes de l'être", href: null, available: false },
-      { title: "Prana et les cinq Vayus", href: null, available: false },
-      { title: "Ahamkara : le sens de l'ego", href: "/philosophie/ahamkara", available: true },
-      { title: "Manas : le mental sensoriel", href: null, available: false },
-      { title: "Buddhi : l'intelligence discriminative", href: null, available: false },
-      { title: "Les états de conscience (Jagrat, Svapna, Sushupti, Turiya)", href: null, available: false },
-      { title: "Involution et Évolution selon les Vedas", href: "/philosophie/involution-evolution", available: true },
-      { title: "Bhutavidya : science védique de l'esprit", href: "/philosophie/bhutavidya", available: false },
-    ],
-  },
-  {
-    id: 7,
-    title: "Ayurveda & Sciences de la Vie",
-    icon: Heart,
-    description: "La médecine sacrée et l'art de vivre",
-    articles: [
-      { title: "L'Ayurvéda : Une Voie d'Élévation Spirituelle", href: "/philosophie/ayurveda-elevation-spirituelle", available: true },
-      { title: "Les Doshas : Vata, Pitta, Kapha", href: null, available: false },
-      { title: "Santé spirituelle et équilibre holistique", href: null, available: false },
-      { title: "Ritucharya : cycles de la nature et saisonnalité", href: null, available: false },
-      { title: "Le Dharma en Ayurveda : La Loi Intérieure", href: "/philosophie/dharma-ayurveda", available: true },
-      { title: "La Mort selon l'Ayurvéda", href: "/philosophie/mort-ayurveda", available: true },
-    ],
-  },
-  {
-    id: 8,
-    title: "Féminin Sacré & Symbolisme Shakti",
-    icon: Flower2,
-    description: "La puissance créatrice féminine",
-    articles: [
-      { title: "Sagesse féminine dans les Vedas", href: "/philosophie/sagesse-feminine", available: true },
-      { title: "Les grandes Déesses : Lakshmi, Parvati, Durga, Kali", href: null, available: false },
-      { title: "Symbolisme de Shakti dans la création", href: null, available: false },
-      { title: "Féminin sacré et cosmologie", href: null, available: false },
-    ],
-  },
-  {
-    id: 9,
-    title: "Sciences Sacrées Appliquées",
-    icon: Music,
-    description: "Applications pratiques de la sagesse védique",
-    articles: [
-      { title: "Jyotish : astrologie védique", href: "/philosophie/jyotish", available: true },
-      { title: "Vastu Shastra : architecture sacrée", href: "/philosophie/vastu-shastra", available: true },
-      { title: "Gandharva Veda : musique sacrée", href: null, available: false },
-      { title: "Artha Shastra : éthique politique et économique", href: null, available: false },
-      { title: "Dhanurveda : l'art martial védique", href: null, available: false },
-      { title: "Sthapatya Veda : science de la construction", href: null, available: false },
-    ],
-  },
-  {
-    id: 10,
-    title: "Héritage et Interprétations Modernes",
-    icon: Globe,
-    description: "Transmission et renaissance de la sagesse védique",
-    articles: [
-      { title: "Sri Aurobindo et le Yoga intégral", href: null, available: false },
-      { title: "Swami Vivekananda et la diffusion en Occident", href: null, available: false },
-      { title: "Sarvepalli Radhakrishnan : philosophie et diplomatie", href: null, available: false },
-      { title: "Gandhi et l'éthique védique", href: null, available: false },
-      { title: "Réception en Occident : Schopenhauer, Emerson, Thoreau", href: null, available: false },
-      { title: "Applications modernes : écologie, éthique, psychologie", href: null, available: false },
+      { title: "Les Vedas : structure et symbolisme", slug: "vedas", sectionId: 1, order: 1, available: true, href: "/philosophie/vedas" },
     ],
   },
 ];
 
 const PhilosophieVedique = () => {
-  const availableCount = sections.reduce(
-    (acc, section) => acc + section.articles.filter((a) => a.available).length,
-    0
-  );
-  const totalCount = sections.reduce((acc, section) => acc + section.articles.length, 0);
+  // Charger les données depuis le CMS
+  const sections = useMemo(() => {
+    try {
+      const cmsSections = getSectionsWithArticles();
+      if (cmsSections.length > 0) {
+        return cmsSections;
+      }
+      return fallbackSections as PhilosophieSectionWithArticles[];
+    } catch {
+      return fallbackSections as PhilosophieSectionWithArticles[];
+    }
+  }, []);
+
+  const stats = useMemo(() => {
+    try {
+      return getPhilosophieStats();
+    } catch {
+      return { available: 0, total: 0 };
+    }
+  }, []);
 
   return (
     <Layout>
@@ -208,11 +94,11 @@ const PhilosophieVedique = () => {
             <div className="flex items-center justify-center gap-2 mt-6">
               <Badge variant="secondary" className="text-sm px-3 py-1">
                 <Check className="w-3 h-3 mr-1" />
-                {availableCount} articles disponibles
+                {stats.available} articles disponibles
               </Badge>
               <Badge variant="outline" className="text-sm px-3 py-1">
                 <Clock className="w-3 h-3 mr-1" />
-                {totalCount - availableCount} à venir
+                {stats.total - stats.available} à venir
               </Badge>
             </div>
           </div>
@@ -245,13 +131,13 @@ const PhilosophieVedique = () => {
 
             <Accordion type="multiple" className="space-y-4">
               {sections.map((section) => {
-                const Icon = section.icon;
+                const Icon = iconComponents[section.icon] || BookOpen;
                 const availableInSection = section.articles.filter((a) => a.available).length;
 
                 return (
                   <AccordionItem
-                    key={section.id}
-                    value={`section-${section.id}`}
+                    key={section.order}
+                    value={`section-${section.order}`}
                     className="bg-card/80 border border-border/50 rounded-xl px-6 overflow-hidden"
                   >
                     <AccordionTrigger className="hover:no-underline py-5">
@@ -262,7 +148,7 @@ const PhilosophieVedique = () => {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 flex-wrap">
                             <h3 className="text-lg font-semibold text-foreground">
-                              {section.id}. {section.title}
+                              {section.order}. {section.title}
                             </h3>
                             {availableInSection > 0 && (
                               <Badge variant="default" className="bg-green-600/90 hover:bg-green-600 text-xs">
