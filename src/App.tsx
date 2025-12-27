@@ -49,21 +49,9 @@ import AutomneAyurveda from "./pages/blog/AutomneAyurveda";
 import SommeilAyurveda from "./pages/blog/SommeilAyurveda";
 import LesDoshas from "./pages/blog/LesDoshas";
 
-// Cure pages
-import Panchakarma from "./pages/cures/Panchakarma";
-import Amrita from "./pages/cures/Amrita";
-import Karchan from "./pages/cures/Karchan";
-import LaghanaRasayana from "./pages/cures/LaghanaRasayana";
-import OjasKayakalpa from "./pages/cures/OjasKayakalpa";
-import Personnalisee from "./pages/cures/Personnalisee";
-import SamvahanaVata from "./pages/cures/SamvahanaVata";
-import Prenatale from "./pages/cures/Prenatale";
-import Postnatale from "./pages/cures/Postnatale";
-import Journee from "./pages/cures/Journee";
-import WeekEndDecouverte from "./pages/cures/WeekEndDecouverte";
-
-// Massage page dynamique (CMS)
+// Pages dynamiques (CMS)
 import MassagePage from "./pages/massages/MassagePage";
+import CurePage from "./pages/cures/CurePage";
 
 const queryClient = new QueryClient();
 
@@ -84,18 +72,8 @@ const App = () => (
             <Route path="/cgv" element={<CGV />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
           
-            {/* Cure routes */}
-            <Route path="/cures/panchakarma" element={<Panchakarma />} />
-            <Route path="/cures/amrita" element={<Amrita />} />
-            <Route path="/cures/karchan" element={<Karchan />} />
-            <Route path="/cures/laghana-rasayana" element={<LaghanaRasayana />} />
-            <Route path="/cures/ojas-kayakalpa" element={<OjasKayakalpa />} />
-            <Route path="/cures/personnalisee" element={<Personnalisee />} />
-            <Route path="/cures/samvahana-vata" element={<SamvahanaVata />} />
-            <Route path="/cures/prenatale" element={<Prenatale />} />
-            <Route path="/cures/postnatale" element={<Postnatale />} />
-            <Route path="/cures/journee" element={<Journee />} />
-            <Route path="/cures/week-end-decouverte" element={<WeekEndDecouverte />} />
+            {/* Route dynamique pour toutes les cures (CMS) */}
+            <Route path="/cures/:slug" element={<CurePage />} />
           
             {/* Route dynamique pour tous les massages (CMS) */}
             <Route path="/services/:slug" element={<MassagePage />} />
