@@ -1,12 +1,34 @@
 import { Link } from "react-router-dom";
 import { Leaf, Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
-import { getGeneralSettings, getSocialSettings } from "@/lib/settings-loader";
+import { getGeneralSettings, getSocialSettings, getNavigationSettings } from "@/lib/settings-loader";
 import { getFooterLegalPages } from "@/lib/legal-loader";
 
 export const Footer = () => {
   const settings = getGeneralSettings();
   const social = getSocialSettings();
+  const navigation = getNavigationSettings();
   const legalPages = getFooterLegalPages();
+
+  // Utiliser les liens du CMS ou fallback
+  const navigationLinks = navigation.footerNavigationLinks.length > 0 
+    ? navigation.footerNavigationLinks 
+    : [
+        { label: "Accueil", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Blog", href: "/blog" },
+        { label: "À propos", href: "/a-propos" },
+        { label: "Galerie Photos", href: "/centre-ayurvedique-arkadhya-en-images" },
+        { label: "Contact", href: "/contact" },
+      ];
+
+  const servicesLinks = navigation.footerServicesLinks.length > 0
+    ? navigation.footerServicesLinks
+    : [
+        { label: "Consultations", href: "/consultations-ayurveda" },
+        { label: "Massages Ayurvédiques", href: "/services" },
+        { label: "Cures Bien-être", href: "/cures" },
+        { label: "Formations", href: "/atelier-cuisine" },
+      ];
 
   return (
     <footer className="bg-secondary border-t border-border">
@@ -16,7 +38,7 @@ export const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
               <Leaf className="h-6 w-6 text-primary" />
-              <span className="text-xl font-serif font-semibold">Arkadhya</span>
+              <span className="text-xl font-serif font-semibold">{settings.siteName}</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Centre ayurvédique dédié à votre bien-être et à l'harmonie corps-esprit selon les traditions ancestrales de l'Inde.
@@ -27,12 +49,13 @@ export const Footer = () => {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Navigation</h4>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">Accueil</Link></li>
-              <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
-              <li><Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link to="/a-propos" className="text-sm text-muted-foreground hover:text-primary transition-colors">À propos</Link></li>
-              <li><Link to="/centre-ayurvedique-arkadhya-en-images" className="text-sm text-muted-foreground hover:text-primary transition-colors">Galerie Photos</Link></li>
-              <li><Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
+              {navigationLinks.map((link, index) => (
+                <li key={index}>
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -40,10 +63,13 @@ export const Footer = () => {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Nos Services</h4>
             <ul className="space-y-2">
-              <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Consultations</Link></li>
-              <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Massages Ayurvédiques</Link></li>
-              <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Cures Bien-être</Link></li>
-              <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Formations</Link></li>
+              {servicesLinks.map((link, index) => (
+                <li key={index}>
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -227,6 +227,17 @@ collections:
           - { label: "Section Newsletter - Description", name: "newsletterDescription", widget: "text" }
           - { label: "Section Newsletter - Texte bouton", name: "newsletterButtonText", widget: "string" }
           - { label: "Section Newsletter - Consentement", name: "newsletterConsent", widget: "text" }
+          # Blog Section
+          - { label: "Section Blog - Titre", name: "blogTitle", widget: "string", default: "Actualités & Conseils" }
+          - { label: "Section Blog - Sous-titre", name: "blogSubtitle", widget: "text" }
+          - { label: "Section Blog - Texte bouton", name: "blogButtonText", widget: "string", default: "Voir tous les articles" }
+          - { label: "Section Blog - Nombre d'articles", name: "blogArticlesCount", widget: "number", min: 1, max: 6, default: 3 }
+          # Testimonials Section
+          - { label: "Section Témoignages - Titre", name: "testimonialsTitle", widget: "string", default: "Témoignages" }
+          - { label: "Section Témoignages - Sous-titre", name: "testimonialsSubtitle", widget: "text" }
+          # Gallery Section
+          - { label: "Section Galerie - Titre", name: "galleryTitle", widget: "string", default: "Notre univers" }
+          - { label: "Section Galerie - Sous-titre", name: "gallerySubtitle", widget: "text" }
 
       - name: "about"
         label: "À propos"
@@ -475,7 +486,7 @@ collections:
     label: "Enseignements"
     label_singular: "Enseignement"
     folder: "content/enseignements"
-    create: false
+    create: true
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
@@ -643,6 +654,11 @@ collections:
           - { label: "Téléphone", name: "phone", widget: "string" }
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Adresse", name: "address", widget: "text" }
+          - { label: "Horaires d'ouverture", name: "hours", widget: "text", required: false }
+          - { label: "Logo", name: "logo", widget: "image", required: false, media_folder: "/public/uploads", public_folder: "/uploads" }
+          - { label: "Titre SEO par défaut", name: "seoTitle", widget: "string", required: false }
+          - { label: "Description SEO par défaut", name: "seoDescription", widget: "text", required: false }
+          - { label: "Mots-clés SEO", name: "seoKeywords", widget: "string", required: false }
       - name: "social"
         label: "Réseaux sociaux"
         file: "content/settings/social.md"
@@ -668,6 +684,20 @@ collections:
                   - { label: "URL", name: "href", widget: "string" }
                   - { label: "Titre", name: "label", widget: "string" }
                   - { label: "Description", name: "description", widget: "string" }
+          - label: "Liens footer - Navigation"
+            name: "footerNavigationLinks"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Titre", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
+          - label: "Liens footer - Services"
+            name: "footerServicesLinks"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Titre", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
 
   # ==========================================
   # PHILOSOPHIE VÉDIQUE - SECTIONS
@@ -718,6 +748,8 @@ collections:
       - { label: "Disponible", name: "available", widget: "boolean", default: false, hint: "Cocher si l'article est publié et accessible" }
       - { label: "URL personnalisée", name: "href", widget: "string", required: false, hint: "URL de l'article (ex: /philosophie/vedas)" }
       - { label: "Sous-section", name: "subsection", widget: "string", required: false, hint: "Optionnel: numéro de sous-section (ex: 6.3)" }
+      - { label: "Image principale", name: "image", widget: "image", required: false, media_folder: "/public/uploads/philosophie", public_folder: "/uploads/philosophie" }
+      - { label: "Résumé", name: "excerpt", widget: "text", required: false, hint: "Court résumé affiché dans les listes" }
       - { label: "Contenu", name: "body", widget: "markdown", required: false }
 
   # ==========================================

@@ -63,6 +63,17 @@ export interface HomePage {
   newsletterDescription: string;
   newsletterButtonText: string;
   newsletterConsent: string;
+  // Blog Section
+  blogTitle: string;
+  blogSubtitle: string;
+  blogButtonText: string;
+  blogArticlesCount: number;
+  // Testimonials Section
+  testimonialsTitle: string;
+  testimonialsSubtitle: string;
+  // Gallery Section
+  galleryTitle: string;
+  gallerySubtitle: string;
   content: string;
 }
 
@@ -257,6 +268,17 @@ export function getHomePage(): HomePage {
     newsletterDescription: (data.newsletterDescription as string) || '',
     newsletterButtonText: (data.newsletterButtonText as string) || "S'inscrire",
     newsletterConsent: (data.newsletterConsent as string) || '',
+    // Blog Section
+    blogTitle: (data.blogTitle as string) || 'Actualités & Conseils',
+    blogSubtitle: (data.blogSubtitle as string) || 'Explorez notre blog pour approfondir vos connaissances en Ayurvéda',
+    blogButtonText: (data.blogButtonText as string) || 'Voir tous les articles',
+    blogArticlesCount: (data.blogArticlesCount as number) || 3,
+    // Testimonials Section
+    testimonialsTitle: (data.testimonialsTitle as string) || 'Témoignages',
+    testimonialsSubtitle: (data.testimonialsSubtitle as string) || 'Ce que nos clients disent de leur expérience au centre Arkadhya',
+    // Gallery Section
+    galleryTitle: (data.galleryTitle as string) || 'Notre univers',
+    gallerySubtitle: (data.gallerySubtitle as string) || 'Plongez dans l\'atmosphère apaisante de notre centre ayurvédique',
     content: body,
   };
 }

@@ -18,21 +18,7 @@ import Bhutavidya from "./pages/Bhutavidya";
 import PhilosophieVedique from "./pages/PhilosophieVedique";
 import GayatriMantra from "./pages/GayatriMantraDynamic";
 import PhilosophieArticlePage from "./pages/philosophie/PhilosophieArticlePage";
-import AyurvedaElevationSpirituelle from "./pages/philosophie/AyurvedaElevationSpirituelle";
-import InvolutionEvolution from "./pages/philosophie/InvolutionEvolution";
-import MortAyurveda from "./pages/philosophie/MortAyurveda";
-import VoieHisvara from "./pages/philosophie/VoieHisvara";
-import PurushaPrakriti from "./pages/philosophie/PurushaPrakriti";
-import Ahamkara from "./pages/philosophie/Ahamkara";
-import SagesseFeminine from "./pages/philosophie/SagesseFeminine";
-import TempsCyclesYugas from "./pages/philosophie/TempsCyclesYugas";
-import DharmaAyurveda from "./pages/philosophie/DharmaAyurveda";
-import BhagavadGita from "./pages/philosophie/BhagavadGita";
-import Upanishads from "./pages/philosophie/Upanishads";
-import Jyotish from "./pages/philosophie/Jyotish";
-import BrahmanAtman from "./pages/philosophie/BrahmanAtman";
-import Vedas from "./pages/philosophie/Vedas";
-import VastuShastra from "./pages/philosophie/VastuShastra";
+// Toutes les pages de philosophie sont maintenant gérées dynamiquement via PhilosophieArticlePage
 import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
 import GalerieArkadhya from "./pages/GalerieArkadhya";
 import GuideCMS from "./pages/GuideCMS";
@@ -83,24 +69,7 @@ const App = () => (
             <Route path="/philosophie-vedique" element={<PhilosophieVedique />} />
             <Route path="/gayatri-mantra" element={<GayatriMantra />} />
             
-            {/* Philosophie routes - pages statiques existantes */}
-            <Route path="/philosophie/ayurveda-elevation-spirituelle" element={<AyurvedaElevationSpirituelle />} />
-            <Route path="/philosophie/involution-evolution" element={<InvolutionEvolution />} />
-            <Route path="/philosophie/mort-ayurveda" element={<MortAyurveda />} />
-            <Route path="/philosophie/voie-hisvara" element={<VoieHisvara />} />
-            <Route path="/philosophie/purusha-prakriti" element={<PurushaPrakriti />} />
-            <Route path="/philosophie/ahamkara" element={<Ahamkara />} />
-            <Route path="/philosophie/sagesse-feminine" element={<SagesseFeminine />} />
-            <Route path="/philosophie/temps-cycles-yugas" element={<TempsCyclesYugas />} />
-            <Route path="/philosophie/dharma-ayurveda" element={<DharmaAyurveda />} />
-            <Route path="/philosophie/bhagavad-gita" element={<BhagavadGita />} />
-            <Route path="/philosophie/upanishads" element={<Upanishads />} />
-            <Route path="/philosophie/jyotish" element={<Jyotish />} />
-            <Route path="/philosophie/brahman-atman" element={<BrahmanAtman />} />
-            <Route path="/philosophie/vedas" element={<Vedas />} />
-            <Route path="/philosophie/vastu-shastra" element={<VastuShastra />} />
-            
-            {/* Route dynamique pour les articles philosophie du CMS */}
+            {/* Route dynamique pour tous les articles de philosophie (CMS) */}
             <Route path="/philosophie/:slug" element={<PhilosophieArticlePage />} />
             
             <Route path="/centre-ayurvedique-arkadhya-en-images" element={<GalerieArkadhya />} />

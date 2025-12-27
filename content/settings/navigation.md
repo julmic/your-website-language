@@ -74,4 +74,30 @@ menuItems:
       - href: "/contact"
         label: "Contact"
         description: "Nous contacter"
+
+# Liens du footer - Navigation
+footerNavigationLinks:
+  - label: "Accueil"
+    href: "/"
+  - label: "Services"
+    href: "/services"
+  - label: "Blog"
+    href: "/blog"
+  - label: "À propos"
+    href: "/a-propos"
+  - label: "Galerie Photos"
+    href: "/centre-ayurvedique-arkadhya-en-images"
+  - label: "Contact"
+    href: "/contact"
+
+# Liens du footer - Services
+footerServicesLinks:
+  - label: "Consultations"
+    href: "/consultations-ayurveda"
+  - label: "Massages Ayurvédiques"
+    href: "/services"
+  - label: "Cures Bien-être"
+    href: "/cures"
+  - label: "Formations"
+    href: "/atelier-cuisine"
 ---
