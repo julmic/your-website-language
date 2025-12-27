@@ -38,7 +38,10 @@ collections:
       - { label: "Catégorie", name: "category", widget: "select", options: ["Guides Débutants", "Conseils", "Soins", "Nutrition", "Mode de vie", "Plantes", "Bien-être", "Santé Mentale", "Digestion", "Santé Osseuse", "Sommeil", "Saisonnier"], required: true }
       - { label: "Temps de lecture", name: "readTime", widget: "string", default: "5 min", required: true }
       - { label: "Image principale", name: "image", widget: "image", required: false, media_folder: "/public/uploads/blog", public_folder: "/uploads/blog" }
+      - { label: "Auteur", name: "author", widget: "string", default: "Patrick Villette", required: false }
       - { label: "Résumé", name: "excerpt", widget: "text", required: true, hint: "Court résumé affiché dans les listes d'articles" }
+      - { label: "Article vedette", name: "featured", widget: "boolean", default: false, hint: "Mettre en avant sur la page d'accueil" }
+      - { label: "Page personnalisée", name: "hasCustomComponent", widget: "boolean", default: false, hint: "Cocher si l'article a une page React personnalisée (quiz, etc.)" }
       - { label: "Contenu", name: "body", widget: "markdown", required: true }
 
   # ==========================================
