@@ -322,32 +322,29 @@ collections:
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Horaires", name: "hours", widget: "text" }
 
-      - name: "cgv"
-        label: "CGV"
-        file: "content/pages/cgv.md"
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Meta description", name: "metaDescription", widget: "text" }
-          - { label: "URL canonique", name: "canonicalUrl", widget: "string" }
-          - { label: "Contenu", name: "body", widget: "markdown" }
-
-      - name: "mentions-legales"
-        label: "Mentions légales"
-        file: "content/pages/mentions-legales.md"
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Meta description", name: "metaDescription", widget: "text" }
-          - { label: "URL canonique", name: "canonicalUrl", widget: "string" }
-          - { label: "Contenu", name: "body", widget: "markdown" }
-
-      - name: "politique-confidentialite"
-        label: "Politique de confidentialité"
-        file: "content/pages/politique-confidentialite.md"
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Meta description", name: "metaDescription", widget: "text" }
-          - { label: "URL canonique", name: "canonicalUrl", widget: "string" }
-          - { label: "Contenu", name: "body", widget: "markdown" }
+  # ==========================================
+  # PAGES LÉGALES (Collection dynamique)
+  # ==========================================
+  - name: "legal"
+    label: "Pages légales"
+    label_singular: "Page légale"
+    folder: "content/legal"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    sortable_fields: ["order", "title"]
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Slug (URL)", name: "slug", widget: "string", required: true, hint: "Identifiant pour l'URL (ex: accessibilite, cgv)" }
+      - { label: "Texte dans le footer", name: "linkText", widget: "string", required: true, hint: "Texte affiché dans le footer" }
+      - { label: "Ordre d'affichage", name: "order", widget: "number", min: 1, default: 10, hint: "Position dans le footer (1 = premier)" }
+      - { label: "Afficher dans le footer", name: "showInFooter", widget: "boolean", default: true }
+      - { label: "Meta description", name: "metaDescription", widget: "text", required: true }
+      - { label: "URL canonique", name: "canonicalUrl", widget: "string", required: true }
+      - { label: "Contenu", name: "body", widget: "markdown", required: true }
 
   # ==========================================
   # PARAMÈTRES GLOBAUX

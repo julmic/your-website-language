@@ -1,5 +1,9 @@
 ---
 title: "Conditions Générales de Vente"
+slug: "cgv"
+linkText: "CGV"
+order: 2
+showInFooter: true
 metaDescription: "Conditions générales de vente des prestations du centre ayurvédique Arkadhya : consultations, massages, cures et formations."
 canonicalUrl: "https://arkadhya.org/cgv"
 ---

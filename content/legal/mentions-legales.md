@@ -1,5 +1,9 @@
 ---
-title: "Mentions légales - Arkadhya Centre Ayurvédique"
+title: "Mentions légales"
+slug: "mentions-legales"
+linkText: "Mentions légales"
+order: 1
+showInFooter: true
 metaDescription: "Mentions légales du site Arkadhya, centre ayurvédique en Aquitaine. Informations sur l'éditeur, l'hébergeur et la propriété intellectuelle."
 canonicalUrl: "https://arkadhya.org/mentions-legales"
 ---
@@ -36,7 +40,7 @@ Conformément au Règlement Général sur la Protection des Données (RGPD) et �
 
 Pour exercer ces droits ou pour toute question sur le traitement de vos données, vous pouvez nous contacter à l'adresse : contact@arkadhya.org
 
-Pour plus d'informations, consultez notre [Politique de confidentialité](/politique-confidentialite).
+Pour plus d'informations, consultez notre [Politique de confidentialité](/legal/politique-confidentialite).
 
 ## Cookies
 
