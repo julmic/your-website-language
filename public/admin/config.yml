@@ -344,6 +344,24 @@ collections:
           - { label: "Facebook", name: "facebook", widget: "string", required: false }
           - { label: "Instagram", name: "instagram", widget: "string", required: false }
           - { label: "YouTube", name: "youtube", widget: "string", required: false }
+      - name: "navigation"
+        label: "Menu de navigation"
+        file: "content/settings/navigation.md"
+        fields:
+          - { label: "Texte bouton CTA", name: "ctaButtonText", widget: "string", default: "Prendre RDV" }
+          - { label: "Lien bouton CTA", name: "ctaButtonLink", widget: "string", default: "/contact" }
+          - label: "Menus"
+            name: "menuItems"
+            widget: "list"
+            fields:
+              - { label: "Nom du menu", name: "label", widget: "string" }
+              - label: "Liens"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "URL", name: "href", widget: "string" }
+                  - { label: "Titre", name: "label", widget: "string" }
+                  - { label: "Description", name: "description", widget: "string" }
 
   # ==========================================
   # PHILOSOPHIE VÉDIQUE - SECTIONS
