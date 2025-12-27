@@ -3,10 +3,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, Euro, Heart, Leaf, Activity, Users, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import prakritiImage from "@/assets/bilan/prakriti.avif";
-import doshaImage from "@/assets/bilan/dosha.avif";
 import { getServiceBySlug } from "@/lib/services-speciaux-loader";
 import ReactMarkdown from "react-markdown";
+
+// Utilitaire centralisé pour la résolution d'images de bilan
+import { prakritiImg, doshaImg } from "@/lib/bilan-images";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Activity,
@@ -77,7 +78,7 @@ const BilanDeSante = () => {
             </div>
             <div className="relative">
               <img 
-                src={doshaImage} 
+                src={doshaImg} 
                 alt="Les trois doshas - Vata, Pitta, Kapha" 
                 className="rounded-2xl shadow-2xl shadow-primary/20 w-full object-cover"
               />
@@ -92,7 +93,7 @@ const BilanDeSante = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="order-2 lg:order-1">
               <img 
-                src={prakritiImage} 
+                src={prakritiImg} 
                 alt="Prakriti - Constitution ayurvédique" 
                 className="rounded-2xl shadow-xl shadow-primary/10 w-full object-cover"
               />

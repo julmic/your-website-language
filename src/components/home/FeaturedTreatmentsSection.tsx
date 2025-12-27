@@ -6,18 +6,15 @@ import { getHomePage } from "@/lib/pages-loader";
 // Utilitaires centralisés pour la résolution d'images
 import { abhyangaImg, shirodharaImg, marmaTherapieImg } from "@/lib/massage-images";
 import { resolveCureImage } from "@/lib/cure-images";
-
-// Images additionnelles (bilan)
-import prakritiImage from "@/assets/bilan/prakriti.avif";
-import doshaImage from "@/assets/bilan/dosha.avif";
+import { prakritiImg, doshaImg } from "@/lib/bilan-images";
 
 // Image mapping for CMS imageKey values
 const imageMap: Record<string, string> = {
   abhyanga: abhyangaImg,
   shirodhara: shirodharaImg,
   marma: marmaTherapieImg,
-  prakriti: prakritiImage,
-  dosha: doshaImage,
+  prakriti: prakritiImg,
+  dosha: doshaImg,
   panchakarma: resolveCureImage("panchakarma"),
 };
 
