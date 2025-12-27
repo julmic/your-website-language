@@ -1,7 +1,7 @@
-import matter from 'gray-matter';
+import { parseFrontmatter } from './markdown-parser';
 
 // Import all services-speciaux markdown files
-const serviceFiles = import.meta.glob('/content/services-speciaux/*.md', { 
+const serviceFiles = import.meta.glob('@content/services-speciaux/*.md', { 
   eager: true, 
   query: '?raw',
   import: 'default' 
@@ -81,7 +81,7 @@ export function getAllServicesSpeciaux(): ServiceSpecial[] {
   
   for (const path in serviceFiles) {
     const fileContent = serviceFiles[path] as string;
-    const { data, content } = matter(fileContent);
+    const { data, content } = parseFrontmatter(fileContent);
     
     services.push({
       slug: data.slug,
