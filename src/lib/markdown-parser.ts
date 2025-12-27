@@ -17,6 +17,81 @@ function getIndent(line: string): number {
 }
 
 /**
+ * Check if value is a block scalar indicator (| or >)
+ */
+function isBlockScalarIndicator(value: string): boolean {
+  const trimmed = value.trim();
+  return /^[|>][-+]?$/.test(trimmed);
+}
+
+/**
+ * Parse block scalar content (| for literal, > for folded)
+ */
+function parseBlockScalar(lines: string[], startIdx: number, baseIndent: number, indicator: string): { value: string; endIdx: number } {
+  const isFolded = indicator.startsWith('>');
+  const resultLines: string[] = [];
+  let i = startIdx;
+  let blockIndent = -1;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    const lineIndent = getIndent(line);
+    const trimmed = line.trim();
+
+    // First non-empty line determines block indent
+    if (blockIndent === -1 && trimmed) {
+      blockIndent = lineIndent;
+      if (blockIndent <= baseIndent) {
+        // No content for this block
+        break;
+      }
+    }
+
+    // Empty line within block
+    if (!trimmed) {
+      if (blockIndent !== -1) {
+        resultLines.push('');
+      }
+      i++;
+      continue;
+    }
+
+    // Line is less indented than block - end of block
+    if (blockIndent !== -1 && lineIndent < blockIndent) {
+      break;
+    }
+
+    // Line at or beyond block indent - part of content
+    if (blockIndent !== -1 && lineIndent >= blockIndent) {
+      // Remove the block indent prefix
+      const content = line.slice(blockIndent);
+      resultLines.push(content);
+      i++;
+    } else if (blockIndent === -1) {
+      i++;
+    } else {
+      break;
+    }
+  }
+
+  // Trim trailing empty lines
+  while (resultLines.length > 0 && resultLines[resultLines.length - 1] === '') {
+    resultLines.pop();
+  }
+
+  let result: string;
+  if (isFolded) {
+    // Folded style: replace single newlines with spaces, preserve double newlines as paragraphs
+    result = resultLines.join('\n').replace(/([^\n])\n([^\n])/g, '$1 $2');
+  } else {
+    // Literal style: preserve all newlines
+    result = resultLines.join('\n');
+  }
+
+  return { value: result, endIdx: i };
+}
+
+/**
  * Parse YAML value with type detection
  */
 function parseValue(value: string): unknown {
@@ -264,8 +339,14 @@ export function parseFrontmatter(content: string): ParsedMarkdown {
     
     const key = trimmed.slice(0, colonIdx).trim();
     const val = trimmed.slice(colonIdx + 1).trim();
+    const currentIndent = getIndent(line);
     
-    if (val) {
+    // Check for block scalar indicator (| or >)
+    if (isBlockScalarIndicator(val)) {
+      const { value: blockValue, endIdx } = parseBlockScalar(lines, i + 1, currentIndent, val);
+      data[key] = blockValue;
+      i = endIdx;
+    } else if (val) {
       data[key] = parseValue(val);
       i++;
     } else {
