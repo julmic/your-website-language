@@ -62,9 +62,10 @@ menuItems:
       - href: "/page/yoga"
         label: "Yoga Ayurvédique"
         description: "Pratique adaptée à votre constitution"
-      - href: "/blog"
-        label: "Blog & Articles"
-        description: "Actualités et conseils"
+
+  - label: "Blog"
+    href: "/blog"
+    items: []
 
   - label: "À propos"
     items:

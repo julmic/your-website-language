@@ -117,21 +117,34 @@ export const Navigation = () => {
               <NavigationMenuList>
                 {navigationItems.map((navItem) => (
                   <NavigationMenuItem key={navItem.label}>
-                    <NavigationMenuTrigger className="bg-transparent">
-                      {navItem.label}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                        {navItem.items.map((item) => (
-                          <ListItem
-                            key={item.href}
-                            title={item.label}
-                            description={item.description}
-                            href={item.href}
-                          />
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
+                    {navItem.items.length === 0 ? (
+                      <NavigationMenuLink asChild>
+                        <Link
+                          to={(navItem as any).href || "/"}
+                          className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                        >
+                          {navItem.label}
+                        </Link>
+                      </NavigationMenuLink>
+                    ) : (
+                      <>
+                        <NavigationMenuTrigger className="bg-transparent">
+                          {navItem.label}
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                            {navItem.items.map((item) => (
+                              <ListItem
+                                key={item.href}
+                                title={item.label}
+                                description={item.description}
+                                href={item.href}
+                              />
+                            ))}
+                          </ul>
+                        </NavigationMenuContent>
+                      </>
+                    )}
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
@@ -157,36 +170,53 @@ export const Navigation = () => {
             <div className="flex flex-col gap-2">
               {navigationItems.map((navItem) => (
                 <div key={navItem.label} className="border-b border-border/50 pb-2">
-                  <button
-                    onClick={() => toggleMobileSubmenu(navItem.label)}
-                    className="flex items-center justify-between w-full py-2 text-sm font-medium text-foreground"
-                  >
-                    {navItem.label}
-                    <ChevronDown 
+                  {navItem.items.length === 0 ? (
+                    <Link
+                      to={(navItem as any).href || "/"}
+                      onClick={() => setIsOpen(false)}
                       className={cn(
-                        "h-4 w-4 transition-transform",
-                        openMobileMenu === navItem.label && "rotate-180"
-                      )} 
-                    />
-                  </button>
-                  {openMobileMenu === navItem.label && (
-                    <div className="ml-4 mt-2 space-y-2">
-                      {navItem.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          to={item.href}
-                          onClick={() => setIsOpen(false)}
+                        "block py-2 text-sm font-medium transition-colors hover:text-primary",
+                        location.pathname === (navItem as any).href
+                          ? "text-primary"
+                          : "text-foreground"
+                      )}
+                    >
+                      {navItem.label}
+                    </Link>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => toggleMobileSubmenu(navItem.label)}
+                        className="flex items-center justify-between w-full py-2 text-sm font-medium text-foreground"
+                      >
+                        {navItem.label}
+                        <ChevronDown 
                           className={cn(
-                            "block py-2 text-sm transition-colors hover:text-primary",
-                            location.pathname === item.href
-                              ? "text-primary font-medium"
-                              : "text-muted-foreground"
-                          )}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
+                            "h-4 w-4 transition-transform",
+                            openMobileMenu === navItem.label && "rotate-180"
+                          )} 
+                        />
+                      </button>
+                      {openMobileMenu === navItem.label && (
+                        <div className="ml-4 mt-2 space-y-2">
+                          {navItem.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              onClick={() => setIsOpen(false)}
+                              className={cn(
+                                "block py-2 text-sm transition-colors hover:text-primary",
+                                location.pathname === item.href
+                                  ? "text-primary font-medium"
+                                  : "text-muted-foreground"
+                              )}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               ))}
