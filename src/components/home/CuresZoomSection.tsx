@@ -3,16 +3,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import cureImage from "@/assets/cures/cure-ojas-kayakalpa.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-const features = [
-  "Programmes de 3 à 21 jours",
-  "Détoxification et régénération",
-  "Hébergement possible sur place",
-  "Suivi personnalisé par nos praticiens"
-];
+import { getHomePage } from "@/lib/pages-loader";
 
 export const CuresZoomSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
+  const homeData = getHomePage();
 
   return (
     <section 
@@ -29,7 +24,7 @@ export const CuresZoomSection = () => {
               }`}
               style={{ animationDelay: "0.1s" }}
             >
-              Nos Cures Ayurvédiques
+              {homeData.curesZoomTitle}
             </h2>
             
             <p 
@@ -38,13 +33,11 @@ export const CuresZoomSection = () => {
               }`}
               style={{ animationDelay: "0.2s" }}
             >
-              Offrez-vous une pause régénérante avec nos cures complètes. 
-              Chaque programme est conçu pour répondre à vos besoins spécifiques : 
-              détoxification, rajeunissement, gestion du stress ou rééquilibrage des doshas.
+              {homeData.curesZoomDescription}
             </p>
 
             <ul className="space-y-3">
-              {features.map((feature, index) => (
+              {homeData.curesFeatures.map((feature, index) => (
                 <li 
                   key={index} 
                   className={`flex items-center gap-3 opacity-0 ${
@@ -68,8 +61,8 @@ export const CuresZoomSection = () => {
               }`}
               style={{ animationDelay: "0.7s" }}
             >
-              <Link to="/cures">
-                Découvrir nos cures
+              <Link to={homeData.curesZoomButtonLink}>
+                {homeData.curesZoomButtonText}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

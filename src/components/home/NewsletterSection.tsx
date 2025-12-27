@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, Leaf } from "lucide-react";
 import { toast } from "sonner";
+import { getHomePage } from "@/lib/pages-loader";
 
 export const NewsletterSection = () => {
   const [email, setEmail] = useState("");
+  const homeData = getHomePage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,10 +28,10 @@ export const NewsletterSection = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
-            Restez informé
+            {homeData.newsletterTitle}
           </h2>
           <p className="text-muted-foreground mb-8">
-            Inscrivez-vous à notre newsletter pour recevoir nos conseils bien-être, actualités et offres exclusives.
+            {homeData.newsletterDescription}
           </p>
 
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -45,12 +47,12 @@ export const NewsletterSection = () => {
               />
             </div>
             <Button type="submit">
-              S'inscrire
+              {homeData.newsletterButtonText}
             </Button>
           </form>
 
           <p className="text-xs text-muted-foreground mt-4">
-            En vous inscrivant, vous acceptez de recevoir nos communications. Désabonnement possible à tout moment.
+            {homeData.newsletterConsent}
           </p>
         </div>
       </div>

@@ -5,33 +5,18 @@ import abhyangaImage from "@/assets/massages/abhyanga.webp";
 import panchakarmaImage from "@/assets/cures/cure-panchakarma.jpg";
 import kitcheriImage from "@/assets/cuisine/kitcheri.webp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { getHomePage } from "@/lib/pages-loader";
 
-const doors = [
-  {
-    title: "Consultations & Soins",
-    description: "Bilan ayurvédique, massages traditionnels et thérapies personnalisées",
-    image: abhyangaImage,
-    link: "/services",
-    cta: "Voir les soins"
-  },
-  {
-    title: "Cures Ayurvédiques",
-    description: "Programmes de détoxification et régénération sur mesure",
-    image: panchakarmaImage,
-    link: "/cures",
-    cta: "Découvrir les cures"
-  },
-  {
-    title: "Formations & Ateliers",
-    description: "Initiez-vous à l'Ayurveda : cuisine, massages et philosophie",
-    image: kitcheriImage,
-    link: "/atelier-cuisine",
-    cta: "Voir les formations"
-  }
-];
+// Image mapping for CMS imageKey values
+const imageMap: Record<string, string> = {
+  consultations: abhyangaImage,
+  cures: panchakarmaImage,
+  formations: kitcheriImage,
+};
 
 export const ThreeDoorsSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const homeData = getHomePage();
 
   return (
     <section 
@@ -45,7 +30,7 @@ export const ThreeDoorsSection = () => {
               isVisible ? "animate-fade-in-up" : ""
             }`}
           >
-            Nos services
+            {homeData.servicesTitle}
           </h2>
           <p 
             className={`text-muted-foreground max-w-2xl mx-auto opacity-0 ${
@@ -53,12 +38,12 @@ export const ThreeDoorsSection = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            Découvrez nos différentes approches pour vous accompagner vers l'équilibre
+            {homeData.servicesSubtitle}
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {doors.map((door, index) => (
+          {homeData.threeDoors.map((door, index) => (
             <Link
               key={index}
               to={door.link}
@@ -73,7 +58,7 @@ export const ThreeDoorsSection = () => {
             >
               {/* Background Image */}
               <img
-                src={door.image}
+                src={imageMap[door.imageKey] || abhyangaImage}
                 alt={door.title}
                 className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
               />
