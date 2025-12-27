@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import { parseFrontmatter } from './markdown-parser';
 
 // Types for cure data
 export interface CureDurationOption {
@@ -94,31 +94,31 @@ const cureFiles = import.meta.glob('/content/cures/*.md', {
  */
 function parseCureFile(rawContent: string): CureData | null {
   try {
-    const { data, content } = matter(rawContent);
+    const { data, content } = parseFrontmatter(rawContent);
     
     return {
-      id: data.id || data.slug,
-      slug: data.slug,
-      title: data.title,
-      subtitle: data.subtitle,
-      description: data.description || '',
-      image: data.image,
-      price: data.price || '',
-      pricePerDay: data.pricePerDay,
-      totalPrice: data.totalPrice,
-      durations: data.durations,
-      durationsText: data.durationsText,
-      highlight: data.highlight || false,
-      isWeekend: data.isWeekend || false,
-      isJournee: data.isJournee || false,
-      treatments: data.treatments,
-      benefits: data.benefits,
-      includes: data.includes,
-      faq: data.faq,
-      testimonials: data.testimonials,
-      relatedCures: data.relatedCures,
-      dayPrograms: data.dayPrograms,
-      schedule: data.schedule,
+      id: (data.id as string) || (data.slug as string),
+      slug: data.slug as string,
+      title: data.title as string,
+      subtitle: data.subtitle as string | undefined,
+      description: (data.description as string) || '',
+      image: data.image as string | undefined,
+      price: (data.price as string) || '',
+      pricePerDay: data.pricePerDay as number | undefined,
+      totalPrice: data.totalPrice as number | undefined,
+      durations: data.durations as CureDurationOption[] | undefined,
+      durationsText: data.durationsText as string | undefined,
+      highlight: (data.highlight as boolean) || false,
+      isWeekend: (data.isWeekend as boolean) || false,
+      isJournee: (data.isJournee as boolean) || false,
+      treatments: data.treatments as CureTreatment[] | undefined,
+      benefits: data.benefits as string[] | undefined,
+      includes: data.includes as string[] | undefined,
+      faq: data.faq as CureFAQ[] | undefined,
+      testimonials: data.testimonials as CureTestimonial[] | undefined,
+      relatedCures: data.relatedCures as CureRelated[] | undefined,
+      dayPrograms: data.dayPrograms as DayProgram[] | undefined,
+      schedule: data.schedule as ScheduleDay[] | undefined,
       content: content.trim(),
     };
   } catch (error) {

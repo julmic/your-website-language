@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import { parseFrontmatter } from './markdown-parser';
 
 // Types pour les données de massages
 export interface MassagePriceOption {
@@ -70,14 +70,6 @@ const massageFiles = import.meta.glob('@content/massages/*.md', {
 });
 
 /**
- * Parse un fichier Markdown et retourne le frontmatter et le contenu
- */
-function parseMarkdown(content: string): { data: Record<string, unknown>; content: string } {
-  const { data, content: body } = matter(content);
-  return { data, content: body };
-}
-
-/**
  * Récupère tous les massages
  */
 export function getAllMassages(): MassageData[] {
@@ -85,17 +77,17 @@ export function getAllMassages(): MassageData[] {
 
   for (const path in massageFiles) {
     const fileContent = massageFiles[path] as string;
-    const { data } = parseMarkdown(fileContent);
+    const { data } = parseFrontmatter(fileContent);
     
     massages.push({
       slug: data.slug as string,
       title: data.title as string,
-      subtitle: data.subtitle as string || '',
-      description: data.description as string || '',
+      subtitle: (data.subtitle as string) || '',
+      description: (data.description as string) || '',
       image: data.image as string | undefined,
       details: (data.details as string[]) || [],
       prices: (data.prices as MassagePriceOption[]) || [],
-      cureOnly: data.cureOnly as boolean || false,
+      cureOnly: (data.cureOnly as boolean) || false,
       forWhom: data.forWhom as MassageForWhom | undefined,
       contraindications: data.contraindications as string[] | undefined,
       benefits: data.benefits as MassageBenefits | undefined,

@@ -1,0 +1,303 @@
+/**
+ * Browser-compatible frontmatter parser
+ * Replaces gray-matter which requires Node.js Buffer API
+ */
+
+export interface ParsedMarkdown {
+  data: Record<string, unknown>;
+  content: string;
+}
+
+/**
+ * Get the indentation level of a line
+ */
+function getIndent(line: string): number {
+  const match = line.match(/^(\s*)/);
+  return match ? match[1].length : 0;
+}
+
+/**
+ * Parse YAML value with type detection
+ */
+function parseValue(value: string): unknown {
+  const trimmed = value.trim();
+  
+  if (!trimmed) return '';
+  if (trimmed === 'true') return true;
+  if (trimmed === 'false') return false;
+  if (trimmed === 'null' || trimmed === '~') return null;
+  if (/^-?\d+$/.test(trimmed)) return parseInt(trimmed, 10);
+  if (/^-?\d+\.\d+$/.test(trimmed)) return parseFloat(trimmed);
+  
+  // Remove quotes
+  if ((trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+      (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
+    return trimmed.slice(1, -1);
+  }
+  
+  return trimmed;
+}
+
+/**
+ * Parse YAML recursively
+ */
+function parseYAMLLines(lines: string[], startIdx: number, baseIndent: number): { value: unknown; endIdx: number } {
+  if (startIdx >= lines.length) {
+    return { value: null, endIdx: startIdx };
+  }
+
+  const firstLine = lines[startIdx];
+  const firstTrimmed = firstLine.trim();
+
+  // Check if it's an array start
+  if (firstTrimmed.startsWith('- ')) {
+    const arr: unknown[] = [];
+    let i = startIdx;
+
+    while (i < lines.length) {
+      const line = lines[i];
+      const trimmed = line.trim();
+      const indent = getIndent(line);
+
+      // Empty line - skip
+      if (!trimmed) {
+        i++;
+        continue;
+      }
+
+      // Back to parent level or less
+      if (indent < baseIndent) {
+        break;
+      }
+
+      // Not an array item at expected indent
+      if (indent === baseIndent && !trimmed.startsWith('- ')) {
+        break;
+      }
+
+      // Process array item
+      if (trimmed.startsWith('- ')) {
+        const itemContent = trimmed.slice(2).trim();
+        
+        // Check for inline object: "- key: value"
+        const colonIdx = itemContent.indexOf(':');
+        if (colonIdx > 0 && !itemContent.startsWith('"') && !itemContent.startsWith("'")) {
+          // It's an object - collect all properties
+          const obj: Record<string, unknown> = {};
+          const key = itemContent.slice(0, colonIdx).trim();
+          const val = itemContent.slice(colonIdx + 1).trim();
+          
+          if (val) {
+            obj[key] = parseValue(val);
+          } else {
+            // Value might be on next lines (nested)
+            const nextIdx = i + 1;
+            if (nextIdx < lines.length) {
+              const nextLine = lines[nextIdx];
+              const nextIndent = getIndent(nextLine);
+              if (nextIndent > indent + 2) {
+                const { value: nestedVal, endIdx } = parseYAMLLines(lines, nextIdx, nextIndent);
+                obj[key] = nestedVal;
+                i = endIdx;
+              }
+            }
+          }
+          
+          // Look for more properties of this object
+          i++;
+          const objItemIndent = indent + 2; // Properties are indented 2 more than the dash
+          
+          while (i < lines.length) {
+            const propLine = lines[i];
+            const propTrimmed = propLine.trim();
+            const propIndent = getIndent(propLine);
+            
+            if (!propTrimmed) {
+              i++;
+              continue;
+            }
+            
+            // Back to array level or parent
+            if (propIndent <= indent) {
+              break;
+            }
+            
+            // Property at object level
+            if (propIndent >= objItemIndent) {
+              const propColonIdx = propTrimmed.indexOf(':');
+              if (propColonIdx > 0) {
+                const propKey = propTrimmed.slice(0, propColonIdx).trim();
+                const propVal = propTrimmed.slice(propColonIdx + 1).trim();
+                
+                if (propVal) {
+                  obj[propKey] = parseValue(propVal);
+                  i++;
+                } else {
+                  // Nested value on next lines
+                  const nextIdx = i + 1;
+                  if (nextIdx < lines.length) {
+                    const nextLine = lines[nextIdx];
+                    const nextIndent = getIndent(nextLine);
+                    if (nextIndent > propIndent) {
+                      const { value: nestedVal, endIdx } = parseYAMLLines(lines, nextIdx, nextIndent);
+                      obj[propKey] = nestedVal;
+                      i = endIdx;
+                    } else {
+                      obj[propKey] = null;
+                      i++;
+                    }
+                  } else {
+                    obj[propKey] = null;
+                    i++;
+                  }
+                }
+              } else {
+                i++;
+              }
+            } else {
+              break;
+            }
+          }
+          
+          arr.push(obj);
+        } else {
+          // Simple string value
+          arr.push(parseValue(itemContent));
+          i++;
+        }
+      } else {
+        i++;
+      }
+    }
+    
+    return { value: arr, endIdx: i };
+  }
+
+  // It's an object
+  const obj: Record<string, unknown> = {};
+  let i = startIdx;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    const indent = getIndent(line);
+
+    if (!trimmed) {
+      i++;
+      continue;
+    }
+
+    if (indent < baseIndent) {
+      break;
+    }
+
+    const colonIdx = trimmed.indexOf(':');
+    if (colonIdx > 0) {
+      const key = trimmed.slice(0, colonIdx).trim();
+      const val = trimmed.slice(colonIdx + 1).trim();
+
+      if (val) {
+        obj[key] = parseValue(val);
+        i++;
+      } else {
+        // Value on next lines
+        const nextIdx = i + 1;
+        if (nextIdx < lines.length) {
+          const nextLine = lines[nextIdx];
+          const nextTrimmed = nextLine.trim();
+          const nextIndent = getIndent(nextLine);
+          
+          if (nextIndent > indent && nextTrimmed) {
+            const { value: nestedVal, endIdx } = parseYAMLLines(lines, nextIdx, nextIndent);
+            obj[key] = nestedVal;
+            i = endIdx;
+          } else {
+            obj[key] = null;
+            i++;
+          }
+        } else {
+          obj[key] = null;
+          i++;
+        }
+      }
+    } else {
+      i++;
+    }
+  }
+
+  return { value: obj, endIdx: i };
+}
+
+/**
+ * Parse frontmatter from markdown content
+ * Compatible with browser environments (no Buffer dependency)
+ */
+export function parseFrontmatter(content: string): ParsedMarkdown {
+  const frontmatterRegex = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/;
+  const match = content.match(frontmatterRegex);
+  
+  if (!match) {
+    return { data: {}, content };
+  }
+  
+  const frontmatterStr = match[1];
+  const body = match[2];
+  
+  const lines = frontmatterStr.split('\n');
+  const data: Record<string, unknown> = {};
+  
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    
+    if (!trimmed) {
+      i++;
+      continue;
+    }
+    
+    const colonIdx = trimmed.indexOf(':');
+    if (colonIdx <= 0) {
+      i++;
+      continue;
+    }
+    
+    const key = trimmed.slice(0, colonIdx).trim();
+    const val = trimmed.slice(colonIdx + 1).trim();
+    
+    if (val) {
+      data[key] = parseValue(val);
+      i++;
+    } else {
+      // Complex value on next lines
+      const nextIdx = i + 1;
+      if (nextIdx < lines.length) {
+        const nextLine = lines[nextIdx];
+        const nextTrimmed = nextLine.trim();
+        const nextIndent = getIndent(nextLine);
+        
+        if (nextTrimmed && nextIndent > 0) {
+          const { value: nestedVal, endIdx } = parseYAMLLines(lines, nextIdx, nextIndent);
+          data[key] = nestedVal;
+          i = endIdx;
+        } else {
+          data[key] = null;
+          i++;
+        }
+      } else {
+        data[key] = null;
+        i++;
+      }
+    }
+  }
+  
+  return { data, content: body };
+}
+
+/**
+ * Alias for backward compatibility
+ */
+export function parseMarkdown(content: string): { data: Record<string, unknown>; content: string } {
+  const result = parseFrontmatter(content);
+  return { data: result.data, content: result.content };
+}
