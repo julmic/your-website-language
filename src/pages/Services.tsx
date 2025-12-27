@@ -142,8 +142,13 @@ const Services = () => {
   const formatMassagePrice = (massage: typeof allMassages[number]): string => {
     if (massage.cureOnly) return "Cure";
     if (!massage.prices || massage.prices.length === 0) return "-";
-    if (massage.prices.length === 1) return `${massage.prices[0].price}€`;
-    const prices = massage.prices.map(p => parseInt(p.price.replace(/[^0-9]/g, '')));
+    // Nettoyer le prix en retirant le € existant pour éviter le double €€
+    const cleanPrice = (price: string) => price.replace('€', '').trim();
+    if (massage.prices.length === 1) {
+      const priceNum = parseInt(cleanPrice(massage.prices[0].price).replace(/[^0-9]/g, ''));
+      return `${priceNum}€`;
+    }
+    const prices = massage.prices.map(p => parseInt(cleanPrice(p.price).replace(/[^0-9]/g, '')));
     const minPrice = Math.min(...prices);
     const maxPrice = Math.max(...prices);
     return minPrice === maxPrice ? `${minPrice}€` : `${minPrice}-${maxPrice}€`;
