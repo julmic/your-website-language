@@ -5,7 +5,8 @@ import { ArrowLeft, List } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { getPhilosophieArticleBySlug } from "@/lib/philosophie-loader";
 import ReactMarkdown from "react-markdown";
-import { useMemo, useState, useEffect } from "react";
+import remarkGfm from "remark-gfm";
+import { useMemo, useState } from "react";
 
 interface TocItem {
   id: string;
@@ -146,6 +147,7 @@ const PhilosophieArticlePage = () => {
           <div className="flex-1 min-w-0">
             <article className="prose prose-lg prose-slate dark:prose-invert max-w-none">
               <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
                 components={{
                   h1: ({ children }) => {
                     const text = String(children);
