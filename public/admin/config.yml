@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME  # À remplacer par votre dépôt GitHub
+  repo: julmic/your-website-language
   branch: main
-  base_url: https://sveltia-cms-auth.netlify.app  # Proxy d'authentification Sveltia (gratuit)
+  base_url: https://sveltia-cms-auth.netlify.app
 
 # Dossier où seront stockés les médias uploadés
 media_folder: "public/uploads"
