@@ -1,11 +1,13 @@
 ---
 title: "Contactez-nous"
-address: "Arkadhya Centre Ayurvédique, Aquitaine, France"
-phone: "+33 (0)5 XX XX XX XX"
-email: "contact@arkadhya.org"
+address: |
+  "Gorse-Bas"
+  461 route de la Côte Rouge
+  47440 Pailloles
+phone: "05 53 41 48 10"
+email: "arkadhya@gmail.com"
 hours: |
-  Lundi - Vendredi : 9h - 19h
-  Samedi : 9h - 17h
+  Lundi - Samedi : 9h - 19h
   Dimanche : Fermé
 ---
 

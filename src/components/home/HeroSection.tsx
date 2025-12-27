@@ -4,9 +4,11 @@ import { ArrowRight } from "lucide-react";
 import wafLogo from "@/assets/certifications/waf-logo.webp";
 import indianStateLogo from "@/assets/certifications/indian-state-logo.webp";
 import { useEffect, useState } from "react";
+import { getHomePage } from "@/lib/pages-loader";
 
 export const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const homePage = getHomePage();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -55,8 +57,7 @@ export const HeroSection = () => {
               }`}
               style={{ animationDelay: "0.2s" }}
             >
-              Retrouvez l'harmonie intérieure
-              <span className="block text-gradient mt-2">par l'Ayurveda traditionnel</span>
+              {homePage.heroTitle}
             </h1>
             
             {/* Subtitle with fade-in-up */}
@@ -66,7 +67,7 @@ export const HeroSection = () => {
               }`}
               style={{ animationDelay: "0.5s" }}
             >
-              Un accompagnement complet fondé sur les enseignements millénaires des Vedas : consultations spécialisées, massages traditionnels, cures ayurvédiques et formations professionnelles.
+              {homePage.heroSubtitle}
             </p>
 
             {/* Mobile logos with scale effect */}
