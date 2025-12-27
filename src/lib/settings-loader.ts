@@ -27,6 +27,7 @@ export interface NavigationItem {
 
 export interface NavigationMenu {
   label: string;
+  href?: string;
   items: NavigationItem[];
 }
 
@@ -83,6 +84,7 @@ export function getNavigationSettings(): NavigationSettings {
   
   const menuItems = (data.menuItems as any[] || []).map(menu => ({
     label: menu.label || '',
+    href: menu.href || '',
     items: (menu.items || []).map((item: any) => ({
       href: item.href || '',
       label: item.label || '',
