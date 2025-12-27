@@ -39,15 +39,8 @@ import MentionsLegales from "./pages/legal/MentionsLegales";
 import CGV from "./pages/legal/CGV";
 import PolitiqueConfidentialite from "./pages/legal/PolitiqueConfidentialite";
 
-// Blog pages
-import AyurvedaSanteMentale from "./pages/blog/AyurvedaSanteMentale";
-import ColonIrritable from "./pages/blog/ColonIrritable";
-import Osteoporose from "./pages/blog/Osteoporose";
-import IncompatibilitesAlimentaires from "./pages/blog/IncompatibilitesAlimentaires";
-import HiverAyurveda from "./pages/blog/HiverAyurveda";
-import AutomneAyurveda from "./pages/blog/AutomneAyurveda";
-import SommeilAyurveda from "./pages/blog/SommeilAyurveda";
-import LesDoshas from "./pages/blog/LesDoshas";
+// Page dynamique blog (CMS)
+import BlogArticle from "./pages/blog/BlogArticle";
 
 // Pages dynamiques (CMS)
 import MassagePage from "./pages/massages/MassagePage";
@@ -78,16 +71,9 @@ const App = () => (
             {/* Route dynamique pour tous les massages (CMS) */}
             <Route path="/services/:slug" element={<MassagePage />} />
           
-            {/* Blog routes */}
+            {/* Route dynamique pour tous les articles de blog (CMS) */}
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/ayurveda-sante-mentale" element={<AyurvedaSanteMentale />} />
-            <Route path="/blog/colon-irritable-ayurveda" element={<ColonIrritable />} />
-            <Route path="/blog/osteoporose-ayurveda" element={<Osteoporose />} />
-            <Route path="/blog/incompatibilites-alimentaires-ayurveda" element={<IncompatibilitesAlimentaires />} />
-            <Route path="/blog/hiver-ayurveda" element={<HiverAyurveda />} />
-            <Route path="/blog/automne-ayurveda" element={<AutomneAyurveda />} />
-            <Route path="/blog/sommeil-ayurveda" element={<SommeilAyurveda />} />
-            <Route path="/blog/les-3-doshas" element={<LesDoshas />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
             
             {/* Other pages */}
             <Route path="/a-propos" element={<About />} />
