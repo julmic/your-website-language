@@ -1,5 +1,9 @@
 ---
 title: "Politique de confidentialité"
+slug: "politique-confidentialite"
+linkText: "Politique de confidentialité"
+order: 3
+showInFooter: true
 metaDescription: "Politique de confidentialité du centre Arkadhya : collecte, traitement et protection de vos données personnelles conformément au RGPD."
 canonicalUrl: "https://arkadhya.org/politique-confidentialite"
 ---

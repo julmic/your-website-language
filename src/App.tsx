@@ -35,9 +35,7 @@ import VastuShastra from "./pages/philosophie/VastuShastra";
 import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
 import GalerieArkadhya from "./pages/GalerieArkadhya";
 import GuideCMS from "./pages/GuideCMS";
-import MentionsLegales from "./pages/legal/MentionsLegales";
-import CGV from "./pages/legal/CGV";
-import PolitiqueConfidentialite from "./pages/legal/PolitiqueConfidentialite";
+import LegalPage from "./pages/legal/LegalPage";
 
 // Page dynamique blog (CMS)
 import BlogArticle from "./pages/blog/BlogArticle";
@@ -61,9 +59,9 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/cures" element={<Cures />} />
             <Route path="/consultations-ayurveda" element={<ConsultationsAyurveda />} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
-            <Route path="/cgv" element={<CGV />} />
-            <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+            
+            {/* Route dynamique pour toutes les pages légales (CMS) */}
+            <Route path="/legal/:slug" element={<LegalPage />} />
           
             {/* Route dynamique pour toutes les cures (CMS) */}
             <Route path="/cures/:slug" element={<CurePage />} />

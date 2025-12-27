@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { Leaf, Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import { getGeneralSettings, getSocialSettings } from "@/lib/settings-loader";
+import { getFooterLegalPages } from "@/lib/legal-loader";
 
 export const Footer = () => {
   const settings = getGeneralSettings();
   const social = getSocialSettings();
+  const legalPages = getFooterLegalPages();
 
   return (
     <footer className="bg-secondary border-t border-border">
@@ -87,15 +89,15 @@ export const Footer = () => {
             © {new Date().getFullYear()} Arkadhya. Tous droits réservés.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/mentions-legales" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Mentions légales
-            </Link>
-            <Link to="/cgv" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              CGV
-            </Link>
-            <Link to="/politique-confidentialite" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Politique de confidentialité
-            </Link>
+            {legalPages.map((page) => (
+              <Link 
+                key={page.slug}
+                to={`/legal/${page.slug}`} 
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {page.linkText}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
