@@ -3,9 +3,20 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import patrickImage from "@/assets/about/patrick-villette.webp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { getHomePage } from "@/lib/pages-loader";
 
 export const AboutPreview = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
+  const homeData = getHomePage();
+
+  // Parse markdown bold syntax in paragraphs
+  const renderParagraph = (text: string) => {
+    // Replace **text** with <strong>text</strong>
+    const parts = text.split(/\*\*(.*?)\*\*/g);
+    return parts.map((part, i) => 
+      i % 2 === 1 ? <strong key={i} className="text-foreground">{part}</strong> : part
+    );
+  };
 
   return (
     <section 
@@ -39,33 +50,19 @@ export const AboutPreview = () => {
               }`}
               style={{ animationDelay: "0.2s" }}
             >
-              Qui sommes-nous ?
+              {homeData.aboutPreviewTitle}
             </h2>
             
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p 
-                className={`opacity-0 ${isVisible ? "animate-fade-in-right" : ""}`}
-                style={{ animationDelay: "0.3s" }}
-              >
-                Le centre Arkadhya perpétue l'enseignement authentique de l'Ayurveda, 
-                la science de la vie issue de la tradition védique millénaire de l'Inde.
-              </p>
-              <p 
-                className={`opacity-0 ${isVisible ? "animate-fade-in-right" : ""}`}
-                style={{ animationDelay: "0.4s" }}
-              >
-                Notre approche holistique intègre les soins corporels, la nutrition, 
-                la phytothérapie et les pratiques spirituelles pour restaurer l'équilibre 
-                naturel de chaque individu.
-              </p>
-              <p 
-                className={`opacity-0 ${isVisible ? "animate-fade-in-right" : ""}`}
-                style={{ animationDelay: "0.5s" }}
-              >
-                Certifiés par la World Ayurveda Foundation et l'État Indien, nous proposons 
-                également des spécialités rares comme la <strong className="text-foreground">Bhutavidya</strong> (psychiatrie ayurvédique) 
-                et la <strong className="text-foreground">Marma Thérapie</strong> (points vitaux énergétiques).
-              </p>
+              {homeData.aboutPreviewParagraphs.map((paragraph, index) => (
+                <p 
+                  key={index}
+                  className={`opacity-0 ${isVisible ? "animate-fade-in-right" : ""}`}
+                  style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+                >
+                  {renderParagraph(paragraph)}
+                </p>
+              ))}
             </div>
 
             <Button 
@@ -73,10 +70,10 @@ export const AboutPreview = () => {
               className={`mt-4 opacity-0 hover:scale-105 transition-transform ${
                 isVisible ? "animate-scale-fade-in" : ""
               }`}
-              style={{ animationDelay: "0.6s" }}
+              style={{ animationDelay: `${0.3 + homeData.aboutPreviewParagraphs.length * 0.1}s` }}
             >
               <Link to="/a-propos">
-                En savoir plus
+                {homeData.aboutPreviewButtonText}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

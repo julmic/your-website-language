@@ -3,34 +3,39 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import GoogleMap from "@/components/ui/GoogleMap";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-const contactInfo = [
-  {
-    icon: MapPin,
-    label: "Adresse",
-    value: "461 route de la Côte Rouge, 47440 Pailloles"
-  },
-  {
-    icon: Phone,
-    label: "Téléphone",
-    value: "05 53 36 94 30",
-    href: "tel:+33553369430"
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "contact@arkadhya.fr",
-    href: "mailto:contact@arkadhya.fr"
-  },
-  {
-    icon: Clock,
-    label: "Horaires",
-    value: "Sur rendez-vous uniquement"
-  }
-];
+import { getHomePage } from "@/lib/pages-loader";
+import { getGeneralSettings } from "@/lib/settings-loader";
 
 export const ContactPreviewSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
+  const homeData = getHomePage();
+  const settings = getGeneralSettings();
+
+  // Build contact info from CMS settings
+  const contactInfo = [
+    {
+      icon: MapPin,
+      label: "Adresse",
+      value: settings.address.replace(/\n/g, ', ').replace(/^"|"$/g, ''),
+    },
+    {
+      icon: Phone,
+      label: "Téléphone",
+      value: settings.phone,
+      href: `tel:${settings.phone.replace(/\s/g, '')}`,
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: settings.email,
+      href: `mailto:${settings.email}`,
+    },
+    {
+      icon: Clock,
+      label: "Horaires",
+      value: "Sur rendez-vous uniquement",
+    },
+  ];
 
   return (
     <section 
@@ -44,7 +49,7 @@ export const ContactPreviewSection = () => {
               isVisible ? "animate-fade-in-up" : ""
             }`}
           >
-            Nous trouver
+            {homeData.contactTitle}
           </h2>
           <p 
             className={`text-muted-foreground max-w-2xl mx-auto opacity-0 ${
@@ -52,7 +57,7 @@ export const ContactPreviewSection = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            Le centre Arkadhya vous accueille en Lot-et-Garonne, dans un cadre naturel propice à la détente
+            {homeData.contactSubtitle}
           </p>
         </div>
 
@@ -103,7 +108,7 @@ export const ContactPreviewSection = () => {
               style={{ animationDelay: "0.7s" }}
             >
               <Link to="/contact">
-                Nous contacter
+                {homeData.contactButtonText}
               </Link>
             </Button>
           </div>

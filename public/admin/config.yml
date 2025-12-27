@@ -165,17 +165,153 @@ collections:
         label: "Page d'accueil"
         file: "content/pages/home.md"
         fields:
+          # Hero
           - { label: "Titre Hero", name: "heroTitle", widget: "string" }
           - { label: "Sous-titre Hero", name: "heroSubtitle", widget: "text" }
           - { label: "Section Pourquoi Ayurvéda - Titre", name: "whyTitle", widget: "string" }
           - { label: "Section Pourquoi Ayurvéda - Description", name: "whyDescription", widget: "text" }
+          # About Preview
+          - { label: "Section Qui sommes-nous - Titre", name: "aboutPreviewTitle", widget: "string" }
+          - { label: "Section Qui sommes-nous - Paragraphes", name: "aboutPreviewParagraphs", widget: "list", field: { label: "Paragraphe", name: "paragraph", widget: "text" } }
+          - { label: "Section Qui sommes-nous - Bouton", name: "aboutPreviewButtonText", widget: "string" }
+          # Three Doors
+          - { label: "Section Services - Titre", name: "servicesTitle", widget: "string" }
+          - { label: "Section Services - Sous-titre", name: "servicesSubtitle", widget: "text" }
+          - label: "Section Services - Portes"
+            name: "threeDoors"
+            widget: "list"
+            max: 3
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Lien", name: "link", widget: "string" }
+              - { label: "Texte bouton", name: "cta", widget: "string" }
+              - { label: "Clé image", name: "imageKey", widget: "select", options: ["consultations", "cures", "formations"], hint: "Image prédéfinie pour cette porte" }
+          # Why Ayurveda
+          - { label: "Section Pourquoi Ayurveda - Titre", name: "whyAyurvedaTitle", widget: "string" }
+          - { label: "Section Pourquoi Ayurveda - Sous-titre", name: "whyAyurvedaSubtitle", widget: "text" }
+          - label: "Section Pourquoi Ayurveda - Bienfaits"
+            name: "whyBenefits"
+            widget: "list"
+            max: 6
+            fields:
+              - { label: "Icône", name: "icon", widget: "select", options: ["Brain", "Leaf", "Moon", "Zap", "Scale", "Shield"] }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - { label: "Section Pourquoi Ayurveda - Texte bouton", name: "whyAyurvedaButtonText", widget: "string" }
+          - { label: "Section Pourquoi Ayurveda - Lien bouton", name: "whyAyurvedaButtonLink", widget: "string" }
+          # Featured Treatments
+          - { label: "Section Soins phares - Titre", name: "featuredTitle", widget: "string" }
+          - { label: "Section Soins phares - Sous-titre", name: "featuredSubtitle", widget: "text" }
+          - label: "Section Soins phares - Traitements"
+            name: "featuredTreatments"
+            widget: "list"
+            max: 6
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Lien", name: "link", widget: "string" }
+              - { label: "Clé image", name: "imageKey", widget: "select", options: ["abhyanga", "shirodhara", "marma", "prakriti", "dosha", "panchakarma"] }
+          # Cures Zoom
+          - { label: "Section Cures - Titre", name: "curesZoomTitle", widget: "string" }
+          - { label: "Section Cures - Description", name: "curesZoomDescription", widget: "text" }
+          - { label: "Section Cures - Caractéristiques", name: "curesFeatures", widget: "list", field: { label: "Caractéristique", name: "feature", widget: "string" } }
+          - { label: "Section Cures - Texte bouton", name: "curesZoomButtonText", widget: "string" }
+          - { label: "Section Cures - Lien bouton", name: "curesZoomButtonLink", widget: "string" }
+          # Contact
+          - { label: "Section Contact - Titre", name: "contactTitle", widget: "string" }
+          - { label: "Section Contact - Sous-titre", name: "contactSubtitle", widget: "text" }
+          - { label: "Section Contact - Texte bouton", name: "contactButtonText", widget: "string" }
+          # Newsletter
+          - { label: "Section Newsletter - Titre", name: "newsletterTitle", widget: "string" }
+          - { label: "Section Newsletter - Description", name: "newsletterDescription", widget: "text" }
+          - { label: "Section Newsletter - Texte bouton", name: "newsletterButtonText", widget: "string" }
+          - { label: "Section Newsletter - Consentement", name: "newsletterConsent", widget: "text" }
+
       - name: "about"
         label: "À propos"
         file: "content/pages/about.md"
         fields:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Introduction", name: "intro", widget: "text" }
-          - { label: "Contenu", name: "body", widget: "markdown" }
+          # Mission
+          - { label: "Mission - Tagline", name: "missionTagline", widget: "string" }
+          - { label: "Mission - Titre", name: "missionTitle", widget: "string" }
+          - { label: "Mission - Sous-titre", name: "missionSubtitle", widget: "string" }
+          - { label: "Mission - Texte 1", name: "missionText1", widget: "text" }
+          - { label: "Mission - Texte 2", name: "missionText2", widget: "text" }
+          - { label: "Mission - Image", name: "missionImage", widget: "image", required: false }
+          - { label: "Mission - Légende image", name: "missionImageCaption", widget: "string", required: false }
+          # Philosophy
+          - { label: "Philosophie - Tagline", name: "philosophyTagline", widget: "string" }
+          - { label: "Philosophie - Titre", name: "philosophyTitle", widget: "string" }
+          - { label: "Philosophie - Texte", name: "philosophyText", widget: "text" }
+          # History
+          - { label: "Histoire - Titre", name: "historyTitle", widget: "string" }
+          - { label: "Histoire - Sous-titre", name: "historySubtitle", widget: "string" }
+          - { label: "Histoire - Texte 1", name: "historyText1", widget: "text" }
+          - { label: "Histoire - Texte 2", name: "historyText2", widget: "text" }
+          - { label: "Histoire - Texte 3", name: "historyText3", widget: "text" }
+          - { label: "Histoire - Image", name: "historyImage", widget: "image", required: false }
+          # Values
+          - { label: "Valeurs - Titre", name: "valuesTitle", widget: "string" }
+          - { label: "Valeurs - Sous-titre", name: "valuesSubtitle", widget: "string" }
+          - label: "Valeurs - Liste"
+            name: "values"
+            widget: "list"
+            fields:
+              - { label: "Icône", name: "icon", widget: "select", options: ["Shield", "Heart", "Users", "GraduationCap", "Leaf", "Star"] }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          # Team
+          - { label: "Équipe - Titre", name: "teamTitle", widget: "string" }
+          - { label: "Équipe - Sous-titre", name: "teamSubtitle", widget: "string" }
+          # Qualifications
+          - { label: "Qualifications - Titre", name: "qualificationsTitle", widget: "string" }
+          - { label: "Qualifications - Sous-titre", name: "qualificationsSubtitle", widget: "string" }
+          - label: "Qualifications - Liste"
+            name: "qualifications"
+            widget: "list"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          # CTA
+          - { label: "CTA - Titre", name: "ctaTitle", widget: "string" }
+          - { label: "CTA - Texte", name: "ctaText", widget: "text" }
+
+      - name: "services"
+        label: "Services"
+        file: "content/pages/services.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Sous-titre", name: "subtitle", widget: "text" }
+          # Consultations
+          - { label: "Consultations - Titre", name: "consultationsTitle", widget: "string" }
+          - { label: "Consultations - Sous-titre", name: "consultationsSubtitle", widget: "string" }
+          - { label: "Consultations - Description", name: "consultationsDescription", widget: "text" }
+          - label: "Consultations - Liste"
+            name: "consultations"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Durée", name: "duration", widget: "string" }
+              - { label: "Prix", name: "price", widget: "string" }
+          # Cures
+          - { label: "Cures - Titre", name: "curesTitle", widget: "string" }
+          - { label: "Cures - Sous-titre", name: "curesSubtitle", widget: "string" }
+          - { label: "Cures - Description", name: "curesDescription", widget: "text" }
+          # Formations
+          - { label: "Formations - Titre", name: "formationsTitle", widget: "string" }
+          - { label: "Formations - Sous-titre", name: "formationsSubtitle", widget: "string" }
+          - { label: "Formations - Description", name: "formationsDescription", widget: "text" }
+          - label: "Formations - Liste"
+            name: "formations"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Durée", name: "duration", widget: "string" }
+              - { label: "Prix", name: "price", widget: "string" }
+
       - name: "contact"
         label: "Contact"
         file: "content/pages/contact.md"

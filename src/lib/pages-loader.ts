@@ -1,12 +1,74 @@
 import { parseFrontmatter } from './markdown-parser';
 
+// =====================================================
+// HOME PAGE INTERFACES
+// =====================================================
+
+export interface ThreeDoor {
+  title: string;
+  description: string;
+  link: string;
+  cta: string;
+  imageKey: string;
+}
+
+export interface WhyBenefit {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface FeaturedTreatment {
+  name: string;
+  description: string;
+  link: string;
+  imageKey: string;
+}
+
 export interface HomePage {
   heroTitle: string;
   heroSubtitle: string;
   whyTitle: string;
   whyDescription: string;
+  // About Preview
+  aboutPreviewTitle: string;
+  aboutPreviewParagraphs: string[];
+  aboutPreviewButtonText: string;
+  // Three Doors (Services)
+  servicesTitle: string;
+  servicesSubtitle: string;
+  threeDoors: ThreeDoor[];
+  // Why Ayurveda
+  whyAyurvedaTitle: string;
+  whyAyurvedaSubtitle: string;
+  whyBenefits: WhyBenefit[];
+  whyAyurvedaButtonText: string;
+  whyAyurvedaButtonLink: string;
+  // Featured Treatments
+  featuredTitle: string;
+  featuredSubtitle: string;
+  featuredTreatments: FeaturedTreatment[];
+  // Cures Zoom
+  curesZoomTitle: string;
+  curesZoomDescription: string;
+  curesFeatures: string[];
+  curesZoomButtonText: string;
+  curesZoomButtonLink: string;
+  // Contact
+  contactTitle: string;
+  contactSubtitle: string;
+  contactButtonText: string;
+  // Newsletter
+  newsletterTitle: string;
+  newsletterDescription: string;
+  newsletterButtonText: string;
+  newsletterConsent: string;
   content: string;
 }
+
+// =====================================================
+// ABOUT PAGE INTERFACES
+// =====================================================
 
 export interface AboutValue {
   icon: string;
@@ -58,6 +120,10 @@ export interface AboutPage {
   content: string;
 }
 
+// =====================================================
+// CONTACT PAGE INTERFACE
+// =====================================================
+
 export interface ContactPage {
   title: string;
   address: string;
@@ -66,6 +132,10 @@ export interface ContactPage {
   hours: string;
   content: string;
 }
+
+// =====================================================
+// SERVICES PAGE INTERFACES
+// =====================================================
 
 export interface ConsultationItem {
   name: string;
@@ -99,24 +169,101 @@ export interface ServicesPage {
   content: string;
 }
 
-// Import the markdown files
+// =====================================================
+// MARKDOWN FILE IMPORTS
+// =====================================================
+
 const homeMd = import.meta.glob('/content/pages/home.md', { eager: true, query: '?raw', import: 'default' });
 const aboutMd = import.meta.glob('/content/pages/about.md', { eager: true, query: '?raw', import: 'default' });
 const contactMd = import.meta.glob('/content/pages/contact.md', { eager: true, query: '?raw', import: 'default' });
 const servicesMd = import.meta.glob('/content/pages/services.md', { eager: true, query: '?raw', import: 'default' });
 
+// =====================================================
+// HOME PAGE LOADER
+// =====================================================
+
 export function getHomePage(): HomePage {
   const content = Object.values(homeMd)[0] as string;
   const { data, content: body } = parseFrontmatter(content);
   
+  // Parse three doors array
+  const threeDoorsRaw = data.threeDoors as Array<{ title: string; description: string; link: string; cta: string; imageKey: string }> || [];
+  const threeDoors: ThreeDoor[] = threeDoorsRaw.map(d => ({
+    title: d.title || '',
+    description: d.description || '',
+    link: d.link || '',
+    cta: d.cta || '',
+    imageKey: d.imageKey || '',
+  }));
+
+  // Parse why benefits array
+  const whyBenefitsRaw = data.whyBenefits as Array<{ icon: string; title: string; description: string }> || [];
+  const whyBenefits: WhyBenefit[] = whyBenefitsRaw.map(b => ({
+    icon: b.icon || 'Shield',
+    title: b.title || '',
+    description: b.description || '',
+  }));
+
+  // Parse featured treatments array
+  const featuredTreatmentsRaw = data.featuredTreatments as Array<{ name: string; description: string; link: string; imageKey: string }> || [];
+  const featuredTreatments: FeaturedTreatment[] = featuredTreatmentsRaw.map(t => ({
+    name: t.name || '',
+    description: t.description || '',
+    link: t.link || '',
+    imageKey: t.imageKey || '',
+  }));
+
+  // Parse cures features array
+  const curesFeatures = (data.curesFeatures as string[]) || [];
+
+  // Parse about preview paragraphs array
+  const aboutPreviewParagraphs = (data.aboutPreviewParagraphs as string[]) || [];
+
   return {
     heroTitle: (data.heroTitle as string) || "L'Art Ancestral de l'Ayurvéda",
     heroSubtitle: (data.heroSubtitle as string) || '',
     whyTitle: (data.whyTitle as string) || "Pourquoi l'Ayurvéda ?",
     whyDescription: (data.whyDescription as string) || '',
+    // About Preview
+    aboutPreviewTitle: (data.aboutPreviewTitle as string) || 'Qui sommes-nous ?',
+    aboutPreviewParagraphs,
+    aboutPreviewButtonText: (data.aboutPreviewButtonText as string) || 'En savoir plus',
+    // Three Doors (Services)
+    servicesTitle: (data.servicesTitle as string) || 'Nos services',
+    servicesSubtitle: (data.servicesSubtitle as string) || '',
+    threeDoors,
+    // Why Ayurveda
+    whyAyurvedaTitle: (data.whyAyurvedaTitle as string) || "Pourquoi choisir l'Ayurveda ?",
+    whyAyurvedaSubtitle: (data.whyAyurvedaSubtitle as string) || '',
+    whyBenefits,
+    whyAyurvedaButtonText: (data.whyAyurvedaButtonText as string) || "Découvrir l'Ayurveda",
+    whyAyurvedaButtonLink: (data.whyAyurvedaButtonLink as string) || '/philosophie-vedique',
+    // Featured Treatments
+    featuredTitle: (data.featuredTitle as string) || 'Nos soins phares',
+    featuredSubtitle: (data.featuredSubtitle as string) || '',
+    featuredTreatments,
+    // Cures Zoom
+    curesZoomTitle: (data.curesZoomTitle as string) || 'Nos Cures Ayurvédiques',
+    curesZoomDescription: (data.curesZoomDescription as string) || '',
+    curesFeatures,
+    curesZoomButtonText: (data.curesZoomButtonText as string) || 'Découvrir nos cures',
+    curesZoomButtonLink: (data.curesZoomButtonLink as string) || '/cures',
+    // Contact
+    contactTitle: (data.contactTitle as string) || 'Nous trouver',
+    contactSubtitle: (data.contactSubtitle as string) || '',
+    contactButtonText: (data.contactButtonText as string) || 'Nous contacter',
+    // Newsletter
+    newsletterTitle: (data.newsletterTitle as string) || 'Restez informé',
+    newsletterDescription: (data.newsletterDescription as string) || '',
+    newsletterButtonText: (data.newsletterButtonText as string) || "S'inscrire",
+    newsletterConsent: (data.newsletterConsent as string) || '',
     content: body,
   };
 }
+
+// =====================================================
+// ABOUT PAGE LOADER
+// =====================================================
 
 export function getAboutPage(): AboutPage {
   const content = Object.values(aboutMd)[0] as string;
@@ -177,6 +324,10 @@ export function getAboutPage(): AboutPage {
   };
 }
 
+// =====================================================
+// SERVICES PAGE LOADER
+// =====================================================
+
 export function getServicesPage(): ServicesPage {
   const content = Object.values(servicesMd)[0] as string;
   const { data, content: body } = parseFrontmatter(content);
@@ -217,6 +368,10 @@ export function getServicesPage(): ServicesPage {
     content: body,
   };
 }
+
+// =====================================================
+// CONTACT PAGE LOADER
+// =====================================================
 
 export function getContactPage(): ContactPage {
   const content = Object.values(contactMd)[0] as string;
