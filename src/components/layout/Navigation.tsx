@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,53 +12,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import logoArkadhya from "@/assets/logo-arkadhya.webp";
+import { getNavigationSettings } from "@/lib/settings-loader";
 
-// Navigation structure with dropdowns
-const navigationItems = [
-  {
-    label: "Consultations & Soins",
-    items: [
-      { href: "/services", label: "Vue d'ensemble", description: "Tous nos services ayurvédiques" },
-      { href: "/consultations-ayurveda", label: "Consultations", description: "Bilans et accompagnements personnalisés" },
-      { href: "/bilan-de-sante", label: "Bilan CHIKITSA", description: "Analyse Prakriti/Vikriti complète" },
-      { href: "/services#massages", label: "Massages", description: "Soins corporels traditionnels" },
-      { href: "/bhutavidya", label: "Bhutavidya", description: "Psychologie ayurvédique" },
-    ],
-  },
-  {
-    label: "Cures Ayurvédiques",
-    items: [
-      { href: "/cures", label: "Toutes les cures", description: "Découvrez nos programmes" },
-      { href: "/cures/panchakarma", label: "Cure Panchakarma", description: "Détoxification profonde" },
-      { href: "/cures/amrita", label: "Cure Amrita", description: "Régénération et vitalité" },
-      { href: "/cures/week-end-decouverte", label: "Week-end découverte", description: "Initiation à l'Ayurveda" },
-      { href: "/cures/prenatale", label: "Cure prénatale", description: "Accompagnement grossesse" },
-      { href: "/cures/postnatale", label: "Cure postnatale", description: "Récupération après accouchement" },
-    ],
-  },
-  {
-    label: "Formations",
-    items: [
-      { href: "/atelier-cuisine", label: "Atelier cuisine ayurvédique", description: "Apprenez à cuisiner selon les doshas" },
-    ],
-  },
-  {
-    label: "Enseignements",
-    items: [
-      { href: "/philosophie-vedique", label: "Philosophie védique", description: "Les fondements spirituels" },
-      { href: "/gayatri-mantra", label: "Gayatri Mantra", description: "Le mantra sacré védique" },
-      { href: "/blog", label: "Blog & Articles", description: "Actualités et conseils" },
-    ],
-  },
-  {
-    label: "À propos",
-    items: [
-      { href: "/a-propos", label: "L'équipe", description: "Rencontrez nos praticiens" },
-      { href: "/centre-ayurvedique-arkadhya-en-images", label: "Galerie photos", description: "Découvrez le centre en images" },
-      { href: "/contact", label: "Contact", description: "Nous contacter" },
-    ],
-  },
-];
+// Load navigation from CMS
+const navigationSettings = getNavigationSettings();
+const navigationItems = navigationSettings.menuItems;
 
 const ListItem = ({
   className,
@@ -179,7 +137,7 @@ export const Navigation = () => {
               </NavigationMenuList>
             </NavigationMenu>
             <Button asChild className="ml-4">
-              <Link to="/contact">Prendre RDV</Link>
+              <Link to={navigationSettings.ctaButtonLink}>{navigationSettings.ctaButtonText}</Link>
             </Button>
           </div>
 
@@ -233,8 +191,8 @@ export const Navigation = () => {
                 </div>
               ))}
               <Button asChild className="w-full mt-4">
-                <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Prendre RDV
+                <Link to={navigationSettings.ctaButtonLink} onClick={() => setIsOpen(false)}>
+                  {navigationSettings.ctaButtonText}
                 </Link>
               </Button>
             </div>
