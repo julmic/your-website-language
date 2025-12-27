@@ -14,36 +14,9 @@ import { getBookableMassages, getCureOnlyMassages } from "@/lib/massages-loader"
 import { getAllCures } from "@/lib/cures-loader";
 import { getServicesPage } from "@/lib/pages-loader";
 
-// Utilitaire centralisé pour la résolution d'images de massages
+// Utilitaires centralisés pour la résolution d'images
 import { massageImageMap, abhyangaImg } from "@/lib/massage-images";
-
-// Import cure images
-import curePanchakarma from "@/assets/cures/cure-panchakarma.jpg";
-import cureAmrita from "@/assets/cures/cure-amrita.jpg";
-import cureKarchan from "@/assets/cures/cure-karchan.jpg";
-import cureLaghana from "@/assets/cures/cure-laghana-rasayana.jpg";
-import cureOjas from "@/assets/cures/cure-ojas-kayakalpa.jpg";
-import curePersonnalisee from "@/assets/cures/cure-personnalisee.jpg";
-import cureSamvahana from "@/assets/cures/cure-samvahana-vata.jpg";
-import curePrenatale from "@/assets/cures/cure-prenatale.jpg";
-import curePostnatale from "@/assets/cures/cure-postnatale.jpg";
-import cureJournee from "@/assets/cures/cure-journee.jpg";
-import cureWeekEnd from "@/assets/cures/cure-week-end.jpg";
-
-// Mapping des images de cures par slug
-const cureImageMap: Record<string, string> = {
-  "panchakarma": curePanchakarma,
-  "amrita": cureAmrita,
-  "karchan": cureKarchan,
-  "laghana-rasayana": cureLaghana,
-  "ojas-kayakalpa": cureOjas,
-  "personnalisee": curePersonnalisee,
-  "samvahana-vata": cureSamvahana,
-  "prenatale": curePrenatale,
-  "postnatale": curePostnatale,
-  "journee": cureJournee,
-  "week-end-decouverte": cureWeekEnd,
-};
+import { resolveCureImage } from "@/lib/cure-images";
 
 const Services = () => {
   const location = useLocation();
@@ -75,7 +48,7 @@ const Services = () => {
   };
 
   const getCureImage = (slug: string): string => {
-    return cureImageMap[slug] || curePanchakarma;
+    return resolveCureImage(slug);
   };
 
   const formatMassagePrice = (massage: typeof allMassages[number]): string => {
