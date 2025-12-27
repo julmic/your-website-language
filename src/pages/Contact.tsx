@@ -8,8 +8,10 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { toast } from "sonner";
 import GoogleMap from "@/components/ui/GoogleMap";
+import { getContactPage } from "@/lib/pages-loader";
 
 const Contact = () => {
+  const contactPage = getContactPage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,10 +37,10 @@ const Contact = () => {
         <div className="container px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-serif font-semibold mb-6">
-              Contactez-nous
+              {contactPage.title}
             </h1>
             <p className="text-lg text-muted-foreground">
-              Une question, une demande de rendez-vous ? N'hésitez pas à nous contacter, nous vous répondrons rapidement.
+              {contactPage.content || "Une question, une demande de rendez-vous ? N'hésitez pas à nous contacter, nous vous répondrons rapidement."}
             </p>
           </div>
         </div>
@@ -134,10 +136,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Adresse</h3>
-                      <p className="text-sm text-muted-foreground">
-                        "Gorse-Bas"<br />
-                        461 route de la Côte Rouge<br />
-                        47440 Pailloles
+                      <p className="text-sm text-muted-foreground whitespace-pre-line">
+                        {contactPage.address}
                       </p>
                     </div>
                   </div>
@@ -148,7 +148,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Téléphone</h3>
-                      <p className="text-sm text-muted-foreground">05 53 41 48 10</p>
+                      <p className="text-sm text-muted-foreground">{contactPage.phone}</p>
                     </div>
                   </div>
                   
@@ -158,7 +158,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-sm text-muted-foreground">arkadhya@gmail.com</p>
+                      <p className="text-sm text-muted-foreground">{contactPage.email}</p>
                     </div>
                   </div>
                   
@@ -168,9 +168,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Horaires</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Lundi - Samedi : 9h - 19h<br />
-                        Dimanche : Fermé
+                      <p className="text-sm text-muted-foreground whitespace-pre-line">
+                        {contactPage.hours}
                       </p>
                     </div>
                   </div>

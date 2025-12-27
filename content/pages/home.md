@@ -1,6 +1,6 @@
 ---
-heroTitle: "L'Art Ancestral de l'Ayurvéda"
-heroSubtitle: "Retrouvez l'harmonie du corps et de l'esprit grâce à la science millénaire de la vie"
+heroTitle: "Retrouvez l'harmonie intérieure par l'Ayurveda traditionnel"
+heroSubtitle: "Un accompagnement complet fondé sur les enseignements millénaires des Vedas : consultations spécialisées, massages traditionnels, cures ayurvédiques et formations professionnelles."
 whyTitle: "Pourquoi l'Ayurvéda ?"
 whyDescription: "L'Ayurvéda est la plus ancienne médecine holistique au monde, offrant une approche personnalisée pour chaque individu."
 ---

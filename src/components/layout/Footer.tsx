@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
-import { Leaf, Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
+import { Leaf, Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import { getGeneralSettings, getSocialSettings } from "@/lib/settings-loader";
 
 export const Footer = () => {
+  const settings = getGeneralSettings();
+  const social = getSocialSettings();
+
   return (
     <footer className="bg-secondary border-t border-border">
       <div className="container mx-auto px-4 py-12">
@@ -45,26 +49,35 @@ export const Footer = () => {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Contact</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 text-primary" />
-                Aquitaine, France
+              <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                <span className="whitespace-pre-line">{settings.address}</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4 text-primary" />
-                +33 X XX XX XX XX
+                {settings.phone}
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
-                contact@arkadhya.org
+                {settings.email}
               </li>
             </ul>
             <div className="flex gap-4 mt-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
-                <Instagram className="h-5 w-5" />
-              </a>
+              {social.facebook && (
+                <a href={social.facebook} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
+                  <Facebook className="h-5 w-5" />
+                </a>
+              )}
+              {social.instagram && (
+                <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
+                  <Instagram className="h-5 w-5" />
+                </a>
+              )}
+              {social.youtube && (
+                <a href={social.youtube} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="YouTube">
+                  <Youtube className="h-5 w-5" />
+                </a>
+              )}
             </div>
           </div>
         </div>
