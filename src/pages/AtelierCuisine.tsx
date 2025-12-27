@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Calendar, Clock, Users, Utensils, BookOpen, Leaf } from "lucide-react";
+import { getServiceBySlug } from "@/lib/services-speciaux-loader";
 
 // Images
 import pdVata from "@/assets/cuisine/pdvata.webp";
@@ -16,46 +17,90 @@ import dejKapha from "@/assets/cuisine/dej-kapha.webp";
 import dinnerKapha from "@/assets/cuisine/dinner-kapha.webp";
 import kitcheri from "@/assets/cuisine/kitcheri.webp";
 
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Calendar,
+  Clock,
+  Users,
+  Utensils,
+  BookOpen,
+  Leaf,
+};
+
 const AtelierCuisine = () => {
-  const schedule = [
-    { time: "10h00", icon: "🕘", title: "Accueil", description: "Infusion d'ouverture et introduction à l'ayurvéda. Identification des doshas." },
-    { time: "10h15", icon: "🌶️", title: "Découverte des épices & des six saveurs", description: "Exploration sensorielle et principes d'équilibre alimentaire." },
-    { time: "11h00", icon: "🍲", title: "Atelier cuisine du matin", description: "Techniques de base (tarka, dhal, ghee) puis préparation collective d'un repas ayurvédique." },
-    { time: "12h30", icon: "🧘‍♀️", title: "Repas en pleine conscience", description: "Dégustation du repas cuisiné ensemble." },
-    { time: "13h30", icon: "☕", title: "Pause & échanges", description: "Questions-réponses autour d'une boisson chaude." },
-    { time: "14h00", icon: "📚", title: "Alimentation selon votre dosha", description: "Conseils personnalisés et clés pour équilibrer votre digestion." },
-    { time: "15h00", icon: "🌞", title: "Clôture", description: "" },
+  const data = getServiceBySlug("atelier-cuisine");
+
+  // Fallback values
+  const title = data?.title || "Atelier de Cuisine Ayurvédique";
+  const subtitle = data?.subtitle || "Apprenez à cuisiner selon votre Dosha";
+  const description = data?.description || "Explorez l'alimentation ayurvédique et découvrez comment adapter vos repas à votre constitution unique. Un atelier immersif, pratique et inspirant, au cœur du centre ayurvédique Arkadhya.";
+  
+  const upcomingDates = data?.upcomingDates || [
+    { date: "Dimanche 17 mai 2026", time: "10h à 15h", level: "Niveau 1", theme: "Maîtriser l'art des 6 saveurs" },
+    { date: "Dimanche 20 septembre 2026", time: "10h à 15h", level: "Niveau 2", theme: "Utiliser les épices" }
   ];
 
-  const faqItems = [
-    {
-      question: "C'est quoi exactement la cuisine ayurvédique ?",
-      answer: "La cuisine ayurvédique est une approche alimentaire issue de l'Ayurvéda, la médecine traditionnelle indienne. Elle repose sur l'équilibre des saveurs, l'utilisation d'épices digestives et l'adaptation des repas à la constitution individuelle (dosha)."
-    },
-    {
-      question: "Est-ce que l'atelier convient aux débutants en cuisine ?",
-      answer: "Oui, absolument ! L'atelier est conçu pour tous les niveaux. Les techniques enseignées sont accessibles et les recettes simples à reproduire chez soi."
-    },
-    {
-      question: "Qu'est-ce qu'on apprend concrètement pendant l'atelier ?",
-      answer: "Vous apprendrez à identifier votre dosha, à choisir les ingrédients adaptés, à maîtriser les techniques de cuisson traditionnelles, à équilibrer les six saveurs ayurvédiques et à composer des menus personnalisés."
-    },
-    {
-      question: "Y a-t-il une limite d'âge pour participer ?",
-      answer: "L'atelier est ouvert aux adultes et aux adolescents à partir de 14 ans accompagnés d'un adulte."
-    },
-    {
-      question: "Est-ce qu'il y a une partie théorique ?",
-      answer: "Oui, l'atelier combine théorie et pratique. Vous découvrirez les principes fondamentaux de l'alimentation ayurvédique avant de passer à la cuisine."
-    },
-    {
-      question: "Dois-je connaître mon dosha avant de venir ?",
-      answer: "Non, pas nécessairement. Nous commencerons l'atelier par une identification de votre constitution pour personnaliser les conseils."
-    },
-    {
-      question: "Est-ce que je dois apporter du matériel ?",
-      answer: "Non, tout le matériel et les ingrédients sont fournis. Venez simplement avec votre curiosité et votre appétit !"
-    },
+  const whyAyurvedicCooking = data?.whyAyurvedicCooking || {
+    intro: "L'Ayurvéda enseigne que chacun possède une combinaison personnelle de **doshas** (Vata, Pitta, Kapha). Adapter votre alimentation à votre constitution permet de :",
+    benefits: [
+      { title: "Améliorer la digestion", description: "Des repas adaptés pour un système digestif équilibré", icon: "Utensils" },
+      { title: "Augmenter l'énergie vitale", description: "Nourrissez votre corps selon ses besoins uniques", icon: "Leaf" },
+      { title: "Équilibrer les émotions", description: "L'alimentation influence votre état mental", icon: "Users" }
+    ]
+  };
+
+  const programIntro = data?.programIntro || "À la fin de l'atelier, vous serez capable de composer des menus personnalisés pour Vata, Pitta ou Kapha, adaptés aux saisons, à votre énergie et à votre digestion.";
+  
+  const programItems = data?.programItems || [
+    { icon: "BookOpen", text: "Identifier votre dosha dominant" },
+    { icon: "Utensils", text: "Choisir les ingrédients adaptés" },
+    { icon: "Leaf", text: "Maîtriser les techniques traditionnelles" },
+    { icon: "Clock", text: "Équilibrer les six saveurs" },
+    { icon: "Users", text: "Créer des menus personnalisés" }
+  ];
+
+  const schedule = data?.schedule || [
+    { time: "10h00", emoji: "🕘", title: "Accueil", description: "Infusion d'ouverture et introduction à l'ayurvéda. Identification des doshas." },
+    { time: "10h15", emoji: "🌶️", title: "Découverte des épices & des six saveurs", description: "Exploration sensorielle et principes d'équilibre alimentaire." },
+    { time: "11h00", emoji: "🍲", title: "Atelier cuisine du matin", description: "Techniques de base (tarka, dhal, ghee) puis préparation collective d'un repas ayurvédique." },
+    { time: "12h30", emoji: "🧘‍♀️", title: "Repas en pleine conscience", description: "Dégustation du repas cuisiné ensemble." },
+    { time: "13h30", emoji: "☕", title: "Pause & échanges", description: "Questions-réponses autour d'une boisson chaude." },
+    { time: "14h00", emoji: "📚", title: "Alimentation selon votre dosha", description: "Conseils personnalisés et clés pour équilibrer votre digestion." },
+    { time: "15h00", emoji: "🌞", title: "Clôture", description: "" }
+  ];
+
+  const menusVata = data?.menusVata || {
+    petitDejeuner: { items: ["Porridge de riz ou flocons d'avoine chauds", "Fruits compotés (pomme, poire, banane mûre)", "Noix et amandes trempées", "Tisane au gingembre ou chai épicé", "Ghee ou huile de sésame"] },
+    repasMidday: { items: ["Dhal de lentilles corail au cumin", "Riz basmati parfumé", "Légumes racines rôtis (carottes, patates douces)", "Curry de courge butternut", "Chapati tiède", "Lassi salé ou tisane digestive"] },
+    repasSoir: { items: ["Soupe de légumes crémeuse", "Kitchari léger (riz + mung dal)", "Légumes vapeur avec ghee", "Chapati léger", "Lait doré au curcuma et miel", "Tisane à la camomille"] }
+  };
+
+  const menusPitta = data?.menusPitta || {
+    petitDejeuner: { items: ["Yaourt doux avec fruits frais", "Concombre ou melon rafraîchissant", "Céréales complètes froides ou tièdes", "Épices douces : coriandre, fenouil, cardamome", "Tisane à la menthe ou eau de coco", "Éviter les agrumes et épices piquantes"] },
+    repasMidday: { items: ["Riz basmati nature", "Curry doux aux légumes", "Raita (yaourt à la menthe ou concombre)", "Légumes verts vapeur", "Pain naan nature", "Lassi à la rose ou eau infusée"] },
+    repasSoir: { items: ["Salade tiède de légumes", "Quinoa ou riz aux herbes fraîches", "Légumes verts sautés légers", "Fromage frais ou paneer", "Tisane à la camomille ou fenouil", "Fruits doux (raisin, melon)"] }
+  };
+
+  const menusKapha = data?.menusKapha || {
+    petitDejeuner: { items: ["Petit-déjeuner léger ou jeûne possible", "Fruits astringents (pomme, poire, baies)", "Miel cru (en petite quantité)", "Épices réchauffantes : gingembre, poivre, cannelle", "Tisane au gingembre et citron", "Éviter les produits laitiers le matin"] },
+    repasMidday: { items: ["Légumes variés sautés aux épices", "Millet ou sarrasin", "Légumineuses épicées", "Salade de crudités assaisonnée", "Galette de sarrasin légère", "Eau chaude avec citron"] },
+    repasSoir: { items: ["Repas le plus léger de la journée", "Soupe claire aux légumes", "Légumes vapeur épicés", "Petite portion de céréales", "Tisane digestive (gingembre, cumin)", "Éviter les repas tardifs"] }
+  };
+
+  const kitcheriRecipe = data?.kitcheriRecipe || {
+    title: "Recette vedette : Le Kitchari",
+    description: "Plat équilibrant par excellence, le kitchari convient à tous les doshas et constitue la base de l'alimentation ayurvédique détox.",
+    ingredients: ["1 tasse de riz basmati", "½ tasse de mung dal (lentilles vertes décortiquées)", "4 tasses d'eau", "1 cuillère à café de ghee", "½ cuillère à café de cumin", "½ cuillère à café de curcuma", "Sel selon goût"],
+    steps: ["Rincer le riz et les lentilles ensemble", "Faire chauffer le ghee, ajouter le cumin", "Ajouter le riz, les lentilles et l'eau", "Cuire à feu doux 30-40 minutes", "Assaisonner et servir chaud"]
+  };
+
+  const faqItems = data?.faq || [
+    { question: "C'est quoi exactement la cuisine ayurvédique ?", answer: "La cuisine ayurvédique est une approche alimentaire issue de l'Ayurvéda, la médecine traditionnelle indienne. Elle repose sur l'équilibre des saveurs, l'utilisation d'épices digestives et l'adaptation des repas à la constitution individuelle (dosha)." },
+    { question: "Est-ce que l'atelier convient aux débutants en cuisine ?", answer: "Oui, absolument ! L'atelier est conçu pour tous les niveaux. Les techniques enseignées sont accessibles et les recettes simples à reproduire chez soi." },
+    { question: "Qu'est-ce qu'on apprend concrètement pendant l'atelier ?", answer: "Vous apprendrez à identifier votre dosha, à choisir les ingrédients adaptés, à maîtriser les techniques de cuisson traditionnelles, à équilibrer les six saveurs ayurvédiques et à composer des menus personnalisés." },
+    { question: "Y a-t-il une limite d'âge pour participer ?", answer: "L'atelier est ouvert aux adultes et aux adolescents à partir de 14 ans accompagnés d'un adulte." },
+    { question: "Est-ce qu'il y a une partie théorique ?", answer: "Oui, l'atelier combine théorie et pratique. Vous découvrirez les principes fondamentaux de l'alimentation ayurvédique avant de passer à la cuisine." },
+    { question: "Dois-je connaître mon dosha avant de venir ?", answer: "Non, pas nécessairement. Nous commencerons l'atelier par une identification de votre constitution pour personnaliser les conseils." },
+    { question: "Est-ce que je dois apporter du matériel ?", answer: "Non, tout le matériel et les ingrédients sont fournis. Venez simplement avec votre curiosité et votre appétit !" }
   ];
 
   return (
@@ -65,14 +110,13 @@ const AtelierCuisine = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
-              Atelier de Cuisine Ayurvédique
+              {title}
             </h1>
             <p className="text-xl md:text-2xl text-primary font-medium mb-4">
-              Apprenez à cuisiner selon votre Dosha
+              {subtitle}
             </p>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Explorez l'alimentation ayurvédique et découvrez comment adapter vos repas à votre constitution unique. 
-              Un atelier immersif, pratique et inspirant, au cœur du centre ayurvédique Arkadhya.
+              {description}
             </p>
             <Button size="lg" className="text-lg px-8 py-6">
               Je réserve ma place
@@ -89,22 +133,16 @@ const AtelierCuisine = () => {
               Prochaines dates de l'atelier cuisine ayurvédique 2026
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-6 bg-background rounded-lg border border-border">
-                <div className="flex items-center gap-3 mb-3">
-                  <Calendar className="w-5 h-5 text-primary" />
-                  <span className="font-semibold text-foreground">Dimanche 17 mai 2026</span>
+              {upcomingDates.map((date, index) => (
+                <div key={index} className="p-6 bg-background rounded-lg border border-border">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Calendar className="w-5 h-5 text-primary" />
+                    <span className="font-semibold text-foreground">{date.date}</span>
+                  </div>
+                  <p className="text-muted-foreground">{date.time} – {date.level}</p>
+                  <p className="text-primary font-medium mt-2">{date.theme}</p>
                 </div>
-                <p className="text-muted-foreground">10h à 15h – Niveau 1</p>
-                <p className="text-primary font-medium mt-2">Maîtriser l'art des 6 saveurs</p>
-              </div>
-              <div className="p-6 bg-background rounded-lg border border-border">
-                <div className="flex items-center gap-3 mb-3">
-                  <Calendar className="w-5 h-5 text-primary" />
-                  <span className="font-semibold text-foreground">Dimanche 20 septembre 2026</span>
-                </div>
-                <p className="text-muted-foreground">10h à 15h – Niveau 2</p>
-                <p className="text-primary font-medium mt-2">Utiliser les épices</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -118,25 +156,19 @@ const AtelierCuisine = () => {
               Pourquoi cuisiner selon l'Ayurvéda ?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 text-center">
-              L'Ayurvéda enseigne que chacun possède une combinaison personnelle de <strong className="text-foreground">doshas</strong> (Vata, Pitta, Kapha). 
-              Adapter votre alimentation à votre constitution permet de :
+              {whyAyurvedicCooking.intro.replace(/\*\*/g, '')}
             </p>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-card rounded-lg border border-border">
-                <Utensils className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-foreground mb-2">Améliorer la digestion</h3>
-                <p className="text-muted-foreground text-sm">Des repas adaptés pour un système digestif équilibré</p>
-              </div>
-              <div className="text-center p-6 bg-card rounded-lg border border-border">
-                <Leaf className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-foreground mb-2">Augmenter l'énergie vitale</h3>
-                <p className="text-muted-foreground text-sm">Nourrissez votre corps selon ses besoins uniques</p>
-              </div>
-              <div className="text-center p-6 bg-card rounded-lg border border-border">
-                <Users className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-foreground mb-2">Équilibrer les émotions</h3>
-                <p className="text-muted-foreground text-sm">L'alimentation influence votre état mental</p>
-              </div>
+              {whyAyurvedicCooking.benefits.map((benefit, index) => {
+                const IconComponent = iconMap[benefit.icon] || Utensils;
+                return (
+                  <div key={index} className="text-center p-6 bg-card rounded-lg border border-border">
+                    <IconComponent className="w-10 h-10 text-primary mx-auto mb-4" />
+                    <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
+                    <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -150,23 +182,19 @@ const AtelierCuisine = () => {
               Programme de l'atelier – Ce que vous apprendrez
             </h2>
             <p className="text-muted-foreground text-center mb-12">
-              À la fin de l'atelier, vous serez capable de composer des menus personnalisés pour Vata, Pitta ou Kapha, 
-              adaptés aux saisons, à votre énergie et à votre digestion.
+              {programIntro}
             </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-              {[
-                { icon: <BookOpen className="w-6 h-6" />, text: "Identifier votre dosha dominant" },
-                { icon: <Utensils className="w-6 h-6" />, text: "Choisir les ingrédients adaptés" },
-                { icon: <Leaf className="w-6 h-6" />, text: "Maîtriser les techniques traditionnelles" },
-                { icon: <Clock className="w-6 h-6" />, text: "Équilibrer les six saveurs" },
-                { icon: <Users className="w-6 h-6" />, text: "Créer des menus personnalisés" },
-              ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3 p-4 bg-background rounded-lg border border-border">
-                  <div className="text-primary">{item.icon}</div>
-                  <span className="text-foreground">{item.text}</span>
-                </div>
-              ))}
+              {programItems.map((item, index) => {
+                const IconComponent = iconMap[item.icon] || BookOpen;
+                return (
+                  <div key={index} className="flex items-center gap-3 p-4 bg-background rounded-lg border border-border">
+                    <div className="text-primary"><IconComponent className="w-6 h-6" /></div>
+                    <span className="text-foreground">{item.text}</span>
+                  </div>
+                );
+              })}
             </div>
 
             <h3 className="text-2xl font-serif font-bold text-foreground mb-6 text-center">
@@ -176,7 +204,7 @@ const AtelierCuisine = () => {
               {schedule.map((item, index) => (
                 <div key={index} className="flex items-start gap-4 p-4 bg-background rounded-lg border border-border">
                   <div className="flex-shrink-0 w-16 text-center">
-                    <span className="text-2xl">{item.icon}</span>
+                    <span className="text-2xl">{item.emoji}</span>
                     <p className="text-sm font-semibold text-primary mt-1">{item.time}</p>
                   </div>
                   <div>
@@ -218,11 +246,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Petit-déjeuner</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Porridge de riz ou flocons d'avoine chauds</li>
-                        <li>– Fruits compotés (pomme, poire, banane mûre)</li>
-                        <li>– Noix et amandes trempées</li>
-                        <li>– Tisane au gingembre ou chai épicé</li>
-                        <li>– Ghee ou huile de sésame</li>
+                        {menusVata.petitDejeuner.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -233,12 +259,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du midi</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Dhal de lentilles corail au cumin</li>
-                        <li>– Riz basmati parfumé</li>
-                        <li>– Légumes racines rôtis (carottes, patates douces)</li>
-                        <li>– Curry de courge butternut</li>
-                        <li>– Chapati tiède</li>
-                        <li>– Lassi salé ou tisane digestive</li>
+                        {menusVata.repasMidday.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -249,12 +272,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du soir</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Soupe de légumes crémeuse</li>
-                        <li>– Kitchari léger (riz + mung dal)</li>
-                        <li>– Légumes vapeur avec ghee</li>
-                        <li>– Chapati léger</li>
-                        <li>– Lait doré au curcuma et miel</li>
-                        <li>– Tisane à la camomille</li>
+                        {menusVata.repasSoir.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -270,12 +290,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Petit-déjeuner</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Yaourt doux avec fruits frais</li>
-                        <li>– Concombre ou melon rafraîchissant</li>
-                        <li>– Céréales complètes froides ou tièdes</li>
-                        <li>– Épices douces : coriandre, fenouil, cardamome</li>
-                        <li>– Tisane à la menthe ou eau de coco</li>
-                        <li>– Éviter les agrumes et épices piquantes</li>
+                        {menusPitta.petitDejeuner.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -286,12 +303,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du midi</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Riz basmati nature</li>
-                        <li>– Curry doux aux légumes</li>
-                        <li>– Raita (yaourt à la menthe ou concombre)</li>
-                        <li>– Légumes verts vapeur</li>
-                        <li>– Pain naan nature</li>
-                        <li>– Lassi à la rose ou eau infusée</li>
+                        {menusPitta.repasMidday.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -302,12 +316,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du soir</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Soupe froide ou tiède aux légumes</li>
-                        <li>– Salade de quinoa aux herbes</li>
-                        <li>– Légumes sautés à la coriandre</li>
-                        <li>– Chapati ou pain plat</li>
-                        <li>– Lait d'amande à la cardamome</li>
-                        <li>– Infusion de fenouil</li>
+                        {menusPitta.repasSoir.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -323,12 +334,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Petit-déjeuner</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Fruits légers (pomme, poire, baies)</li>
-                        <li>– Bouillie de millet ou sarrasin</li>
-                        <li>– Miel cru en petite quantité</li>
-                        <li>– Épices réchauffantes (gingembre, cannelle)</li>
-                        <li>– Tisane au gingembre</li>
-                        <li>– Éviter les produits laitiers lourds</li>
+                        {menusKapha.petitDejeuner.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -339,12 +347,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du midi</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Légumes verts sautés aux épices</li>
-                        <li>– Dhal de lentilles au curcuma</li>
-                        <li>– Quinoa ou millet</li>
-                        <li>– Légumes crucifères (chou, brocoli)</li>
-                        <li>– Chapati de sarrasin</li>
-                        <li>– Tisane digestive au gingembre</li>
+                        {menusKapha.repasMidday.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -355,12 +360,9 @@ const AtelierCuisine = () => {
                     <div className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">Repas du soir</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>– Soupe légère aux légumes verts</li>
-                        <li>– Légumes grillés épicés</li>
-                        <li>– Salade de graines germées</li>
-                        <li>– Galette de sarrasin</li>
-                        <li>– Tisane au curcuma et poivre</li>
-                        <li>– Éviter de manger tard</li>
+                        {menusKapha.repasSoir.items.map((item, i) => (
+                          <li key={i}>– {item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -371,55 +373,35 @@ const AtelierCuisine = () => {
         </div>
       </section>
 
-      {/* Recette Kitcheri */}
-      <section className="py-16 bg-card">
+      {/* Recette Kitchari */}
+      <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-serif font-bold text-foreground mb-8 text-center">
-              Recette de base : Le Kitcheri Ayurvédique
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <img src={kitcheri} alt="Bol de kitcheri ayurvédique" className="w-full rounded-lg" />
+                <img src={kitcheri} alt="Kitchari ayurvédique" className="rounded-xl shadow-lg" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">Ingrédients</h3>
-                <ul className="text-muted-foreground space-y-2 mb-6">
-                  <li>– 1 tasse de riz basmati</li>
-                  <li>– 1/2 tasse de mung dal (lentilles jaunes)</li>
-                  <li>– 4 tasses d'eau</li>
-                  <li>– 1 c. à café de curcuma</li>
-                  <li>– 1 c. à café de cumin</li>
-                  <li>– 1 c. à café de graines de moutarde</li>
-                  <li>– 2 c. à soupe de ghee</li>
-                  <li>– Sel à votre goût</li>
-                  <li>– Coriandre fraîche</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-foreground mb-4">Préparation</h3>
-                <ol className="text-muted-foreground space-y-2 list-decimal list-inside">
-                  <li>Rincer le riz et les lentilles</li>
-                  <li>Faire chauffer le ghee et ajouter les épices</li>
-                  <li>Ajouter le riz et les lentilles, mélanger</li>
-                  <li>Verser l'eau et le curcuma</li>
-                  <li>Cuire 20-25 minutes à feu doux</li>
-                  <li>Garnir de coriandre fraîche</li>
-                </ol>
-              </div>
-            </div>
-
-            <div className="mt-8 grid md:grid-cols-3 gap-4">
-              <div className="p-4 bg-background rounded-lg border border-border">
-                <h4 className="font-semibold text-foreground mb-2">Pour Vata</h4>
-                <p className="text-sm text-muted-foreground">Ajouter plus de ghee et des légumes racines</p>
-              </div>
-              <div className="p-4 bg-background rounded-lg border border-border">
-                <h4 className="font-semibold text-foreground mb-2">Pour Pitta</h4>
-                <p className="text-sm text-muted-foreground">Réduire les épices piquantes, ajouter de la coriandre</p>
-              </div>
-              <div className="p-4 bg-background rounded-lg border border-border">
-                <h4 className="font-semibold text-foreground mb-2">Pour Kapha</h4>
-                <p className="text-sm text-muted-foreground">Moins de riz, plus de légumes et d'épices réchauffantes</p>
+                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{kitcheriRecipe.title}</h2>
+                <p className="text-muted-foreground mb-6">{kitcheriRecipe.description}</p>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">Ingrédients :</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {kitcheriRecipe.ingredients.map((ing, i) => (
+                        <li key={i}>• {ing}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">Préparation :</h4>
+                    <ol className="text-sm text-muted-foreground space-y-1 list-decimal list-inside">
+                      {kitcheriRecipe.steps.map((step, i) => (
+                        <li key={i}>{step}</li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -431,12 +413,16 @@ const AtelierCuisine = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-serif font-bold text-foreground mb-8 text-center">
-              FAQ – Atelier de Cuisine Ayurvédique
+              Questions fréquentes
             </h2>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="space-y-4">
               {faqItems.map((item, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left text-foreground">
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-card rounded-lg px-6 border border-border"
+                >
+                  <AccordionTrigger className="text-left font-medium text-foreground">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
@@ -449,18 +435,20 @@ const AtelierCuisine = () => {
         </div>
       </section>
 
-      {/* CTA Final */}
+      {/* CTA */}
       <section className="py-16 bg-primary/10">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
-            Prêt à transformer votre alimentation ?
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Rejoignez-nous pour un atelier immersif et repartez avec les clés d'une alimentation équilibrée selon l'Ayurvéda.
-          </p>
-          <Button size="lg" className="text-lg px-8 py-6">
-            Je réserve ma place
-          </Button>
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
+              Prêt à découvrir la cuisine ayurvédique ?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Rejoignez-nous pour un atelier transformateur qui changera votre relation à l'alimentation.
+            </p>
+            <Button size="lg" className="text-lg px-8 py-6">
+              Réserver mon atelier
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>
