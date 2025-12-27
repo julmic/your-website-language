@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import abhyangaImage from "@/assets/massages/abhyanga.webp";
-import panchakarmaImage from "@/assets/cures/cure-panchakarma.jpg";
-import kitcheriImage from "@/assets/cuisine/kitcheri.webp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { getHomePage } from "@/lib/pages-loader";
 
+// Utilitaires centralisés pour la résolution d'images
+import { abhyangaImg } from "@/lib/massage-images";
+import { resolveCureImage } from "@/lib/cure-images";
+
+// Image additionnelle
+import kitcheriImage from "@/assets/cuisine/kitcheri.webp";
+
 // Image mapping for CMS imageKey values
 const imageMap: Record<string, string> = {
-  consultations: abhyangaImage,
-  cures: panchakarmaImage,
+  consultations: abhyangaImg,
+  cures: resolveCureImage("panchakarma"),
   formations: kitcheriImage,
 };
 
@@ -58,7 +62,7 @@ export const ThreeDoorsSection = () => {
             >
               {/* Background Image */}
               <img
-                src={imageMap[door.imageKey] || abhyangaImage}
+                src={imageMap[door.imageKey] || abhyangaImg}
                 alt={door.title}
                 className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
               />
