@@ -32,12 +32,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-// Images Vastu
-import vastuMandala from "@/assets/philosophie/vastu-mandala.png";
-import vastuDirections from "@/assets/philosophie/vastu-directions.png";
-import vastuElements from "@/assets/philosophie/vastu-elements.png";
-import vastuTemple from "@/assets/philosophie/vastu-temple.png";
-import vastuFloorplan from "@/assets/philosophie/vastu-floorplan.png";
+// Utilitaire centralisé pour les images de philosophie
+import {
+  vastuMandalaImg as vastuMandala,
+  vastuDirectionsImg as vastuDirections,
+  vastuElementsImg as vastuElements,
+  vastuTempleImg as vastuTemple,
+  vastuFloorplanImg as vastuFloorplan,
+} from "@/lib/philosophie-images";
 
 const chapters = [
   { id: "introduction", title: "Introduction" },
