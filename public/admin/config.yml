@@ -347,6 +347,128 @@ collections:
       - { label: "Contenu", name: "body", widget: "markdown", required: true }
 
   # ==========================================
+  # SERVICES SPÉCIAUX
+  # ==========================================
+  - name: "services-speciaux"
+    label: "Services spéciaux"
+    label_singular: "Service spécial"
+    folder: "content/services-speciaux"
+    create: false
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Slug (URL)", name: "slug", widget: "string", required: true }
+      - { label: "Sous-titre", name: "subtitle", widget: "string", required: false }
+      - { label: "Tagline", name: "tagline", widget: "string", required: false }
+      - { label: "Durée", name: "duration", widget: "string", required: false }
+      - { label: "Prix", name: "price", widget: "string", required: false }
+      - { label: "Image Hero", name: "heroImage", widget: "string", required: false }
+      - { label: "Image secondaire", name: "secondaryImage", widget: "string", required: false }
+      - { label: "Description / Introduction", name: "description", widget: "markdown", required: false }
+      - { label: "Introduction (Bhutavidya)", name: "introduction", widget: "markdown", required: false }
+      # Bilan de santé
+      - { label: "Titre aspect", name: "aspectTitle", widget: "string", required: false }
+      - { label: "Items aspect", name: "aspectItems", widget: "list", required: false, field: { label: "Item", name: "item", widget: "string" } }
+      - label: "Étapes"
+        name: "steps"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Icône", name: "icon", widget: "select", options: ["Activity", "Users", "Leaf", "Heart", "Brain", "Eye", "Sparkles", "Wind"] }
+      - { label: "Texte suivi", name: "followUpText", widget: "markdown", required: false }
+      - { label: "Note suivi", name: "followUpNote", widget: "string", required: false }
+      # Bhutavidya
+      - { label: "Citation philosophie", name: "philosophyQuote", widget: "string", required: false }
+      - { label: "Sous-texte philosophie", name: "philosophySubtext", widget: "string", required: false }
+      - { label: "Texte philosophie", name: "philosophyText", widget: "markdown", required: false }
+      - label: "Étapes programme"
+        name: "programSteps"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Icône", name: "icon", widget: "select", options: ["Brain", "Eye", "Sparkles", "Heart", "Wind"] }
+      - label: "Techniques"
+        name: "techniques"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+      - { label: "Titre première séance", name: "firstSessionTitle", widget: "string", required: false }
+      - { label: "Texte première séance", name: "firstSessionText", widget: "text", required: false }
+      - { label: "Titre suivi", name: "followUpTitle", widget: "string", required: false }
+      - { label: "Info séance", name: "sessionInfo", widget: "string", required: false }
+      # Atelier cuisine - Dates
+      - label: "Prochaines dates"
+        name: "upcomingDates"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Date", name: "date", widget: "string" }
+          - { label: "Horaire", name: "time", widget: "string" }
+          - { label: "Niveau", name: "level", widget: "string" }
+          - { label: "Thème", name: "theme", widget: "string" }
+      # Consultations
+      - { label: "Meta titre", name: "metaTitle", widget: "string", required: false }
+      - { label: "Meta description", name: "metaDescription", widget: "text", required: false }
+      - { label: "Meta keywords", name: "metaKeywords", widget: "string", required: false }
+      - { label: "Tag hero", name: "heroTag", widget: "string", required: false }
+      - { label: "Titre hero", name: "heroTitle", widget: "string", required: false }
+      - { label: "Description hero", name: "heroDescription", widget: "text", required: false }
+      - { label: "Titre section Qu'est-ce que", name: "whatIsTitle", widget: "string", required: false }
+      - { label: "Contenu section Qu'est-ce que", name: "whatIsContent", widget: "markdown", required: false }
+      - label: "Étapes séance"
+        name: "sessionSteps"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Numéro", name: "number", widget: "string" }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+      - label: "Types de consultations"
+        name: "consultationTypes"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Lien", name: "link", widget: "string" }
+          - { label: "Durée", name: "duration", widget: "string" }
+          - { label: "Icône", name: "icon", widget: "select", options: ["Stethoscope", "Brain", "Heart", "Leaf"] }
+      - label: "Bénéfices"
+        name: "benefits"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Icône", name: "icon", widget: "select", options: ["Heart", "Brain", "Leaf", "Star"] }
+      - { label: "Public cible", name: "targetAudience", widget: "list", required: false, field: { label: "Item", name: "item", widget: "string" } }
+      # FAQ commun
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Réponse", name: "answer", widget: "text" }
+      # CTA commun
+      - { label: "Titre CTA", name: "ctaTitle", widget: "string", required: false }
+      - { label: "Texte CTA", name: "ctaText", widget: "text", required: false }
+      - { label: "Lien bouton primaire", name: "ctaPrimaryLink", widget: "string", required: false }
+      - { label: "Texte bouton primaire", name: "ctaPrimaryText", widget: "string", required: false }
+      - { label: "Lien bouton secondaire", name: "ctaSecondaryLink", widget: "string", required: false }
+      - { label: "Texte bouton secondaire", name: "ctaSecondaryText", widget: "string", required: false }
+
+  # ==========================================
   # PARAMÈTRES GLOBAUX
   # ==========================================
   - name: "settings"
