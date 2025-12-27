@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import abhyangaImage from "@/assets/massages/abhyanga.webp";
-import shirodharaImage from "@/assets/massages/shirodhara-new.jpeg";
-import marmaImage from "@/assets/massages/marma-therapie.png";
-import prakritiImage from "@/assets/bilan/prakriti.avif";
-import doshaImage from "@/assets/bilan/dosha.avif";
-import panchakarmaImage from "@/assets/cures/cure-panchakarma.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { getHomePage } from "@/lib/pages-loader";
 
+// Utilitaire centralisé pour la résolution d'images de massages
+import { abhyangaImg, shirodharaImg, marmaTherapieImg } from "@/lib/massage-images";
+
+// Images additionnelles
+import prakritiImage from "@/assets/bilan/prakriti.avif";
+import doshaImage from "@/assets/bilan/dosha.avif";
+import panchakarmaImage from "@/assets/cures/cure-panchakarma.jpg";
+
 // Image mapping for CMS imageKey values
 const imageMap: Record<string, string> = {
-  abhyanga: abhyangaImage,
-  shirodhara: shirodharaImage,
-  marma: marmaImage,
+  abhyanga: abhyangaImg,
+  shirodhara: shirodharaImg,
+  marma: marmaTherapieImg,
   prakriti: prakritiImage,
   dosha: doshaImage,
   panchakarma: panchakarmaImage,
@@ -59,7 +61,7 @@ export const FeaturedTreatmentsSection = () => {
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src={imageMap[treatment.imageKey] || abhyangaImage}
+                  src={imageMap[treatment.imageKey] || abhyangaImg}
                   alt={treatment.name}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
                 />

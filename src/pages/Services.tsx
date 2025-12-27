@@ -14,36 +14,8 @@ import { getBookableMassages, getCureOnlyMassages } from "@/lib/massages-loader"
 import { getAllCures } from "@/lib/cures-loader";
 import { getServicesPage } from "@/lib/pages-loader";
 
-// Import massage images
-import massageAbhyanga from "@/assets/massages/abhyanga.webp";
-import massageVishesh from "@/assets/massages/vishesh-new.png";
-import massageKizhi from "@/assets/massages/kizhi.webp";
-import massageElakizhi from "@/assets/massages/elakizhi.webp";
-import massageMardanam from "@/assets/massages/mardanam.webp";
-import massagePanchaMahaBhuta from "@/assets/massages/pancha-maha-bhuta.webp";
-import massageSnehapanam from "@/assets/massages/snehapanam.jpeg";
-import massageUdvartana from "@/assets/massages/udvartana.jpeg";
-import massagePrasavpurveTirumu from "@/assets/massages/prasavpurve-tirumu.jpeg";
-import massageBolKansu from "@/assets/massages/bol-kansu.webp";
-import massageShiroabhyanga from "@/assets/massages/shiroabhyanga.jpeg";
-import massageUbthan from "@/assets/massages/ubthan.jpeg";
-import massageShirodharaNew from "@/assets/massages/shirodhara-new.jpeg";
-import massagePizichilli from "@/assets/massages/pizichilli.jpeg";
-import massagePindaSweda from "@/assets/massages/pinda-sveda.png";
-import massageMukhalepam from "@/assets/massages/mukhalepam.png";
-import massageThalapothichil from "@/assets/massages/thalapothichil.png";
-import massagePutapakam from "@/assets/massages/putapakam.jpeg";
-import massageShirotchampi from "@/assets/massages/shirotchampi.jpeg";
-import massageSaundarya from "@/assets/massages/saundarya.jpeg";
-import massageShantala from "@/assets/massages/shantala.jpg";
-import massageShashtishalipindswedan from "@/assets/massages/shashtishalipindswedan.png";
-import massageSvedana from "@/assets/massages/svedana.png";
-import massagePadavishesh from "@/assets/massages/padavishesh.png";
-import massagePadabhyanga from "@/assets/massages/padabhyanga.png";
-import massageNavarakiri from "@/assets/massages/navarakiri.png";
-import massageMarmaTherapie from "@/assets/massages/marma-therapie.png";
-import massageUndgharshan from "@/assets/massages/undgharshan.png";
-import massagePrishtikaraTirumu from "@/assets/massages/prishtikara-tirumu.png";
+// Utilitaire centralisé pour la résolution d'images de massages
+import { massageImageMap, abhyangaImg } from "@/lib/massage-images";
 
 // Import cure images
 import curePanchakarma from "@/assets/cures/cure-panchakarma.jpg";
@@ -57,39 +29,6 @@ import curePrenatale from "@/assets/cures/cure-prenatale.jpg";
 import curePostnatale from "@/assets/cures/cure-postnatale.jpg";
 import cureJournee from "@/assets/cures/cure-journee.jpg";
 import cureWeekEnd from "@/assets/cures/cure-week-end.jpg";
-
-// Mapping des images de massages par slug
-const massageImageMap: Record<string, string> = {
-  "abhyanga": massageAbhyanga,
-  "vishesh": massageVishesh,
-  "udvartana": massageUdvartana,
-  "shiro-abhyanga": massageShiroabhyanga,
-  "marma-therapie": massageMarmaTherapie,
-  "pizichilli": massagePizichilli,
-  "navarakiri": massageNavarakiri,
-  "elakizhi": massageElakizhi,
-  "padabhyanga": massagePadabhyanga,
-  "thalapothichil": massageThalapothichil,
-  "prasavpurve-tirumu": massagePrasavpurveTirumu,
-  "prishtikara-tirumu": massagePrishtikaraTirumu,
-  "shirodhara": massageShirodharaNew,
-  "snehapanam": massageSnehapanam,
-  "putapakam": massagePutapakam,
-  "mukhalepam": massageMukhalepam,
-  "svedana": massageSvedana,
-  "pinda-sweda": massagePindaSweda,
-  "shantala": massageShantala,
-  "saundarya": massageSaundarya,
-  "shashtishalipindswedan": massageShashtishalipindswedan,
-  "padavishesh": massagePadavishesh,
-  "bol-kansu": massageBolKansu,
-  "mardanam": massageMardanam,
-  "pancha-maha-bhuta": massagePanchaMahaBhuta,
-  "shirotchampi": massageShirotchampi,
-  "kizhi": massageKizhi,
-  "ubthan": massageUbthan,
-  "undgharshan": massageUndgharshan,
-};
 
 // Mapping des images de cures par slug
 const cureImageMap: Record<string, string> = {
@@ -132,7 +71,7 @@ const Services = () => {
   }, [location.hash]);
 
   const getMassageImage = (slug: string): string => {
-    return massageImageMap[slug] || massageAbhyanga;
+    return massageImageMap[slug] || abhyangaImg;
   };
 
   const getCureImage = (slug: string): string => {
