@@ -27,6 +27,13 @@ import MortAyurveda from "./pages/philosophie/MortAyurveda";
 import Ahamkara from "./pages/philosophie/Ahamkara";
 import AyurvedaElevationSpirituelle from "./pages/philosophie/AyurvedaElevationSpirituelle";
 import BhagavadGita from "./pages/philosophie/BhagavadGita";
+import PurushaPrakriti from "./pages/philosophie/PurushaPrakriti";
+import SagesseFeminine from "./pages/philosophie/SagesseFeminine";
+import TempsCyclesYugas from "./pages/philosophie/TempsCyclesYugas";
+import Upanishads from "./pages/philosophie/Upanishads";
+import VastuShastra from "./pages/philosophie/VastuShastra";
+import Vedas from "./pages/philosophie/Vedas";
+import VoieIshvara from "./pages/philosophie/VoieIshvara";
 import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
 import GalerieArkadhya from "./pages/GalerieArkadhya";
 import GuideCMS from "./pages/GuideCMS";
@@ -87,6 +94,13 @@ const App = () => (
             <Route path="/philosophie/ahamkara" element={<Ahamkara />} />
             <Route path="/philosophie/ayurveda-elevation-spirituelle" element={<AyurvedaElevationSpirituelle />} />
             <Route path="/philosophie/bhagavad-gita" element={<BhagavadGita />} />
+            <Route path="/philosophie/purusha-prakriti" element={<PurushaPrakriti />} />
+            <Route path="/philosophie/sagesse-feminine" element={<SagesseFeminine />} />
+            <Route path="/philosophie/temps-cycles-yugas" element={<TempsCyclesYugas />} />
+            <Route path="/philosophie/upanishads" element={<Upanishads />} />
+            <Route path="/philosophie/vastu-shastra" element={<VastuShastra />} />
+            <Route path="/philosophie/vedas" element={<Vedas />} />
+            <Route path="/philosophie/voie-ishvara" element={<VoieIshvara />} />
             
             {/* Route dynamique pour les autres articles de philosophie (CMS) */}
             <Route path="/philosophie/:slug" element={<PhilosophieArticlePage />} />
