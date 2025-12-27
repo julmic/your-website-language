@@ -3,19 +3,32 @@ import { useMemo } from "react";
 import { CureTemplate } from "@/components/cures/CureTemplate";
 import { getCureBySlug, getAllCures } from "@/lib/cures-loader";
 
-// Map des images importées statiquement
+// Imports statiques des images (obligatoire pour Vite en production)
+import curePanchakarmaImg from '@/assets/cures/cure-panchakarma.jpg';
+import cureAmritaImg from '@/assets/cures/cure-amrita.jpg';
+import cureKarchanImg from '@/assets/cures/cure-karchan.jpg';
+import cureLaghanaRasayanaImg from '@/assets/cures/cure-laghana-rasayana.jpg';
+import cureOjasKayakalpaImg from '@/assets/cures/cure-ojas-kayakalpa.jpg';
+import curePersonnaliseeImg from '@/assets/cures/cure-personnalisee.jpg';
+import cureSamvahanaVataImg from '@/assets/cures/cure-samvahana-vata.jpg';
+import curePrenatalImg from '@/assets/cures/cure-prenatale.jpg';
+import curePostnataleImg from '@/assets/cures/cure-postnatale.jpg';
+import cureJourneeImg from '@/assets/cures/cure-journee.jpg';
+import cureWeekEndImg from '@/assets/cures/cure-week-end.jpg';
+
+// Map des images par slug
 const imageMap: Record<string, string> = {
-  '/uploads/cures/cure-panchakarma.jpg': '/src/assets/cures/cure-panchakarma.jpg',
-  '/uploads/cures/cure-amrita.jpg': '/src/assets/cures/cure-amrita.jpg',
-  '/uploads/cures/cure-karchan.jpg': '/src/assets/cures/cure-karchan.jpg',
-  '/uploads/cures/cure-laghana-rasayana.jpg': '/src/assets/cures/cure-laghana-rasayana.jpg',
-  '/uploads/cures/cure-ojas-kayakalpa.jpg': '/src/assets/cures/cure-ojas-kayakalpa.jpg',
-  '/uploads/cures/cure-personnalisee.jpg': '/src/assets/cures/cure-personnalisee.jpg',
-  '/uploads/cures/cure-samvahana-vata.jpg': '/src/assets/cures/cure-samvahana-vata.jpg',
-  '/uploads/cures/cure-prenatale.jpg': '/src/assets/cures/cure-prenatale.jpg',
-  '/uploads/cures/cure-postnatale.jpg': '/src/assets/cures/cure-postnatale.jpg',
-  '/uploads/cures/cure-journee.jpg': '/src/assets/cures/cure-journee.jpg',
-  '/uploads/cures/cure-week-end.jpg': '/src/assets/cures/cure-week-end.jpg',
+  'panchakarma': curePanchakarmaImg,
+  'amrita': cureAmritaImg,
+  'karchan': cureKarchanImg,
+  'laghana-rasayana': cureLaghanaRasayanaImg,
+  'ojas-kayakalpa': cureOjasKayakalpaImg,
+  'personnalisee': curePersonnaliseeImg,
+  'samvahana-vata': cureSamvahanaVataImg,
+  'prenatale': curePrenatalImg,
+  'postnatale': curePostnataleImg,
+  'journee': cureJourneeImg,
+  'week-end-decouverte': cureWeekEndImg,
 };
 
 const CurePage = () => {
@@ -37,8 +50,8 @@ const CurePage = () => {
     return <Navigate to="/404" replace />;
   }
 
-  // Utiliser l'image du map ou celle du CMS
-  const imageUrl = cure.image ? (imageMap[cure.image] || cure.image) : undefined;
+  // Utiliser l'image du map par slug ou celle du CMS
+  const imageUrl = slug ? (imageMap[slug] || cure.image) : cure.image;
 
   return (
     <CureTemplate
