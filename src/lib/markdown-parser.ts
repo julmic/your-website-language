@@ -93,6 +93,7 @@ function parseBlockScalar(lines: string[], startIdx: number, baseIndent: number,
 
 /**
  * Parse inline YAML flow style object: { key: "value", key2: "value2" }
+ * Handles quoted values with special characters including Unicode and escaped quotes
  */
 function parseInlineObject(value: string): Record<string, unknown> | null {
   const trimmed = value.trim();
@@ -105,14 +106,23 @@ function parseInlineObject(value: string): Record<string, unknown> | null {
   
   const obj: Record<string, unknown> = {};
   
-  // Parse key-value pairs, handling quoted strings with commas
+  // Split by comma, but respect quotes and handle escaped quotes
+  const parts: string[] = [];
   let current = '';
   let inQuotes = false;
   let quoteChar = '';
-  const pairs: string[] = [];
+  let i = 0;
   
-  for (let i = 0; i < inner.length; i++) {
+  while (i < inner.length) {
     const char = inner[i];
+    const nextChar = inner[i + 1];
+    
+    // Handle escaped quotes inside strings
+    if (inQuotes && char === '\\' && (nextChar === '"' || nextChar === "'")) {
+      current += char + nextChar;
+      i += 2;
+      continue;
+    }
     
     if (!inQuotes && (char === '"' || char === "'")) {
       inQuotes = true;
@@ -123,34 +133,49 @@ function parseInlineObject(value: string): Record<string, unknown> | null {
       quoteChar = '';
       current += char;
     } else if (!inQuotes && char === ',') {
-      pairs.push(current.trim());
+      if (current.trim()) parts.push(current.trim());
       current = '';
     } else {
       current += char;
     }
+    i++;
   }
-  if (current.trim()) {
-    pairs.push(current.trim());
-  }
+  if (current.trim()) parts.push(current.trim());
   
-  // Parse each pair
-  for (const pair of pairs) {
-    const colonIdx = pair.indexOf(':');
-    if (colonIdx > 0) {
-      const key = pair.slice(0, colonIdx).trim();
-      let val = pair.slice(colonIdx + 1).trim();
-      
-      // Remove quotes from value
-      if ((val.startsWith('"') && val.endsWith('"')) ||
-          (val.startsWith("'") && val.endsWith("'"))) {
-        val = val.slice(1, -1);
-      }
-      
-      obj[key] = parseValue(val);
+  // Parse each key:value pair
+  for (const part of parts) {
+    // Find the colon that separates key from value
+    const colonIdx = part.indexOf(':');
+    if (colonIdx <= 0) continue;
+    
+    const key = part.slice(0, colonIdx).trim();
+    let val = part.slice(colonIdx + 1).trim();
+    
+    // Remove surrounding quotes and unescape inner quotes
+    if ((val.startsWith('"') && val.endsWith('"')) ||
+        (val.startsWith("'") && val.endsWith("'"))) {
+      val = val.slice(1, -1);
+      // Unescape escaped quotes
+      val = val.replace(/\\"/g, '"').replace(/\\'/g, "'");
+    }
+    
+    // Type conversion
+    if (val === 'true') {
+      obj[key] = true;
+    } else if (val === 'false') {
+      obj[key] = false;
+    } else if (val === 'null' || val === '~') {
+      obj[key] = null;
+    } else if (/^-?\d+$/.test(val)) {
+      obj[key] = parseInt(val, 10);
+    } else if (/^-?\d+\.\d+$/.test(val)) {
+      obj[key] = parseFloat(val);
+    } else {
+      obj[key] = val;
     }
   }
   
-  return obj;
+  return Object.keys(obj).length > 0 ? obj : null;
 }
 
 /**
@@ -227,6 +252,11 @@ function parseYAMLLines(lines: string[], startIdx: number, baseIndent: number): 
           const inlineObj = parseInlineObject(itemContent);
           if (inlineObj) {
             arr.push(inlineObj);
+            i++;
+            continue;
+          } else {
+            // Failed to parse inline object, push as-is and continue
+            arr.push(itemContent);
             i++;
             continue;
           }
