@@ -40,16 +40,16 @@ const imageMap: Record<string, string> = {
   "/src/assets/galerie/galerie-08.webp": galerie08,
 };
 
-// Images de fallback (affichage initial)
+// Images de fallback avec les vrais textes alt de la galerie
 const defaultImages = [
-  { src: massageOil, alt: "Huiles ayurvédiques", className: "col-span-2 row-span-2" },
-  { src: massageHead, alt: "Massage crânien", className: "col-span-1 row-span-1" },
-  { src: massageFace, alt: "Soin du visage", className: "col-span-1 row-span-1" },
-  { src: shirodhara, alt: "Shirodhara", className: "col-span-1 row-span-2" },
-  { src: massageFeet, alt: "Massage des pieds", className: "col-span-1 row-span-1" },
-  { src: massageHerbal, alt: "Soins aux herbes", className: "col-span-1 row-span-1" },
-  { src: pizichilli, alt: "Pizichilli", className: "col-span-1 row-span-1" },
-  { src: ubthan, alt: "Ubthan", className: "col-span-1 row-span-1" },
+  { src: galerie01, alt: "Façade du Centre Ayurvédique Arkadhya", className: "col-span-2 row-span-2" },
+  { src: galerie02, alt: "Jardin et espace extérieur", className: "col-span-1 row-span-1" },
+  { src: galerie03, alt: "Salle de soins principale", className: "col-span-1 row-span-1" },
+  { src: galerie04, alt: "Espace détente et relaxation", className: "col-span-1 row-span-2" },
+  { src: galerie05, alt: "Vue sur le parc arboré", className: "col-span-1 row-span-1" },
+  { src: galerie06, alt: "Chambre d'hôtes paisible", className: "col-span-1 row-span-1" },
+  { src: galerie07, alt: "Salle de massage traditionnelle", className: "col-span-1 row-span-1" },
+  { src: galerie08, alt: "Décoration intérieure ayurvédique", className: "col-span-1 row-span-1" },
 ];
 
 const getSizeClass = (size: string): string => {

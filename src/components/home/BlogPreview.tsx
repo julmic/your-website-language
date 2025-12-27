@@ -6,6 +6,34 @@ import { getLatestBlogArticles } from "@/lib/blog-loader";
 import { getHomePage } from "@/lib/pages-loader";
 import kitcheriImage from "@/assets/cuisine/kitcheri.webp";
 
+// Images statiques du blog
+import doshasHero from "@/assets/blog/doshas-hero.webp";
+import automneHero from "@/assets/blog/automne-ayurveda-hero.jpeg";
+import hiverHero from "@/assets/blog/hiver-ayurveda-hero.webp";
+import colonHero from "@/assets/blog/colon-irritable-hero.webp";
+import osteoporoseHero from "@/assets/blog/osteoporose-hero.webp";
+import santeMentaleHero from "@/assets/blog/sante-mentale-hero.png";
+import sommeilHero from "@/assets/blog/sommeil-ayurveda-hero.png";
+import incompatibilitesHero from "@/assets/blog/incompatibilites-alimentaires-hero.webp";
+
+// Map des images CMS vers assets statiques
+const blogImageMap: Record<string, string> = {
+  "/uploads/blog/doshas-hero.webp": doshasHero,
+  "/uploads/blog/automne-ayurveda-hero.jpeg": automneHero,
+  "/uploads/blog/hiver-ayurveda-hero.webp": hiverHero,
+  "/uploads/blog/colon-irritable-hero.webp": colonHero,
+  "/uploads/blog/osteoporose-hero.webp": osteoporoseHero,
+  "/uploads/blog/sante-mentale-hero.png": santeMentaleHero,
+  "/uploads/blog/sommeil-ayurveda-hero.png": sommeilHero,
+  "/uploads/blog/incompatibilites-alimentaires-hero.webp": incompatibilitesHero,
+};
+
+// Helper pour résoudre l'image
+const resolveImage = (imagePath?: string): string | undefined => {
+  if (!imagePath) return undefined;
+  return blogImageMap[imagePath] || imagePath;
+};
+
 export const BlogPreview = () => {
   const homePage = getHomePage();
   const latestArticles = getLatestBlogArticles(homePage.blogArticlesCount || 3);
@@ -82,9 +110,9 @@ export const BlogPreview = () => {
               className="bg-card border-border hover:border-primary/30 transition-all duration-300 group overflow-hidden"
             >
               <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 relative overflow-hidden">
-                {article.image ? (
+                {resolveImage(article.image) ? (
                   <img 
-                    src={article.image} 
+                    src={resolveImage(article.image)} 
                     alt={article.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
