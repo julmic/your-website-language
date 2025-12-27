@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
-import cureImage from "@/assets/cures/cure-ojas-kayakalpa.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { getHomePage } from "@/lib/pages-loader";
+
+// Utilitaire centralisé pour la résolution d'images de cures
+import { resolveCureImage } from "@/lib/cure-images";
+
+// Résolution de l'image de cure
+const cureImage = resolveCureImage("ojas-kayakalpa");
 
 export const CuresZoomSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });

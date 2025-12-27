@@ -3,13 +3,13 @@ import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { getHomePage } from "@/lib/pages-loader";
 
-// Utilitaire centralisé pour la résolution d'images de massages
+// Utilitaires centralisés pour la résolution d'images
 import { abhyangaImg, shirodharaImg, marmaTherapieImg } from "@/lib/massage-images";
+import { resolveCureImage } from "@/lib/cure-images";
 
-// Images additionnelles
+// Images additionnelles (bilan)
 import prakritiImage from "@/assets/bilan/prakriti.avif";
 import doshaImage from "@/assets/bilan/dosha.avif";
-import panchakarmaImage from "@/assets/cures/cure-panchakarma.jpg";
 
 // Image mapping for CMS imageKey values
 const imageMap: Record<string, string> = {
@@ -18,7 +18,7 @@ const imageMap: Record<string, string> = {
   marma: marmaTherapieImg,
   prakriti: prakritiImage,
   dosha: doshaImage,
-  panchakarma: panchakarmaImage,
+  panchakarma: resolveCureImage("panchakarma"),
 };
 
 export const FeaturedTreatmentsSection = () => {
