@@ -469,7 +469,167 @@ collections:
       - { label: "Texte bouton secondaire", name: "ctaSecondaryText", widget: "string", required: false }
 
   # ==========================================
-  # PARAMÈTRES GLOBAUX
+  # ENSEIGNEMENTS (Gayatri Mantra, etc.)
+  # ==========================================
+  - name: "enseignements"
+    label: "Enseignements"
+    label_singular: "Enseignement"
+    folder: "content/enseignements"
+    create: false
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Slug (URL)", name: "slug", widget: "string", required: true }
+      - { label: "Sous-titre", name: "subtitle", widget: "string", required: false }
+      - { label: "Meta titre", name: "metaTitle", widget: "string", required: false }
+      - { label: "Meta description", name: "metaDescription", widget: "text", required: false }
+      - { label: "Description hero", name: "heroDescription", widget: "text", required: false }
+      # YouTube
+      - { label: "ID vidéo YouTube", name: "youtubeVideoId", widget: "string", required: false, hint: "Ex: v2QMWlVAyD8" }
+      - { label: "Titre vidéo YouTube", name: "youtubeVideoTitle", widget: "string", required: false }
+      - { label: "Légende vidéo", name: "youtubeVideoCaption", widget: "string", required: false }
+      # Qu'est-ce que la Gayatri
+      - { label: "Titre section Qu'est-ce que", name: "whatIsGayatriTitle", widget: "string", required: false }
+      - { label: "Texte section Qu'est-ce que", name: "whatIsGayatriText", widget: "markdown", required: false }
+      - { label: "Titre étymologie", name: "etymologyTitle", widget: "string", required: false }
+      - { label: "Texte étymologie", name: "etymologyText", widget: "markdown", required: false }
+      # Versions du Mantra
+      - { label: "Titre versions", name: "versionsTitle", widget: "string", required: false }
+      - { label: "Titre version courte", name: "shortVersionTitle", widget: "string", required: false }
+      - { label: "Sanskrit version courte", name: "shortVersionSanskrit", widget: "text", required: false }
+      - { label: "Translittération version courte", name: "shortVersionTranslit", widget: "text", required: false }
+      - { label: "Traduction version courte", name: "shortVersionTranslation", widget: "text", required: false }
+      - { label: "Titre version longue", name: "longVersionTitle", widget: "string", required: false }
+      - { label: "Intro version longue", name: "longVersionIntro", widget: "string", required: false }
+      - { label: "Partie 1 version longue", name: "longVersionPart1", widget: "text", required: false }
+      - { label: "Partie 2 version longue", name: "longVersionPart2", widget: "text", required: false }
+      - { label: "Partie 3 version longue", name: "longVersionPart3", widget: "text", required: false }
+      - label: "Sapta Lokas (7 plans)"
+        name: "saptaLokas"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Nom", name: "name", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+      # Corps subtil
+      - { label: "Titre corps subtil", name: "subtleBodyTitle", widget: "string", required: false }
+      - { label: "Description corps subtil", name: "subtleBodyDescription", widget: "text", required: false }
+      # Origine
+      - { label: "Titre origine", name: "originTitle", widget: "string", required: false }
+      - { label: "Texte origine", name: "originText", widget: "markdown", required: false }
+      - { label: "Titre Rishi", name: "rishiTitle", widget: "string", required: false }
+      - { label: "Texte Rishi", name: "rishiText", widget: "markdown", required: false }
+      - { label: "Texte transmission", name: "transmissionText", widget: "markdown", required: false }
+      # Symboles
+      - { label: "Titre symboles", name: "symbolsTitle", widget: "string", required: false }
+      - { label: "Description symboles", name: "symbolsDescription", widget: "text", required: false }
+      - { label: "Titre Sri Yantra", name: "sriYantraTitle", widget: "string", required: false }
+      - { label: "Description Sri Yantra", name: "sriYantraDescription", widget: "text", required: false }
+      - { label: "Titre Gayatri Devi", name: "gayatriDeviTitle", widget: "string", required: false }
+      - { label: "Description Gayatri Devi", name: "gayatriDeviDescription", widget: "text", required: false }
+      # Syllabes
+      - { label: "Titre syllabes", name: "syllablesTitle", widget: "string", required: false }
+      - { label: "Intro syllabes", name: "syllablesIntro", widget: "text", required: false }
+      - label: "Syllabes"
+        name: "syllables"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Sanskrit", name: "sanskrit", widget: "string" }
+          - { label: "Signification", name: "meaning", widget: "text" }
+      # Effets
+      - { label: "Titre effets", name: "effectsTitle", widget: "string", required: false }
+      - { label: "Intro effets", name: "effectsIntro", widget: "text", required: false }
+      - label: "Effets physiologiques"
+        name: "physiologicalEffects"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Items", name: "items", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+      - label: "Effets psychologiques"
+        name: "psychologicalEffects"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Items", name: "items", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+      - label: "Effets spirituels"
+        name: "spiritualEffects"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Items", name: "items", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+      # Pratique
+      - { label: "Titre pratique", name: "practiceTitle", widget: "string", required: false }
+      - label: "Section Japa"
+        name: "japaSection"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Texte", name: "text", widget: "markdown" }
+          - label: "Méthodes"
+            name: "methods"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+      - label: "Section Mala"
+        name: "malaSection"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Texte", name: "text", widget: "markdown" }
+          - { label: "Significations", name: "meanings", widget: "list", field: { label: "Signification", name: "meaning", widget: "string" } }
+      - label: "Section Fréquence"
+        name: "frequencySection"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Texte", name: "text", widget: "string" }
+          - label: "Compteurs"
+            name: "counts"
+            widget: "list"
+            fields:
+              - { label: "Nombre", name: "number", widget: "number" }
+              - { label: "Label", name: "label", widget: "string" }
+      - label: "Section Moments propices"
+        name: "timingSection"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Texte", name: "text", widget: "markdown" }
+          - label: "Moments"
+            name: "times"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Heure", name: "time", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+      # FAQ
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Réponse", name: "answer", widget: "text" }
+      # CTA
+      - { label: "Titre CTA", name: "ctaTitle", widget: "string", required: false }
+      - { label: "Texte CTA", name: "ctaText", widget: "text", required: false }
+      - { label: "Lien bouton primaire", name: "ctaPrimaryLink", widget: "string", required: false }
+      - { label: "Texte bouton primaire", name: "ctaPrimaryText", widget: "string", required: false }
+      - { label: "Lien bouton secondaire", name: "ctaSecondaryLink", widget: "string", required: false }
+      - { label: "Texte bouton secondaire", name: "ctaSecondaryText", widget: "string", required: false }
   # ==========================================
   - name: "settings"
     label: "Paramètres"
