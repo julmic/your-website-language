@@ -123,7 +123,7 @@ export interface GayatriMantraContent {
 }
 
 // Import des fichiers Markdown des enseignements
-const enseignementFiles = import.meta.glob('@content/enseignements/*.md', { 
+const enseignementFiles = import.meta.glob('/content/enseignements/*.md', { 
   query: '?raw', 
   import: 'default',
   eager: true 
