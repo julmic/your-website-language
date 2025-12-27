@@ -6,17 +6,19 @@ import { Calendar, Clock, Users, Utensils, BookOpen, Leaf } from "lucide-react";
 import { getServiceBySlug } from "@/lib/services-speciaux-loader";
 import { Link } from "react-router-dom";
 
-// Images
-import pdVata from "@/assets/cuisine/pdvata.webp";
-import dejVata from "@/assets/cuisine/dej-vata.webp";
-import dinnerVata from "@/assets/cuisine/dinner-vata.webp";
-import pdPitta from "@/assets/cuisine/pdpitta.webp";
-import dejPitta from "@/assets/cuisine/dej-pitta.webp";
-import dinnerPitta from "@/assets/cuisine/dinner-pitta.webp";
-import pdKapha from "@/assets/cuisine/pdkapha.webp";
-import dejKapha from "@/assets/cuisine/dej-kapha.webp";
-import dinnerKapha from "@/assets/cuisine/dinner-kapha.webp";
-import kitcheri from "@/assets/cuisine/kitcheri.webp";
+// Utilitaire centralisé pour la résolution d'images de cuisine
+import {
+  kitcheriImg as kitcheri,
+  pdVataImg as pdVata,
+  pdPittaImg as pdPitta,
+  pdKaphaImg as pdKapha,
+  dejVataImg as dejVata,
+  dejPittaImg as dejPitta,
+  dejKaphaImg as dejKapha,
+  dinnerVataImg as dinnerVata,
+  dinnerPittaImg as dinnerPitta,
+  dinnerKaphaImg as dinnerKapha,
+} from "@/lib/cuisine-images";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Calendar,

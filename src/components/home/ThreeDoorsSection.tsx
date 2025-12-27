@@ -8,14 +8,14 @@ import { getHomePage } from "@/lib/pages-loader";
 import { abhyangaImg } from "@/lib/massage-images";
 import { resolveCureImage } from "@/lib/cure-images";
 
-// Image additionnelle
-import kitcheriImage from "@/assets/cuisine/kitcheri.webp";
+// Utilitaire centralisé pour la résolution d'images de cuisine
+import { kitcheriImg } from "@/lib/cuisine-images";
 
 // Image mapping for CMS imageKey values
 const imageMap: Record<string, string> = {
   consultations: abhyangaImg,
   cures: resolveCureImage("panchakarma"),
-  formations: kitcheriImage,
+  formations: kitcheriImg,
 };
 
 export const ThreeDoorsSection = () => {
