@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Tag, Sparkles } from "lucide-react";
 import { getLatestBlogArticles } from "@/lib/blog-loader";
 import { getHomePage } from "@/lib/pages-loader";
-import kitcheriImage from "@/assets/cuisine/kitcheri.webp";
+import { kitcheriImg as kitcheriImage } from "@/lib/cuisine-images";
 
 // Utilitaire centralisé pour la résolution d'images blog
 import { resolveBlogImage } from "@/lib/blog-images";
