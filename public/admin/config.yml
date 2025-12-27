@@ -322,6 +322,33 @@ collections:
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Horaires", name: "hours", widget: "text" }
 
+      - name: "cgv"
+        label: "CGV"
+        file: "content/pages/cgv.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Meta description", name: "metaDescription", widget: "text" }
+          - { label: "URL canonique", name: "canonicalUrl", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+
+      - name: "mentions-legales"
+        label: "Mentions légales"
+        file: "content/pages/mentions-legales.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Meta description", name: "metaDescription", widget: "text" }
+          - { label: "URL canonique", name: "canonicalUrl", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+
+      - name: "politique-confidentialite"
+        label: "Politique de confidentialité"
+        file: "content/pages/politique-confidentialite.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Meta description", name: "metaDescription", widget: "text" }
+          - { label: "URL canonique", name: "canonicalUrl", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+
   # ==========================================
   # PARAMÈTRES GLOBAUX
   # ==========================================
