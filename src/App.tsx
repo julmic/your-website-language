@@ -16,7 +16,8 @@ import AtelierCuisine from "./pages/AtelierCuisine";
 import BilanDeSante from "./pages/BilanDeSante";
 import Bhutavidya from "./pages/Bhutavidya";
 import PhilosophieVedique from "./pages/PhilosophieVedique";
-import GayatriMantra from "./pages/GayatriMantra";
+import GayatriMantra from "./pages/GayatriMantraDynamic";
+import PhilosophieArticlePage from "./pages/philosophie/PhilosophieArticlePage";
 import AyurvedaElevationSpirituelle from "./pages/philosophie/AyurvedaElevationSpirituelle";
 import InvolutionEvolution from "./pages/philosophie/InvolutionEvolution";
 import MortAyurveda from "./pages/philosophie/MortAyurveda";
@@ -82,7 +83,7 @@ const App = () => (
             <Route path="/philosophie-vedique" element={<PhilosophieVedique />} />
             <Route path="/gayatri-mantra" element={<GayatriMantra />} />
             
-            {/* Philosophie routes */}
+            {/* Philosophie routes - pages statiques existantes */}
             <Route path="/philosophie/ayurveda-elevation-spirituelle" element={<AyurvedaElevationSpirituelle />} />
             <Route path="/philosophie/involution-evolution" element={<InvolutionEvolution />} />
             <Route path="/philosophie/mort-ayurveda" element={<MortAyurveda />} />
@@ -98,6 +99,9 @@ const App = () => (
             <Route path="/philosophie/brahman-atman" element={<BrahmanAtman />} />
             <Route path="/philosophie/vedas" element={<Vedas />} />
             <Route path="/philosophie/vastu-shastra" element={<VastuShastra />} />
+            
+            {/* Route dynamique pour les articles philosophie du CMS */}
+            <Route path="/philosophie/:slug" element={<PhilosophieArticlePage />} />
             
             <Route path="/centre-ayurvedique-arkadhya-en-images" element={<GalerieArkadhya />} />
             <Route path="/guide-cms" element={<GuideCMS />} />
