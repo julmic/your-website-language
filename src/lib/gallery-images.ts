@@ -8,26 +8,28 @@ import galerie06 from "@/assets/galerie/galerie-06.webp";
 import galerie07 from "@/assets/galerie/galerie-07.webp";
 import galerie08 from "@/assets/galerie/galerie-08.webp";
 
-// Images de massage (utilisées dans la galerie)
-import massageOil from "@/assets/massages/massage-oil.jpg";
-import massageHead from "@/assets/massages/massage-head.jpg";
-import massageFace from "@/assets/massages/massage-face.jpg";
-import massageFeet from "@/assets/massages/massage-feet.jpg";
-import massageHerbal from "@/assets/massages/massage-herbal.jpg";
-import shirodhara from "@/assets/massages/shirodhara-new.jpeg";
-import pizichilli from "@/assets/massages/pizichilli.jpeg";
-import ubthan from "@/assets/massages/ubthan.jpeg";
+// Images de massage importées depuis l'utilitaire centralisé
+import {
+  massageOilImg,
+  massageHeadImg,
+  massageFaceImg,
+  massageFeetImg,
+  massageHerbalImg,
+  shirodharaImg,
+  pizichilliImg,
+  ubthanImg,
+} from "@/lib/massage-images";
 
 // Mapping des chemins CMS vers les imports statiques
 export const galleryImageMap: Record<string, string> = {
-  "/src/assets/massages/massage-oil.jpg": massageOil,
-  "/src/assets/massages/massage-head.jpg": massageHead,
-  "/src/assets/massages/massage-face.jpg": massageFace,
-  "/src/assets/massages/massage-feet.jpg": massageFeet,
-  "/src/assets/massages/massage-herbal.jpg": massageHerbal,
-  "/src/assets/massages/shirodhara-new.jpeg": shirodhara,
-  "/src/assets/massages/pizichilli.jpeg": pizichilli,
-  "/src/assets/massages/ubthan.jpeg": ubthan,
+  "/src/assets/massages/massage-oil.jpg": massageOilImg,
+  "/src/assets/massages/massage-head.jpg": massageHeadImg,
+  "/src/assets/massages/massage-face.jpg": massageFaceImg,
+  "/src/assets/massages/massage-feet.jpg": massageFeetImg,
+  "/src/assets/massages/massage-herbal.jpg": massageHerbalImg,
+  "/src/assets/massages/shirodhara-new.jpeg": shirodharaImg,
+  "/src/assets/massages/pizichilli.jpeg": pizichilliImg,
+  "/src/assets/massages/ubthan.jpeg": ubthanImg,
   "/src/assets/galerie/galerie-01.webp": galerie01,
   "/src/assets/galerie/galerie-02.webp": galerie02,
   "/src/assets/galerie/galerie-03.webp": galerie03,

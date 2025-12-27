@@ -29,6 +29,13 @@ import thalapothichilImg from '@/assets/massages/thalapothichil.png';
 import ubthanImg from '@/assets/massages/ubthan.jpeg';
 import undgharshanImg from '@/assets/massages/undgharshan.png';
 
+// Images génériques de massage (utilisées dans la galerie)
+import massageOilImg from '@/assets/massages/massage-oil.jpg';
+import massageHeadImg from '@/assets/massages/massage-head.jpg';
+import massageFaceImg from '@/assets/massages/massage-face.jpg';
+import massageFeetImg from '@/assets/massages/massage-feet.jpg';
+import massageHerbalImg from '@/assets/massages/massage-herbal.jpg';
+
 // Mapping des images de massages par slug
 export const massageImageMap: Record<string, string> = {
   'abhyanga': abhyangaImg,
@@ -76,4 +83,12 @@ export {
   abhyangaImg,
   shirodharaImg,
   marmaTherapieImg,
+  pizichilliImg,
+  ubthanImg,
+  // Images génériques pour la galerie
+  massageOilImg,
+  massageHeadImg,
+  massageFaceImg,
+  massageFeetImg,
+  massageHerbalImg,
 };
