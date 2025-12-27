@@ -30,6 +30,7 @@ import BlogArticle from "./pages/blog/BlogArticle";
 // Pages dynamiques (CMS)
 import MassagePage from "./pages/massages/MassagePage";
 import CurePage from "./pages/cures/CurePage";
+import DynamicPage from "./pages/DynamicPage";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,10 @@ const App = () => (
             
             <Route path="/centre-ayurvedique-arkadhya-en-images" element={<GalerieArkadhya />} />
             <Route path="/guide-cms" element={<GuideCMS />} />
+            
+            {/* Route dynamique pour les nouvelles pages (CMS) */}
+            <Route path="/page/:slug" element={<DynamicPage />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
