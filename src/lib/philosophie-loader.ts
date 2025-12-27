@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import { parseFrontmatter } from './markdown-parser';
 
 // Types pour les données de philosophie
 export interface PhilosophieSection {
@@ -38,14 +38,6 @@ const articleFiles = import.meta.glob('@content/philosophie/articles/*.md', {
 });
 
 /**
- * Parse un fichier Markdown et retourne le frontmatter et le contenu
- */
-function parseMarkdown(content: string): { data: Record<string, unknown>; content: string } {
-  const { data, content: body } = matter(content);
-  return { data, content: body };
-}
-
-/**
  * Récupère toutes les sections de philosophie
  */
 export function getAllPhilosophieSections(): PhilosophieSection[] {
@@ -53,7 +45,7 @@ export function getAllPhilosophieSections(): PhilosophieSection[] {
 
   for (const path in sectionFiles) {
     const fileContent = sectionFiles[path] as string;
-    const { data } = parseMarkdown(fileContent);
+    const { data } = parseFrontmatter(fileContent);
     
     sections.push({
       order: data.order as number,
@@ -75,7 +67,7 @@ export function getAllPhilosophieArticles(): PhilosophieArticle[] {
 
   for (const path in articleFiles) {
     const fileContent = articleFiles[path] as string;
-    const { data, content } = parseMarkdown(fileContent);
+    const { data, content } = parseFrontmatter(fileContent);
     
     articles.push({
       title: data.title as string,
