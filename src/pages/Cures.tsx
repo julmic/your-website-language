@@ -4,40 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Calendar, Euro, Home, Utensils, Phone } from "lucide-react";
 import { getAllCures, CureData } from "@/lib/cures-loader";
-
-// Import images for mapping
-import curePanchakarma from "@/assets/cures/cure-panchakarma.jpg";
-import cureAmrita from "@/assets/cures/cure-amrita.jpg";
-import cureKarchan from "@/assets/cures/cure-karchan.jpg";
-import cureLaghanaRasayana from "@/assets/cures/cure-laghana-rasayana.jpg";
-import cureOjasKayakalpa from "@/assets/cures/cure-ojas-kayakalpa.jpg";
-import curePersonnalisee from "@/assets/cures/cure-personnalisee.jpg";
-import cureSamvahanaVata from "@/assets/cures/cure-samvahana-vata.jpg";
-import curePrenatale from "@/assets/cures/cure-prenatale.jpg";
-import curePostnatale from "@/assets/cures/cure-postnatale.jpg";
-import cureJournee from "@/assets/cures/cure-journee.jpg";
-import cureWeekEnd from "@/assets/cures/cure-week-end.jpg";
-import cureGeneric from "@/assets/cures/cure-generic.jpg";
-
-const imageMap: Record<string, string> = {
-  "/uploads/cures/cure-panchakarma.jpg": curePanchakarma,
-  "/uploads/cures/cure-amrita.jpg": cureAmrita,
-  "/uploads/cures/cure-karchan.jpg": cureKarchan,
-  "/uploads/cures/cure-laghana-rasayana.jpg": cureLaghanaRasayana,
-  "/uploads/cures/cure-ojas-kayakalpa.jpg": cureOjasKayakalpa,
-  "/uploads/cures/cure-personnalisee.jpg": curePersonnalisee,
-  "/uploads/cures/cure-samvahana-vata.jpg": cureSamvahanaVata,
-  "/uploads/cures/cure-prenatale.jpg": curePrenatale,
-  "/uploads/cures/cure-postnatale.jpg": curePostnatale,
-  "/uploads/cures/cure-journee.jpg": cureJournee,
-  "/uploads/cures/cure-week-end.jpg": cureWeekEnd,
-};
+import { resolveCureImage } from "@/lib/cure-images";
 
 const getImage = (cure: CureData): string => {
-  if (cure.image && imageMap[cure.image]) {
-    return imageMap[cure.image];
-  }
-  return cureGeneric;
+  return resolveCureImage(cure.slug, cure.image);
 };
 
 const cures = getAllCures();
