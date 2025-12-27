@@ -1,11 +1,14 @@
 ---
 title: "Insomnie & Troubles du Sommeil : Solutions Ayurvédiques"
 slug: "sommeil-ayurveda"
-date: 2024-12-15
+date: "2024-12-15"
 category: "Sommeil"
 readTime: "18 min"
 image: "/uploads/blog/sommeil-ayurveda-hero.png"
 excerpt: "Découvrez les 3 types d'insomnie selon les doshas, 10 solutions naturelles efficaces et une routine complète pour retrouver un sommeil réparateur."
+author: "Patrick Villette"
+featured: true
+hasCustomComponent: true
 ---
 
 L'Ayurvéda considère le sommeil (Nidra) comme l'un des trois piliers essentiels de la vie, aux côtés de l'alimentation (Ahara) et de l'énergie vitale (Brahmacharya).
