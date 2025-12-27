@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Calendar, Clock, Users, Utensils, BookOpen, Leaf } from "lucide-react";
 import { getServiceBySlug } from "@/lib/services-speciaux-loader";
+import { Link } from "react-router-dom";
 
 // Images
 import pdVata from "@/assets/cuisine/pdvata.webp";
@@ -124,8 +125,8 @@ const AtelierCuisine = () => {
               <span className="text-base font-normal">/ atelier</span>
             </div>
             <div>
-              <Button size="lg" className="text-lg px-8 py-6">
-                Je réserve ma place
+              <Button asChild size="lg" className="text-lg px-8 py-6">
+                <Link to="/contact">Je réserve ma place</Link>
               </Button>
             </div>
           </div>
@@ -460,8 +461,8 @@ const AtelierCuisine = () => {
             <p className="text-2xl font-bold text-primary mb-8">
               {price} / atelier
             </p>
-            <Button size="lg" className="text-lg px-8 py-6">
-              Réserver mon atelier
+            <Button asChild size="lg" className="text-lg px-8 py-6">
+              <Link to="/contact">Réserver mon atelier</Link>
             </Button>
           </div>
         </div>
