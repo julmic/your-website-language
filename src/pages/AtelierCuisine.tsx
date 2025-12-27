@@ -32,6 +32,7 @@ const AtelierCuisine = () => {
   // Fallback values
   const title = data?.title || "Atelier de Cuisine Ayurvédique";
   const subtitle = data?.subtitle || "Apprenez à cuisiner selon votre Dosha";
+  const price = data?.price || "50 €";
   const description = data?.description || "Explorez l'alimentation ayurvédique et découvrez comment adapter vos repas à votre constitution unique. Un atelier immersif, pratique et inspirant, au cœur du centre ayurvédique Arkadhya.";
   
   const upcomingDates = data?.upcomingDates || [
@@ -115,12 +116,18 @@ const AtelierCuisine = () => {
             <p className="text-xl md:text-2xl text-primary font-medium mb-4">
               {subtitle}
             </p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
               {description}
             </p>
-            <Button size="lg" className="text-lg px-8 py-6">
-              Je réserve ma place
-            </Button>
+            <div className="inline-flex items-center justify-center gap-2 bg-primary/10 text-primary font-bold text-xl px-6 py-3 rounded-full mb-8">
+              <span>{price}</span>
+              <span className="text-base font-normal">/ atelier</span>
+            </div>
+            <div>
+              <Button size="lg" className="text-lg px-8 py-6">
+                Je réserve ma place
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -135,9 +142,14 @@ const AtelierCuisine = () => {
             <div className="grid md:grid-cols-2 gap-4">
               {upcomingDates.map((date, index) => (
                 <div key={index} className="p-6 bg-background rounded-lg border border-border">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Calendar className="w-5 h-5 text-primary" />
-                    <span className="font-semibold text-foreground">{date.date}</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <Calendar className="w-5 h-5 text-primary" />
+                      <span className="font-semibold text-foreground">{date.date}</span>
+                    </div>
+                    <span className="bg-primary text-primary-foreground font-bold px-3 py-1 rounded-full text-sm">
+                      {price}
+                    </span>
                   </div>
                   <p className="text-muted-foreground">{date.time} – {date.level}</p>
                   <p className="text-primary font-medium mt-2">{date.theme}</p>
@@ -442,8 +454,11 @@ const AtelierCuisine = () => {
             <h2 className="text-3xl font-serif font-bold text-foreground mb-4">
               Prêt à découvrir la cuisine ayurvédique ?
             </h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground mb-4">
               Rejoignez-nous pour un atelier transformateur qui changera votre relation à l'alimentation.
+            </p>
+            <p className="text-2xl font-bold text-primary mb-8">
+              {price} / atelier
             </p>
             <Button size="lg" className="text-lg px-8 py-6">
               Réserver mon atelier

@@ -2,6 +2,7 @@
 title: "Atelier de Cuisine Ayurvédique"
 slug: "atelier-cuisine"
 subtitle: "Apprenez à cuisiner selon votre Dosha"
+price: "50 €"
 description: "Explorez l'alimentation ayurvédique et découvrez comment adapter vos repas à votre constitution unique. Un atelier immersif, pratique et inspirant, au cœur du centre ayurvédique Arkadhya."
 
 upcomingDates:
