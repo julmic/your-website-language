@@ -1,5 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { getFeaturedGalleryImages } from "@/lib/collections-loader";
+import { getHomePage } from "@/lib/pages-loader";
 
 // Import des images pour le mapping
 import massageOil from "@/assets/massages/massage-oil.jpg";
@@ -61,6 +62,7 @@ const getSizeClass = (size: string): string => {
 
 export const GallerySection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const homePage = getHomePage();
   
   // Charger les images depuis le CMS
   const cmsImages = getFeaturedGalleryImages();
@@ -88,7 +90,7 @@ export const GallerySection = () => {
               isVisible ? "animate-fade-in-up" : ""
             }`}
           >
-            Notre univers
+            {homePage.galleryTitle}
           </h2>
           <p 
             className={`text-muted-foreground max-w-2xl mx-auto opacity-0 ${
@@ -96,7 +98,7 @@ export const GallerySection = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            Plongez dans l'atmosphère apaisante de notre centre ayurvédique
+            {homePage.gallerySubtitle}
           </p>
         </div>
 

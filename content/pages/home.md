@@ -107,6 +107,20 @@ newsletterTitle: "Restez informé"
 newsletterDescription: "Inscrivez-vous à notre newsletter pour recevoir nos conseils bien-être, actualités et offres exclusives."
 newsletterButtonText: "S'inscrire"
 newsletterConsent: "En vous inscrivant, vous acceptez de recevoir nos communications. Désabonnement possible à tout moment."
+
+# Section "Blog"
+blogTitle: "Actualités & Conseils"
+blogSubtitle: "Explorez notre blog pour approfondir vos connaissances en Ayurvéda"
+blogButtonText: "Voir tous les articles"
+blogArticlesCount: 3
+
+# Section "Témoignages"
+testimonialsTitle: "Témoignages"
+testimonialsSubtitle: "Ce que nos clients disent de leur expérience au centre Arkadhya"
+
+# Section "Galerie"
+galleryTitle: "Notre univers"
+gallerySubtitle: "Plongez dans l'atmosphère apaisante de notre centre ayurvédique"
 ---
 
 Bienvenue au centre Arkadhya, votre havre de paix dédié à l'Ayurvéda authentique en Aquitaine.

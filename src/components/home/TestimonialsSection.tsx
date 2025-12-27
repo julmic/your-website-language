@@ -1,8 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
-import { getFeaturedTestimonials, Testimonial } from "@/lib/collections-loader";
+import { getFeaturedTestimonials } from "@/lib/collections-loader";
+import { getHomePage } from "@/lib/pages-loader";
 
 export const TestimonialsSection = () => {
+  const homePage = getHomePage();
   // Charger les témoignages depuis le CMS
   const testimonials = getFeaturedTestimonials();
   
@@ -36,10 +38,10 @@ export const TestimonialsSection = () => {
       <div className="container px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
-            Témoignages
+            {homePage.testimonialsTitle}
           </h2>
           <p className="text-muted-foreground">
-            Ce que nos clients disent de leur expérience au centre Arkadhya
+            {homePage.testimonialsSubtitle}
           </p>
         </div>
 

@@ -6,6 +6,11 @@ export interface GeneralSettings {
   phone: string;
   email: string;
   address: string;
+  hours: string;
+  logo: string;
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string;
 }
 
 export interface SocialSettings {
@@ -29,6 +34,13 @@ export interface NavigationSettings {
   ctaButtonText: string;
   ctaButtonLink: string;
   menuItems: NavigationMenu[];
+  footerNavigationLinks: FooterLink[];
+  footerServicesLinks: FooterLink[];
+}
+
+export interface FooterLink {
+  label: string;
+  href: string;
 }
 
 // Import the markdown files
@@ -46,6 +58,11 @@ export function getGeneralSettings(): GeneralSettings {
     phone: (data.phone as string) || '',
     email: (data.email as string) || '',
     address: (data.address as string) || '',
+    hours: (data.hours as string) || '',
+    logo: (data.logo as string) || '',
+    seoTitle: (data.seoTitle as string) || '',
+    seoDescription: (data.seoDescription as string) || '',
+    seoKeywords: (data.seoKeywords as string) || '',
   };
 }
 
@@ -72,10 +89,22 @@ export function getNavigationSettings(): NavigationSettings {
       description: item.description || '',
     })),
   }));
+
+  const footerNavigationLinks = (data.footerNavigationLinks as any[] || []).map((link: any) => ({
+    label: link.label || '',
+    href: link.href || '',
+  }));
+
+  const footerServicesLinks = (data.footerServicesLinks as any[] || []).map((link: any) => ({
+    label: link.label || '',
+    href: link.href || '',
+  }));
   
   return {
     ctaButtonText: (data.ctaButtonText as string) || 'Prendre RDV',
     ctaButtonLink: (data.ctaButtonLink as string) || '/contact',
     menuItems,
+    footerNavigationLinks,
+    footerServicesLinks,
   };
 }
