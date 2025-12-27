@@ -101,14 +101,17 @@ collections:
       preview: false
     fields:
       - { label: "Nom", name: "title", widget: "string", required: true }
-      - { label: "ID unique", name: "id", widget: "string", required: true, hint: "Identifiant technique (ex: panchakarma)" }
+      - { label: "ID unique", name: "id", widget: "string", required: true }
       - { label: "Slug (URL)", name: "slug", widget: "string", required: true }
+      - { label: "Sous-titre", name: "subtitle", widget: "string", required: false }
       - { label: "Image", name: "image", widget: "image", required: false, media_folder: "/public/uploads/cures", public_folder: "/uploads/cures" }
-      - { label: "Description courte", name: "description", widget: "text", required: true }
-      - { label: "Prix affiché", name: "price", widget: "string", required: true, hint: "Format: 240€/jour ou 220€" }
+      - { label: "Description", name: "description", widget: "text", required: true }
+      - { label: "Prix affiché", name: "price", widget: "string", required: true }
       - { label: "Prix par jour", name: "pricePerDay", widget: "number", required: false }
-      - { label: "Prix total (forfait)", name: "totalPrice", widget: "number", required: false }
-      - label: "Durées disponibles"
+      - { label: "Prix total", name: "totalPrice", widget: "number", required: false }
+      - { label: "Durées texte", name: "durationsText", widget: "string", required: false }
+      - { label: "Mise en avant", name: "highlight", widget: "boolean", default: false }
+      - label: "Durées"
         name: "durations"
         widget: "list"
         required: false
@@ -116,10 +119,38 @@ collections:
           - { label: "Jours", name: "days", widget: "number" }
           - { label: "Prix/jour", name: "pricePerDay", widget: "number" }
           - { label: "Prix total", name: "totalPrice", widget: "number" }
-      - { label: "Sous-titre", name: "subtitle", widget: "string", required: false }
-      - { label: "Détails complets", name: "body", widget: "markdown", required: false }
+      - label: "Soins"
+        name: "treatments"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Nom", name: "name", widget: "string" }
+          - { label: "Description", name: "description", widget: "string", required: false }
       - { label: "Bienfaits", name: "benefits", widget: "list", field: { label: "Bienfait", name: "benefit", widget: "string" }, required: false }
-      - { label: "Programme", name: "program", widget: "markdown", required: false }
+      - { label: "Inclus", name: "includes", widget: "list", field: { label: "Item", name: "item", widget: "string" }, required: false }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Réponse", name: "answer", widget: "text" }
+      - label: "Témoignages"
+        name: "testimonials"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Nom", name: "name", widget: "string" }
+          - { label: "Texte", name: "text", widget: "text" }
+      - label: "Cures liées"
+        name: "relatedCures"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Nom", name: "name", widget: "string" }
+          - { label: "Chemin", name: "path", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Prix/jour", name: "pricePerDay", widget: "number" }
 
   # ==========================================
   # PAGES (Textes des différentes pages)
