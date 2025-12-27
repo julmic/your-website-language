@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { Stethoscope, Hand, Heart, GraduationCap, Clock, Euro, ChevronDown } from "lucide-react";
+import { Stethoscope, Hand, Heart, GraduationCap, Clock, Euro } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -10,20 +10,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useEffect, useState } from "react";
+import { getBookableMassages, getCureOnlyMassages } from "@/lib/massages-loader";
+import { getAllCures } from "@/lib/cures-loader";
+import { getServicesPage } from "@/lib/pages-loader";
 
 // Import massage images
-import massageOil from "@/assets/massages/massage-oil.jpg";
-import massageHead from "@/assets/massages/massage-head.jpg";
-import massageFeet from "@/assets/massages/massage-feet.jpg";
-import massageHerbal from "@/assets/massages/massage-herbal.jpg";
-import massageFace from "@/assets/massages/massage-face.jpg";
-import massagePrenatal from "@/assets/massages/massage-prenatal.jpg";
-import massageBaby from "@/assets/massages/massage-baby.jpg";
-import massageShirodhara from "@/assets/massages/massage-shirodhara.jpg";
-import massageEyes from "@/assets/massages/massage-eyes.jpg";
-import massageScrub from "@/assets/massages/massage-scrub.jpg";
-
-// Import specific massage images
 import massageAbhyanga from "@/assets/massages/abhyanga.webp";
 import massageVishesh from "@/assets/massages/vishesh-new.png";
 import massageKizhi from "@/assets/massages/kizhi.webp";
@@ -45,8 +36,6 @@ import massagePutapakam from "@/assets/massages/putapakam.jpeg";
 import massageShirotchampi from "@/assets/massages/shirotchampi.jpeg";
 import massageSaundarya from "@/assets/massages/saundarya.jpeg";
 import massageShantala from "@/assets/massages/shantala.jpg";
-
-// Import new massage images
 import massageShashtishalipindswedan from "@/assets/massages/shashtishalipindswedan.png";
 import massageSvedana from "@/assets/massages/svedana.png";
 import massagePadavishesh from "@/assets/massages/padavishesh.png";
@@ -69,49 +58,41 @@ import curePostnatale from "@/assets/cures/cure-postnatale.jpg";
 import cureJournee from "@/assets/cures/cure-journee.jpg";
 import cureWeekEnd from "@/assets/cures/cure-week-end.jpg";
 
-const massages = [
-  { name: "Abhyanga", duration: "1h30", price: "70-80€", link: "/services/abhyanga", image: massageAbhyanga },
-  { name: "Vishesh", duration: "1h30", price: "70€", link: "/services/vishesh", image: massageVishesh },
-  { name: "Udvartana", duration: "1h30", price: "80€", link: "/services/udvartana", image: massageUdvartana },
-  { name: "Shiroabhyanga", duration: "1h", price: "70€", link: "/services/shiro-abhyanga", image: massageShiroabhyanga },
-  { name: "Marma-Thérapie", duration: "1h30", price: "80€", link: "/services/marma-therapie", image: massageMarmaTherapie },
-  { name: "Pizichilli", duration: "2h", price: "120€", link: "/services/pizichilli", image: massagePizichilli },
-  { name: "Navarakiri", duration: "1h30", price: "90€", link: "/services/navarakiri", image: massageNavarakiri },
-  { name: "Elakizhi", duration: "1h30", price: "80€", link: "/services/elakizhi", image: massageElakizhi },
-  { name: "Padabhyanga", duration: "1h", price: "70€", link: "/services/padabhyanga", image: massagePadabhyanga },
-  { name: "Thalapothichil", duration: "1h", price: "70€", link: "/services/thalapothichil", image: massageThalapothichil },
-  { name: "Prasavpurve Tirumu", duration: "1h30", price: "70€", link: "/services/prasavpurve-tirumu", image: massagePrasavpurveTirumu },
-  { name: "Prishtikara Tirumu", duration: "1h", price: "70€", link: "/services/prishtikara-tirumu", image: massagePrishtikaraTirumu },
-  { name: "Shirodhara", duration: "1h30", price: "90€", link: "/services/shirodhara", image: massageShirodharaNew },
-  { name: "Snehapanam", duration: "1h30", price: "70€", link: "/services/snehapanam", image: massageSnehapanam },
-  { name: "Putapakam", duration: "1h30", price: "90€", link: "/services/putapakam", image: massagePutapakam },
-  { name: "Mukhalepam", duration: "1h", price: "70€", link: "/services/mukhalepam", image: massageMukhalepam },
-  { name: "Svedana", duration: "1h", price: "25€", link: "/services/svedana", image: massageSvedana },
-  { name: "Pinda Sveda", duration: "1h30", price: "90€", link: "/services/pinda-sveda", image: massagePindaSweda },
-  { name: "Shantala", duration: "1h30", price: "70€", link: "/services/shantala", image: massageShantala },
-  { name: "Saundarya", duration: "1h30", price: "70€", link: "/services/saundarya", image: massageSaundarya },
-  { name: "Shashtishalipindswedan", duration: "1h30", price: "90€", link: "/services/shashtishalipindswedan", image: massageShashtishalipindswedan },
-  { name: "Padavishesh", duration: "1h30", price: "80€", link: "/services/padavishesh", image: massagePadavishesh },
-  { name: "Bol Kansu", duration: "1h", price: "70€", link: "/services/bol-kansu", image: massageBolKansu },
-  { name: "Mardanam", duration: "1h30", price: "70€", link: "/services/mardanam", image: massageMardanam },
-  { name: "Pancha Maha Bhuta", duration: "1h30", price: "70€", link: "/services/pancha-maha-bhuta", image: massagePanchaMahaBhuta },
-  { name: "Shirotchampi", duration: "1h30", price: "80€", link: "/services/shirotchampi", image: massageShirotchampi },
-  { name: "Kizhi", duration: "-", price: "Cure", link: "/services/kizhi", image: massageKizhi },
-  { name: "Ubthan", duration: "-", price: "Cure", link: "/services/ubthan", image: massageUbthan },
-  { name: "Undgharshan", duration: "-", price: "Cure", link: "/services/undgharshan", image: massageUndgharshan },
-];
+// Mapping des images de massages par slug
+const massageImageMap: Record<string, string> = {
+  "abhyanga": massageAbhyanga,
+  "vishesh": massageVishesh,
+  "udvartana": massageUdvartana,
+  "shiro-abhyanga": massageShiroabhyanga,
+  "marma-therapie": massageMarmaTherapie,
+  "pizichilli": massagePizichilli,
+  "navarakiri": massageNavarakiri,
+  "elakizhi": massageElakizhi,
+  "padabhyanga": massagePadabhyanga,
+  "thalapothichil": massageThalapothichil,
+  "prasavpurve-tirumu": massagePrasavpurveTirumu,
+  "prishtikara-tirumu": massagePrishtikaraTirumu,
+  "shirodhara": massageShirodharaNew,
+  "snehapanam": massageSnehapanam,
+  "putapakam": massagePutapakam,
+  "mukhalepam": massageMukhalepam,
+  "svedana": massageSvedana,
+  "pinda-sweda": massagePindaSweda,
+  "shantala": massageShantala,
+  "saundarya": massageSaundarya,
+  "shashtishalipindswedan": massageShashtishalipindswedan,
+  "padavishesh": massagePadavishesh,
+  "bol-kansu": massageBolKansu,
+  "mardanam": massageMardanam,
+  "pancha-maha-bhuta": massagePanchaMahaBhuta,
+  "shirotchampi": massageShirotchampi,
+  "kizhi": massageKizhi,
+  "ubthan": massageUbthan,
+  "undgharshan": massageUndgharshan,
+};
 
-const consultations = [
-  { name: "Première consultation complète", duration: "1h30", price: "80€" },
-  { name: "Consultation de suivi", duration: "45min", price: "50€" },
-  { name: "Bilan Prakriti détaillé", duration: "2h", price: "120€" },
-];
-
-// Import des données centralisées des cures
-import { curesData } from "@/data/cures";
-
-// Mapping des images par ID de cure
-const cureImages: Record<string, string> = {
+// Mapping des images de cures par slug
+const cureImageMap: Record<string, string> = {
   "panchakarma": curePanchakarma,
   "amrita": cureAmrita,
   "karchan": cureKarchan,
@@ -125,30 +106,22 @@ const cureImages: Record<string, string> = {
   "week-end-decouverte": cureWeekEnd,
 };
 
-// Cures avec images pour l'affichage
-const cures = curesData.map(cure => ({
-  ...cure,
-  image: cureImages[cure.id],
-}));
-
-const formations = [
-  { name: "Initiation à l'Ayurvéda", duration: "1 jour", price: "120€" },
-  { name: "Stage Massage Abhyanga", duration: "2 jours", price: "280€" },
-  { name: "Formation Praticien Ayurvédique", duration: "6 mois", price: "Sur devis" },
-  { name: "Atelier Cuisine Ayurvédique", duration: "Demi-journée", price: "60€" },
-];
-
 const Services = () => {
   const location = useLocation();
   const [openAccordions, setOpenAccordions] = useState<string[]>([]);
+
+  // Charger les données depuis le CMS
+  const pageData = getServicesPage();
+  const bookableMassages = getBookableMassages();
+  const cureOnlyMassages = getCureOnlyMassages();
+  const allMassages = [...bookableMassages, ...cureOnlyMassages];
+  const cures = getAllCures();
 
   // Handle anchor scrolling
   useEffect(() => {
     const hash = location.hash.replace('#', '');
     if (hash) {
-      // Open the corresponding accordion
       setOpenAccordions([hash]);
-      // Scroll to the element after a short delay to allow accordion to open
       setTimeout(() => {
         const element = document.getElementById(hash);
         if (element) {
@@ -158,13 +131,36 @@ const Services = () => {
     }
   }, [location.hash]);
 
+  const getMassageImage = (slug: string): string => {
+    return massageImageMap[slug] || massageAbhyanga;
+  };
+
+  const getCureImage = (slug: string): string => {
+    return cureImageMap[slug] || curePanchakarma;
+  };
+
+  const formatMassagePrice = (massage: typeof allMassages[number]): string => {
+    if (massage.cureOnly) return "Cure";
+    if (!massage.prices || massage.prices.length === 0) return "-";
+    if (massage.prices.length === 1) return `${massage.prices[0].price}€`;
+    const prices = massage.prices.map(p => parseInt(p.price.replace(/[^0-9]/g, '')));
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+    return minPrice === maxPrice ? `${minPrice}€` : `${minPrice}-${maxPrice}€`;
+  };
+
+  const getMassageDuration = (massage: typeof allMassages[number]): string => {
+    if (!massage.prices || massage.prices.length === 0) return "-";
+    return massage.prices[0].duration || "-";
+  };
+
   return (
     <Layout>
       <section className="py-20 bg-secondary/30">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-serif font-semibold mb-6">Nos Services</h1>
-            <p className="text-lg text-muted-foreground">Découvrez notre gamme complète de soins ayurvédiques.</p>
+            <h1 className="text-4xl md:text-5xl font-serif font-semibold mb-6">{pageData.title}</h1>
+            <p className="text-lg text-muted-foreground">{pageData.subtitle}</p>
           </div>
         </div>
       </section>
@@ -181,27 +177,29 @@ const Services = () => {
                   </div>
                   <div className="text-left">
                     <h2 className="text-xl md:text-2xl font-serif font-semibold">Massages Ayurvédiques</h2>
-                    <p className="text-sm text-muted-foreground mt-1">{massages.length} soins disponibles</p>
+                    <p className="text-sm text-muted-foreground mt-1">{allMassages.length} soins disponibles</p>
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-6">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-4">
-                  {massages.map((massage) => (
-                    <Link key={massage.name} to={massage.link}>
+                  {allMassages.map((massage) => (
+                    <Link key={massage.slug} to={`/services/${massage.slug}`}>
                       <Card className="bg-secondary/30 border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
                         <div className="aspect-[4/3] overflow-hidden">
                           <img 
-                            src={massage.image} 
-                            alt={massage.name}
+                            src={getMassageImage(massage.slug)} 
+                            alt={massage.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
                         <CardContent className="p-4">
-                          <p className="font-medium text-primary group-hover:underline">{massage.name}</p>
+                          <p className="font-medium text-primary group-hover:underline">{massage.title}</p>
                           <div className="flex items-center justify-between mt-2 text-sm text-muted-foreground">
-                            <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {massage.duration}</span>
-                            <span className="font-semibold text-foreground">{massage.price}</span>
+                            <span className="flex items-center gap-1">
+                              <Clock className="h-3 w-3" /> {getMassageDuration(massage)}
+                            </span>
+                            <span className="font-semibold text-foreground">{formatMassagePrice(massage)}</span>
                           </div>
                         </CardContent>
                       </Card>
@@ -219,25 +217,28 @@ const Services = () => {
                     <Stethoscope className="h-6 w-6 text-primary" />
                   </div>
                   <div className="text-left">
-                    <h2 className="text-xl md:text-2xl font-serif font-semibold">Consultations Ayurvédiques</h2>
-                    <p className="text-sm text-muted-foreground mt-1">Bilan personnalisé selon votre constitution</p>
+                    <h2 className="text-xl md:text-2xl font-serif font-semibold">{pageData.consultationsTitle}</h2>
+                    <p className="text-sm text-muted-foreground mt-1">{pageData.consultationsSubtitle}</p>
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-6">
                 <div className="pt-4">
                   <p className="text-muted-foreground mb-6">
-                    Un bilan de santé complet selon les principes de l'Ayurvéda pour déterminer votre constitution (Prakriti), 
-                    identifier vos déséquilibres actuels (Vikriti) et recevoir des recommandations personnalisées.
+                    {pageData.consultationsDescription}
                   </p>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {consultations.map((item) => (
+                    {pageData.consultations.map((item) => (
                       <Card key={item.name} className="bg-secondary/30 border-border">
                         <CardContent className="p-5">
                           <p className="font-medium text-lg">{item.name}</p>
                           <div className="flex items-center justify-between mt-3 text-sm">
-                            <span className="flex items-center gap-1 text-muted-foreground"><Clock className="h-3 w-3" /> {item.duration}</span>
-                            <span className="font-semibold text-primary flex items-center"><Euro className="h-4 w-4" />{item.price.replace('€', '')}</span>
+                            <span className="flex items-center gap-1 text-muted-foreground">
+                              <Clock className="h-3 w-3" /> {item.duration}
+                            </span>
+                            <span className="font-semibold text-primary flex items-center">
+                              <Euro className="h-4 w-4" />{item.price.replace('€', '')}
+                            </span>
                           </div>
                         </CardContent>
                       </Card>
@@ -258,31 +259,30 @@ const Services = () => {
                     <Heart className="h-6 w-6 text-primary" />
                   </div>
                   <div className="text-left">
-                    <h2 className="text-xl md:text-2xl font-serif font-semibold">Cures & Programmes</h2>
-                    <p className="text-sm text-muted-foreground mt-1">{cures.length} programmes de 1 à 14 jours</p>
+                    <h2 className="text-xl md:text-2xl font-serif font-semibold">{pageData.curesTitle}</h2>
+                    <p className="text-sm text-muted-foreground mt-1">{cures.length} {pageData.curesSubtitle}</p>
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-6">
                 <div className="pt-4">
                   <p className="text-muted-foreground mb-6">
-                    Des programmes intensifs pour une transformation profonde. Détoxification, régénération, 
-                    perte de poids selon les protocoles ayurvédiques traditionnels. Toutes les cures se déroulent en présentiel avec hébergement en chambre individuelle.
+                    {pageData.curesDescription}
                   </p>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     {cures.map((cure) => (
-                      <Link key={cure.name} to={cure.link}>
+                      <Link key={cure.slug} to={`/cures/${cure.slug}`}>
                         <Card className="bg-secondary/30 border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
                           <div className="aspect-[4/3] overflow-hidden">
                             <img 
-                              src={cure.image} 
-                              alt={cure.name}
+                              src={getCureImage(cure.slug)} 
+                              alt={cure.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                           </div>
                           <CardContent className="p-4">
-                            <p className="font-medium text-primary group-hover:underline">{cure.name}</p>
-                            <p className="text-sm text-muted-foreground mt-1">{cure.description}</p>
+                            <p className="font-medium text-primary group-hover:underline">{cure.title}</p>
+                            <p className="text-sm text-muted-foreground mt-1">{cure.subtitle}</p>
                             <p className="font-semibold text-foreground mt-2">{cure.price}</p>
                           </CardContent>
                         </Card>
@@ -304,24 +304,25 @@ const Services = () => {
                     <GraduationCap className="h-6 w-6 text-primary" />
                   </div>
                   <div className="text-left">
-                    <h2 className="text-xl md:text-2xl font-serif font-semibold">Formations & Stages</h2>
-                    <p className="text-sm text-muted-foreground mt-1">Apprenez les techniques ayurvédiques</p>
+                    <h2 className="text-xl md:text-2xl font-serif font-semibold">{pageData.formationsTitle}</h2>
+                    <p className="text-sm text-muted-foreground mt-1">{pageData.formationsSubtitle}</p>
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-6">
                 <div className="pt-4">
                   <p className="text-muted-foreground mb-6">
-                    Apprenez les fondamentaux de l'Ayurvéda et les techniques de soins. Des formations pour professionnels 
-                    et particuliers souhaitant approfondir leurs connaissances.
+                    {pageData.formationsDescription}
                   </p>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {formations.map((item) => (
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {pageData.formations.map((item) => (
                       <Card key={item.name} className="bg-secondary/30 border-border">
                         <CardContent className="p-5">
-                          <p className="font-medium text-lg">{item.name}</p>
+                          <p className="font-medium">{item.name}</p>
                           <div className="flex items-center justify-between mt-3 text-sm">
-                            <span className="flex items-center gap-1 text-muted-foreground"><Clock className="h-3 w-3" /> {item.duration}</span>
+                            <span className="flex items-center gap-1 text-muted-foreground">
+                              <Clock className="h-3 w-3" /> {item.duration}
+                            </span>
                             <span className="font-semibold text-primary">{item.price}</span>
                           </div>
                         </CardContent>
@@ -329,7 +330,7 @@ const Services = () => {
                     ))}
                   </div>
                   <div className="mt-6">
-                    <Button asChild><Link to="/contact">S'inscrire</Link></Button>
+                    <Button asChild><Link to="/contact">Nous contacter</Link></Button>
                   </div>
                 </div>
               </AccordionContent>
@@ -338,11 +339,20 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-primary/5">
-        <div className="container px-4 text-center">
-          <h2 className="text-3xl font-serif font-semibold mb-4">Prêt à commencer votre voyage ?</h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">Contactez-nous pour discuter de vos besoins et réserver votre première consultation.</p>
-          <Button size="lg" asChild><Link to="/contact">Nous contacter</Link></Button>
+      {/* CTA */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-serif font-semibold mb-6">
+              Besoin d'un conseil personnalisé ?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Nous sommes à votre écoute pour vous guider vers le soin ou la cure qui vous correspond.
+            </p>
+            <Button asChild size="lg">
+              <Link to="/contact">Contactez-nous</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>
