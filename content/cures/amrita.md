@@ -1,21 +1,75 @@
 ---
-title: "Amrita"
+title: "Cure d'Amrita (Royale)"
 id: "amrita"
 slug: "amrita"
+subtitle: "Le nectar d'immortalité"
 image: "/uploads/cures/cure-amrita.jpg"
-description: "Cure de régénération profonde"
+description: "La Cure d'Amrita est une cure de bien-être et de vitalité d'exception, héritée des traditions royales indiennes. \"Amrita\" signifie \"nectar d'immortalité\" en sanskrit.\n\nCette cure combine les soins ayurvédiques les plus luxueux pour une expérience de régénération complète du corps et de l'esprit. Elle est particulièrement recommandée pour réduire les maux quotidiens, retrouver énergie et joie de vivre.\n\nChaque journée est rythmée par des soins enveloppants qui nourrissent profondément tous vos tissus."
 price: "240€/jour"
 pricePerDay: 240
-subtitle: "Le nectar d'immortalité"
+durationsText: "Sur mesure"
+treatments:
+  - name: "Pizichilli"
+    description: "Bain d'huile tiède en continu"
+  - name: "Shirodhara"
+    description: "Filet d'huile sur le front"
+  - name: "Abhyanga"
+    description: "Massage corps complet à l'huile"
+  - name: "Udvartana"
+    description: "Massage aux poudres d'herbes"
+  - name: "Ghritadhara"
+    description: "Application de ghee médicinal"
+  - name: "Padabhyanga"
+    description: "Massage des pieds"
+  - name: "Kansu"
+    description: "Massage au bol Kansu"
+  - name: "Swedana"
+    description: "Bain de vapeur aux herbes"
+  - name: "Massage sonore"
+    description: "Thérapie par les sons"
 benefits:
   - "Régénération cellulaire profonde"
   - "Augmentation de la vitalité"
   - "Renforcement de l'immunité"
   - "Rajeunissement des tissus"
+  - "Équilibre émotionnel"
+  - "Clarté mentale"
+  - "Beauté de la peau"
+  - "Joie de vivre retrouvée"
+includes:
+  - "Consultation ayurvédique complète"
+  - "Bilan énergétique personnalisé"
+  - "Soins royaux quotidiens (4-5 soins/jour)"
+  - "Hébergement en chambre individuelle"
+  - "Repas ayurvédiques gastronomiques"
+  - "Tisanes et chai à volonté"
+  - "Huiles médicinales premium"
+  - "Conseils post-cure détaillés"
+faq:
+  - question: "Pourquoi s'appelle-t-elle Cure Royale ?"
+    answer: "Cette cure était traditionnellement réservée aux rois et maharajas en Inde. Elle combine les soins les plus luxueux et efficaces de l'Ayurveda pour une régénération complète."
+  - question: "Quelle est la durée recommandée ?"
+    answer: "La durée est personnalisée selon vos besoins. Un minimum de 5 à 7 jours est recommandé pour ressentir pleinement les bienfaits de cette cure d'exception."
+  - question: "Cette cure convient-elle aux débutants ?"
+    answer: "Absolument ! C'est même une excellente introduction à l'Ayurveda grâce à sa variété de soins qui vous permettront de découvrir différentes techniques."
+testimonials:
+  - name: "Caroline V."
+    text: "Une semaine de pur bonheur. Le Pizichilli est une expérience unique - on se sent littéralement enveloppé d'or liquide."
+  - name: "Michel D."
+    text: "À 65 ans, je me sens rajeuni de 10 ans. Cette cure porte bien son nom de nectar d'immortalité."
+  - name: "Anne-Marie L."
+    text: "Le cadre, les soins, la cuisine... Tout est parfait. Une parenthèse enchantée."
+relatedCures:
+  - name: "Cure de Panchakarma"
+    path: "/cures/panchakarma"
+    description: "Détoxification profonde"
+    pricePerDay: 240
+  - name: "Cure Ojas Kayakalpa"
+    path: "/cures/ojas-kayakalpa"
+    description: "Rajeunissement cellulaire"
+    pricePerDay: 230
+  - name: "Cure Laghana Rasayana"
+    path: "/cures/laghana-rasayana"
+    description: "Anti-âge et vitalité"
+    pricePerDay: 230
 ---
-
-Amrita signifie "nectar d'immortalité" en sanskrit. Cette cure est dédiée à la régénération profonde de tous les tissus du corps.
-
-## Principe de la cure
-
-La cure Amrita combine les meilleurs soins régénérants de l'Ayurvéda pour une transformation complète.
