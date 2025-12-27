@@ -131,6 +131,7 @@ export const CureTemplate = ({
                     src={image}
                     alt={`Cure ${title}`}
                     className="rounded-2xl shadow-xl h-80"
+                    priority={true}
                   />
                 </div>
               )}
