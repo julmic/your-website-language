@@ -9,7 +9,10 @@ interface OptimizedImageProps {
   className?: string;
   priority?: boolean;
   aspectRatio?: "square" | "video" | "portrait" | "auto";
+  fallbackSrc?: string;
 }
+
+const DEFAULT_FALLBACK = "/placeholder.svg";
 
 export const OptimizedImage = ({
   src,
@@ -19,8 +22,10 @@ export const OptimizedImage = ({
   className,
   priority = false,
   aspectRatio = "auto",
+  fallbackSrc = DEFAULT_FALLBACK,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -69,13 +74,18 @@ export const OptimizedImage = ({
     >
       {isInView && (
         <img
-          src={src}
+          src={hasError ? fallbackSrc : src}
           alt={alt}
           width={width}
           height={height}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           onLoad={() => setIsLoaded(true)}
+          onError={() => {
+            console.warn(`[OptimizedImage] Failed to load: ${src}`);
+            setHasError(true);
+            setIsLoaded(true); // Show fallback immediately
+          }}
           className={cn(
             "w-full h-full object-cover transition-opacity duration-300",
             isLoaded ? "opacity-100" : "opacity-0"
