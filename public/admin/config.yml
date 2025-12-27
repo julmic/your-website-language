@@ -700,6 +700,62 @@ collections:
               - { label: "URL", name: "href", widget: "string" }
 
   # ==========================================
+  # PAGES DYNAMIQUES (Nouvelles pages personnalisées)
+  # ==========================================
+  - name: "pages-dynamiques"
+    label: "Nouvelles Pages"
+    label_singular: "Page"
+    folder: "content/pages-dynamiques"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Slug (URL)", name: "slug", widget: "string", required: true, hint: "URL de la page (ex: yoga → accessible via /page/yoga)" }
+      - { label: "Titre SEO", name: "metaTitle", widget: "string", required: false }
+      - { label: "Description SEO", name: "metaDescription", widget: "text", required: false }
+      - { label: "Image Hero", name: "heroImage", widget: "image", required: false, media_folder: "/public/uploads/pages", public_folder: "/uploads/pages" }
+      - { label: "Titre Hero", name: "heroTitle", widget: "string", required: false }
+      - { label: "Sous-titre Hero", name: "heroSubtitle", widget: "text", required: false }
+      - label: "Sections"
+        name: "sections"
+        widget: "list"
+        required: false
+        types:
+          - label: "Section Texte"
+            name: "text"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Contenu", name: "content", widget: "markdown" }
+          - label: "Section Image + Texte"
+            name: "image-text"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Contenu", name: "content", widget: "markdown" }
+              - { label: "Image", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages" }
+              - { label: "Position de l'image", name: "imagePosition", widget: "select", options: ["left", "right"], default: "left" }
+          - label: "Appel à l'action"
+            name: "cta"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Texte du bouton", name: "buttonText", widget: "string" }
+              - { label: "Lien du bouton", name: "buttonLink", widget: "string" }
+          - label: "Liste"
+            name: "list"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Items", name: "items", widget: "list", field: { label: "Item", name: "item", widget: "string" } }
+          - label: "Galerie"
+            name: "gallery"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Images", name: "images", widget: "list", field: { label: "Image", name: "image", widget: "image", media_folder: "/public/uploads/pages", public_folder: "/uploads/pages" } }
+      - { label: "Contenu principal", name: "body", widget: "markdown", required: false }
+
+  # ==========================================
   # PHILOSOPHIE VÉDIQUE - SECTIONS
   # ==========================================
   - name: "philosophie-sections"
