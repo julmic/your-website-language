@@ -85,11 +85,11 @@ export function getNavigationSettings(): NavigationSettings {
   const menuItems = (data.menuItems as any[] || []).map(menu => ({
     label: menu.label || '',
     href: menu.href || '',
-    items: (menu.items || []).map((item: any) => ({
+    items: Array.isArray(menu.items) ? menu.items.map((item: any) => ({
       href: item.href || '',
       label: item.label || '',
       description: item.description || '',
-    })),
+    })) : [],
   }));
 
   const footerNavigationLinks = (data.footerNavigationLinks as any[] || []).map((link: any) => ({
