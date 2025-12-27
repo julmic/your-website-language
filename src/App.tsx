@@ -18,7 +18,15 @@ import Bhutavidya from "./pages/Bhutavidya";
 import PhilosophieVedique from "./pages/PhilosophieVedique";
 import GayatriMantra from "./pages/GayatriMantraDynamic";
 import PhilosophieArticlePage from "./pages/philosophie/PhilosophieArticlePage";
-// Toutes les pages de philosophie sont maintenant gérées dynamiquement via PhilosophieArticlePage
+// Pages philosophie avec composants TSX dédiés (contenu complet)
+import BrahmanAtman from "./pages/philosophie/BrahmanAtman";
+import DharmaAyurveda from "./pages/philosophie/DharmaAyurveda";
+import InvolutionEvolution from "./pages/philosophie/InvolutionEvolution";
+import Jyotish from "./pages/philosophie/Jyotish";
+import MortAyurveda from "./pages/philosophie/MortAyurveda";
+import Ahamkara from "./pages/philosophie/Ahamkara";
+import AyurvedaElevationSpirituelle from "./pages/philosophie/AyurvedaElevationSpirituelle";
+import BhagavadGita from "./pages/philosophie/BhagavadGita";
 import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
 import GalerieArkadhya from "./pages/GalerieArkadhya";
 import GuideCMS from "./pages/GuideCMS";
@@ -70,7 +78,17 @@ const App = () => (
             <Route path="/philosophie-vedique" element={<PhilosophieVedique />} />
             <Route path="/gayatri-mantra" element={<GayatriMantra />} />
             
-            {/* Route dynamique pour tous les articles de philosophie (CMS) */}
+            {/* Routes philosophie avec composants TSX dédiés (contenu complet) */}
+            <Route path="/philosophie/brahman-atman" element={<BrahmanAtman />} />
+            <Route path="/philosophie/dharma-ayurveda" element={<DharmaAyurveda />} />
+            <Route path="/philosophie/involution-evolution" element={<InvolutionEvolution />} />
+            <Route path="/philosophie/jyotish" element={<Jyotish />} />
+            <Route path="/philosophie/mort-ayurveda" element={<MortAyurveda />} />
+            <Route path="/philosophie/ahamkara" element={<Ahamkara />} />
+            <Route path="/philosophie/ayurveda-elevation-spirituelle" element={<AyurvedaElevationSpirituelle />} />
+            <Route path="/philosophie/bhagavad-gita" element={<BhagavadGita />} />
+            
+            {/* Route dynamique pour les autres articles de philosophie (CMS) */}
             <Route path="/philosophie/:slug" element={<PhilosophieArticlePage />} />
             
             <Route path="/centre-ayurvedique-arkadhya-en-images" element={<GalerieArkadhya />} />

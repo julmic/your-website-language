@@ -4,7 +4,7 @@ slug: "voie-ishvara"
 sectionId: 4
 order: 1
 available: true
-href: "/philosophie/voie-hisvara"
+href: "/philosophie/voie-ishvara"
 chapters:
   - id: introduction
     title: Introduction
