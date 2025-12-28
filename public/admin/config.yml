@@ -2,7 +2,7 @@ backend:
   name: github
   repo: julmic/your-website-language
   branch: main
-  base_url: https://sveltia-cms-auth.netlify.app
+  base_url: https://autentification.netlify.app
 
 # Dossier où seront stockés les médias uploadés
 media_folder: "public/uploads"
