@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-10.webp
-alt: Espace cuisine ayurvédique
+alt: Vue sur le parc arboré
 size: normal
-category: interieur
+category: jardin
 featured: false
 order: 10
 ---

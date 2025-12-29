@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-14.webp
-alt: Coucher de soleil sur le domaine
+alt: Préparation eau ayurvédique
 size: wide
-category: jardin
+category: soins
 featured: false
 order: 14
 ---

@@ -1,6 +1,6 @@
 ---
 src: /src/assets/galerie/galerie-18.webp
-alt: Vue panoramique sur la nature
+alt: Jardin fleuri
 size: normal
 category: jardin
 featured: false

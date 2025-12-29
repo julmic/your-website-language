@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-19.webp
-alt: Terrasse extérieure ombragée
+alt: Puja
 size: wide
-category: jardin
+category: decoration
 featured: false
 order: 19
 ---

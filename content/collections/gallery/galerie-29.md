@@ -1,6 +1,6 @@
 ---
 src: /src/assets/galerie/galerie-29.webp
-alt: Jardin potager et cabane
+alt: Potager bio du centre
 size: wide
 category: jardin
 featured: false

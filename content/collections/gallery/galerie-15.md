@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-15.webp
-alt: Espace bien-être intérieur
+alt: Repas de cure ayurvédique
 size: normal
-category: interieur
+category: cuisine
 featured: false
 order: 15
 ---

@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-05.webp
-alt: Vue sur le parc arboré
+alt: Décorations intérieure
 size: normal
-category: jardin
+category: interieur
 featured: true
 order: 5
 ---

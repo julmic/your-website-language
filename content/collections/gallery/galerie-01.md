@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-01.webp
-alt: Façade du Centre Ayurvédique Arkadhya
+alt: Allée fleurie du jardin
 size: wide
-category: batiment
+category: jardin
 featured: true
 order: 1
 ---

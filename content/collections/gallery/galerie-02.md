@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-02.webp
-alt: Jardin et espace extérieur
+alt: Espace détente et relaxation
 size: tall
-category: jardin
+category: interieur
 featured: true
 order: 2
 ---

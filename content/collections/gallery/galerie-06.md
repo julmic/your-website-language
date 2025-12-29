@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-06.webp
-alt: Chambre d'hôtes paisible
+alt: Allée fleurie du jardin
 size: tall
-category: hebergement
+category: jardin
 featured: true
 order: 6
 ---
