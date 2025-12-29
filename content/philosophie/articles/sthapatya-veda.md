@@ -1,8 +1,8 @@
 ---
-title: "Sthapatya Veda : science de la construction"
+title: "Sthapatyaveda : science de l'espace"
 slug: "sthapatya-veda"
-sectionId: 9
-order: 6
+sectionId: 11
+order: 10
 available: false
 href: ""
 ---

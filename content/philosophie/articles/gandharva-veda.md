@@ -1,8 +1,8 @@
 ---
-title: "Gandharva Veda : musique sacrée"
+title: "Gandharva Veda : musique et guérison"
 slug: "gandharva-veda"
-sectionId: 9
-order: 3
+sectionId: 11
+order: 8
 available: false
 href: ""
 ---

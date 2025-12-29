@@ -1,8 +1,8 @@
 ---
-title: "Applications modernes : écologie, éthique, psychologie"
+title: "Applications modernes de la sagesse védique"
 slug: "applications-modernes"
-sectionId: 10
-order: 6
+sectionId: 12
+order: 16
 available: false
 href: ""
 ---

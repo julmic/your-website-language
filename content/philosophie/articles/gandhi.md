@@ -1,8 +1,8 @@
 ---
 title: "Gandhi et l'éthique védique"
 slug: "gandhi"
-sectionId: 10
-order: 4
+sectionId: 12
+order: 11
 available: false
 href: ""
 ---

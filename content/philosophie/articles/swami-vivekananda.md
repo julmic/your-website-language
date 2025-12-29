@@ -1,8 +1,8 @@
 ---
 title: "Swami Vivekananda et la diffusion en Occident"
 slug: "swami-vivekananda"
-sectionId: 10
-order: 2
+sectionId: 12
+order: 12
 available: false
 href: ""
 ---
