@@ -1,8 +1,8 @@
 ---
-title: "Yajna extérieurs et sacrifices védiques"
+title: "Yajna : sacrifice rituel"
 slug: "yajna-exterieurs"
-sectionId: 5
-order: 4
+sectionId: 10
+order: 9
 available: false
 href: ""
 ---

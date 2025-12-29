@@ -1,8 +1,8 @@
 ---
 title: "Le Dharma en Ayurveda : La Loi Intérieure"
 slug: "dharma-ayurveda"
-sectionId: 7
-order: 5
+sectionId: 11
+order: 2
 available: true
 href: "/philosophie/dharma-ayurveda"
 chapters:

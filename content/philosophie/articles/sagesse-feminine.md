@@ -1,7 +1,7 @@
 ---
 title: "Sagesse féminine dans les Vedas"
 slug: "sagesse-feminine"
-sectionId: 8
+sectionId: 9
 order: 1
 available: true
 href: "/philosophie/sagesse-feminine"

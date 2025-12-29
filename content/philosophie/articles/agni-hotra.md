@@ -1,8 +1,8 @@
 ---
 title: "Agni Hotra : le rituel du feu"
 slug: "agni-hotra"
-sectionId: 5
-order: 2
+sectionId: 10
+order: 7
 available: false
 href: ""
 ---

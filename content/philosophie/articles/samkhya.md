@@ -1,8 +1,8 @@
 ---
-title: "Samkhya"
+title: "Samkhya : philosophie du discernement"
 slug: "samkhya"
-sectionId: 4
-order: 6
+sectionId: 5
+order: 4
 available: false
 href: ""
 ---

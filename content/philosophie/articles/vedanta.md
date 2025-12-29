@@ -1,8 +1,8 @@
 ---
-title: "Vedanta : Advaita, Vishishtadvaita, Dvaita"
+title: "Vedanta : l'aboutissement des Vedas"
 slug: "vedanta"
-sectionId: 4
-order: 8
+sectionId: 5
+order: 2
 available: false
 href: ""
 ---
