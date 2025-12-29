@@ -11,16 +11,19 @@ import {
   BookOpen,
   Sparkles,
   Sun,
-  Heart,
   ArrowRight,
-  Compass,
-  Flame,
-  Brain,
-  Flower2,
-  Music,
   Check,
   Clock,
-  Globe,
+  Users,
+  Lightbulb,
+  Brain,
+  Route,
+  Zap,
+  Star,
+  Heart,
+  Microscope,
+  Building2,
+  FolderOpen,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { 
@@ -35,13 +38,16 @@ const iconComponents: Record<string, React.ElementType> = {
   'book-open': BookOpen,
   'sparkles': Sparkles,
   'sun': Sun,
-  'heart': Heart,
-  'compass': Compass,
-  'flame': Flame,
+  'users': Users,
+  'lightbulb': Lightbulb,
   'brain': Brain,
-  'flower': Flower2,
-  'music': Music,
-  'globe': Globe,
+  'route': Route,
+  'zap': Zap,
+  'star': Star,
+  'hand-heart': Heart,
+  'microscope': Microscope,
+  'building': Building2,
+  'folder': FolderOpen,
 };
 
 // Données de fallback au cas où le CMS n'est pas disponible
@@ -126,7 +132,7 @@ const PhilosophieVedique = () => {
               Explorer les enseignements
             </h2>
             <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Naviguez à travers les 10 piliers de la sagesse védique. Les articles disponibles sont accessibles immédiatement.
+              Naviguez à travers les 13 piliers de la sagesse védique. Les articles disponibles sont accessibles immédiatement.
             </p>
 
             <Accordion type="multiple" className="space-y-4">

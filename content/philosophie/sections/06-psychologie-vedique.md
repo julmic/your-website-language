@@ -1,6 +1,6 @@
 ---
 order: 6
-title: "Psychologie Védique & Sciences de la Conscience"
+title: "Psychologie Védique"
 icon: "brain"
-description: "La cartographie de l'esprit et de l'âme"
+description: "Comprendre l'esprit et la conscience"
 ---

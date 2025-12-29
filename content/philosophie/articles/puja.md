@@ -1,8 +1,8 @@
 ---
 title: "Puja : l'adoration rituelle"
 slug: "puja"
-sectionId: 5
-order: 5
+sectionId: 10
+order: 6
 available: false
 href: ""
 ---

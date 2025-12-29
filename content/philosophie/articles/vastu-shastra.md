@@ -1,8 +1,8 @@
 ---
 title: "Vastu Shastra : architecture sacrée"
 slug: "vastu-shastra"
-sectionId: 9
-order: 2
+sectionId: 11
+order: 5
 available: true
 href: "/philosophie/vastu-shastra"
 chapters:
@@ -113,10 +113,6 @@ Le **centre sacré** représente le point de convergence de toutes les forces di
 
 Selon le mythe védique, le Vastu Purusha est né de la sueur de Shiva. Les dieux l'ont immobilisé face contre terre et ont assigné 45 divinités à des positions spécifiques pour le maintenir en place.
 
-### Les 45 Déités du Mandala
-
-Chaque zone du mandala est gouvernée par une déité spécifique, influençant l'énergie de cette zone dans toute construction.
-
 ### Application Pratique
 
 Le mandala sert de grille pour placer les différentes pièces d'une maison selon leurs fonctions :
@@ -133,20 +129,7 @@ Le mandala sert de grille pour placer les différentes pièces d'une maison selo
 | **Nord** | Trésorerie, coffre |
 | **Centre** | Cour ouverte, Brahmasthan |
 
-## V. Principes d'Orientation
-
-### L'Importance de l'Est
-
-L'entrée principale orientée à l'**Est** capte l'énergie du soleil levant et favorise la prospérité et la santé.
-
-### Hiérarchie des Orientations
-
-1. **Est** — Optimal (énergie solaire)
-2. **Nord** — Très favorable (Kubera, richesse)
-3. **Ouest** — Acceptable
-4. **Sud** — À éviter pour l'entrée
-
-## VI. Remèdes Vastu (Upayas)
+## V. Remèdes Vastu (Upayas)
 
 ### Sans Modification Structurelle
 
@@ -162,7 +145,7 @@ L'entrée principale orientée à l'**Est** capte l'énergie du soleil levant et
 - **Om Vastu Devaya Namah**
 - **Om Vastu Purushaya Namah**
 
-## VII. Application Contemporaine
+## VI. Application Contemporaine
 
 Le Vastu Shastra peut être adapté aux constructions modernes :
 
