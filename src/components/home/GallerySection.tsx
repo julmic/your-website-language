@@ -1,6 +1,8 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { getFeaturedGalleryImages } from "@/lib/collections-loader";
 import { getHomePage } from "@/lib/pages-loader";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 // Utilitaire centralisé pour la résolution d'images de galerie
 import { resolveGalleryImage, defaultGalleryImages } from "@/lib/gallery-images";
@@ -20,13 +22,14 @@ export const GallerySection = () => {
   // Charger les images depuis le CMS
   const cmsImages = getFeaturedGalleryImages();
   
-  // Utiliser les images CMS si disponibles, sinon fallback
-  const images = cmsImages.length >= 8 
-    ? cmsImages.slice(0, 8).map((img, index) => ({
+  // Utiliser les images CMS si disponibles, sinon fallback (9 images maintenant)
+  const images = cmsImages.length >= 9 
+    ? cmsImages.slice(0, 9).map((img, index) => ({
         src: resolveGalleryImage(img.src),
         alt: img.alt,
         className: index === 0 ? "col-span-2 row-span-2" : 
                    index === 3 ? "col-span-1 row-span-2" : 
+                   index === 8 ? "col-span-2 row-span-1" :
                    getSizeClass(img.size),
       }))
     : defaultGalleryImages;
@@ -77,6 +80,21 @@ export const GallerySection = () => {
               </div>
             </div>
           ))}
+          
+          {/* CTA intégré dans la grille */}
+          <Link
+            to="/centre-ayurvedique-arkadhya-en-images"
+            className={`col-span-2 row-span-1 relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/10 flex flex-col items-center justify-center p-6 group hover:from-primary/30 hover:to-primary/10 transition-all duration-500 opacity-0 ${
+              isVisible ? "animate-scale-fade-in" : ""
+            }`}
+            style={{ animationDelay: `${0.1 + images.length * 0.08}s` }}
+          >
+            <span className="text-lg font-serif font-semibold mb-2 text-foreground">Découvrir notre univers</span>
+            <span className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              Voir toute la galerie
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
         </div>
       </div>
     </section>
