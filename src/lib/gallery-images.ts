@@ -42,14 +42,14 @@ export const galleryImageMap: Record<string, string> = {
 
 // Images par défaut avec les vrais textes alt de la galerie
 export const defaultGalleryImages = [
-  { src: galerie01, alt: "Façade du Centre Ayurvédique Arkadhya", className: "col-span-2 row-span-2" },
-  { src: galerie02, alt: "Jardin et espace extérieur", className: "col-span-1 row-span-1" },
-  { src: galerie03, alt: "Salle de soins principale", className: "col-span-1 row-span-1" },
-  { src: galerie04, alt: "Espace détente et relaxation", className: "col-span-1 row-span-2" },
-  { src: galerie05, alt: "Vue sur le parc arboré", className: "col-span-1 row-span-1" },
-  { src: galerie06, alt: "Chambre d'hôtes paisible", className: "col-span-1 row-span-1" },
-  { src: galerie07, alt: "Salle de massage traditionnelle", className: "col-span-1 row-span-1" },
-  { src: galerie08, alt: "Décoration intérieure ayurvédique", className: "col-span-1 row-span-1" },
+  { src: galerie01, alt: "Allée fleurie du jardin", className: "col-span-2 row-span-2" },
+  { src: galerie02, alt: "Espace détente et relaxation", className: "col-span-1 row-span-1" },
+  { src: galerie03, alt: "Pivoine du jardin", className: "col-span-1 row-span-1" },
+  { src: galerie04, alt: "Façade 2 du Centre Ayurvédique Arkadhya", className: "col-span-1 row-span-2" },
+  { src: galerie05, alt: "Décorations intérieure", className: "col-span-1 row-span-1" },
+  { src: galerie06, alt: "Allée fleurie du jardin", className: "col-span-1 row-span-1" },
+  { src: galerie07, alt: "Salle de consultation", className: "col-span-1 row-span-1" },
+  { src: galerie08, alt: "Panneau d'entrée", className: "col-span-1 row-span-1" },
 ];
 
 /**

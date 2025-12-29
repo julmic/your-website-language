@@ -1,6 +1,6 @@
 ---
 src: /src/assets/galerie/galerie-09.webp
-alt: Bassin et fontaine du jardin
+alt: Allées fleuries
 size: wide
 category: jardin
 featured: false

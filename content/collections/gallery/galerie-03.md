@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-03.webp
-alt: Salle de soins principale
+alt: Pivoine du jardin
 size: normal
-category: soins
+category: jardin
 featured: true
 order: 3
 ---

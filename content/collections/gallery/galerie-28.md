@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-28.webp
-alt: Bâtiment en pierre et jardin
+alt: Salle d'enseignements et méditation
 size: normal
-category: batiment
+category: interieur
 featured: false
 order: 28
 ---

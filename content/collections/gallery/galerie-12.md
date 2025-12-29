@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-12.webp
-alt: Potager bio du centre
+alt: Façade du Centre Ayurvédique Arkadhya
 size: normal
-category: jardin
+category: batiment
 featured: false
 order: 12
 ---

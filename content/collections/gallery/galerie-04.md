@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-04.webp
-alt: Espace détente et relaxation
+alt: Façade 2 du Centre Ayurvédique Arkadhya
 size: wide
-category: interieur
+category: batiment
 featured: true
 order: 4
 ---

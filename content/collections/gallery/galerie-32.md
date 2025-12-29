@@ -1,6 +1,6 @@
 ---
 src: /src/assets/galerie/galerie-32.webp
-alt: Soin visage ayurvédique
+alt: Soin Shirodhara en cours
 size: normal
 category: soins
 featured: false

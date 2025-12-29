@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-08.webp
-alt: Décoration intérieure ayurvédique
+alt: Panneau d'entrée
 size: normal
-category: interieur
+category: batiment
 featured: true
 order: 8
 ---

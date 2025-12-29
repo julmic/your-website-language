@@ -1,6 +1,6 @@
 ---
 src: /src/assets/galerie/galerie-07.webp
-alt: Salle de massage traditionnelle
+alt: Salle de consultation
 size: normal
 category: soins
 featured: true

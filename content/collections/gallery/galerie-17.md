@@ -1,8 +1,8 @@
 ---
 src: /src/assets/galerie/galerie-17.webp
-alt: Préparation des soins ayurvédiques
+alt: Roses du jardin
 size: normal
-category: soins
+category: jardin
 featured: false
 order: 17
 ---

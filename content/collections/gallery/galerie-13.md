@@ -1,6 +1,6 @@
 ---
 src: /src/assets/galerie/galerie-13.webp
-alt: Salle de yoga et méditation
+alt: Tussor
 size: normal
 category: interieur
 featured: false
