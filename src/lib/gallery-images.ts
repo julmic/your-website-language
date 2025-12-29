@@ -7,6 +7,7 @@ import galerie05 from "@/assets/galerie/galerie-05.webp";
 import galerie06 from "@/assets/galerie/galerie-06.webp";
 import galerie07 from "@/assets/galerie/galerie-07.webp";
 import galerie08 from "@/assets/galerie/galerie-08.webp";
+import galerie20 from "@/assets/galerie/galerie-20.webp";
 
 // Images de massage importées depuis l'utilitaire centralisé
 import {
@@ -38,6 +39,7 @@ export const galleryImageMap: Record<string, string> = {
   "/src/assets/galerie/galerie-06.webp": galerie06,
   "/src/assets/galerie/galerie-07.webp": galerie07,
   "/src/assets/galerie/galerie-08.webp": galerie08,
+  "/src/assets/galerie/galerie-20.webp": galerie20,
 };
 
 // Images par défaut avec les vrais textes alt de la galerie
@@ -50,6 +52,7 @@ export const defaultGalleryImages = [
   { src: galerie06, alt: "Allée fleurie du jardin", className: "col-span-1 row-span-1" },
   { src: galerie07, alt: "Salle de consultation", className: "col-span-1 row-span-1" },
   { src: galerie08, alt: "Panneau d'entrée", className: "col-span-1 row-span-1" },
+  { src: galerie20, alt: "Vue panoramique sur la campagne", className: "col-span-2 row-span-1" },
 ];
 
 /**
