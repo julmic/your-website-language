@@ -1,8 +1,8 @@
 ---
-title: "Dhanurveda : l'art martial védique"
+title: "Dhanurveda : arts martiaux védiques"
 slug: "dhanurveda"
-sectionId: 9
-order: 5
+sectionId: 11
+order: 9
 available: false
 href: ""
 ---

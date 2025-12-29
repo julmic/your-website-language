@@ -1,8 +1,8 @@
 ---
 title: "Sri Aurobindo et le Yoga intégral"
 slug: "sri-aurobindo"
-sectionId: 10
-order: 1
+sectionId: 12
+order: 13
 available: false
 href: ""
 ---
