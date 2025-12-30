@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Services - Arkadhya Centre Ayurvédique</title>
+  <meta name="description" content="Découvrez tous nos services ayurvédiques : massages, consultations, cures et formations.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="./index.html" class="logo"><img src="./assets/images/logo-arkadhya.webp" alt="Arkadhya"><div class="logo-text"><span class="logo-subtitle">Centre Ayurvédique</span><span class="logo-title">Arkadhya</span></div></a>
+      <ul class="nav-links"><li><a href="./index.html">Accueil</a></li><li><a href="./services.html">Services</a></li><li><a href="./massages.html">Massages</a></li><li><a href="./cures.html">Cures</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./a-propos.html">À propos</a></li></ul>
+      <div class="nav-cta"><a href="./contact.html" class="btn btn-primary">Prendre RDV</a></div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu"><svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg><svg id="close-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav"><ul class="mobile-nav-links"><li><a href="./index.html">Accueil</a></li><li><a href="./services.html">Services</a></li><li><a href="./massages.html">Massages</a></li><li><a href="./cures.html">Cures</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html" class="btn btn-primary">Prendre RDV</a></li></ul></div>
+  </header>
+
+  <main>
+    <section class="page-hero"><div class="container"><h1>Nos Services</h1><p>Découvrez l'ensemble de nos prestations ayurvédiques pour votre bien-être.</p></div></section>
+
+    <section class="section">
+      <div class="container">
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-trigger">Massages Ayurvédiques <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="accordion-content"><p>Des massages ancestraux aux huiles médicinales, adaptés à votre constitution.</p><a href="./massages.html" class="btn btn-outline btn-sm">Découvrir nos massages</a></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger">Consultations Ayurvédiques <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="accordion-content"><p>Bilan de santé CHIKITSA (70€, 1h30) et accompagnement BHUTAVIDYA pour un équilibre corps-esprit.</p><a href="./consultations-ayurveda.html" class="btn btn-outline btn-sm">En savoir plus</a></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger">Cures et Programmes <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="accordion-content"><p>Programmes intensifs de 1 à 14 jours avec hébergement, soins quotidiens et repas ayurvédiques.</p><a href="./cures.html" class="btn btn-outline btn-sm">Découvrir nos cures</a></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger">Formations et Stages <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <div class="accordion-content"><p>Atelier de cuisine ayurvédique (50€), formation praticien et stage massage.</p><a href="./atelier-cuisine.html" class="btn btn-outline btn-sm">En savoir plus</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt"><div class="container"><div class="cta-section"><h2>Besoin d'un conseil personnalisé ?</h2><p>Nous sommes à votre écoute pour vous guider vers le soin qui vous correspond.</p><a href="./contact.html" class="btn btn-primary btn-lg">Contactez-nous</a></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2024 Arkadhya. Tous droits réservés.</p><div class="footer-legal"><a href="./legal/mentions-legales.html">Mentions légales</a></div></div></div></footer>
+  <button class="scroll-top" id="scroll-top" aria-label="Retour en haut"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+  <script src="./script.js"></script>
+</body>
+</html>
