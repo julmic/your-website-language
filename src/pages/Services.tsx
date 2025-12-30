@@ -80,7 +80,7 @@ const Services = () => {
 
       <section className="py-16">
         <div className="container px-4">
-          <Accordion type="multiple" defaultValue={["massages", "consultations", "cures", "formations"]} className="space-y-4">
+          <Accordion type="multiple" defaultValue={[]} className="space-y-4">
             
             {/* Section Massages */}
             <AccordionItem value="massages" className="border rounded-lg bg-secondary/20 px-4">
@@ -98,7 +98,7 @@ const Services = () => {
               <AccordionContent>
                 <Link to="/massages">
                   <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden group">
-                    <div className="relative h-40 overflow-hidden">
+                    <div className="relative aspect-square overflow-hidden">
                       <img 
                         src={massageImg} 
                         alt="Massages Ayurvédiques"
@@ -140,7 +140,7 @@ const Services = () => {
                   {consultations.map((consultation) => (
                     <Link key={consultation.title} to={consultation.link}>
                       <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
-                        <div className="relative h-40 overflow-hidden">
+                        <div className="relative aspect-square overflow-hidden">
                           <img 
                             src={consultation.image} 
                             alt={consultation.title}
@@ -190,7 +190,7 @@ const Services = () => {
               <AccordionContent>
                 <Link to="/cures">
                   <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden group">
-                    <div className="relative h-40 overflow-hidden">
+                    <div className="relative aspect-square overflow-hidden">
                       <img 
                         src={cureImg} 
                         alt="Cures Ayurvédiques"
@@ -232,7 +232,7 @@ const Services = () => {
                   {formations.map((formation) => (
                     <Link key={formation.title} to={formation.link}>
                       <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
-                        <div className="relative h-40 overflow-hidden">
+                        <div className="relative aspect-square overflow-hidden">
                           <img 
                             src={formation.image} 
                             alt={formation.title}
