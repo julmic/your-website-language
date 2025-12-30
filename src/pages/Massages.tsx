@@ -137,10 +137,6 @@ const Massages = () => {
                 <span>Sur rendez-vous uniquement</span>
               </div>
               <div className="flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 px-4 py-2 rounded-full text-sm">
-                <Clock className="w-4 h-4 text-primary" />
-                <span>45 à 70 minutes</span>
-              </div>
-              <div className="flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-border/50 px-4 py-2 rounded-full text-sm">
                 <Droplets className="w-4 h-4 text-primary" />
                 <span>Huiles 100% BIO</span>
               </div>
