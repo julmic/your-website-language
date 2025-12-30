@@ -13,6 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import logoArkadhya from "@/assets/logo-arkadhya.webp";
 import { getNavigationSettings } from "@/lib/settings-loader";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 // Load navigation from CMS
 const navigationSettings = getNavigationSettings();
@@ -149,6 +150,7 @@ export const Navigation = () => {
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
+            <ThemeToggle />
             <Button asChild className="ml-4">
               <Link to={navigationSettings.ctaButtonLink}>{navigationSettings.ctaButtonText}</Link>
             </Button>
@@ -220,6 +222,10 @@ export const Navigation = () => {
                   )}
                 </div>
               ))}
+              <div className="flex items-center justify-between py-3 border-b border-border/50">
+                <span className="text-sm text-muted-foreground">Thème</span>
+                <ThemeToggle />
+              </div>
               <Button asChild className="w-full mt-4">
                 <Link to={navigationSettings.ctaButtonLink} onClick={() => setIsOpen(false)}>
                   {navigationSettings.ctaButtonText}

@@ -12,47 +12,48 @@
 
 @layer base {
   :root {
-    --background: 138 16% 14%;
-    --foreground: 45 30% 92%;
+    /* Mode Clair - Élégant crème et vert forêt */
+    --background: 45 30% 96%;
+    --foreground: 138 25% 18%;
 
-    --card: 138 16% 18%;
-    --card-foreground: 45 30% 92%;
+    --card: 0 0% 100%;
+    --card-foreground: 138 25% 18%;
 
-    --popover: 138 16% 18%;
-    --popover-foreground: 45 30% 92%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 138 25% 18%;
 
-    --primary: 145 50% 45%;
-    --primary-foreground: 138 16% 14%;
+    --primary: 145 50% 38%;
+    --primary-foreground: 45 30% 96%;
 
-    --secondary: 138 14% 22%;
-    --secondary-foreground: 45 30% 92%;
+    --secondary: 45 20% 92%;
+    --secondary-foreground: 138 25% 18%;
 
-    --muted: 138 12% 24%;
-    --muted-foreground: 45 15% 65%;
+    --muted: 45 15% 88%;
+    --muted-foreground: 138 15% 40%;
 
-    --accent: 35 60% 55%;
-    --accent-foreground: 138 16% 14%;
+    --accent: 35 60% 50%;
+    --accent-foreground: 45 30% 96%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 138 12% 24%;
-    --input: 138 12% 24%;
-    --ring: 145 50% 45%;
+    --border: 35 25% 82%;
+    --input: 35 25% 82%;
+    --ring: 145 50% 38%;
 
     --radius: 0.5rem;
 
     /* Custom Arkadhya variables */
-    --gold: 35 60% 55%;
-    --gold-light: 35 65% 70%;
+    --gold: 35 60% 50%;
+    --gold-light: 35 65% 65%;
     --sage: 145 30% 35%;
     --sage-light: 145 25% 50%;
-    --cream: 45 30% 92%;
-    --forest: 138 16% 14%;
-    --shadow-sm: 0px 1px 1.5px 0px hsla(0, 0%, 0%, 0.11);
-    --shadow: 0px 1px 3px 0px hsla(0, 0%, 0%, 0.11);
-    --shadow-md: 0px 1px 4.5px 0px hsla(0, 0%, 0%, 0.11);
-    --shadow-lg: 0px 1px 7.5px 0px hsla(0, 0%, 0%, 0.11);
+    --cream: 45 30% 96%;
+    --forest: 138 25% 18%;
+    --shadow-sm: 0px 1px 1.5px 0px hsla(0, 0%, 0%, 0.06);
+    --shadow: 0px 1px 3px 0px hsla(0, 0%, 0%, 0.08);
+    --shadow-md: 0px 1px 4.5px 0px hsla(0, 0%, 0%, 0.08);
+    --shadow-lg: 0px 1px 7.5px 0px hsla(0, 0%, 0%, 0.08);
   }
 
   .dark {
