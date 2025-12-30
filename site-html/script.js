@@ -1,27 +1,15 @@
 /* ========================================
    ARKADHYA - JavaScript Principal
    Centre Ayurvédique en Aquitaine
-   Avec système d'injection de partials
+   Version autonome (sans partials)
    ======================================== */
 
-// --------- Utility: Detect Base Path ---------
-function getBasePath() {
-  const path = window.location.pathname;
-  // Count directory depth
-  const depth = (path.match(/\//g) || []).length - 1;
-  if (depth <= 0) return '';
-  return '../'.repeat(depth);
-}
-
 // --------- Main Initialization ---------
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', function() {
   // Apply theme immediately to prevent flash
   applyTheme(getPreferredTheme());
   
-  // Inject partials if placeholders exist
-  await injectPartials();
-  
-  // Initialize all functionality after partials are loaded
+  // Initialize all functionality
   initThemeToggle();
   initLogoAnimation();
   initMobileMenu();
@@ -37,51 +25,6 @@ document.addEventListener('DOMContentLoaded', async function() {
   initTabs();
   initCopyToClipboard();
 });
-
-// --------- Partials Injection ---------
-async function injectPartials() {
-  const basePath = getBasePath();
-  
-  // Inject header
-  const headerPlaceholder = document.querySelector('[data-include="header"]');
-  if (headerPlaceholder) {
-    try {
-      const response = await fetch(basePath + 'partials/header.html');
-      if (response.ok) {
-        let html = await response.text();
-        // Fix relative URLs
-        html = fixRelativeUrls(html, basePath);
-        headerPlaceholder.outerHTML = html;
-      }
-    } catch (e) {
-      console.warn('Could not load header partial:', e);
-    }
-  }
-  
-  // Inject footer
-  const footerPlaceholder = document.querySelector('[data-include="footer"]');
-  if (footerPlaceholder) {
-    try {
-      const response = await fetch(basePath + 'partials/footer.html');
-      if (response.ok) {
-        let html = await response.text();
-        // Fix relative URLs
-        html = fixRelativeUrls(html, basePath);
-        footerPlaceholder.outerHTML = html;
-      }
-    } catch (e) {
-      console.warn('Could not load footer partial:', e);
-    }
-  }
-}
-
-function fixRelativeUrls(html, basePath) {
-  // Replace root-relative URLs with correct relative paths
-  // e.g., href="/index.html" becomes href="index.html" or href="../index.html"
-  return html
-    .replace(/href="\/([^"]*?)"/g, `href="${basePath}$1"`)
-    .replace(/src="\/([^"]*?)"/g, `src="${basePath}$1"`);
-}
 
 // --------- Theme Management ---------
 function getPreferredTheme() {
@@ -232,7 +175,6 @@ function initMobileAccordions() {
 
 // --------- Scroll to Top ---------
 function initScrollToTop() {
-  // Support both new and legacy IDs
   const scrollTopBtn = document.getElementById('scroll-top') || document.querySelector('.scroll-top-btn');
   
   if (scrollTopBtn) {
@@ -262,7 +204,6 @@ function initAccordions() {
       const accordionItem = this.parentElement;
       const isActive = accordionItem.classList.contains('active');
       
-      // Toggle current item
       if (isActive) {
         accordionItem.classList.remove('active');
       } else {
