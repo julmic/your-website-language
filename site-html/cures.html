@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cures Ayurvédiques - Arkadhya</title>
-  <meta name="description" content="11 cures ayurvédiques en résidentiel : Panchakarma, Amrita, détox, régénération. Hébergement et repas inclus.">
+  <title>Cures Ayurvédiques | Centre Arkadhya</title>
+  <meta name="description" content="Découvrez nos cures ayurvédiques en résidentiel au cœur de l'Aquitaine. Panchakarma, Amrita, détox et régénération. Hébergement et repas inclus.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -22,40 +22,379 @@
   </header>
 
   <main>
-    <section class="page-hero"><div class="container"><h1>Cures Ayurvédiques</h1><p>Programmes de détox et régénération en résidentiel au cœur de l'Aquitaine.</p><div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem;"><span class="badge badge-secondary">Jusqu'à 14 jours</span><span class="badge badge-secondary">Chambre individuelle</span><span class="badge badge-secondary">Repas inclus</span></div></div></section>
+    <!-- Hero Section identique au React -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1>Cures Ayurvédiques</h1>
+          <p style="max-width:42rem;margin:0 auto 2rem;font-size:1.125rem;">
+            Découvrez nos cures en résidentiel au cœur de l'Aquitaine. Une expérience 
+            de détoxification et de régénération profonde dans un cadre paisible.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem;">
+            <span class="badge badge-outline" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:var(--card);border:1px solid var(--border);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary);"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Jusqu'à 14 jours
+            </span>
+            <span class="badge badge-outline" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:var(--card);border:1px solid var(--border);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary);"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Chambre individuelle
+            </span>
+            <span class="badge badge-outline" style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:var(--card);border:1px solid var(--border);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary);"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+              Repas inclus
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Section Nos Cures - Grille identique au React -->
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Nos <span class="text-primary">11 Cures</span></h2>
         <div class="grid grid-3">
-          <a href="./cures/panchakarma.html" class="card"><img src="./assets/images/cures/cure-panchakarma.jpg" alt="Panchakarma" class="card-image"><div class="card-content"><span class="badge badge-primary mb-3">Cure phare</span><h3>Cure Panchakarma</h3><p class="text-muted">Cure de détoxification complète selon les protocoles traditionnels.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">240€/jour</span></div></div></a>
-          <a href="./cures/amrita.html" class="card"><img src="./assets/images/cures/cure-amrita.jpg" alt="Amrita" class="card-image"><div class="card-content"><h3>Cure Amrita</h3><p class="text-muted">Cure de régénération profonde et rajeunissement.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">240€/jour</span></div></div></a>
-          <a href="./cures/karchan.html" class="card"><img src="./assets/images/cures/cure-karchan.jpg" alt="Karchan" class="card-image"><div class="card-content"><h3>Cure Karchan</h3><p class="text-muted">Cure amaigrissante ayurvédique.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">230€/jour</span></div></div></a>
-          <a href="./cures/laghana-rasayana.html" class="card"><img src="./assets/images/cures/cure-laghana-rasayana.jpg" alt="Laghana Rasayana" class="card-image"><div class="card-content"><h3>Cure Laghana Rasayana</h3><p class="text-muted">Cure détox et rajeunissement tissulaire.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">230€/jour</span></div></div></a>
-          <a href="./cures/ojas-kayakalpa.html" class="card"><img src="./assets/images/cures/cure-ojas-kayakalpa.jpg" alt="Ojas Kayakalpa" class="card-image"><div class="card-content"><h3>Cure Ojas Kayakalpa</h3><p class="text-muted">Régénération et vitalité profonde.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">230€/jour</span></div></div></a>
-          <a href="./cures/samvahana-vata.html" class="card"><img src="./assets/images/cures/cure-samvahana-vata.jpg" alt="Samvahana Vata" class="card-image"><div class="card-content"><h3>Cure Samvahana Vata</h3><p class="text-muted">Cure apaisante pour équilibrer Vata.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">230€/jour</span></div></div></a>
-          <a href="./cures/personnalisee.html" class="card"><img src="./assets/images/cures/cure-personnalisee.jpg" alt="Personnalisée" class="card-image"><div class="card-content"><h3>Cure Personnalisée</h3><p class="text-muted">Programme sur-mesure selon vos besoins.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">240€/jour</span></div></div></a>
-          <a href="./cures/prenatale.html" class="card"><img src="./assets/images/cures/cure-prenatale.jpg" alt="Prénatale" class="card-image"><div class="card-content"><h3>Cure Prénatale</h3><p class="text-muted">Accompagnement spécifique pour les futures mamans.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">230€/jour</span></div></div></a>
-          <a href="./cures/postnatale.html" class="card"><img src="./assets/images/cures/cure-postnatale.jpg" alt="Postnatale" class="card-image"><div class="card-content"><h3>Cure Postnatale</h3><p class="text-muted">Récupération après l'accouchement.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">7 à 14 jours</span><span class="price price-small">230€/jour</span></div></div></a>
-          <a href="./cures/week-end-decouverte.html" class="card"><img src="./assets/images/cures/cure-week-end.jpg" alt="Week-end Découverte" class="card-image"><div class="card-content"><h3>Week-end Découverte</h3><p class="text-muted">Initiation à l'Ayurvéda avec soins et cuisine.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">2 jours</span><span class="price price-small">380€ total</span></div></div></a>
-          <a href="./cures/journee.html" class="card"><img src="./assets/images/cures/cure-journee.jpg" alt="Journée" class="card-image"><div class="card-content"><h3>Cure Journée</h3><p class="text-muted">Une journée complète de soins ayurvédiques.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="text-muted">1 jour</span><span class="price price-small">220€</span></div></div></a>
+          <!-- Panchakarma - Cure phare -->
+          <a href="./cures/panchakarma.html" class="card massage-card cure-highlight">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-panchakarma.jpg" alt="Panchakarma">
+              <div class="massage-card-gradient"></div>
+              <span class="massage-card-badge">Cure phare</span>
+              <h3 class="massage-card-title">Cure Panchakarma</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Cure de détoxification complète selon les protocoles traditionnels.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 240€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Amrita -->
+          <a href="./cures/amrita.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-amrita.jpg" alt="Amrita">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Amrita</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Cure de régénération profonde et rajeunissement.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 240€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Karchan -->
+          <a href="./cures/karchan.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-karchan.jpg" alt="Karchan">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Karchan</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Cure amaigrissante ayurvédique.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 230€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Laghana Rasayana -->
+          <a href="./cures/laghana-rasayana.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-laghana-rasayana.jpg" alt="Laghana Rasayana">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Laghana Rasayana</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Cure détox et rajeunissement tissulaire.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 230€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Ojas Kayakalpa -->
+          <a href="./cures/ojas-kayakalpa.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-ojas-kayakalpa.jpg" alt="Ojas Kayakalpa">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Ojas Kayakalpa</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Régénération et vitalité profonde.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 230€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Samvahana Vata -->
+          <a href="./cures/samvahana-vata.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-samvahana-vata.jpg" alt="Samvahana Vata">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Samvahana Vata</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Cure apaisante pour équilibrer Vata.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 230€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Personnalisée -->
+          <a href="./cures/personnalisee.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-personnalisee.jpg" alt="Personnalisée">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Personnalisée</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Programme sur-mesure selon vos besoins.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 240€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Prénatale -->
+          <a href="./cures/prenatale.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-prenatale.jpg" alt="Prénatale">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Prénatale</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Accompagnement spécifique pour les futures mamans.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 230€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Postnatale -->
+          <a href="./cures/postnatale.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-postnatale.jpg" alt="Postnatale">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Postnatale</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Récupération après l'accouchement.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 7 à 14 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 230€/jour</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Week-end Découverte -->
+          <a href="./cures/week-end-decouverte.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-week-end.jpg" alt="Week-end Découverte">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Week-end Découverte</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Initiation à l'Ayurvéda avec soins et cuisine.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2 jours</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 380€ total</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
+
+          <!-- Cure Journée -->
+          <a href="./cures/journee.html" class="card massage-card">
+            <div class="massage-card-image">
+              <img src="./assets/images/cures/cure-journee.jpg" alt="Journée">
+              <div class="massage-card-gradient"></div>
+              <h3 class="massage-card-title">Cure Journée</h3>
+            </div>
+            <div class="card-content">
+              <p class="text-muted">Une journée complète de soins ayurvédiques.</p>
+              <div class="massage-card-info">
+                <span class="massage-card-duration"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 1 jour</span>
+                <span class="massage-card-price"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> 220€</span>
+              </div>
+              <button class="btn btn-outline btn-full">Découvrir cette cure</button>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
+    <!-- Informations Pratiques -->
     <section class="section section-alt">
-      <div class="container"><h2 class="section-title">Informations Pratiques</h2>
+      <div class="container">
+        <h2 class="section-title">Informations <span class="text-primary">Pratiques</span></h2>
         <div class="grid grid-2" style="max-width:56rem;margin:0 auto;">
-          <div class="card"><div class="card-content"><h3>Ce qui est inclus</h3><ul class="check-list"><li>Hébergement en chambre individuelle</li><li>Tous les repas (cuisine ayurvédique)</li><li>Soins et traitements quotidiens</li><li>Consultations ayurvédiques</li><li>Tisanes et chai à volonté</li></ul></div></div>
-          <div class="card"><div class="card-content"><h3>Bon à savoir</h3><ul style="list-style:none;"><li style="margin-bottom:0.5rem;">• Les cures se déroulent en présentiel</li><li style="margin-bottom:0.5rem;">• Durée maximale : 14 jours</li><li style="margin-bottom:0.5rem;">• Régimes spéciaux : +40€/jour</li><li>• Acompte non remboursable si annulation 7 jours avant</li></ul></div></div>
+          <div class="card">
+            <div class="card-content">
+              <h3 style="margin-bottom:1rem;">Ce qui est inclus</h3>
+              <ul class="check-list">
+                <li>Hébergement en chambre individuelle</li>
+                <li>Tous les repas (cuisine ayurvédique)</li>
+                <li>Soins et traitements quotidiens</li>
+                <li>Consultations ayurvédiques</li>
+                <li>Tisanes et chai à volonté</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3 style="margin-bottom:1rem;">Bon à savoir</h3>
+              <ul style="list-style:none;">
+                <li style="margin-bottom:0.5rem;color:var(--muted-foreground);">• Les cures se déroulent en présentiel</li>
+                <li style="margin-bottom:0.5rem;color:var(--muted-foreground);">• Durée maximale : 14 jours</li>
+                <li style="margin-bottom:0.5rem;color:var(--muted-foreground);">• Régimes spéciaux : +40€/jour</li>
+                <li style="color:var(--muted-foreground);">• Acompte non remboursable si annulation 7 jours avant</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section"><div class="container"><div class="cta-section"><h2>Besoin de Conseils ?</h2><p>Vous hésitez entre plusieurs cures ? Contactez-nous pour un échange personnalisé.</p><div class="cta-buttons"><a href="./contact.html" class="btn btn-primary btn-lg">Nous contacter</a><a href="tel:0553414810" class="btn btn-outline btn-lg">05 53 41 48 10</a></div></div></div></section>
+    <!-- FAQ Section -->
+    <section class="section">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="section-title">Foire aux <span class="text-primary">Questions</span></h2>
+          <p class="section-subtitle">Vous souhaitez bénéficier des bienfaits d'une cure ayurvédique au centre Arkadhya ? Voici des éléments de réponses aux questions qui nous sont le plus fréquemment posées.</p>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-trigger">Je suis végétarien et ne supporte pas le gluten, vais-je pouvoir conserver les principes de mon régime alimentaire ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Nos repas sont sans viande ni poisson, ni œufs. Les aliments sont également sans gluten, de manière à éviter toute réaction allergique ou inflammatoire du corps physique.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Je ne suis pas malade, seulement fatiguée. Les cures sont-elles faites pour moi ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Les cures ayurvédiques sont adaptées à votre état physique et émotionnel, que vous ayez des problèmes de santé ou pas. La fatigue, le stress, ou tout simplement le besoin de se retrouver avec soi-même, au calme, sont autant de raisons pour faire une cure.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Je suis âgée de plus de 80 ans. Puis-je bénéficier d'une cure ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Bien sûr ! Nous vous accueillons jusqu'à 100 ans et plus. Simplement, les soins seront particulièrement doux et enveloppants.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Puis-je me promener après les soins ou est-il préférable que je reste me reposer dans ma chambre ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Vous pouvez bien sûr vous promener tranquillement après les soins du jour. Le parc est vaste, arboré et fleuri. Si vous avez le moindre doute sur vos capacités physiques jour après jour, nous sommes là pour vous conseiller.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">J'ai déjà fait des cures dans des spas et je me suis senti un peu comme un numéro parmi de nombreux autres curistes. Comment cela se passe-t-il au centre Arkadhya ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Nous avons à cœur de vous accueillir, vous, et de vous prodiguer des soins personnalisés, sans vous réduire à une « pathologie ». Vous serez suivi par une unique personne au fil de votre cure de manière à assurer une continuité et une cohérence de soins. Nous accueillons au maximum 3 curistes sur une même semaine.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Quel hébergement proposez-vous ? Les chambres sont-elles individuelles ou collectives ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>L'hébergement est exclusivement en chambre individuelle, de manière à respecter votre intimité et votre besoin de repos et d'intégration des soins.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">J'ai des difficultés à me déplacer, notamment avec des bagages. Comment puis-je faire pour rejoindre le centre ayurvédique ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Si vous prenez le train jusqu'à Agen et le car jusqu'à la gare routière de Villeneuve sur Lot, vous pouvez bénéficier de services SNCF pour porter vos bagages puis de l'aide d'un voyageur pour ranger vos valises. Des taxis existent (Taxi Adrien 06 45 02 36 73) pour vous conduire ensuite au centre Arkadhya.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Je viens en voiture. Où puis-je me garer ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Un parking est à votre disposition dans le parc. Vous pourrez garer votre voiture en toute tranquillité.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Que dois-je apporter pour l'hébergement et pour les soins ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Les draps, taies d'oreiller et couvertures sont fournis. Vous devez apporter un peignoir léger (par exemple en matière « nid d'abeille ») et quelques sous-vêtements ne craignant pas l'huile en prévision des soins ; des vêtements amples et souples, des chaussures confortables (du style baskets) ainsi que votre nécessaire de toilette pour vos demi-journées de détente et de repos.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Des options payantes s'ajoutent-elles aux tarifs indiqués sur le site d'Arkadhya ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Il n'y a aucun ajout aux tarifs affichés sur le site. Pour connaître le prix total de votre cure, il vous suffit de multiplier le tarif journalier de la cure choisie par le nombre de jours souhaités. Le prix comprend l'hébergement, les soins, et les repas.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Dois-je arrêter mon traitement médical pendant la cure ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Non, pensez à prendre vos médicaments.</p></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger">Combien de temps à l'avance dois-je m'y prendre pour réserver ma cure ?<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              <div class="accordion-content"><p>Les réservations des cures de l'année sont ouvertes à partir du mois de février. Par exemple, si vous souhaitez une cure au mois de juillet 2026, nous vous recommandons de nous contacter dès février 2026. Il est bien entendu possible de nous appeler plus tardivement pour savoir si vos dates sont encore disponibles à la réservation.</p></div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-8">
+            <p class="text-muted">Cette liste n'étant pas exhaustive, n'hésitez pas à <a href="./contact.html" class="text-primary">nous contacter</a> ou appeler le <a href="tel:0553414810" class="text-primary">05 53 41 48 10</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="cta-section">
+          <h2>Besoin de Conseils ?</h2>
+          <p>Vous hésitez entre plusieurs cures ? Contactez-nous pour un échange personnalisé et trouver la cure qui correspond à vos besoins.</p>
+          <div class="cta-buttons">
+            <a href="./contact.html" class="btn btn-primary btn-lg">Nous contacter</a>
+            <a href="tel:0553414810" class="btn btn-outline btn-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              05 53 41 48 10
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2024 Arkadhya. Tous droits réservés.</p><div class="footer-legal"><a href="./legal/mentions-legales.html">Mentions légales</a><a href="./legal/cgv.html">CGV</a><a href="./legal/politique-confidentialite.html">Confidentialité</a></div></div></div></footer>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="./index.html" class="logo"><img src="./assets/images/logo-arkadhya.webp" alt="Arkadhya" style="height:3rem;"><div class="logo-text"><span class="logo-subtitle">Centre Ayurvédique</span><span class="logo-title">Arkadhya</span></div></a>
+          <p style="margin-top:1rem;">Un havre de paix dédié à l'Ayurvéda traditionnel au cœur de l'Aquitaine.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul><li><a href="./index.html">Accueil</a></li><li><a href="./services.html">Services</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./a-propos.html">À propos</a></li><li><a href="./galerie.html">Galerie Photos</a></li><li><a href="./contact.html">Contact</a></li></ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul><li><a href="./consultations-ayurveda.html">Consultations</a></li><li><a href="./massages.html">Massages Ayurvédiques</a></li><li><a href="./cures.html">Cures Bien-être</a></li><li><a href="./formations.html">Formations</a></li></ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <p style="font-size:0.875rem;color:var(--muted-foreground);margin-bottom:0.5rem;">Lieu-dit Doumarias<br>47150 Monflanquin</p>
+          <p style="font-size:0.875rem;color:var(--muted-foreground);margin-bottom:0.5rem;"><a href="tel:0553414810">05 53 41 48 10</a></p>
+          <p style="font-size:0.875rem;color:var(--muted-foreground);"><a href="mailto:contact@arkadhya.org">contact@arkadhya.org</a></p>
+          <div style="display:flex;gap:1rem;margin-top:1rem;">
+            <a href="https://www.facebook.com/Arkadhya" target="_blank" rel="noopener" style="color:var(--muted-foreground);"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/arkadhya_ayurveda" target="_blank" rel="noopener" style="color:var(--muted-foreground);"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Arkadhya. Tous droits réservés.</p>
+        <div class="footer-legal">
+          <a href="./legal/mentions-legales.html">Mentions légales</a>
+          <a href="./legal/cgv.html">CGV</a>
+          <a href="./legal/politique-confidentialite.html">Confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <button class="scroll-top" id="scroll-top" aria-label="Retour en haut"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
   <script src="./script.js"></script>
 </body>

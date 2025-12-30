@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Ayurvéda - Arkadhya</title>
-  <meta name="description" content="Articles et conseils sur l'Ayurvéda, la nutrition, le bien-être et les saisons.">
+  <title>Blog Ayurvéda | Centre Arkadhya</title>
+  <meta name="description" content="Articles et conseils sur l'Ayurvéda, la nutrition, le bien-être et les saisons. Explorez nos articles pour approfondir vos connaissances.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -22,29 +22,272 @@
   </header>
 
   <main>
-    <section class="page-hero"><div class="container"><h1>Blog & Actualités</h1><p>Explorez nos articles pour approfondir vos connaissances en Ayurvéda.</p></div></section>
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1>Blog & Actualités</h1>
+          <p style="font-size:1.125rem;">Explorez nos articles pour approfondir vos connaissances en Ayurvéda et découvrir des conseils bien-être au quotidien.</p>
+        </div>
+      </div>
+    </section>
 
+    <!-- Category Filters -->
+    <section class="category-filters">
+      <div class="container">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+          <button class="category-btn active" data-category="all">Tous</button>
+          <button class="category-btn" data-category="bien-etre">Bien-être</button>
+          <button class="category-btn" data-category="digestion">Digestion</button>
+          <button class="category-btn" data-category="fondamentaux">Fondamentaux</button>
+          <button class="category-btn" data-category="mode-de-vie">Mode de vie</button>
+          <button class="category-btn" data-category="nutrition">Nutrition</button>
+          <button class="category-btn" data-category="plantes">Plantes</button>
+          <button class="category-btn" data-category="saisons">Saisons</button>
+          <button class="category-btn" data-category="sante-mentale">Santé Mentale</button>
+          <button class="category-btn" data-category="sante-osseuse">Santé Osseuse</button>
+          <button class="category-btn" data-category="soins">Soins</button>
+          <button class="category-btn" data-category="sommeil">Sommeil</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles Grid -->
     <section class="section">
       <div class="container">
         <div class="grid grid-3">
-          <a href="./blog/osteoporose-ayurveda.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/osteoporose-hero.webp');background-size:cover;background-position:center;"><span class="blog-card-category">Santé Osseuse</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>17 décembre 2024</span><span>25 min</span></div><h3>Ostéoporose et Ayurvéda</h3><p>Asthi Dhatu Kshaya : reconstruire ses os naturellement.</p></div></a>
-          <a href="./blog/hiver-ayurveda.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/hiver-ayurveda-hero.webp');background-size:cover;background-position:center;"><span class="blog-card-category">Saisons</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>10 décembre 2024</span><span>6 min</span></div><h3>L'hiver selon l'Ayurvéda</h3><p>Conseils alimentaires et routines pour la saison froide.</p></div></a>
-          <a href="./blog/bienfaits-massage-abhyanga.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/massages/abhyanga.webp');background-size:cover;background-position:center;"><span class="blog-card-category">Soins</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>10 décembre 2024</span><span>4 min</span></div><h3>Les bienfaits du massage Abhyanga</h3><p>Découvrez cette pratique ancestrale d'auto-massage à l'huile chaude.</p></div></a>
-          <a href="./blog/alimentation-ayurvedique-hiver.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/hiver-ayurveda-hero.webp');background-size:cover;background-position:center;"><span class="blog-card-category">Nutrition</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>5 décembre 2024</span><span>6 min</span></div><h3>Alimentation ayurvédique en hiver</h3><p>Comment adapter votre alimentation pour traverser l'hiver en pleine forme.</p></div></a>
-          <a href="./blog/routine-matinale-dinacharya.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/sommeil-ayurveda-hero.png');background-size:cover;background-position:center;"><span class="blog-card-category">Mode de vie</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>1 décembre 2024</span><span>7 min</span></div><h3>Dinacharya : la routine matinale</h3><p>Les pratiques matinales pour commencer chaque journée avec énergie.</p></div></a>
-          <a href="./blog/plantes-ayurvediques-essentielles.html" class="blog-card"><div class="blog-card-image" style="background-image:linear-gradient(135deg, rgba(124, 154, 94, 0.3), rgba(124, 154, 94, 0.1));"><span class="blog-card-category">Plantes</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>25 novembre 2024</span><span>5 min</span></div><h3>5 plantes ayurvédiques essentielles</h3><p>Ashwagandha, Tulsi, Triphala... les incontournables de l'Ayurvéda.</p></div></a>
-          <a href="./blog/gerer-stress-ayurveda.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/sante-mentale-hero.png');background-size:cover;background-position:center;"><span class="blog-card-category">Bien-être</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>20 novembre 2024</span><span>6 min</span></div><h3>Gérer le stress avec l'Ayurvéda</h3><p>Techniques de respiration, alimentation et herbes calmantes.</p></div></a>
-          <a href="./blog/sommeil-ayurveda.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/sommeil-ayurveda-hero.png');background-size:cover;background-position:center;"><span class="blog-card-category">Bien-être</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>5 novembre 2024</span><span>7 min</span></div><h3>Améliorer son sommeil naturellement</h3><p>Les secrets ayurvédiques pour un sommeil réparateur.</p></div></a>
-          <a href="./blog/incompatibilites-alimentaires.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/incompatibilites-alimentaires-hero.webp');background-size:cover;background-position:center;"><span class="blog-card-category">Nutrition</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>20 octobre 2024</span><span>10 min</span></div><h3>Les incompatibilités alimentaires</h3><p>Quels aliments ne pas associer selon l'Ayurvéda.</p></div></a>
-          <a href="./blog/colon-irritable.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/colon-irritable-hero.webp');background-size:cover;background-position:center;"><span class="blog-card-category">Santé</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>15 septembre 2024</span><span>9 min</span></div><h3>Côlon irritable et Ayurvéda</h3><p>Approche naturelle pour apaiser les troubles digestifs.</p></div></a>
-          <a href="./blog/automne-ayurveda.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/automne-ayurveda-hero.jpeg');background-size:cover;background-position:center;"><span class="blog-card-category">Saisons</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>1 septembre 2024</span><span>6 min</span></div><h3>L'automne en Ayurvéda</h3><p>Préparez votre corps au changement de saison.</p></div></a>
-          <a href="./blog/les-3-doshas.html" class="blog-card"><div class="blog-card-image" style="background-image:url('./assets/images/blog/doshas-hero.webp');background-size:cover;background-position:center;"><span class="blog-card-category">Fondamentaux</span></div><div class="blog-card-content"><div class="blog-card-meta"><span>15 janvier 2024</span><span>8 min</span></div><h3>Comprendre les 3 Doshas</h3><p>Vata, Pitta, Kapha : découvrez votre constitution ayurvédique.</p></div></a>
+          <!-- Ostéoporose et Ayurvéda -->
+          <a href="./blog/osteoporose-ayurveda.html" class="blog-card" data-category="sante-osseuse">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/osteoporose-hero.webp');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Santé Osseuse</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>17 décembre 2024</span>
+                <span>25 min</span>
+              </div>
+              <h3>Ostéoporose et Ayurvéda</h3>
+              <p>Asthi Dhatu Kshaya : reconstruire ses os naturellement.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- L'hiver selon l'Ayurvéda -->
+          <a href="./blog/hiver-ayurveda.html" class="blog-card" data-category="saisons">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/hiver-ayurveda-hero.webp');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Saisons</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>10 décembre 2024</span>
+                <span>6 min</span>
+              </div>
+              <h3>L'hiver selon l'Ayurvéda</h3>
+              <p>Conseils alimentaires et routines pour la saison froide.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- Les bienfaits du massage Abhyanga -->
+          <a href="./blog/bienfaits-massage-abhyanga.html" class="blog-card" data-category="soins">
+            <div class="blog-card-image" style="background-image:url('./assets/images/massages/abhyanga.webp');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Soins</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>10 décembre 2024</span>
+                <span>4 min</span>
+              </div>
+              <h3>Les bienfaits du massage Abhyanga</h3>
+              <p>Découvrez cette pratique ancestrale d'auto-massage à l'huile chaude.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- Alimentation ayurvédique en hiver -->
+          <a href="./blog/alimentation-ayurvedique-hiver.html" class="blog-card" data-category="nutrition">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/hiver-ayurveda-hero.webp');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Nutrition</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>5 décembre 2024</span>
+                <span>6 min</span>
+              </div>
+              <h3>Alimentation ayurvédique en hiver</h3>
+              <p>Comment adapter votre alimentation pour traverser l'hiver en pleine forme.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- Dinacharya : la routine matinale -->
+          <a href="./blog/routine-matinale-dinacharya.html" class="blog-card" data-category="mode-de-vie">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/sommeil-ayurveda-hero.png');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Mode de vie</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>1 décembre 2024</span>
+                <span>7 min</span>
+              </div>
+              <h3>Dinacharya : la routine matinale</h3>
+              <p>Les pratiques matinales pour commencer chaque journée avec énergie.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- 5 plantes ayurvédiques essentielles -->
+          <a href="./blog/plantes-ayurvediques-essentielles.html" class="blog-card" data-category="plantes">
+            <div class="blog-card-image" style="background:linear-gradient(135deg, rgba(124, 154, 94, 0.3), rgba(124, 154, 94, 0.1));">
+              <span class="blog-card-category">Plantes</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>25 novembre 2024</span>
+                <span>5 min</span>
+              </div>
+              <h3>5 plantes ayurvédiques essentielles</h3>
+              <p>Ashwagandha, Tulsi, Triphala... les incontournables de l'Ayurvéda.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- Gérer le stress avec l'Ayurvéda -->
+          <a href="./blog/gerer-stress-ayurveda.html" class="blog-card" data-category="bien-etre">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/sante-mentale-hero.png');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Bien-être</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 novembre 2024</span>
+                <span>6 min</span>
+              </div>
+              <h3>Gérer le stress avec l'Ayurvéda</h3>
+              <p>Techniques de respiration, alimentation et herbes calmantes.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- Améliorer son sommeil naturellement -->
+          <a href="./blog/sommeil-ayurveda.html" class="blog-card" data-category="sommeil">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/sommeil-ayurveda-hero.png');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Sommeil</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>5 novembre 2024</span>
+                <span>7 min</span>
+              </div>
+              <h3>Améliorer son sommeil naturellement</h3>
+              <p>Les secrets ayurvédiques pour un sommeil réparateur.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- Les incompatibilités alimentaires -->
+          <a href="./blog/incompatibilites-alimentaires.html" class="blog-card" data-category="nutrition">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/incompatibilites-alimentaires-hero.webp');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Nutrition</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>20 octobre 2024</span>
+                <span>10 min</span>
+              </div>
+              <h3>Les incompatibilités alimentaires</h3>
+              <p>Quels aliments ne pas associer selon l'Ayurvéda.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- Côlon irritable et Ayurvéda -->
+          <a href="./blog/colon-irritable.html" class="blog-card" data-category="digestion">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/colon-irritable-hero.webp');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Digestion</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>15 septembre 2024</span>
+                <span>9 min</span>
+              </div>
+              <h3>Côlon irritable et Ayurvéda</h3>
+              <p>Approche naturelle pour apaiser les troubles digestifs.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- L'automne en Ayurvéda -->
+          <a href="./blog/automne-ayurveda.html" class="blog-card" data-category="saisons">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/automne-ayurveda-hero.jpeg');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Saisons</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>1 septembre 2024</span>
+                <span>6 min</span>
+              </div>
+              <h3>L'automne en Ayurvéda</h3>
+              <p>Préparez votre corps au changement de saison.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
+
+          <!-- Comprendre les 3 Doshas -->
+          <a href="./blog/les-3-doshas.html" class="blog-card" data-category="fondamentaux">
+            <div class="blog-card-image" style="background-image:url('./assets/images/blog/doshas-hero.webp');background-size:cover;background-position:center;">
+              <span class="blog-card-category">Fondamentaux</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>15 janvier 2024</span>
+                <span>8 min</span>
+              </div>
+              <h3>Comprendre les 3 Doshas</h3>
+              <p>Vata, Pitta, Kapha : découvrez votre constitution ayurvédique.</p>
+              <span class="text-primary" style="font-size:0.875rem;">Lire l'article →</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2024 Arkadhya. Tous droits réservés.</p><div class="footer-legal"><a href="./legal/mentions-legales.html">Mentions légales</a><a href="./legal/cgv.html">CGV</a><a href="./legal/politique-confidentialite.html">Confidentialité</a></div></div></div></footer>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="./index.html" class="logo"><img src="./assets/images/logo-arkadhya.webp" alt="Arkadhya" style="height:3rem;"><div class="logo-text"><span class="logo-subtitle">Centre Ayurvédique</span><span class="logo-title">Arkadhya</span></div></a>
+          <p style="margin-top:1rem;">Un havre de paix dédié à l'Ayurvéda traditionnel au cœur de l'Aquitaine.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul><li><a href="./index.html">Accueil</a></li><li><a href="./services.html">Services</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./a-propos.html">À propos</a></li><li><a href="./galerie.html">Galerie Photos</a></li><li><a href="./contact.html">Contact</a></li></ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul><li><a href="./consultations-ayurveda.html">Consultations</a></li><li><a href="./massages.html">Massages Ayurvédiques</a></li><li><a href="./cures.html">Cures Bien-être</a></li><li><a href="./formations.html">Formations</a></li></ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <p style="font-size:0.875rem;color:var(--muted-foreground);margin-bottom:0.5rem;">Lieu-dit Doumarias<br>47150 Monflanquin</p>
+          <p style="font-size:0.875rem;color:var(--muted-foreground);margin-bottom:0.5rem;"><a href="tel:0553414810">05 53 41 48 10</a></p>
+          <p style="font-size:0.875rem;color:var(--muted-foreground);"><a href="mailto:contact@arkadhya.org">contact@arkadhya.org</a></p>
+          <div style="display:flex;gap:1rem;margin-top:1rem;">
+            <a href="https://www.facebook.com/Arkadhya" target="_blank" rel="noopener" style="color:var(--muted-foreground);"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/arkadhya_ayurveda" target="_blank" rel="noopener" style="color:var(--muted-foreground);"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Arkadhya. Tous droits réservés.</p>
+        <div class="footer-legal">
+          <a href="./legal/mentions-legales.html">Mentions légales</a>
+          <a href="./legal/cgv.html">CGV</a>
+          <a href="./legal/politique-confidentialite.html">Confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <button class="scroll-top" id="scroll-top" aria-label="Retour en haut"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
   <script src="./script.js"></script>
 </body>
