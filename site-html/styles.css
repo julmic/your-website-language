@@ -56,20 +56,152 @@
 }
 
 /* --------- Dark Mode --------- */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a1a1a;
-    --foreground: #f5f5f5;
-    --card: #262626;
-    --card-foreground: #f5f5f5;
-    --secondary: #2a2a2a;
-    --secondary-foreground: #f5f5f5;
-    --muted: #333333;
-    --muted-foreground: #a3a3a3;
-    --accent: #3a3a3a;
-    --accent-foreground: #f5f5f5;
-    --border: #404040;
+html.dark {
+  --background: #1a1a1a;
+  --foreground: #f5f5f5;
+  --card: #262626;
+  --card-foreground: #f5f5f5;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #f5f5f5;
+  --muted: #333333;
+  --muted-foreground: #a3a3a3;
+  --accent: #3a3a3a;
+  --accent-foreground: #f5f5f5;
+  --border: #404040;
+}
+
+html.dark .header {
+  background-color: rgba(26, 26, 26, 0.8);
+}
+
+html.dark .blog-card-category {
+  background-color: rgba(38, 38, 38, 0.9);
+  color: #f5f5f5;
+}
+
+/* --------- Theme Toggle --------- */
+.theme-toggle {
+  position: relative;
+  width: 3.5rem;
+  height: 1.75rem;
+  background-color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle:hover {
+  background-color: var(--secondary);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--foreground);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left var(--transition), transform var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+html.dark .theme-toggle-thumb {
+  left: calc(100% - 1.625rem);
+}
+
+.theme-toggle-thumb svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--background);
+}
+
+/* --------- Logo Animation --------- */
+@keyframes elegant-unroll {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+    filter: blur(4px);
   }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    letter-spacing: 0.2em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.05em;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-animated {
+  opacity: 0;
+  animation: elegant-unroll 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.logo-animated.loaded {
+  opacity: 1;
+}
+
+.site-title.animate {
+  opacity: 0;
+  animation: text-reveal 0.8s ease-out 0.4s forwards;
+}
+
+.site-title.loaded {
+  opacity: 1;
+  animation: none;
+}
+
+.site-description.animate {
+  opacity: 0;
+  animation: fade-in-up 0.6s ease-out 0.8s forwards;
+}
+
+.site-description.loaded {
+  opacity: 1;
+  animation: none;
+}
+
+.logo:hover .logo-animated {
+  transform: scale(1.05);
+  transition: transform var(--transition);
+}
+
+.logo:hover .site-title {
+  color: var(--primary);
+  transition: color var(--transition);
 }
 
 /* --------- Reset & Base --------- */

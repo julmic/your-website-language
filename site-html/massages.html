@@ -4,18 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Massages Ayurvédiques - Arkadhya</title>
-  <meta name="description" content="Découvrez nos massages ayurvédiques traditionnels : Abhyanga, Shirodhara, Udvartana et plus.">
+  <meta name="description" content="Découvrez nos 29 massages ayurvédiques traditionnels : Abhyanga, Shirodhara, Udvartana et plus.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <header class="header">
     <nav class="nav container">
-      <a href="./index.html" class="logo"><img src="./assets/images/logo-arkadhya.webp" alt="Arkadhya"><div class="logo-text"><span class="logo-subtitle">Centre Ayurvédique</span><span class="logo-title">Arkadhya</span></div></a>
-      <ul class="nav-links"><li><a href="./index.html">Accueil</a></li><li><a href="./services.html">Services</a></li><li><a href="./massages.html">Massages</a></li><li><a href="./cures.html">Cures</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./a-propos.html">À propos</a></li></ul>
-      <div class="nav-cta"><a href="./contact.html" class="btn btn-primary">Prendre RDV</a></div>
+      <a href="./index.html" class="logo"><img src="./assets/images/logo-arkadhya.webp" alt="Arkadhya" class="logo-animated"><div class="logo-text"><span class="logo-subtitle site-description">Centre Ayurvédique</span><span class="logo-title site-title">Arkadhya</span></div></a>
+      <ul class="nav-links"><li><a href="./index.html">Accueil</a></li><li><a href="./services.html">Services</a></li><li><a href="./massages.html">Massages</a></li><li><a href="./cures.html">Cures</a></li><li><a href="./consultations-ayurveda.html">Consultations</a></li><li><a href="./philosophie-vedique.html">Philosophie</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./a-propos.html">À propos</a></li></ul>
+      <div class="nav-cta" style="display:flex;align-items:center;gap:1rem;">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème"><div class="theme-toggle-thumb"><svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg id="moon-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div></button>
+        <a href="./contact.html" class="btn btn-primary">Prendre RDV</a>
+      </div>
       <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu"><svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg><svg id="close-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
     </nav>
-    <div class="mobile-nav" id="mobile-nav"><ul class="mobile-nav-links"><li><a href="./index.html">Accueil</a></li><li><a href="./services.html">Services</a></li><li><a href="./cures.html">Cures</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html" class="btn btn-primary">Prendre RDV</a></li></ul></div>
+    <div class="mobile-nav" id="mobile-nav"><ul class="mobile-nav-links"><li><a href="./index.html">Accueil</a></li><li><a href="./services.html">Services</a></li><li><a href="./massages.html">Massages</a></li><li><a href="./cures.html">Cures</a></li><li><a href="./consultations-ayurveda.html">Consultations</a></li><li><a href="./philosophie-vedique.html">Philosophie</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./a-propos.html">À propos</a></li><li><a href="./contact.html" class="btn btn-primary" style="margin-top:1rem;">Prendre RDV</a></li></ul></div>
   </header>
 
   <main>
@@ -23,26 +26,83 @@
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Nos <span class="text-primary">Massages</span></h2>
+        <h2 class="section-title">Massages <span class="text-primary">Corporels</span></h2>
         <div class="grid grid-3">
-          <div class="card"><img src="./assets/images/abhyanga.webp" alt="Abhyanga" class="card-image"><div class="card-content"><h3>Abhyanga</h3><p class="text-muted">Massage complet à l'huile chaude adapté à votre constitution.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">à partir de 70€</span><span class="text-muted">1h30</span></div></div></div>
-          <div class="card"><img src="./assets/images/shirodhara.webp" alt="Shirodhara" class="card-image"><div class="card-content"><h3>Shirodhara</h3><p class="text-muted">Filet d'huile tiède sur le front pour une relaxation profonde.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€</span><span class="text-muted">1h30</span></div></div></div>
-          <div class="card"><img src="./assets/images/udvartana.webp" alt="Udvartana" class="card-image"><div class="card-content"><h3>Udvartana</h3><p class="text-muted">Massage tonifiant aux poudres de plantes.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">80€</span><span class="text-muted">1h30</span></div></div></div>
-          <div class="card"><img src="./assets/images/padabhyanga.webp" alt="Padabhyanga" class="card-image"><div class="card-content"><h3>Padabhyanga</h3><p class="text-muted">Massage des pieds et points réflexes.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">1h</span></div></div></div>
-          <div class="card"><img src="./assets/images/shiro-abhyanga.webp" alt="Shiro Abhyanga" class="card-image"><div class="card-content"><h3>Shiro Abhyanga</h3><p class="text-muted">Massage de la tête, nuque et épaules.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">1h</span></div></div></div>
-          <div class="card"><img src="./assets/images/bol-kansu.webp" alt="Bol Kansu" class="card-image"><div class="card-content"><h3>Bol Kansu</h3><p class="text-muted">Massage des pieds au bol traditionnel en alliage.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">1h</span></div></div></div>
+          <a href="./massages/abhyanga.html" class="card"><img src="./assets/images/massages/abhyanga.webp" alt="Abhyanga" class="card-image"><div class="card-content"><h3>Abhyanga</h3><p class="text-muted">Massage complet à l'huile chaude adapté à votre constitution.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€ - 120€</span><span class="text-muted">1h - 1h30</span></div></div></a>
+          <a href="./massages/vishesh.html" class="card"><img src="./assets/images/massages/vishesh.webp" alt="Vishesh" class="card-image"><div class="card-content"><h3>Vishesh</h3><p class="text-muted">Massage profond aux huiles chaudes pour libérer les tensions.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€ - 120€</span><span class="text-muted">1h - 1h30</span></div></div></a>
+          <a href="./massages/udvartana.html" class="card"><img src="./assets/images/massages/udvartana.jpeg" alt="Udvartana" class="card-image"><div class="card-content"><h3>Udvartana</h3><p class="text-muted">Massage tonifiant aux poudres de plantes.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€ - 120€</span><span class="text-muted">1h - 1h30</span></div></div></a>
+          <a href="./massages/mardanam.html" class="card"><img src="./assets/images/massages/mardanam.webp" alt="Mardanam" class="card-image"><div class="card-content"><h3>Mardanam</h3><p class="text-muted">Massage sportif aux huiles essentielles.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€ - 120€</span><span class="text-muted">1h - 1h30</span></div></div></a>
+          <a href="./massages/pizichilli.html" class="card"><img src="./assets/images/massages/pizichilli.jpeg" alt="Pizichilli" class="card-image"><div class="card-content"><h3>Pizichilli</h3><p class="text-muted">Bain d'huile chaude versée en continu sur le corps.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">120€</span><span class="text-muted">1h30</span></div></div></a>
+          <a href="./massages/marma-therapie.html" class="card"><img src="./assets/images/massages/marma-therapie.png" alt="Marma Thérapie" class="card-image"><div class="card-content"><h3>Marma Thérapie</h3><p class="text-muted">Stimulation des points vitaux marmas.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€</span><span class="text-muted">1h</span></div></div></a>
         </div>
       </div>
     </section>
 
     <section class="section section-alt">
-      <div class="container"><div class="disclaimer"><div class="disclaimer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="disclaimer-text"><p>Les prestations proposées sont des massages de relaxation sans caractère médical ou thérapeutique.</p><p>Elles ne se substituent pas à un traitement ou diagnostic médical.</p></div></div></div>
+      <div class="container">
+        <h2 class="section-title">Massages <span class="text-primary">Tête & Visage</span></h2>
+        <div class="grid grid-3">
+          <a href="./massages/shiro-abhyanga.html" class="card"><img src="./assets/images/massages/shiroabhyanga.jpeg" alt="Shiro Abhyanga" class="card-image"><div class="card-content"><h3>Shiro Abhyanga</h3><p class="text-muted">Massage de la tête, nuque et épaules.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€ - 90€</span><span class="text-muted">45min - 1h</span></div></div></a>
+          <a href="./massages/shirotchampi.html" class="card"><img src="./assets/images/massages/shirotchampi.jpeg" alt="Shirotchampi" class="card-image"><div class="card-content"><h3>Shirotchampi</h3><p class="text-muted">Massage crânien indien traditionnel.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">45min</span></div></div></a>
+          <a href="./massages/shirodhara.html" class="card"><img src="./assets/images/massages/shirodhara.jpeg" alt="Shirodhara" class="card-image"><div class="card-content"><h3>Shirodhara</h3><p class="text-muted">Filet d'huile tiède sur le front pour relaxation profonde.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€ - 120€</span><span class="text-muted">1h - 1h30</span></div></div></a>
+          <a href="./massages/mukhalepam.html" class="card"><img src="./assets/images/massages/mukhalepam.png" alt="Mukhalepam" class="card-image"><div class="card-content"><h3>Mukhalepam</h3><p class="text-muted">Soin du visage ayurvédique aux herbes.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">45min</span></div></div></a>
+          <a href="./massages/thalapothichil.html" class="card"><img src="./assets/images/massages/thalapothichil.png" alt="Thalapothichil" class="card-image"><div class="card-content"><h3>Thalapothichil</h3><p class="text-muted">Masque d'herbes médicinales sur la tête.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€</span><span class="text-muted">1h</span></div></div></a>
+          <a href="./massages/putapakam.html" class="card"><img src="./assets/images/massages/putapakam.jpeg" alt="Putapakam" class="card-image"><div class="card-content"><h3>Putapakam</h3><p class="text-muted">Soin des yeux aux herbes médicinales.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">45min</span></div></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Massages <span class="text-primary">Pieds & Jambes</span></h2>
+        <div class="grid grid-3">
+          <a href="./massages/padabhyanga.html" class="card"><img src="./assets/images/massages/padabhyanga.png" alt="Padabhyanga" class="card-image"><div class="card-content"><h3>Padabhyanga</h3><p class="text-muted">Massage des pieds et points réflexes.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">45min</span></div></div></a>
+          <a href="./massages/padavishesh.html" class="card"><img src="./assets/images/massages/padavishesh.png" alt="Padavishesh" class="card-image"><div class="card-content"><h3>Padavishesh</h3><p class="text-muted">Massage profond des pieds et jambes.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€</span><span class="text-muted">1h</span></div></div></a>
+          <a href="./massages/bol-kansu.html" class="card"><img src="./assets/images/massages/bol-kansu.webp" alt="Bol Kansu" class="card-image"><div class="card-content"><h3>Bol Kansu</h3><p class="text-muted">Massage des pieds au bol traditionnel en alliage.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">45min</span></div></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Massages <span class="text-primary">aux Bolus</span></h2>
+        <div class="grid grid-3">
+          <a href="./massages/kizhi.html" class="card"><img src="./assets/images/massages/kizhi.webp" alt="Kizhi" class="card-image"><div class="card-content"><h3>Kizhi</h3><p class="text-muted">Massage aux pochons d'herbes médicinales.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€ - 120€</span><span class="text-muted">1h - 1h30</span></div></div></a>
+          <a href="./massages/elakizhi.html" class="card"><img src="./assets/images/massages/elakizhi.webp" alt="Elakizhi" class="card-image"><div class="card-content"><h3>Elakizhi</h3><p class="text-muted">Massage aux bolus de feuilles médicinales.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€ - 120€</span><span class="text-muted">1h - 1h30</span></div></div></a>
+          <a href="./massages/navarakiri.html" class="card"><img src="./assets/images/massages/navarakiri.png" alt="Navarakiri" class="card-image"><div class="card-content"><h3>Navarakiri</h3><p class="text-muted">Massage aux bolus de riz médicinal.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">120€</span><span class="text-muted">1h30</span></div></div></a>
+          <a href="./massages/shashtishalipindswedan.html" class="card"><img src="./assets/images/massages/shashtishalipindswedan.png" alt="Shashtishalipindswedan" class="card-image"><div class="card-content"><h3>Shashtishalipindswedan</h3><p class="text-muted">Massage nutritif aux bolus de riz.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">120€</span><span class="text-muted">1h30</span></div></div></a>
+          <a href="./massages/pinda-sweda.html" class="card"><img src="./assets/images/massages/pinda-sveda.png" alt="Pinda Sweda" class="card-image"><div class="card-content"><h3>Pinda Sweda</h3><p class="text-muted">Sudation aux bolus chauds.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€</span><span class="text-muted">1h</span></div></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Soins <span class="text-primary">Spécialisés</span></h2>
+        <div class="grid grid-3">
+          <a href="./massages/saundarya.html" class="card"><img src="./assets/images/massages/saundarya.jpeg" alt="Saundarya" class="card-image"><div class="card-content"><h3>Saundarya</h3><p class="text-muted">Soin beauté ayurvédique complet.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">120€</span><span class="text-muted">1h30</span></div></div></a>
+          <a href="./massages/pancha-maha-bhuta.html" class="card"><img src="./assets/images/massages/pancha-maha-bhuta.webp" alt="Pancha Maha Bhuta" class="card-image"><div class="card-content"><h3>Pancha Maha Bhuta</h3><p class="text-muted">Soin des 5 éléments.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">150€</span><span class="text-muted">2h</span></div></div></a>
+          <a href="./massages/svedana.html" class="card"><img src="./assets/images/massages/svedana.png" alt="Svedana" class="card-image"><div class="card-content"><h3>Svedana</h3><p class="text-muted">Sudation aux herbes médicinales.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">45min</span></div></div></a>
+          <a href="./massages/snehapanam.html" class="card"><img src="./assets/images/massages/snehapanam.jpeg" alt="Snehapanam" class="card-image"><div class="card-content"><h3>Snehapanam</h3><p class="text-muted">Oléation interne thérapeutique.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">En cure</span><span class="text-muted">Variable</span></div></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Massages <span class="text-primary">Maternité & Bébé</span></h2>
+        <div class="grid grid-3">
+          <a href="./massages/prasavpurve-tirumu.html" class="card"><img src="./assets/images/massages/prasavpurve-tirumu.jpeg" alt="Prasavpurve Tirumu" class="card-image"><div class="card-content"><h3>Prasavpurve Tirumu</h3><p class="text-muted">Massage prénatal pour futures mamans.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">90€</span><span class="text-muted">1h</span></div></div></a>
+          <a href="./massages/prishtikara-tirumu.html" class="card"><img src="./assets/images/massages/prishtikara-tirumu.png" alt="Prishtikara Tirumu" class="card-image"><div class="card-content"><h3>Prishtikara Tirumu</h3><p class="text-muted">Massage pour bébé.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">70€</span><span class="text-muted">1h</span></div></div></a>
+          <a href="./massages/shantala.html" class="card"><img src="./assets/images/massages/shantala.jpg" alt="Shantala" class="card-image"><div class="card-content"><h3>Atelier Shantala</h3><p class="text-muted">Atelier massage bébé pour parents.</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;"><span class="price price-small">80€</span><span class="text-muted">1h30</span></div></div></a>
+        </div>
+      </div>
     </section>
 
     <section class="section"><div class="container"><div class="cta-section"><h2>Besoin de Conseils ?</h2><p>Notre équipe vous guide dans le choix du massage adapté à vos besoins.</p><div class="cta-buttons"><a href="./contact.html" class="btn btn-primary btn-lg">Nous contacter</a><a href="tel:0553414810" class="btn btn-outline btn-lg">05 53 41 48 10</a></div></div></div></section>
   </main>
 
-  <footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2024 Arkadhya. Tous droits réservés.</p><div class="footer-legal"><a href="./legal/mentions-legales.html">Mentions légales</a></div></div></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-bottom"><p>© 2024 Arkadhya. Tous droits réservés.</p><div class="footer-legal"><a href="./legal/mentions-legales.html">Mentions légales</a><a href="./legal/cgv.html">CGV</a><a href="./legal/politique-confidentialite.html">Confidentialité</a></div></div></div></footer>
   <button class="scroll-top" id="scroll-top" aria-label="Retour en haut"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
   <script src="./script.js"></script>
 </body>

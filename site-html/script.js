@@ -5,6 +5,77 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   
+  // --------- Theme Toggle ---------
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  
+  // Check saved theme or system preference
+  function getPreferredTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) return savedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+    updateThemeIcon();
+  }
+  
+  function updateThemeIcon() {
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    if (sunIcon && moonIcon) {
+      if (html.classList.contains('dark')) {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+    }
+  }
+  
+  // Apply theme immediately
+  setTheme(getPreferredTheme());
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+  }
+  
+  // --------- Logo Animation ---------
+  const logoImg = document.querySelector('.logo-animated');
+  const siteTitle = document.querySelector('.site-title');
+  const siteDescription = document.querySelector('.site-description');
+  
+  if (logoImg) {
+    logoImg.classList.add('animate');
+    setTimeout(() => {
+      logoImg.classList.add('loaded');
+    }, 1500);
+  }
+  
+  if (siteTitle) {
+    siteTitle.classList.add('animate');
+    setTimeout(() => {
+      siteTitle.classList.add('loaded');
+    }, 1500);
+  }
+  
+  if (siteDescription) {
+    siteDescription.classList.add('animate');
+    setTimeout(() => {
+      siteDescription.classList.add('loaded');
+    }, 1500);
+  }
+  
   // --------- Mobile Menu Toggle ---------
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
