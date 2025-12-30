@@ -9,6 +9,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Cures from "./pages/Cures";
+import Massages from "./pages/Massages";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -62,6 +63,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/massages" element={<Massages />} />
               <Route path="/cures" element={<Cures />} />
               <Route path="/consultations-ayurveda" element={<ConsultationsAyurveda />} />
               
