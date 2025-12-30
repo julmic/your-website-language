@@ -59,9 +59,6 @@ menuItems:
       - href: "/gayatri-mantra"
         label: "Gayatri Mantra"
         description: "Le mantra sacré védique"
-      - href: "/page/yoga"
-        label: "Yoga Ayurvédique"
-        description: "Pratique adaptée à votre constitution"
 
   - label: "À propos"
     items:
