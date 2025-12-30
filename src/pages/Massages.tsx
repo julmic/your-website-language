@@ -11,7 +11,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Calendar, Clock, Phone, AlertCircle, Leaf, Droplets } from "lucide-react";
+import { Calendar, Clock, Phone, AlertCircle, Leaf, Droplets, Euro } from "lucide-react";
 
 const faqData = [
   {
@@ -156,7 +156,7 @@ const Massages = () => {
       {/* Massages Grid */}
       <section className="py-16">
         <div className="container px-4">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-serif font-semibold mb-4 text-center">
               Nos <span className="text-primary">Massages</span>
             </h2>
@@ -164,52 +164,70 @@ const Massages = () => {
               Découvrez notre gamme complète de massages ayurvédiques, chacun adapté à des besoins spécifiques.
             </p>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {massages.map((massage) => (
-                <Card
-                  key={massage.slug}
-                  className="group overflow-hidden hover:shadow-lg transition-all duration-300 border-border/50"
+                <Card 
+                  key={massage.slug} 
+                  className="bg-card border-border hover:border-primary/30 transition-all hover:shadow-lg overflow-hidden group"
                 >
-                  <Link to={`/services/${massage.slug}`}>
-                    <div className="aspect-[4/3] overflow-hidden relative">
-                      <img
-                        src={getMassageImage(massage.slug)}
-                        alt={massage.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {massage.cureOnly && (
-                        <div className="absolute top-2 right-2 bg-primary/90 text-primary-foreground text-xs px-2 py-1 rounded">
-                          Cure uniquement
-                        </div>
-                      )}
-                    </div>
-                    <CardContent className="p-4">
-                      <h3 className="font-serif font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                  {/* Image avec gradient et titre */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={getMassageImage(massage.slug)} 
+                      alt={massage.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent" />
+                    
+                    {/* Badge en haut à gauche */}
+                    {massage.cureOnly ? (
+                      <span className="absolute top-3 left-3 text-xs font-medium text-primary-foreground bg-primary px-2 py-1 rounded-full">
+                        Cure uniquement
+                      </span>
+                    ) : (
+                      <span className="absolute top-3 left-3 text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-1 rounded-full">
+                        Sur rendez-vous
+                      </span>
+                    )}
+                    
+                    {/* Titre sur l'image */}
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <h3 className="text-lg font-serif font-semibold text-foreground">
                         {massage.title}
                       </h3>
-                      {massage.subtitle && (
-                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                          {massage.subtitle}
-                        </p>
-                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Contenu de la carte */}
+                  <CardContent className="p-4">
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                      {massage.subtitle || massage.description?.split('\n')[0]}
+                    </p>
+                    <div className="space-y-3">
+                      {/* Durée et prix avec icônes */}
                       <div className="flex items-center justify-between text-sm">
-                        {massage.prices.length > 0 && !massage.cureOnly ? (
-                          <>
-                            <span className="text-muted-foreground">
-                              {massage.prices[0].duration}
-                            </span>
-                            <span className="font-semibold text-primary">
-                              {massage.prices[0].price}
-                            </span>
-                          </>
-                        ) : massage.cureOnly ? (
-                          <span className="text-muted-foreground italic">
-                            Réservé aux cures
+                        <span className="text-muted-foreground flex items-center gap-1">
+                          <Clock className="h-4 w-4" />
+                          {massage.prices.length > 0 && !massage.cureOnly 
+                            ? massage.prices[0].duration 
+                            : 'Inclus en cure'}
+                        </span>
+                        {massage.prices.length > 0 && !massage.cureOnly && (
+                          <span className="font-semibold text-primary flex items-center gap-1">
+                            <Euro className="h-4 w-4" />
+                            {massage.prices[0].price}
                           </span>
-                        ) : null}
+                        )}
                       </div>
-                    </CardContent>
-                  </Link>
+                      
+                      {/* Bouton Découvrir */}
+                      <Button className="w-full" variant="outline" asChild>
+                        <Link to={`/services/${massage.slug}`}>
+                          Découvrir ce massage
+                        </Link>
+                      </Button>
+                    </div>
+                  </CardContent>
                 </Card>
               ))}
             </div>
