@@ -673,8 +673,18 @@ const AyurvedaElevationSpirituelle = () => {
             </div>
           </section>
 
-          {/* Navigation */}
-          <div className="flex justify-between items-center pt-8 border-t border-border">
+          {/* Navigation - Retour à la philosophie */}
+          <div className="flex justify-center pt-8 pb-4">
+            <Button variant="ghost" asChild>
+              <Link to="/philosophie-vedique">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Retour à la Philosophie Védique
+              </Link>
+            </Button>
+          </div>
+
+          {/* Navigation entre articles */}
+          <div className="flex justify-between items-center pt-4 border-t border-border">
             <Button variant="outline" asChild>
               <Link to="/philosophie-vedique" onClick={() => window.scrollTo(0, 0)}>
                 <ArrowLeft className="w-4 h-4 mr-2" />

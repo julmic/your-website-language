@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ChevronRight, Sparkles, Heart, Flower2, Moon, Sun, Flame, Droplets, Wind, Star, BookOpen, Users, Baby, Crown, Shield, Brain, Eye, Music, Feather } from "lucide-react";
+import { ArrowLeft, Sparkles, Heart, Flower2, Moon, Sun, Flame, Droplets, Wind, Star, BookOpen, Users, Baby, Crown, Shield, Brain, Eye, Music, Feather } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -2432,6 +2432,16 @@ const SagesseFeminine = () => {
                   <Link to="/contact">
                     <Heart className="w-5 h-5 mr-2" />
                     Nous contacter
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Navigation */}
+              <div className="flex justify-center pt-8">
+                <Button variant="outline" asChild>
+                  <Link to="/philosophie-vedique">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Retour à la Philosophie Védique
                   </Link>
                 </Button>
               </div>

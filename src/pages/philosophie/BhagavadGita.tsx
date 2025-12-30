@@ -1,25 +1,77 @@
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Quote, Lightbulb, Users, Target, Eye, Star, Flame, Sun, Moon, Sword, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { ArrowLeft, BookOpen, Quote, Lightbulb, Users, Target, Eye, Star, Flame, Sun, Moon, Sword, Heart } from "lucide-react";
+
+const chapters = [
+  { id: "introduction", title: "Introduction" },
+  { id: "contexte", title: "Contexte" },
+  { id: "structure", title: "Structure" },
+  { id: "symbolisme", title: "Symbolisme" },
+  { id: "enseignements", title: "Enseignements" },
+  { id: "karma-yoga", title: "Karma Yoga" },
+  { id: "bhakti-yoga", title: "Bhakti Yoga" },
+  { id: "jnana-yoga", title: "Jñāna Yoga" },
+  { id: "dharma", title: "Dharma" },
+  { id: "gunas", title: "Les Guṇas" },
+  { id: "theophanie", title: "Théophanie" },
+  { id: "pratique", title: "Pratique" },
+  { id: "universalite", title: "Universalité" },
+  { id: "reception", title: "Réception" },
+  { id: "texte-vivant", title: "Texte Vivant" },
+  { id: "synthese", title: "Synthèse" },
+  { id: "conclusion", title: "Conclusion" },
+];
 
 const BhagavadGita = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <Layout>
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16">
+        <section className="relative py-16 bg-gradient-to-b from-background to-secondary/20">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">La Bhagavad Gītā</h1>
-              <p className="text-xl mb-8">
-                Le dialogue sacré entre Krishna et Arjuna sur le champ de bataille de Kurukshetra
-              </p>
+            <Button variant="ghost" asChild className="mb-6">
+              <Link to="/philosophie-vedique">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Retour à la Philosophie Védique
+              </Link>
+            </Button>
+            <h1 className="text-3xl md:text-4xl font-serif text-foreground mb-4">
+              La <span className="text-primary">Bhagavad Gītā</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-3xl">
+              Le dialogue sacré entre Krishna et Arjuna sur le champ de bataille de Kurukshetra
+            </p>
+          </div>
+        </section>
+
+        {/* Table of Contents */}
+        <section className="py-8 border-b border-border sticky top-20 bg-background/95 backdrop-blur-sm z-40">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap gap-2">
+              {chapters.map((chapter) => (
+                <button
+                  key={chapter.id}
+                  onClick={() => scrollToSection(chapter.id)}
+                  className="text-sm px-3 py-1.5 rounded-full bg-secondary/50 hover:bg-primary/20 hover:text-primary transition-colors"
+                >
+                  {chapter.title}
+                </button>
+              ))}
             </div>
           </div>
         </section>
 
         {/* I. Introduction générale */}
-        <section className="py-16 bg-background">
+        <section id="introduction" className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -54,7 +106,7 @@ const BhagavadGita = () => {
         </section>
 
         {/* II. Contexte historique et littéraire */}
-        <section className="py-16 bg-secondary/10">
+        <section id="contexte" className="py-16 bg-secondary/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -94,7 +146,7 @@ const BhagavadGita = () => {
         </section>
 
         {/* III. Structure interne de la Bhagavad Gītā */}
-        <section className="py-16 bg-background">
+        <section id="structure" className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -130,7 +182,7 @@ const BhagavadGita = () => {
         </section>
 
         {/* IV. Symbolisme de la scène de Kurukshetra */}
-        <section className="py-16 bg-secondary/10">
+        <section id="symbolisme" className="py-16 bg-secondary/10">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -201,7 +253,7 @@ const BhagavadGita = () => {
         </section>
 
         {/* V. Les grands enseignements philosophiques */}
-        <section className="py-16 bg-background">
+        <section id="enseignements" className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
@@ -689,6 +741,20 @@ const BhagavadGita = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto flex justify-center">
+              <Button asChild>
+                <Link to="/philosophie-vedique">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Retour à la Philosophie Védique
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
