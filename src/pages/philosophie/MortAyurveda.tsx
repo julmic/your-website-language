@@ -454,8 +454,18 @@ const MortAyurveda = () => {
             </div>
           </section>
 
-          {/* Navigation */}
-          <div className="flex justify-between items-center pt-8 border-t border-border">
+          {/* Navigation - Retour à la philosophie */}
+          <div className="flex justify-center pt-8 pb-4">
+            <Button variant="ghost" asChild>
+              <Link to="/philosophie-vedique">
+                <ChevronLeft className="w-4 h-4 mr-2" />
+                Retour à la Philosophie Védique
+              </Link>
+            </Button>
+          </div>
+
+          {/* Navigation entre articles */}
+          <div className="flex justify-between items-center pt-4 border-t border-border">
             <Button variant="outline" asChild>
               <Link to="/philosophie/involution-evolution" onClick={() => window.scrollTo(0, 0)}>
                 <ChevronLeft className="w-4 h-4 mr-2" />

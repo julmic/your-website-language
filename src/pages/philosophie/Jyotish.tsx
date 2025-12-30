@@ -707,6 +707,16 @@ const Jyotish = () => {
             </div>
           </section>
 
+          {/* Navigation */}
+          <div className="flex justify-center pt-8">
+            <Button asChild>
+              <Link to="/philosophie-vedique">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Retour à la Philosophie Védique
+              </Link>
+            </Button>
+          </div>
+
         </div>
       </div>
     </Layout>
