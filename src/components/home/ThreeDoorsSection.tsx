@@ -51,7 +51,7 @@ export const ThreeDoorsSection = () => {
             <Link
               key={index}
               to={door.link}
-              className={`group relative aspect-[3/4] rounded-2xl overflow-hidden opacity-0 hover-3d ${
+              className={`group relative aspect-[3/4] rounded-2xl overflow-hidden opacity-0 hover-3d hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 ${
                 isVisible ? "animate-fade-in-up" : ""
               }`}
               style={{ 

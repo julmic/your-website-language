@@ -98,7 +98,7 @@ const Services = () => {
               <AccordionContent>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <Link to="/massages">
-                    <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden group">
+                    <Card className="bg-background border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group">
                       <div className="relative aspect-square overflow-hidden">
                         <img 
                           src={massageImg} 
@@ -141,7 +141,7 @@ const Services = () => {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {consultations.map((consultation) => (
                     <Link key={consultation.title} to={consultation.link}>
-                      <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
+                      <Card className="bg-background border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden h-full group">
                         <div className="relative aspect-square overflow-hidden">
                           <img 
                             src={consultation.image} 
@@ -192,7 +192,7 @@ const Services = () => {
               <AccordionContent>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <Link to="/cures">
-                    <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden group">
+                    <Card className="bg-background border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group">
                       <div className="relative aspect-square overflow-hidden">
                         <img 
                           src={cureImg} 
@@ -235,7 +235,7 @@ const Services = () => {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {formations.map((formation) => (
                     <Link key={formation.title} to={formation.link}>
-                      <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
+                      <Card className="bg-background border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden h-full group">
                         <div className="relative aspect-square overflow-hidden">
                           <img 
                             src={formation.image} 

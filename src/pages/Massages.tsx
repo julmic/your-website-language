@@ -168,7 +168,7 @@ const Massages = () => {
               {massages.map((massage) => (
                 <Card 
                   key={massage.slug} 
-                  className="bg-card border-border hover:border-primary/30 transition-all hover:shadow-lg overflow-hidden group"
+                  className="bg-card border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group"
                 >
                   {/* Image avec gradient et titre */}
                   <div className="relative h-48 overflow-hidden">
@@ -275,7 +275,7 @@ const Massages = () => {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-card border border-border rounded-lg px-6"
+                  className="bg-card border border-border rounded-lg px-6 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-4">
                     {item.question}

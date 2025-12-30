@@ -110,7 +110,7 @@ const Cures = () => {
               {cures.map((cure, index) => (
                 <Card 
                   key={index} 
-                  className={`bg-card border-border hover:border-primary/30 transition-all hover:shadow-lg overflow-hidden group ${
+                  className={`bg-card border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group ${
                     cure.highlight ? 'ring-2 ring-primary/50' : ''
                   }`}
                 >
@@ -168,7 +168,7 @@ const Cures = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <Card className="bg-card border-border">
+              <Card className="bg-card border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-lg mb-4">Ce qui est inclus</h3>
                   <ul className="space-y-2 text-muted-foreground">
@@ -181,7 +181,7 @@ const Cures = () => {
                 </CardContent>
               </Card>
               
-              <Card className="bg-card border-border">
+              <Card className="bg-card border-border hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-lg mb-4">Bon à savoir</h3>
                   <ul className="space-y-2 text-muted-foreground">
@@ -214,7 +214,7 @@ const Cures = () => {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-card border border-border rounded-lg px-6"
+                  className="bg-card border border-border rounded-lg px-6 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500"
                 >
                   <AccordionTrigger className="text-left hover:no-underline">
                     {item.question}
