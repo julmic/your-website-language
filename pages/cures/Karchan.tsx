@@ -1,0 +1,99 @@
+import { CureTemplate } from "@/components/cures/CureTemplate";
+import cureImage from "@/assets/cures/cure-karchan.jpg";
+import { getCureById } from "@/data/cures";
+
+const cureData = getCureById("karchan")!;
+
+const Karchan = () => {
+  return (
+    <CureTemplate
+      title="Cure Karchan d'Amaigrissement"
+      subtitle="Retrouvez votre poids de forme naturellement"
+      description={`La Cure Karchan est une cure minceur ayurvédique qui va bien au-delà de la simple perte de poids. Elle vise à rompre avec le stress et la routine, à adopter une alimentation saine et équilibrée, et à se reconnecter profondément avec son corps et son âme.
+
+Cette approche holistique permet une transformation durable en travaillant sur tous les aspects : physique, mental et émotionnel.
+
+Le programme comprend des consultations personnalisées, des bains de bouche à l'huile, des applications chaudes locales, l'abhyanga, le swedana, le nasya, l'udvartana et la phytothérapie ayurvédique.`}
+      image={cureImage}
+      pricePerDay={cureData.pricePerDay!}
+      treatments={[
+        { name: "Udvartana", description: "Massage drainant aux poudres" },
+        { name: "Abhyanga", description: "Massage détoxifiant à l'huile" },
+        { name: "Swedana", description: "Sudation pour éliminer les toxines" },
+        { name: "Nasya", description: "Soins nasaux purifiants" },
+        { name: "Phytothérapie", description: "Plantes amincissantes ayurvédiques" },
+        { name: "Bains de bouche", description: "Oil pulling détoxifiant" },
+      ]}
+      benefits={[
+        "Perte de poids naturelle et durable",
+        "Amélioration du métabolisme",
+        "Réduction de la rétention d'eau",
+        "Élimination des toxines accumulées",
+        "Raffermissement des tissus",
+        "Rééquilibrage de l'appétit",
+        "Regain d'énergie et vitalité",
+        "Nouvelle relation avec l'alimentation",
+      ]}
+      includes={[
+        "Bilan ayurvédique complet",
+        "Programme alimentaire personnalisé",
+        "Soins drainants quotidiens",
+        "Phytothérapie adaptée",
+        "Hébergement en chambre individuelle",
+        "Repas minceur ayurvédiques",
+        "Conseils nutritionnels post-cure",
+        "Suivi personnalisé",
+      ]}
+      faq={[
+        {
+          question: "Combien de poids peut-on perdre ?",
+          answer: "La perte de poids varie selon chaque personne et dépend de nombreux facteurs. L'objectif n'est pas une perte rapide mais une transformation durable de votre rapport au corps et à l'alimentation.",
+        },
+        {
+          question: "Le régime alimentaire est-il difficile à suivre ?",
+          answer: "La cuisine ayurvédique est savoureuse et équilibrée. Vous découvrirez des saveurs nouvelles qui vous nourriront sans frustration. Les repas sont adaptés à votre constitution.",
+        },
+        {
+          question: "Comment maintenir les résultats après la cure ?",
+          answer: "Nous vous remettons un guide personnalisé avec des recommandations alimentaires et des habitudes de vie à intégrer au quotidien pour maintenir vos résultats.",
+        },
+      ]}
+      testimonials={[
+        {
+          name: "Nathalie P.",
+          text: "J'ai perdu 4 kg en 10 jours mais surtout, j'ai complètement changé ma façon de voir l'alimentation. Plus de frustration, juste du bien-être.",
+        },
+        {
+          name: "Marc T.",
+          text: "L'Udvartana est incroyable pour affiner la silhouette. Combiné aux repas ayurvédiques, j'ai retrouvé une légèreté que j'avais perdue depuis des années.",
+        },
+        {
+          name: "Sylvie R.",
+          text: "Enfin une approche qui prend en compte tout mon être, pas juste les kilos. Je me sens transformée.",
+        },
+      ]}
+      relatedCures={[
+        {
+          name: "Cure Laghana Rasayana",
+          path: "/cures/laghana-rasayana",
+          description: "Vitalité et anti-âge",
+          pricePerDay: 230,
+        },
+        {
+          name: "Cure de Panchakarma",
+          path: "/cures/panchakarma",
+          description: "Détoxification profonde",
+          pricePerDay: 240,
+        },
+        {
+          name: "Cure d'une Journée",
+          path: "/cures/journee",
+          description: "Cure intensive express",
+          pricePerDay: 220,
+        },
+      ]}
+    />
+  );
+};
+
+export default Karchan;
