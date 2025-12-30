@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerie photos du Centre Arkadhya - Découvrez notre espace de soins ayurvédiques en images.">
+    <title>Galerie | Centre Arkadhya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--color-primary);
+            background: transparent;
+            color: var(--color-primary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .gallery-item.wide {
+                grid-column: span 1;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 1rem;
+        }
+        .lightbox-prev { left: 2rem; }
+        .lightbox-next { right: 2rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="./index.html" class="logo">
+                <span class="logo-text">Arkadhya</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="./index.html">Accueil</a></li>
+                    <li><a href="./a-propos.html">À propos</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./massages.html">Massages</a></li>
+                    <li><a href="./cures.html">Cures</a></li>
+                    <li><a href="./philosophie-vedique.html">Philosophie</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Galerie</h1>
+                <p class="hero-subtitle">Découvrez le Centre Arkadhya en images</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section">
+            <div class="container">
+                <!-- Filters -->
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">Tout</button>
+                    <button class="filter-btn" data-filter="soins">Soins</button>
+                    <button class="filter-btn" data-filter="espace">Espaces</button>
+                    <button class="filter-btn" data-filter="decoration">Décoration</button>
+                    <button class="filter-btn" data-filter="cuisine">Cuisine</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="soins">
+                        <img src="./assets/images/galerie-01.webp" alt="Massage ayurvédique" loading="lazy">
+                        <div class="overlay">
+                            <p>Massage Abhyanga traditionnel</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wide" data-category="espace">
+                        <img src="./assets/images/galerie-02.webp" alt="Salle de soins" loading="lazy">
+                        <div class="overlay">
+                            <p>Notre salle de soins principale</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="decoration">
+                        <img src="./assets/images/galerie-03.webp" alt="Décoration indienne" loading="lazy">
+                        <div class="overlay">
+                            <p>Ambiance authentique</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="soins">
+                        <img src="./assets/images/galerie-04.webp" alt="Shirodhara" loading="lazy">
+                        <div class="overlay">
+                            <p>Soin Shirodhara</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="cuisine">
+                        <img src="./assets/images/galerie-05.webp" alt="Cuisine ayurvédique" loading="lazy">
+                        <div class="overlay">
+                            <p>Préparation culinaire</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wide" data-category="espace">
+                        <img src="./assets/images/galerie-06.webp" alt="Jardin" loading="lazy">
+                        <div class="overlay">
+                            <p>Notre jardin médicinal</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="decoration">
+                        <img src="./assets/images/galerie-07.webp" alt="Statue" loading="lazy">
+                        <div class="overlay">
+                            <p>Décoration traditionnelle</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="soins">
+                        <img src="./assets/images/galerie-08.webp" alt="Huiles" loading="lazy">
+                        <div class="overlay">
+                            <p>Huiles ayurvédiques</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="espace">
+                        <img src="./assets/images/galerie-09.webp" alt="Accueil" loading="lazy">
+                        <div class="overlay">
+                            <p>Espace d'accueil</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="cuisine">
+                        <img src="./assets/images/galerie-10.webp" alt="Épices" loading="lazy">
+                        <div class="overlay">
+                            <p>Épices ayurvédiques</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="soins">
+                        <img src="./assets/images/galerie-11.webp" alt="Massage" loading="lazy">
+                        <div class="overlay">
+                            <p>Massage aux pochons</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="decoration">
+                        <img src="./assets/images/galerie-12.webp" alt="Mandala" loading="lazy">
+                        <div class="overlay">
+                            <p>Art traditionnel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-section">
+            <div class="container">
+                <h2>Venez découvrir notre centre</h2>
+                <p>Réservez votre soin et vivez l'expérience Arkadhya.</p>
+                <a href="./contact.html" class="btn btn-primary">Nous contacter</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Fermer">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Précédent">&#8249;</button>
+        <img src="" alt="Image agrandie" id="lightbox-img">
+        <button class="lightbox-nav lightbox-next" aria-label="Suivant">&#8250;</button>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Arkadhya</h3>
+                    <p>Centre de soins ayurvédiques authentiques en France.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="./index.html">Accueil</a></li>
+                        <li><a href="./a-propos.html">À propos</a></li>
+                        <li><a href="./services.html">Services</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="./massages.html">Massages</a></li>
+                        <li><a href="./cures.html">Cures</a></li>
+                        <li><a href="./consultations-ayurveda.html">Consultations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="./legal/mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="./legal/politique-confidentialite.html">Confidentialité</a></li>
+                        <li><a href="./legal/cgv.html">CGV</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Centre Arkadhya. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+    <script src="./script.js"></script>
+    <script>
+        // Gallery filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        let currentIndex = 0;
+        const images = Array.from(galleryItems).map(item => item.querySelector('img').src);
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImg.src = images[currentIndex];
+                lightbox.classList.add('active');
+            });
+        });
+
+        document.querySelector('.lightbox-close').addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        document.querySelector('.lightbox-prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex];
+        });
+
+        document.querySelector('.lightbox-next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex];
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+            if (e.key === 'ArrowLeft') document.querySelector('.lightbox-prev').click();
+            if (e.key === 'ArrowRight') document.querySelector('.lightbox-next').click();
+        });
+    </script>
+</body>
+</html>
