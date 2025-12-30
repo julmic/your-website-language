@@ -1,78 +1,70 @@
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
-import { Stethoscope, Hand, Heart, GraduationCap, Clock, Euro } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { useEffect, useState } from "react";
-import { getBookableMassages, getCureOnlyMassages } from "@/lib/massages-loader";
-import { getAllCures } from "@/lib/cures-loader";
+import { Link } from "react-router-dom";
+import { Stethoscope, Hand, Heart, GraduationCap, Clock, Euro, ArrowRight, ChefHat, BookOpen } from "lucide-react";
 import { getServicesPage } from "@/lib/pages-loader";
 
-// Utilitaires centralisés pour la résolution d'images
-import { massageImageMap, abhyangaImg } from "@/lib/massage-images";
-import { resolveCureImage } from "@/lib/cure-images";
+// Images
+import doshaImg from "@/assets/bilan/dosha.avif";
+import prakritiImg from "@/assets/bilan/prakriti.avif";
+import cuisineImg from "@/assets/cuisine/kitcheri.webp";
+import abhyangaImg from "@/assets/massages/abhyanga.webp";
 
 const Services = () => {
-  const location = useLocation();
-  const [openAccordions, setOpenAccordions] = useState<string[]>([]);
-
-  // Charger les données depuis le CMS
   const pageData = getServicesPage();
-  const bookableMassages = getBookableMassages();
-  const cureOnlyMassages = getCureOnlyMassages();
-  const allMassages = [...bookableMassages, ...cureOnlyMassages];
-  const cures = getAllCures();
 
-  // Handle anchor scrolling
-  useEffect(() => {
-    const hash = location.hash.replace('#', '');
-    if (hash) {
-      setOpenAccordions([hash]);
-      setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
+  // Données des consultations
+  const consultations = [
+    {
+      title: "Bilan de santé CHIKITSA",
+      description: "Évaluation complète de votre santé selon l'Ayurveda : lecture du pouls, identification de votre constitution et plan personnalisé.",
+      duration: "1h30",
+      price: "70€",
+      image: doshaImg,
+      link: "/bilan-de-sante"
+    },
+    {
+      title: "BHUTAVIDYA",
+      description: "La psychologie selon l'Ayurveda. Identifiez vos schémas inconscients et transformez votre vie vers l'épanouissement.",
+      duration: "1h30",
+      price: "70€",
+      image: prakritiImg,
+      link: "/bhutavidya"
     }
-  }, [location.hash]);
+  ];
 
-  const getMassageImage = (slug: string): string => {
-    return massageImageMap[slug] || abhyangaImg;
-  };
-
-  const getCureImage = (slug: string): string => {
-    return resolveCureImage(slug);
-  };
-
-  const formatMassagePrice = (massage: typeof allMassages[number]): string => {
-    if (massage.cureOnly) return "Cure";
-    if (!massage.prices || massage.prices.length === 0) return "-";
-    // Nettoyer le prix en retirant le € existant pour éviter le double €€
-    const cleanPrice = (price: string) => price.replace('€', '').trim();
-    if (massage.prices.length === 1) {
-      const priceNum = parseInt(cleanPrice(massage.prices[0].price).replace(/[^0-9]/g, ''));
-      return `${priceNum}€`;
+  // Données des formations
+  const formations = [
+    {
+      title: "Atelier de Cuisine Ayurvédique",
+      description: "Apprenez à cuisiner selon votre Dosha. Atelier pratique et immersif au cœur du centre.",
+      price: "50€",
+      image: cuisineImg,
+      link: "/atelier-cuisine",
+      hasPage: true
+    },
+    {
+      title: "Formation Praticien Ayurvédique",
+      description: "Formation complète de 6 mois pour devenir praticien en Ayurveda.",
+      price: "Sur devis",
+      image: prakritiImg,
+      link: "/contact",
+      hasPage: false
+    },
+    {
+      title: "Formation Massage Ayurvédique",
+      description: "Stage de 2 jours pour maîtriser les techniques du massage Abhyanga.",
+      price: "Sur devis",
+      image: abhyangaImg,
+      link: "/contact",
+      hasPage: false
     }
-    const prices = massage.prices.map(p => parseInt(cleanPrice(p.price).replace(/[^0-9]/g, '')));
-    const minPrice = Math.min(...prices);
-    const maxPrice = Math.max(...prices);
-    return minPrice === maxPrice ? `${minPrice}€` : `${minPrice}-${maxPrice}€`;
-  };
-
-  const getMassageDuration = (massage: typeof allMassages[number]): string => {
-    if (!massage.prices || massage.prices.length === 0) return "-";
-    return massage.prices[0].duration || "-";
-  };
+  ];
 
   return (
     <Layout>
+      {/* Hero Section */}
       <section className="py-20 bg-secondary/30">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto text-center">
@@ -83,176 +75,173 @@ const Services = () => {
       </section>
 
       <section className="py-16">
-        <div className="container px-4">
-          <Accordion type="multiple" value={openAccordions} onValueChange={setOpenAccordions} className="space-y-4">
-            {/* Massages Ayurvédiques */}
-            <AccordionItem id="massages" value="massages" className="border border-border rounded-xl overflow-hidden bg-card">
-              <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Hand className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <h2 className="text-xl md:text-2xl font-serif font-semibold">Massages Ayurvédiques</h2>
-                    <p className="text-sm text-muted-foreground mt-1">{allMassages.length} soins disponibles</p>
-                  </div>
+        <div className="container px-4 space-y-16">
+          
+          {/* Section Massages */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Hand className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-serif font-semibold">Massages Ayurvédiques</h2>
+                <p className="text-muted-foreground mt-1">Découvrez nos soins traditionnels</p>
+              </div>
+            </div>
+            <Card className="bg-secondary/30 border-border overflow-hidden">
+              <CardContent className="p-6 flex flex-col md:flex-row items-center gap-6">
+                <div className="w-full md:w-1/3 aspect-video md:aspect-square rounded-lg overflow-hidden">
+                  <img 
+                    src={abhyangaImg} 
+                    alt="Massages Ayurvédiques"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6">
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-4">
-                  {allMassages.map((massage) => (
-                    <Link key={massage.slug} to={`/services/${massage.slug}`}>
-                      <Card className="bg-secondary/30 border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
-                        <div className="aspect-[4/3] overflow-hidden">
-                          <img 
-                            src={getMassageImage(massage.slug)} 
-                            alt={massage.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                        <CardContent className="p-4">
-                          <p className="font-medium text-primary group-hover:underline">{massage.title}</p>
-                          <div className="flex items-center justify-between mt-2 text-sm text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <Clock className="h-3 w-3" /> {getMassageDuration(massage)}
-                            </span>
-                            <span className="font-semibold text-foreground">{formatMassagePrice(massage)}</span>
-                          </div>
-                        </CardContent>
-                      </Card>
+                <div className="flex-1 text-center md:text-left">
+                  <p className="text-muted-foreground mb-4">
+                    Des massages ancestraux aux huiles médicinales, adaptés à votre constitution. 
+                    Abhyanga, Shirodhara, Udvartana et bien d'autres soins pour rétablir l'équilibre de vos doshas.
+                  </p>
+                  <Button asChild>
+                    <Link to="/massages" className="inline-flex items-center gap-2">
+                      Découvrir nos massages <ArrowRight className="h-4 w-4" />
                     </Link>
-                  ))}
+                  </Button>
                 </div>
-              </AccordionContent>
-            </AccordionItem>
+              </CardContent>
+            </Card>
+          </div>
 
-            {/* Consultations */}
-            <AccordionItem id="consultations" value="consultations" className="border border-border rounded-xl overflow-hidden bg-card">
-              <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Stethoscope className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <h2 className="text-xl md:text-2xl font-serif font-semibold">{pageData.consultationsTitle}</h2>
-                    <p className="text-sm text-muted-foreground mt-1">{pageData.consultationsSubtitle}</p>
-                  </div>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6">
-                <div className="pt-4">
-                  <p className="text-muted-foreground mb-6">
-                    {pageData.consultationsDescription}
-                  </p>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {pageData.consultations.map((item) => (
-                      <Card key={item.name} className="bg-secondary/30 border-border">
-                        <CardContent className="p-5">
-                          <p className="font-medium text-lg">{item.name}</p>
-                          <div className="flex items-center justify-between mt-3 text-sm">
-                            <span className="flex items-center gap-1 text-muted-foreground">
-                              <Clock className="h-3 w-3" /> {item.duration}
-                            </span>
-                            <span className="font-semibold text-primary flex items-center">
-                              <Euro className="h-4 w-4" />{item.price.replace('€', '')}
-                            </span>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                  <div className="mt-6">
-                    <Button asChild><Link to="/contact">Prendre rendez-vous</Link></Button>
-                  </div>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
+          {/* Section Consultations */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Stethoscope className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-serif font-semibold">Consultations Ayurvédiques</h2>
+                <p className="text-muted-foreground mt-1">Bilan personnalisé selon votre constitution</p>
+              </div>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {consultations.map((consultation) => (
+                <Link key={consultation.title} to={consultation.link}>
+                  <Card className="bg-secondary/30 border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img 
+                        src={consultation.image} 
+                        alt={consultation.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                          {consultation.price}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <h3 className="text-xl font-serif font-semibold text-white">{consultation.title}</h3>
+                      </div>
+                    </div>
+                    <CardContent className="p-5">
+                      <p className="text-muted-foreground text-sm mb-4">{consultation.description}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="flex items-center gap-1 text-sm text-muted-foreground">
+                          <Clock className="h-4 w-4" /> {consultation.duration}
+                        </span>
+                        <Button variant="ghost" size="sm" className="text-primary group-hover:underline">
+                          Découvrir <ArrowRight className="h-4 w-4 ml-1" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
 
-            {/* Cures et Programmes */}
-            <AccordionItem id="cures" value="cures" className="border border-border rounded-xl overflow-hidden bg-card">
-              <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Heart className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <h2 className="text-xl md:text-2xl font-serif font-semibold">{pageData.curesTitle}</h2>
-                    <p className="text-sm text-muted-foreground mt-1">{cures.length} {pageData.curesSubtitle}</p>
-                  </div>
+          {/* Section Cures */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Heart className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-serif font-semibold">Cures et Programmes</h2>
+                <p className="text-muted-foreground mt-1">Programmes intensifs de 1 à 14 jours</p>
+              </div>
+            </div>
+            <Card className="bg-secondary/30 border-border overflow-hidden">
+              <CardContent className="p-6 flex flex-col md:flex-row items-center gap-6">
+                <div className="w-full md:w-1/3 aspect-video md:aspect-square rounded-lg overflow-hidden">
+                  <img 
+                    src={doshaImg} 
+                    alt="Cures Ayurvédiques"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6">
-                <div className="pt-4">
-                  <p className="text-muted-foreground mb-6">
-                    {pageData.curesDescription}
+                <div className="flex-1 text-center md:text-left">
+                  <p className="text-muted-foreground mb-4">
+                    Des programmes intensifs pour une transformation profonde. Détoxification, régénération, 
+                    perte de poids selon les protocoles ayurvédiques traditionnels avec hébergement en chambre individuelle.
                   </p>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {cures.map((cure) => (
-                      <Link key={cure.slug} to={`/cures/${cure.slug}`}>
-                        <Card className="bg-secondary/30 border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
-                          <div className="aspect-[4/3] overflow-hidden">
-                            <img 
-                              src={getCureImage(cure.slug)} 
-                              alt={cure.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
-                          <CardContent className="p-4">
-                            <p className="font-medium text-primary group-hover:underline">{cure.title}</p>
-                            <p className="text-sm text-muted-foreground mt-1">{cure.subtitle}</p>
-                            <p className="font-semibold text-foreground mt-2">{cure.price}</p>
-                          </CardContent>
-                        </Card>
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="mt-6">
-                    <Button asChild variant="outline"><Link to="/cures">Voir toutes les cures</Link></Button>
-                  </div>
+                  <Button asChild>
+                    <Link to="/cures" className="inline-flex items-center gap-2">
+                      Découvrir nos cures <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
-              </AccordionContent>
-            </AccordionItem>
+              </CardContent>
+            </Card>
+          </div>
 
-            {/* Formations et Stages */}
-            <AccordionItem id="formations" value="formations" className="border border-border rounded-xl overflow-hidden bg-card">
-              <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-secondary/50 transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <GraduationCap className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="text-left">
-                    <h2 className="text-xl md:text-2xl font-serif font-semibold">{pageData.formationsTitle}</h2>
-                    <p className="text-sm text-muted-foreground mt-1">{pageData.formationsSubtitle}</p>
-                  </div>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-6 pb-6">
-                <div className="pt-4">
-                  <p className="text-muted-foreground mb-6">
-                    {pageData.formationsDescription}
-                  </p>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {pageData.formations.map((item) => (
-                      <Card key={item.name} className="bg-secondary/30 border-border">
-                        <CardContent className="p-5">
-                          <p className="font-medium">{item.name}</p>
-                          <div className="flex items-center justify-between mt-3 text-sm">
-                            <span className="flex items-center gap-1 text-muted-foreground">
-                              <Clock className="h-3 w-3" /> {item.duration}
-                            </span>
-                            <span className="font-semibold text-primary">{item.price}</span>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                  <div className="mt-6">
-                    <Button asChild><Link to="/contact">Nous contacter</Link></Button>
-                  </div>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          {/* Section Formations */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <GraduationCap className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-serif font-semibold">Formations et Stages</h2>
+                <p className="text-muted-foreground mt-1">Apprenez les techniques ayurvédiques</p>
+              </div>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {formations.map((formation) => (
+                <Link key={formation.title} to={formation.link}>
+                  <Card className="bg-secondary/30 border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img 
+                        src={formation.image} 
+                        alt={formation.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                          formation.price === "Sur devis" 
+                            ? "bg-secondary text-foreground" 
+                            : "bg-primary text-primary-foreground"
+                        }`}>
+                          {formation.price}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <h3 className="text-lg font-serif font-semibold text-white">{formation.title}</h3>
+                      </div>
+                    </div>
+                    <CardContent className="p-5">
+                      <p className="text-muted-foreground text-sm mb-4">{formation.description}</p>
+                      <Button variant="ghost" size="sm" className="text-primary group-hover:underline w-full justify-center">
+                        {formation.hasPage ? "Découvrir" : "Nous contacter"} <ArrowRight className="h-4 w-4 ml-1" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
