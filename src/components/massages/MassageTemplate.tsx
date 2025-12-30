@@ -174,40 +174,46 @@ export const MassageTemplate = ({
               </h2>
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 {/* Problèmes Physiques */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-rose-400">
-                    Problèmes Physiques
-                  </h3>
-                  <ul className="space-y-2">
-                    {forWhom.physical.map((item, index) => (
-                      <li key={index} className="text-muted-foreground">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
+                {Array.isArray(forWhom?.physical) && forWhom.physical.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-rose-400">
+                      Problèmes Physiques
+                    </h3>
+                    <ul className="space-y-2">
+                      {forWhom.physical.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Problèmes Mentaux/Émotionnels */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-blue-400">
-                    Problèmes Mentaux/Émotionnels
-                  </h3>
-                  <ul className="space-y-2">
-                    {forWhom.mental.map((item, index) => (
-                      <li key={index} className="text-muted-foreground">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
+                {Array.isArray(forWhom?.mental) && forWhom.mental.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-blue-400">
+                      Problèmes Mentaux/Émotionnels
+                    </h3>
+                    <ul className="space-y-2">
+                      {forWhom.mental.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Recherche Bien-Être */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-primary">
-                    Recherche Bien-Être
-                  </h3>
-                  <ul className="space-y-2">
-                    {forWhom.wellness.map((item, index) => (
-                      <li key={index} className="text-muted-foreground">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
+                {Array.isArray(forWhom?.wellness) && forWhom.wellness.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-primary">
+                      Recherche Bien-Être
+                    </h3>
+                    <ul className="space-y-2">
+                      {forWhom.wellness.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               {/* Contre-indications */}
@@ -248,40 +254,46 @@ export const MassageTemplate = ({
               </h2>
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 {/* Bienfaits Physiques */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-amber-400">
-                    💪 Bienfaits Physiques
-                  </h3>
-                  <ul className="space-y-2">
-                    {benefits.physical.map((item, index) => (
-                      <li key={index} className="text-muted-foreground">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
+                {Array.isArray(benefits?.physical) && benefits.physical.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-amber-400">
+                      💪 Bienfaits Physiques
+                    </h3>
+                    <ul className="space-y-2">
+                      {benefits.physical.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Bienfaits Mentaux */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-pink-400">
-                    🧠 Bienfaits Mentaux
-                  </h3>
-                  <ul className="space-y-2">
-                    {benefits.mental.map((item, index) => (
-                      <li key={index} className="text-muted-foreground">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
+                {Array.isArray(benefits?.mental) && benefits.mental.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-pink-400">
+                      🧠 Bienfaits Mentaux
+                    </h3>
+                    <ul className="space-y-2">
+                      {benefits.mental.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Bienfaits Énergétiques */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-yellow-400">
-                    ⚡ Bienfaits Énergétiques
-                  </h3>
-                  <ul className="space-y-2">
-                    {benefits.energetic.map((item, index) => (
-                      <li key={index} className="text-muted-foreground">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
+                {Array.isArray(benefits?.energetic) && benefits.energetic.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-yellow-400">
+                      ⚡ Bienfaits Énergétiques
+                    </h3>
+                    <ul className="space-y-2">
+                      {benefits.energetic.map((item, index) => (
+                        <li key={index} className="text-muted-foreground">• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               {/* Study Highlight */}
