@@ -1,56 +1,154 @@
 /* ========================================
    ARKADHYA - JavaScript Principal
    Centre Ayurvédique en Aquitaine
+   Avec système d'injection de partials
    ======================================== */
 
-document.addEventListener('DOMContentLoaded', function() {
+// --------- Utility: Detect Base Path ---------
+function getBasePath() {
+  const path = window.location.pathname;
+  // Count directory depth
+  const depth = (path.match(/\//g) || []).length - 1;
+  if (depth <= 0) return '';
+  return '../'.repeat(depth);
+}
+
+// --------- Main Initialization ---------
+document.addEventListener('DOMContentLoaded', async function() {
+  // Apply theme immediately to prevent flash
+  applyTheme(getPreferredTheme());
   
-  // --------- Theme Toggle ---------
-  const themeToggle = document.getElementById('theme-toggle');
-  const html = document.documentElement;
+  // Inject partials if placeholders exist
+  await injectPartials();
   
-  // Check saved theme or system preference
-  function getPreferredTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) return savedTheme;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
+  // Initialize all functionality after partials are loaded
+  initThemeToggle();
+  initLogoAnimation();
+  initMobileMenu();
+  initMobileAccordions();
+  initScrollToTop();
+  initAccordions();
+  initSmoothScroll();
+  initFormHandler();
+  initAnimations();
+  initLazyLoading();
+  initCategoryFilter();
+  initHeaderScroll();
+  initTabs();
+  initCopyToClipboard();
+});
+
+// --------- Partials Injection ---------
+async function injectPartials() {
+  const basePath = getBasePath();
   
-  function setTheme(theme) {
-    if (theme === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-    updateThemeIcon();
-  }
-  
-  function updateThemeIcon() {
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    if (sunIcon && moonIcon) {
-      if (html.classList.contains('dark')) {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-      } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
+  // Inject header
+  const headerPlaceholder = document.querySelector('[data-include="header"]');
+  if (headerPlaceholder) {
+    try {
+      const response = await fetch(basePath + 'partials/header.html');
+      if (response.ok) {
+        let html = await response.text();
+        // Fix relative URLs
+        html = fixRelativeUrls(html, basePath);
+        headerPlaceholder.outerHTML = html;
       }
+    } catch (e) {
+      console.warn('Could not load header partial:', e);
     }
   }
   
-  // Apply theme immediately
-  setTheme(getPreferredTheme());
+  // Inject footer
+  const footerPlaceholder = document.querySelector('[data-include="footer"]');
+  if (footerPlaceholder) {
+    try {
+      const response = await fetch(basePath + 'partials/footer.html');
+      if (response.ok) {
+        let html = await response.text();
+        // Fix relative URLs
+        html = fixRelativeUrls(html, basePath);
+        footerPlaceholder.outerHTML = html;
+      }
+    } catch (e) {
+      console.warn('Could not load footer partial:', e);
+    }
+  }
+}
+
+function fixRelativeUrls(html, basePath) {
+  // Replace root-relative URLs with correct relative paths
+  // e.g., href="/index.html" becomes href="index.html" or href="../index.html"
+  return html
+    .replace(/href="\/([^"]*?)"/g, `href="${basePath}$1"`)
+    .replace(/src="\/([^"]*?)"/g, `src="${basePath}$1"`);
+}
+
+// --------- Theme Management ---------
+function getPreferredTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) return savedTheme;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+  const html = document.documentElement;
+  if (theme === 'dark') {
+    html.classList.add('dark');
+  } else {
+    html.classList.remove('dark');
+  }
+  localStorage.setItem('theme', theme);
+}
+
+function updateThemeIcons() {
+  const html = document.documentElement;
+  const isDark = html.classList.contains('dark');
   
+  // Desktop icons
+  const sunIcon = document.getElementById('sun-icon');
+  const moonIcon = document.getElementById('moon-icon');
+  if (sunIcon && moonIcon) {
+    sunIcon.style.display = isDark ? 'none' : 'block';
+    moonIcon.style.display = isDark ? 'block' : 'none';
+  }
+  
+  // Mobile icons
+  const sunIconMobile = document.querySelector('.sun-icon-mobile');
+  const moonIconMobile = document.querySelector('.moon-icon-mobile');
+  if (sunIconMobile && moonIconMobile) {
+    sunIconMobile.style.display = isDark ? 'none' : 'block';
+    moonIconMobile.style.display = isDark ? 'block' : 'none';
+  }
+}
+
+function initThemeToggle() {
+  updateThemeIcons();
+  
+  // Desktop toggle
+  const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', function() {
-      const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
-      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+      updateThemeIcons();
     });
   }
   
-  // --------- Logo Animation ---------
+  // Mobile toggle
+  const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+  if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+      updateThemeIcons();
+    });
+  }
+}
+
+// --------- Logo Animation ---------
+function initLogoAnimation() {
   const logoImg = document.querySelector('.logo-animated');
   const siteTitle = document.querySelector('.site-title');
   const siteDescription = document.querySelector('.site-description');
@@ -75,8 +173,10 @@ document.addEventListener('DOMContentLoaded', function() {
       siteDescription.classList.add('loaded');
     }, 1500);
   }
-  
-  // --------- Mobile Menu Toggle ---------
+}
+
+// --------- Mobile Menu ---------
+function initMobileMenu() {
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
   const menuIcon = document.getElementById('menu-icon');
@@ -88,31 +188,52 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (isOpen) {
         mobileNav.classList.remove('active');
-        menuIcon.style.display = 'block';
-        closeIcon.style.display = 'none';
+        if (menuIcon) menuIcon.style.display = 'block';
+        if (closeIcon) closeIcon.style.display = 'none';
         document.body.style.overflow = '';
       } else {
         mobileNav.classList.add('active');
-        menuIcon.style.display = 'none';
-        closeIcon.style.display = 'block';
+        if (menuIcon) menuIcon.style.display = 'none';
+        if (closeIcon) closeIcon.style.display = 'block';
         document.body.style.overflow = 'hidden';
       }
     });
     
-    // Close menu when clicking on a link
-    const mobileLinks = mobileNav.querySelectorAll('a');
+    // Close menu when clicking on a direct link (not accordion triggers)
+    const mobileLinks = mobileNav.querySelectorAll('a:not(.mobile-accordion-trigger)');
     mobileLinks.forEach(function(link) {
       link.addEventListener('click', function() {
         mobileNav.classList.remove('active');
-        menuIcon.style.display = 'block';
-        closeIcon.style.display = 'none';
+        if (menuIcon) menuIcon.style.display = 'block';
+        if (closeIcon) closeIcon.style.display = 'none';
         document.body.style.overflow = '';
       });
     });
   }
+}
+
+// --------- Mobile Accordions ---------
+function initMobileAccordions() {
+  const accordionTriggers = document.querySelectorAll('.mobile-accordion-trigger');
   
-  // --------- Scroll to Top Button ---------
-  const scrollTopBtn = document.getElementById('scroll-top');
+  accordionTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      const content = this.nextElementSibling;
+      
+      // Toggle current accordion
+      this.setAttribute('aria-expanded', !isExpanded);
+      if (content) {
+        content.classList.toggle('open', !isExpanded);
+      }
+    });
+  });
+}
+
+// --------- Scroll to Top ---------
+function initScrollToTop() {
+  // Support both new and legacy IDs
+  const scrollTopBtn = document.getElementById('scroll-top') || document.querySelector('.scroll-top-btn');
   
   if (scrollTopBtn) {
     window.addEventListener('scroll', function() {
@@ -130,18 +251,16 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
-  // --------- Accordion Functionality ---------
+}
+
+// --------- Accordion Functionality (FAQ, etc.) ---------
+function initAccordions() {
   const accordionTriggers = document.querySelectorAll('.accordion-trigger');
   
   accordionTriggers.forEach(function(trigger) {
     trigger.addEventListener('click', function() {
       const accordionItem = this.parentElement;
       const isActive = accordionItem.classList.contains('active');
-      
-      // Optional: Close all other accordions (single mode)
-      // const allItems = document.querySelectorAll('.accordion-item');
-      // allItems.forEach(item => item.classList.remove('active'));
       
       // Toggle current item
       if (isActive) {
@@ -151,8 +270,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
-  // --------- Smooth Scroll for Anchor Links ---------
+}
+
+// --------- Smooth Scroll for Anchor Links ---------
+function initSmoothScroll() {
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
   
   anchorLinks.forEach(function(link) {
@@ -164,7 +285,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const target = document.querySelector(href);
         
         if (target) {
-          const headerHeight = document.querySelector('.header').offsetHeight;
+          const header = document.querySelector('.header');
+          const headerHeight = header ? header.offsetHeight : 0;
           const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
           
           window.scrollTo({
@@ -175,23 +297,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
-  // --------- Form Submission Handler ---------
+}
+
+// --------- Form Submission Handler ---------
+function initFormHandler() {
   const contactForm = document.getElementById('contact-form');
   
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      // Show success message
       alert('Message envoyé ! Nous vous répondrons dans les plus brefs délais.');
-      
-      // Reset form
       this.reset();
     });
   }
-  
-  // --------- Intersection Observer for Animations ---------
+}
+
+// --------- Intersection Observer for Animations ---------
+function initAnimations() {
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   
   if (animatedElements.length > 0 && 'IntersectionObserver' in window) {
@@ -211,8 +333,10 @@ document.addEventListener('DOMContentLoaded', function() {
       observer.observe(el);
     });
   }
-  
-  // --------- Lazy Loading Images ---------
+}
+
+// --------- Lazy Loading Images ---------
+function initLazyLoading() {
   const lazyImages = document.querySelectorAll('img[data-src]');
   
   if (lazyImages.length > 0 && 'IntersectionObserver' in window) {
@@ -231,8 +355,10 @@ document.addEventListener('DOMContentLoaded', function() {
       imageObserver.observe(img);
     });
   }
-  
-  // --------- Category Filter (for blog page) ---------
+}
+
+// --------- Category Filter (for blog page) ---------
+function initCategoryFilter() {
   const categoryButtons = document.querySelectorAll('.category-btn');
   const blogCards = document.querySelectorAll('.blog-card[data-category]');
   
@@ -256,27 +382,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
-  // --------- Header Scroll Effect ---------
+}
+
+// --------- Header Scroll Effect ---------
+function initHeaderScroll() {
   const header = document.querySelector('.header');
-  let lastScroll = 0;
   
   if (header) {
     window.addEventListener('scroll', function() {
-      const currentScroll = window.scrollY;
-      
-      // Add shadow when scrolled
-      if (currentScroll > 10) {
+      if (window.scrollY > 10) {
         header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
       } else {
         header.style.boxShadow = 'none';
       }
-      
-      lastScroll = currentScroll;
     });
   }
-  
-  // --------- Tab Functionality ---------
+}
+
+// --------- Tab Functionality ---------
+function initTabs() {
   const tabTriggers = document.querySelectorAll('[data-tab-trigger]');
   
   if (tabTriggers.length > 0) {
@@ -301,8 +425,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
-  // --------- Copy to Clipboard (for phone/email) ---------
+}
+
+// --------- Copy to Clipboard ---------
+function initCopyToClipboard() {
   const copyButtons = document.querySelectorAll('[data-copy]');
   
   copyButtons.forEach(function(btn) {
@@ -310,7 +436,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const textToCopy = this.dataset.copy;
       
       navigator.clipboard.writeText(textToCopy).then(function() {
-        // Show feedback
         const originalText = btn.textContent;
         btn.textContent = 'Copié !';
         
@@ -320,8 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
-
-});
+}
 
 // --------- Utility Functions ---------
 
