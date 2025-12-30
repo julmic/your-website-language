@@ -9,76 +9,267 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <!-- Header -->
+  <!-- ======================================== HEADER ======================================== -->
   <header class="header">
-    <nav class="nav container">
-      <a href="./index.html" class="logo">
-        <img src="./assets/images/logo-arkadhya.webp" alt="Arkadhya" class="logo-animated">
-        <div class="logo-text">
-          <span class="logo-subtitle site-description">Centre Ayurvédique</span>
-          <span class="logo-title site-title">Arkadhya</span>
-          <span class="logo-subtitle site-description">en Aquitaine</span>
+    <div class="container">
+      <nav class="nav">
+        <!-- Logo avec animation -->
+        <a href="./index.html" class="logo">
+          <img src="./assets/images/logo-arkadhya.webp" alt="Arkadhya - Centre Ayurvédique" class="logo-animated">
+          <div class="logo-text">
+            <span class="logo-subtitle site-description">Centre Ayurvédique</span>
+            <span class="logo-title site-title">Arkadhya</span>
+            <span class="logo-location">en Aquitaine</span>
+          </div>
+        </a>
+
+        <!-- Navigation Desktop avec Dropdowns -->
+        <ul class="nav-links">
+          <!-- Consultations & Soins -->
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-trigger">
+              Consultations & Soins
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="nav-dropdown-content">
+              <div class="nav-dropdown-grid">
+                <a href="./consultations-ayurveda.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Consultations Ayurvédiques</span>
+                  <span class="nav-dropdown-desc">Bilan de santé personnalisé selon votre constitution</span>
+                </a>
+                <a href="./bilan-de-sante.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Bilan de Santé</span>
+                  <span class="nav-dropdown-desc">Analyse complète de votre état de santé</span>
+                </a>
+                <a href="./bhutavidya.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Bhutavidya</span>
+                  <span class="nav-dropdown-desc">Accompagnement psycho-spirituel ayurvédique</span>
+                </a>
+                <a href="./massages.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Massages Ayurvédiques</span>
+                  <span class="nav-dropdown-desc">Soins corporels traditionnels indiens</span>
+                </a>
+                <a href="./atelier-cuisine.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Atelier Cuisine</span>
+                  <span class="nav-dropdown-desc">Apprenez à cuisiner selon l'Ayurveda</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Cures Ayurvédiques -->
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-trigger">
+              Cures Ayurvédiques
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="nav-dropdown-content">
+              <div class="nav-dropdown-grid">
+                <a href="./cures.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Toutes nos cures</span>
+                  <span class="nav-dropdown-desc">Découvrez l'ensemble de nos programmes</span>
+                </a>
+                <a href="./cures/panchakarma.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Cure Panchakarma</span>
+                  <span class="nav-dropdown-desc">Cure de détoxification complète traditionnelle</span>
+                </a>
+                <a href="./cures/amrita.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Cure Amrita</span>
+                  <span class="nav-dropdown-desc">Régénération et rajeunissement</span>
+                </a>
+                <a href="./cures/prenatale.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Cure Prénatale</span>
+                  <span class="nav-dropdown-desc">Accompagnement de la grossesse</span>
+                </a>
+                <a href="./cures/postnatale.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Cure Postnatale</span>
+                  <span class="nav-dropdown-desc">Récupération après l'accouchement</span>
+                </a>
+                <a href="./cures/week-end-decouverte.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Week-end Découverte</span>
+                  <span class="nav-dropdown-desc">Initiation à l'Ayurveda</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Formations -->
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-trigger">
+              Formations
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="nav-dropdown-content nav-dropdown-content-sm">
+              <div class="nav-dropdown-grid nav-dropdown-grid-single">
+                <a href="./services.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Formations Professionnelles</span>
+                  <span class="nav-dropdown-desc">Devenez praticien en Ayurveda certifié</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Enseignements -->
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-trigger">
+              Enseignements
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="nav-dropdown-content">
+              <div class="nav-dropdown-grid">
+                <a href="./philosophie-vedique.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Philosophie Védique</span>
+                  <span class="nav-dropdown-desc">Les fondements spirituels de l'Ayurveda</span>
+                </a>
+                <a href="./gayatri-mantra.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Gayatri Mantra</span>
+                  <span class="nav-dropdown-desc">Le mantra sacré de l'illumination</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- À propos -->
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-trigger">
+              À propos
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="nav-dropdown-content">
+              <div class="nav-dropdown-grid">
+                <a href="./a-propos.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Notre Centre</span>
+                  <span class="nav-dropdown-desc">Découvrez Arkadhya et son équipe</span>
+                </a>
+                <a href="./galerie.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Galerie Photos</span>
+                  <span class="nav-dropdown-desc">Visite virtuelle de nos espaces</span>
+                </a>
+                <a href="./contact.html" class="nav-dropdown-item">
+                  <span class="nav-dropdown-title">Contact</span>
+                  <span class="nav-dropdown-desc">Prenez rendez-vous ou posez vos questions</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- Blog (lien direct) -->
+          <li>
+            <a href="./blog.html" class="nav-link">Blog & Actualités</a>
+          </li>
+        </ul>
+
+        <!-- Actions droite -->
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
+            <span class="theme-toggle-thumb">
+              <svg id="sun-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+              <svg id="moon-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </span>
+          </button>
+
+          <!-- CTA -->
+          <a href="./contact.html" class="btn btn-primary nav-cta-btn">Prendre RDV</a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
+            <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
         </div>
-      </a>
-      
-      <ul class="nav-links">
-        <li><a href="./index.html">Accueil</a></li>
-        <li><a href="./services.html">Services</a></li>
-        <li><a href="./massages.html">Massages</a></li>
-        <li><a href="./cures.html">Cures</a></li>
-        <li><a href="./consultations-ayurveda.html">Consultations</a></li>
-        <li><a href="./philosophie-vedique.html">Philosophie</a></li>
-        <li><a href="./blog.html">Blog</a></li>
-        <li><a href="./a-propos.html">À propos</a></li>
-      </ul>
-      
-      <div class="nav-cta" style="display:flex;align-items:center;gap:1rem;">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème">
-          <div class="theme-toggle-thumb">
-            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg id="moon-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </div>
-        </button>
-        <a href="./contact.html" class="btn btn-primary">Prendre RDV</a>
-      </div>
-      
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
-        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-        <svg id="close-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </nav>
-    
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobile-nav">
-      <div style="padding:1rem;border-bottom:1px solid var(--border);display:flex;justify-content:center;">
-        <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Changer de thème">
-          <div class="theme-toggle-thumb">
-            <svg class="sun-icon-mobile" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg class="moon-icon-mobile" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </div>
-        </button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="./index.html">Accueil</a></li>
-        <li><a href="./services.html">Services</a></li>
-        <li><a href="./massages.html">Massages</a></li>
-        <li><a href="./cures.html">Cures</a></li>
-        <li><a href="./consultations-ayurveda.html">Consultations</a></li>
-        <li><a href="./philosophie-vedique.html">Philosophie Védique</a></li>
-        <li><a href="./blog.html">Blog</a></li>
-        <li><a href="./a-propos.html">À propos</a></li>
-        <li><a href="./galerie.html">Galerie</a></li>
-        <li><a href="./contact.html" class="btn btn-primary" style="margin-top:1rem;">Prendre RDV</a></li>
-      </ul>
+      </nav>
     </div>
   </header>
+
+  <!-- Mobile Navigation avec Accordions -->
+  <nav id="mobile-nav" class="mobile-nav">
+    <div class="mobile-nav-content">
+      <!-- Consultations & Soins -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger" aria-expanded="false">
+          <span>Consultations & Soins</span>
+          <svg class="mobile-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="mobile-accordion-content">
+          <a href="./consultations-ayurveda.html">Consultations Ayurvédiques</a>
+          <a href="./bilan-de-sante.html">Bilan de Santé</a>
+          <a href="./bhutavidya.html">Bhutavidya</a>
+          <a href="./massages.html">Massages Ayurvédiques</a>
+          <a href="./atelier-cuisine.html">Atelier Cuisine</a>
+        </div>
+      </div>
+
+      <!-- Cures Ayurvédiques -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger" aria-expanded="false">
+          <span>Cures Ayurvédiques</span>
+          <svg class="mobile-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="mobile-accordion-content">
+          <a href="./cures.html">Toutes nos cures</a>
+          <a href="./cures/panchakarma.html">Cure Panchakarma</a>
+          <a href="./cures/amrita.html">Cure Amrita</a>
+          <a href="./cures/prenatale.html">Cure Prénatale</a>
+          <a href="./cures/postnatale.html">Cure Postnatale</a>
+          <a href="./cures/week-end-decouverte.html">Week-end Découverte</a>
+        </div>
+      </div>
+
+      <!-- Formations -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger" aria-expanded="false">
+          <span>Formations</span>
+          <svg class="mobile-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="mobile-accordion-content">
+          <a href="./services.html">Formations Professionnelles</a>
+        </div>
+      </div>
+
+      <!-- Enseignements -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger" aria-expanded="false">
+          <span>Enseignements</span>
+          <svg class="mobile-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="mobile-accordion-content">
+          <a href="./philosophie-vedique.html">Philosophie Védique</a>
+          <a href="./gayatri-mantra.html">Gayatri Mantra</a>
+        </div>
+      </div>
+
+      <!-- À propos -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger" aria-expanded="false">
+          <span>À propos</span>
+          <svg class="mobile-accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="mobile-accordion-content">
+          <a href="./a-propos.html">Notre Centre</a>
+          <a href="./galerie.html">Galerie Photos</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
+
+      <!-- Blog (lien direct) -->
+      <a href="./blog.html" class="mobile-nav-link">Blog & Actualités</a>
+
+      <!-- Mobile Theme Toggle -->
+      <div class="mobile-theme-toggle">
+        <span>Thème</span>
+        <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Changer le thème">
+          <span class="theme-toggle-thumb">
+            <svg class="sun-icon-mobile" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            <svg class="moon-icon-mobile" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </span>
+        </button>
+      </div>
+
+      <!-- Mobile CTA -->
+      <a href="./contact.html" class="btn btn-primary btn-lg mobile-cta">Prendre RDV</a>
+    </div>
+  </nav>
 
   <main>
     <section class="page-hero"><div class="container"><h1>Nos Services</h1><p>Découvrez l'ensemble de nos prestations ayurvédiques pour votre bien-être.</p></div></section>
@@ -109,66 +300,91 @@
     <section class="section section-alt"><div class="container"><div class="cta-section"><h2>Besoin d'un conseil personnalisé ?</h2><p>Nous sommes à votre écoute pour vous guider vers le soin qui vous correspond.</p><a href="./contact.html" class="btn btn-primary btn-lg">Contactez-nous</a></div></div></section>
   </main>
 
-  <!-- Footer -->
+  <!-- ======================================== FOOTER ======================================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
+        <!-- Colonne 1: Marque -->
         <div class="footer-brand">
-          <a href="./index.html" class="logo" style="margin-bottom:1rem;">
-            <img src="./assets/images/logo-arkadhya.webp" alt="Arkadhya" style="height:3rem;">
-            <div class="logo-text">
-              <span class="logo-subtitle">Centre Ayurvédique</span>
-              <span class="logo-title">Arkadhya</span>
-            </div>
-          </a>
-          <p>Centre ayurvédique traditionnel certifié, offrant des consultations, massages et cures au cœur de l'Aquitaine.</p>
+          <div class="footer-logo">
+            <svg class="footer-leaf-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <span class="footer-title">Arkadhya</span>
+          </div>
+          <p class="footer-description">Centre Ayurvédique en Aquitaine. Soins traditionnels, massages et cures pour votre bien-être.</p>
         </div>
-        
-        <div class="footer-links">
-          <h4>Navigation</h4>
-          <ul>
+
+        <!-- Colonne 2: Navigation -->
+        <div class="footer-nav">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
             <li><a href="./index.html">Accueil</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./massages.html">Massages</a></li>
-            <li><a href="./cures.html">Cures</a></li>
             <li><a href="./blog.html">Blog</a></li>
             <li><a href="./a-propos.html">À propos</a></li>
+            <li><a href="./galerie.html">Galerie Photos</a></li>
+            <li><a href="./contact.html">Contact</a></li>
           </ul>
         </div>
-        
-        <div class="footer-links">
-          <h4>Services</h4>
-          <ul>
+
+        <!-- Colonne 3: Nos Services -->
+        <div class="footer-services">
+          <h4 class="footer-heading">Nos Services</h4>
+          <ul class="footer-links">
             <li><a href="./consultations-ayurveda.html">Consultations</a></li>
-            <li><a href="./massages.html">Massages</a></li>
-            <li><a href="./cures.html">Cures</a></li>
-            <li><a href="./atelier-cuisine.html">Ateliers cuisine</a></li>
+            <li><a href="./massages.html">Massages Ayurvédiques</a></li>
+            <li><a href="./cures.html">Cures Bien-être</a></li>
+            <li><a href="./services.html">Formations</a></li>
           </ul>
         </div>
-        
+
+        <!-- Colonne 4: Contact -->
         <div class="footer-contact">
-          <h4>Contact</h4>
-          <p>Lieu-dit Doumillac<br>47800 Agnac, France</p>
-          <p><a href="tel:0553414810">05 53 41 48 10</a></p>
-          <p><a href="mailto:contact@arkadhya.org">contact@arkadhya.org</a></p>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-items">
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Aquitaine, France</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+33553414810">05 53 41 48 10</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:contact@arkadhya.org">contact@arkadhya.org</a>
+            </div>
+          </div>
+          
+          <!-- Réseaux sociaux -->
+          <div class="footer-social">
+            <a href="https://facebook.com/arkadhya" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://instagram.com/arkadhya" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://youtube.com/arkadhya" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
-      
+
+      <!-- Barre légale -->
       <div class="footer-bottom">
-        <p>© 2024 Arkadhya. Tous droits réservés.</p>
-        <div class="footer-legal">
+        <p>&copy; 2025 Arkadhya. Tous droits réservés.</p>
+        <div class="footer-legal-links">
           <a href="./legal/mentions-legales.html">Mentions légales</a>
           <a href="./legal/cgv.html">CGV</a>
-          <a href="./legal/politique-confidentialite.html">Confidentialité</a>
+          <a href="./legal/politique-confidentialite.html">Politique de confidentialité</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <button class="scroll-top" id="scroll-top" aria-label="Retour en haut">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
+  <!-- Scroll to Top Button -->
+  <button id="scroll-top" class="scroll-top-btn" aria-label="Retour en haut">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
   </button>
   
   <script src="./script.js"></script>
