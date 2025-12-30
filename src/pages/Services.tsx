@@ -96,29 +96,31 @@ const Services = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <Link to="/massages">
-                  <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden group">
-                    <div className="relative aspect-square overflow-hidden">
-                      <img 
-                        src={massageImg} 
-                        alt="Massages Ayurvédiques"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3">
-                        <h3 className="text-lg font-serif font-semibold text-white">Nos Massages</h3>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <Link to="/massages">
+                    <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden group">
+                      <div className="relative aspect-square overflow-hidden">
+                        <img 
+                          src={massageImg} 
+                          alt="Massages Ayurvédiques"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3">
+                          <h3 className="text-lg font-serif font-semibold text-white">Nos Massages</h3>
+                        </div>
                       </div>
-                    </div>
-                    <CardContent className="p-4">
-                      <p className="text-muted-foreground text-sm mb-3">
-                        Des massages ancestraux aux huiles médicinales, adaptés à votre constitution.
-                      </p>
-                      <Button variant="ghost" size="sm" className="text-primary group-hover:underline w-full justify-center">
-                        Découvrir nos massages <ArrowRight className="h-4 w-4 ml-1" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </Link>
+                      <CardContent className="p-4">
+                        <p className="text-muted-foreground text-sm mb-3">
+                          Des massages ancestraux aux huiles médicinales, adaptés à votre constitution.
+                        </p>
+                        <Button variant="ghost" size="sm" className="text-primary group-hover:underline w-full justify-center">
+                          Découvrir nos massages <ArrowRight className="h-4 w-4 ml-1" />
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </div>
               </AccordionContent>
             </AccordionItem>
 
@@ -136,7 +138,7 @@ const Services = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {consultations.map((consultation) => (
                     <Link key={consultation.title} to={consultation.link}>
                       <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden h-full group">
@@ -188,29 +190,31 @@ const Services = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <Link to="/cures">
-                  <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden group">
-                    <div className="relative aspect-square overflow-hidden">
-                      <img 
-                        src={cureImg} 
-                        alt="Cures Ayurvédiques"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3">
-                        <h3 className="text-lg font-serif font-semibold text-white">Nos Cures</h3>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <Link to="/cures">
+                    <Card className="bg-background border-border hover:border-primary/50 transition-all hover:shadow-lg overflow-hidden group">
+                      <div className="relative aspect-square overflow-hidden">
+                        <img 
+                          src={cureImg} 
+                          alt="Cures Ayurvédiques"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3">
+                          <h3 className="text-lg font-serif font-semibold text-white">Nos Cures</h3>
+                        </div>
                       </div>
-                    </div>
-                    <CardContent className="p-4">
-                      <p className="text-muted-foreground text-sm mb-3">
-                        Des programmes intensifs pour une transformation profonde avec hébergement en chambre individuelle.
-                      </p>
-                      <Button variant="ghost" size="sm" className="text-primary group-hover:underline w-full justify-center">
-                        Découvrir nos cures <ArrowRight className="h-4 w-4 ml-1" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </Link>
+                      <CardContent className="p-4">
+                        <p className="text-muted-foreground text-sm mb-3">
+                          Des programmes intensifs pour une transformation profonde avec hébergement en chambre individuelle.
+                        </p>
+                        <Button variant="ghost" size="sm" className="text-primary group-hover:underline w-full justify-center">
+                          Découvrir nos cures <ArrowRight className="h-4 w-4 ml-1" />
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </div>
               </AccordionContent>
             </AccordionItem>
 
