@@ -63,10 +63,6 @@ menuItems:
         label: "Yoga Ayurvédique"
         description: "Pratique adaptée à votre constitution"
 
-  - label: "Blog & Actualités"
-    href: "/blog"
-    items: []
-
   - label: "À propos"
     items:
       - href: "/a-propos"
@@ -78,6 +74,10 @@ menuItems:
       - href: "/contact"
         label: "Contact"
         description: "Nous contacter"
+
+  - label: "Blog & Actualités"
+    href: "/blog"
+    items: []
 
 # Liens du footer - Navigation
 footerNavigationLinks:
