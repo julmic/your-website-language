@@ -1,5 +1,5 @@
 ---
-title: la Gayatri Mantra
+title: le Gayatri Mantra
 slug: gayatri-mantra
 subtitle: La Mère des Védas • Vedamata
 metaTitle: Le Gayatri Mantra - Arkadhya Centre Ayurvédique
