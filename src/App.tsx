@@ -35,6 +35,7 @@ import TempsCyclesYugas from "./pages/philosophie/TempsCyclesYugas";
 import Upanishads from "./pages/philosophie/Upanishads";
 import VastuShastra from "./pages/philosophie/VastuShastra";
 import Vedas from "./pages/philosophie/Vedas";
+import Rigveda from "./pages/philosophie/Rigveda";
 import VoieIshvara from "./pages/philosophie/VoieIshvara";
 import ConsultationsAyurveda from "./pages/ConsultationsAyurveda";
 import GalerieArkadhya from "./pages/GalerieArkadhya";
@@ -87,6 +88,7 @@ const App = () => (
               <Route path="/bilan-de-sante" element={<BilanDeSante />} />
               <Route path="/bhutavidya" element={<Bhutavidya />} />
               <Route path="/philosophie-vedique" element={<PhilosophieVedique />} />
+              <Route path="/philosophie-vedique/rigveda" element={<Rigveda />} />
               <Route path="/gayatri-mantra" element={<GayatriMantra />} />
               
               {/* Routes philosophie avec composants TSX dédiés (contenu complet) */}
