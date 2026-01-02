@@ -59,6 +59,7 @@ const fallbackSections = [
     description: "Les sources scripturales de la sagesse éternelle",
     articles: [
       { title: "Les Vedas : structure et symbolisme", slug: "vedas", sectionId: 1, order: 1, available: true, href: "/philosophie/vedas" },
+      { title: "Le Rig‑Veda : la source primordiale", slug: "rigveda", sectionId: 1, order: 2, available: true, href: "/philosophie-vedique/rigveda" },
     ],
   },
 ];
