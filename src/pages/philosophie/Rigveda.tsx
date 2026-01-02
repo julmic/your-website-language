@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, BookOpen, Flame, Users, Sparkles } from "lucide-react";
+import { useEffect } from "react";
 
 export const meta = {
   title: 'Le Rig‑Veda : la source primordiale',
@@ -10,6 +11,10 @@ export const meta = {
 };
 
 const RigVeda = () => {
+  useEffect(() => {
+    console.log('RigVeda component mounted');
+  }, []);
+
   return (
     <Layout>
       {/* Hero */}
@@ -30,6 +35,9 @@ const RigVeda = () => {
           <p className="text-lg text-muted-foreground max-w-3xl">
             🕉️ Aux origines de la pensée védique et du sacré
           </p>
+          <div className="mt-4 text-center">
+            <span className="text-xs text-muted-foreground">DEBUG: RigVeda mounted</span>
+          </div>
         </div>
       </section>
 
