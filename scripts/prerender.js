@@ -106,7 +106,44 @@ async function prerender() {
   const distDir = path.resolve(__dirname, '..', 'dist');
   if (fs.existsSync(distDir)) fs.cpSync(distDir, outDir, { recursive: true });
 
-  const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  let browser;
+  try {
+    const launchOptions = { args: ['--no-sandbox', '--disable-setuid-sandbox'] };
+    if (process.env.CHROME_PATH) {
+      launchOptions.executablePath = process.env.CHROME_PATH;
+      console.log('Using CHROME_PATH:', process.env.CHROME_PATH);
+    }
+    browser = await puppeteer.launch(launchOptions);
+  } catch (err) {
+    console.error('Puppeteer launch failed:', err.message);
+    const candidates = [
+      process.env.CHROME_PATH,
+      'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+      'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+      '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+      '/usr/bin/google-chrome',
+      '/usr/bin/chromium-browser',
+      '/snap/bin/chromium',
+    ].filter(Boolean);
+
+    let launched = false;
+    for (const c of candidates) {
+      try {
+        console.log('Trying to launch Chrome at', c);
+        browser = await puppeteer.launch({ executablePath: c, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+        launched = true;
+        break;
+      } catch (e) {
+        // ignore and continue
+      }
+    }
+
+    if (!launched) {
+      console.error('All launch attempts failed. Please set CHROME_PATH to your Chrome executable (Windows example: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe") or install puppeteer so Chromium is available.');
+      process.exit(1);
+    }
+  }
+
   const page = await browser.newPage();
 
   for (const route of routes) {
