@@ -87,8 +87,28 @@ async function prerender() {
   console.log('1) Build...');
   execSync('npm run build', { stdio: 'inherit' });
 
-  console.log('2) Serve dist on http://localhost:8080 ...');
-  const server = spawn('npx', ['serve', 'dist', '-l', '8080'], { stdio: 'ignore', detached: true });
+  // 2) Start static server on a free port (prefer 8080)
+  function getFreePort(preferred = 8080) {
+    const net = require('net');
+    return new Promise((resolve) => {
+      const serverCheck = net.createServer();
+      serverCheck.once('error', () => {
+        // preferred port is in use, listen on port 0 to get a random free port
+        serverCheck.once('listening', () => {
+          const port = serverCheck.address().port;
+          serverCheck.close(() => resolve(port));
+        }).listen(0);
+      });
+      serverCheck.once('listening', () => {
+        const port = serverCheck.address().port;
+        serverCheck.close(() => resolve(port));
+      }).listen(preferred);
+    });
+  }
+
+  const port = await getFreePort(8080);
+  console.log(`2) Serve dist on http://localhost:${port} ...`);
+  const server = spawn('npx', ['serve', 'dist', '-l', port.toString()], { stdio: 'ignore', detached: true });
   await new Promise(r => setTimeout(r, 1200));
 
   const contentRoutes = collectRoutesFromContent(path.resolve(__dirname, '..', 'content'));
